@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Motiv'Mate</title>
+    <title>Dynamo</title>
   </head>
   <body>
-    <h1>Bienvenue sur Motiv'Mate !</h1>
+    <h1>Bienvenue sur Dynamo !</h1>
   </body>
 </html>
