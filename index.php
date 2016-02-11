@@ -6,5 +6,6 @@
   </head>
   <body>
     <h1>Bienvenue sur Dynamo !</h1>
+    <p> Un site génial !</p>
   </body>
 </html>
