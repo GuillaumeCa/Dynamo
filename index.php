@@ -2,12 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Dynamo</title>
   </head>
   <body>
-    <h1>Bienvenue sur Dynamo !</h1>
-    <p> Un site génial !</p>
-    <h2> Love le sport</h2>
-    <h3>hahahah</h3>
+    <header>
+      <div class="logo">
+
+      </div>
+      <div class="search">
+        <input type="text" name="name" placeholder="rechercher">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Connection</a></li>
+          <li><a href="#">Forum</a></li>
+          <li><a href="#">Aide</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="info" style="background-image: url(http://medias.portailbienetre.fr/coach-sportif.png);">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Dynamo</h1>
+        <p>Dynamo vous permet de trouver et gérer des groupes de sport selon votre position géographique, votre niveau de sport et vos sports favoris.</p>
+        <a href="#" class="button">inscris - moi !</a>
+      </div>
+    </section>
   </body>
 </html>
