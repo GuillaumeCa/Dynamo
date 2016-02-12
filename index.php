@@ -8,7 +8,7 @@
   <body>
     <header>
       <div class="logo">
-
+        <img src="assets/images/logo.png" alt="logo" />
       </div>
       <div class="search">
         <input type="text" name="name" placeholder="rechercher">
