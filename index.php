@@ -35,7 +35,6 @@
     <section class="dark">
       <div class="column">
         <h1>Sports</h1>
-        <a href="#" class="button">test</a>
       </div>
     </section>
   </body>
