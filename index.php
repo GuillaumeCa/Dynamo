@@ -12,6 +12,9 @@
       </div>
       <div class="search">
         <input type="text" name="name" placeholder="rechercher">
+        <div class="result">
+
+        </div>
       </div>
       <nav>
         <ul>
@@ -27,6 +30,11 @@
         <h1>Dynamo</h1>
         <p>Dynamo vous permet de trouver et gérer des groupes de sport selon votre position géographique, votre niveau de sport et vos sports favoris.</p>
         <a href="#" class="button">inscris - moi !</a>
+      </div>
+    </section>
+    <section class="dark">
+      <div class="column">
+        <h1>Sports</h1>
       </div>
     </section>
   </body>
