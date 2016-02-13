@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Dynamo</title>
+    <title>Connection - Dynamo</title>
   </head>
   <body>
     <header>
@@ -26,17 +26,21 @@
         </ul>
       </nav>
     </header>
-    <section class="info" style="background-image: url(http://medias.portailbienetre.fr/coach-sportif.png);">
-      <div class="overlay"></div>
-      <div class="content">
-        <h1>Dynamo</h1>
-        <p>Dynamo vous permet de trouver et gérer des groupes de sport selon votre position géographique, votre niveau de sport et vos sports favoris.</p>
-        <a href="#" class="button">inscris - moi !</a>
+    <section class="grad">
+      <div class="column">
+        <h1>Connection</h1>
+        <form action="index.html" method="post">
+          <input type="email" name="email" placeholder="adresse email">
+          <input type="password" name="passwd" placeholder="mot de passe">
+          <input id="remember" type="checkbox" name="remember" checked><label for="remember">rester connecté</label>
+          <input class="button" type="submit" name="send" value="valider">
+        </form>
       </div>
     </section>
     <section class="dark">
       <div class="column">
-        <h1>Sports</h1>
+        <h1>Pas encore inscrit ?</h1>
+        <a href="#" class="button margin">inscription</a>
       </div>
     </section>
   </body>

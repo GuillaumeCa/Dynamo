@@ -16,7 +16,7 @@ a:link, a:visited {
   color: inherit;
 }
 
-body {
+body, input {
   font-family: Avenir next, Helvetica Neue, Arial, sans-serif;
   font-size: 14px;
 }
@@ -26,7 +26,7 @@ header {
   margin: 1em auto;
 }
 
-a.button {
+a.button, input.button {
   border: #53FFC0 solid 1px;
   color: #53FFC0;
   font-size: 1.3em;
@@ -37,7 +37,7 @@ a.button {
   display: inline-block;
 }
 
-a.button:hover {
+a.button:hover, input.button:hover {
   background: #53FFC0;
   color: #42306f;
 }
@@ -123,6 +123,10 @@ header nav li {
   color: #9972FA;
 }
 
+.grad {
+  background: linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);
+}
+
 section.info {
   background: #42306f;
   color: white;
@@ -183,4 +187,56 @@ section .column h1 {
   font-size: 3em;
   color: white;
   font-weight: lighter;
+}
+
+
+form > input[type=text], form > input[type=email], form > input[type=password] {
+  -webkit-appearance: none;
+  outline: none;
+  padding: .5em;
+  border: white solid 1px;
+  border-radius: 5px;
+  display: block;
+  background: none;
+  width: 250px;
+  font-size: 1.2em;
+  margin: 20px auto;
+  color: white;
+  opacity: 0.7;
+  transition: opacity .3s ease;
+}
+
+form > input[type=text]:focus, form > input[type=email]:focus, form > input[type=password]:focus {
+  opacity: 1;
+}
+
+form > input::-webkit-input-placeholder:not(input[type=checkbox]) {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+form > label, form > input[type=checkbox] {
+  display: inline-block;
+}
+
+
+form > input[type=submit] {
+  background: none;
+  display: block;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+form > input[type=submit]:hover {
+  color: #9972FA;
+}
+
+form > label {
+  margin-left: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.margin {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
