@@ -70,10 +70,13 @@ header .search {
   background: white;
   z-index: 10;
   border-radius: 5px;
+  padding: 10px;
   border: whitesmoke solid 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0 5px 5px;
   opacity: 0;
   visibility: hidden;
+  /*max-height: 350px;
+  overflow-y: scroll;*/
 }
 
 header .search input:focus + .result{
@@ -108,6 +111,71 @@ header .search .result::after {
 
 header .search input:focus {
   border: #9972FA solid 1px;
+}
+
+header .result .cat  {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+header .result .head {
+  border-bottom: #9972FA solid 1px;
+  color: #9972FA;
+}
+
+header .result .head .title {
+  font-weight: bold;
+}
+
+header .result .head a {
+  float: right;
+  opacity: 0.5;
+}
+
+header .result li {
+  border-bottom: rgba(153, 114, 250, 0.61) solid 1px;
+  height: 81px;
+  position: relative;
+}
+
+header .result li .image {
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+  float: left;
+}
+
+header .result li .text {
+  display: inline-block;
+}
+
+header .result li h2 {
+  font-weight: normal;
+  color: #53FFC0;
+  font-size: 2em;
+  padding-top: 10px;
+}
+
+header .result li h3 {
+  display: inline-block;
+  font-weight: lighter;
+  color: #9972FA;
+  padding-right: 5px;
+}
+
+header .result li > span {
+  font-size: 3em;
+  position: absolute;
+  right: 0;
+  line-height: 80px;
+  font-weight: lighter;
+  color: #53FFC0;
+  vertical-align: middle;
+}
+
+header .result li .small {
+  font-size: .5em;
 }
 
 header nav {
