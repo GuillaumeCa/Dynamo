@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
     <title>Dynamo</title>
   </head>
   <body>

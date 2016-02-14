@@ -4,19 +4,13 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
-}
-
-@font-face {
-  font-family: 'AvenirNext-Bold';
-  src: url('AvenirNext-Bold.ttf') format('truetype');
-}
-
-a:link, a:visited {
   text-decoration: none;
   color: inherit;
+  background: none;
+  font-family: inherit;
 }
 
-body, input {
+body {
   font-family: Avenir next, Helvetica Neue, Arial, sans-serif;
   font-size: 14px;
 }
@@ -26,22 +20,26 @@ header {
   margin: 1em auto;
 }
 
-a.button, input.button {
+.button {
   border: #53FFC0 solid 1px;
   color: #53FFC0;
   font-size: 1.3em;
   padding: .3em .9em;
   border-radius: 100px;
   font-weight: 500;
-  transition: all .3s ease;
   display: inline-block;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
 }
 
-a.button:hover, input.button:hover {
+.button:hover {
   background: #53FFC0;
+  color: #9972FA;
+}
+
+.button.dark:hover {
   color: #42306f;
 }
-
 
 header .logo, header .search, header nav li, header nav {
   display: inline-block;
@@ -163,10 +161,6 @@ section.info p {
   font-size: 1.3em;
 }
 
-section.info a {
-  display: inline-block;
-  margin: 7px;
-}
 
 .content {
   position: relative;
@@ -189,12 +183,16 @@ section .column h1 {
   font-weight: lighter;
 }
 
-
-form > input[type=text], form > input[type=email], form > input[type=password] {
-  -webkit-appearance: none;
+input {
   outline: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.clear-form {
   padding: .5em;
-  border: white solid 1px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   display: block;
   background: none;
@@ -202,15 +200,15 @@ form > input[type=text], form > input[type=email], form > input[type=password] {
   font-size: 1.2em;
   margin: 20px auto;
   color: white;
-  opacity: 0.7;
-  transition: opacity .3s ease;
+  -webkit-transition: border .3s ease;
+  transition: border .3s ease;
 }
 
-form > input[type=text]:focus, form > input[type=email]:focus, form > input[type=password]:focus {
-  opacity: 1;
+.clear-form:focus {
+  border-color: white;
 }
 
-form > input::-webkit-input-placeholder:not(input[type=checkbox]) {
+.clear-form::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.50);
 }
 
@@ -218,6 +216,31 @@ form > label, form > input[type=checkbox] {
   display: inline-block;
 }
 
+input[type=checkbox] {
+  width: 1em;
+  height: 1em;
+  border: white solid 1px;
+  border-radius: 3px;
+  vertical-align: middle;
+  position: relative;
+  transition: opacity .3s ease;
+}
+
+input[type=checkbox]:active {
+  opacity: 0.5;
+}
+
+input[type=checkbox]:checked::after {
+  position: absolute;
+  content: '';
+  left: 15%;
+  top: -10%;
+  height: 40%;
+  width: 90%;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  -webkit-transform: rotate(-45deg);
+}
 
 form > input[type=submit] {
   background: none;
