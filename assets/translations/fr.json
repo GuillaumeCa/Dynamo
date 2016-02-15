@@ -2,4 +2,7 @@
 {"id": "Connexion", "str": "Connexion"}
 {"id": "Forum", "str": "Forum"}
 {"id": "Aide", "str": "Aide"}
+{"id": "rester-connecté", "str": "rester connecté"}
 {"id": "mdp-oublie", "str": "Mot de passe oublié ?"}
+{"id": "inscrit-title", "str": "Pas encore inscrit ?"}
+{"id": "inscription", "str": "inscription"}

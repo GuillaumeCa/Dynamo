@@ -20,6 +20,21 @@ header {
   margin: 1em auto;
 }
 
+footer {
+  border-top: #53FFC0 solid 1px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px;
+  max-width: 900px;
+  color: #53FFC0;
+  text-align: center;
+}
+
+footer p {
+  margin-top: 40px;
+}
+
+
 .button {
   border: #53FFC0 solid 1px;
   color: #53FFC0;
@@ -39,6 +54,10 @@ header {
 
 .button.dark:hover {
   color: #42306f;
+}
+
+.button.light:hover {
+  color: white;
 }
 
 header .logo, header .search, header nav li, header nav {

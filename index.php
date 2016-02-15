@@ -24,5 +24,6 @@ getLanguage('fr');
         <h1>Sports</h1>
       </div>
     </section>
+    <?php include 'assets/template/footer.php'; ?>
   </body>
 </html>
