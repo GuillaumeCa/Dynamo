@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
-    <title>Connection - Dynamo</title>
+    <title>Connexion - Dynamo</title>
   </head>
   <body>
     <header>
@@ -71,7 +71,7 @@
       </div>
       <nav>
         <ul>
-          <li><a href="connect.php">Connection</a></li>
+          <li><a href="connect.php">Connexion</a></li>
           <li><a href="#">Forum</a></li>
           <li><a href="#">Aide</a></li>
         </ul>
@@ -79,7 +79,7 @@
     </header>
     <section class="grad">
       <div class="column">
-        <h1>Connection</h1>
+        <h1>Connexion</h1>
         <form action="index.php" method="post">
           <input type="email" class="clear-form" name="email" placeholder="adresse email">
           <input type="password" class="clear-form" name="passwd" placeholder="mot de passe">
