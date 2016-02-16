@@ -363,3 +363,26 @@ a.forget:hover {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+.grid {
+  font-size: 0
+}
+
+.grid .sport {
+  width: 25%;
+  padding: 30px 6%;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.grid .sport img {
+  box-sizing: content-box;
+  width: 100%;
+}
+
+.grid .sport span {
+  display: block;
+  color: lightgrey;
+  font-size: 1.3em;
+  text-align: center;
+}
