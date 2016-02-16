@@ -17,37 +17,7 @@ getLanguage('fr');
         <article>
           <h1>Comment se connecter&nbsp;?</h1>
           <p>
-            comme ça batard :X
-          </p>
-        </article>
-        <article>
-          <h1>Comment créer un groupe&nbsp;?</h1>
-          <p>
-            lol
-          </p>
-        </article>
-        <article>
-          <h1>Comment se connecter&nbsp;?</h1>
-          <p>
-            comme ça batard :X
-          </p>
-        </article>
-        <article>
-          <h1>Comment créer un groupe&nbsp;?</h1>
-          <p>
-            lol
-          </p>
-        </article>
-        <article>
-          <h1>Comment se connecter&nbsp;?</h1>
-          <p>
-            comme ça batard :X
-          </p>
-        </article>
-        <article>
-          <h1>Comment créer un groupe&nbsp;?</h1>
-          <p>
-            lol
+            Rendez vous sur la page <a href="#">Connexion</a>.
           </p>
         </article>
       </div>
