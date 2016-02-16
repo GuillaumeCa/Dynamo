@@ -43,8 +43,8 @@ footer p {
   border-radius: 100px;
   font-weight: 500;
   display: inline-block;
-  -webkit-transition: background 0.3s ease;
-  transition: background 0.3s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .button:hover {
@@ -216,7 +216,7 @@ header nav li {
 section.info {
   background: #42306f;
   color: white;
-  padding: 20px;
+  padding: 50px 20px;
   text-align: center;
   background-position: center;
   background-repeat: no-repeat;
@@ -235,16 +235,18 @@ section .overlay {
   z-index: 0;
 }
 
+section .dark-grad {
+  background:  linear-gradient(rgba(44, 33, 71, 0.5), #2C2147);
+}
 
 section.info h1 {
   font-size: 5em;
   font-weight: lighter;
-  color: #53FFC0;
 }
 
 section.info p {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 10px;
   font-size: 1.3em;
 }
@@ -254,8 +256,22 @@ section.info p {
   position: relative;
 }
 
-.dark {
+.dark-bg {
   background: #2C2147;
+}
+
+.green-text {
+  color: #53FFC0;
+}
+
+.light-text {
+  color: white;
+}
+
+.bg-image-center {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 section .column {

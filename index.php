@@ -14,12 +14,12 @@ getLanguage('fr');
     <section class="info" style="background-image: url(http://medias.portailbienetre.fr/coach-sportif.png);">
       <div class="overlay"></div>
       <div class="content">
-        <h1>Dynamo</h1>
+        <h1 class="green-text">Dynamo</h1>
         <p>Dynamo vous permet de trouver et gérer des groupes de sport selon votre position géographique, votre niveau de sport et vos sports favoris.</p>
         <a href="#" class="button"><?php lang('inscris-moi'); ?></a>
       </div>
     </section>
-    <section class="dark">
+    <section class="dark-bg">
       <div class="column">
         <h1>Sports</h1>
         <div class="grid">

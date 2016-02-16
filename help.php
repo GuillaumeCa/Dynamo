@@ -17,7 +17,7 @@ getLanguage('fr');
         <article>
           <h1>Comment se connecter&nbsp;?</h1>
           <p>
-            Rendez vous sur la page <a href="#">Connexion</a>.
+            Rendez vous sur la page <a href="connect.php">Connexion</a>.
           </p>
         </article>
       </div>

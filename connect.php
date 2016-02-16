@@ -15,7 +15,7 @@ getLanguage('fr');
       <div class="column">
         <h1><?php lang('Connexion') ?></h1>
         <form action="index.php" method="post">
-          <input type="email" class="clear-form" name="email" placeholder="adresse email">
+          <input type="email" class="clear-form" name="email" placeholder="adresse email" autofocus>
           <input type="password" class="clear-form" name="passwd" placeholder="mot de passe">
           <input id="remember" type="checkbox" name="remember" checked><label for="remember"><?php lang('rester-connecté') ?></label>
           <input class="button" type="submit" name="send" value="valider">
@@ -23,9 +23,10 @@ getLanguage('fr');
         </form>
       </div>
     </section>
-    <section class="dark">
-      <div class="column">
-        <h1><?php lang('inscrit-title') ?></h1>
+    <section class="info" style="background-image: url(assets/images/sport2.jpg);">
+      <div class="overlay dark-grad"></div>
+      <div class="content">
+        <h1 class="light-text"><?php lang('inscrit-title') ?></h1>
         <a href="#" class="button margin dark"><?php lang('inscription') ?></a>
       </div>
     </section>
