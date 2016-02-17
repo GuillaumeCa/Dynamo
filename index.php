@@ -23,38 +23,17 @@ getLanguage('fr');
       <div class="column">
         <h1>Sports</h1>
         <div class="grid">
-          <div class="sport">
-            <img src="assets/images/logo.png" alt="test" />
-            <span>test</span>
-          </div>
-          <div class="sport">
-            <img src="assets/images/logo.png" alt="test" />
-            <span>test</span>
-          </div>
-          <div class="sport">
-            <img src="assets/images/logo.png" alt="test" />
-            <span>test</span>
-          </div>
-          <div class="sport">
-            <img src="assets/images/logo.png" alt="test" />
-            <span>test</span>
-          </div>
-          <div class="sport">
-            <img src="assets/images/logo.png" alt="test" />
-            <span>test</span>
-          </div>
-          <div class="sport">
-            <img src="assets/images/logo.png" alt="test" />
-            <span>test</span>
-          </div>
-          <div class="sport">
-            <img src="assets/images/logo.png" alt="test" />
-            <span>test</span>
-          </div>
-          <div class="sport">
-            <img src="assets/images/logo.png" alt="test" />
-            <span>test</span>
-          </div>
+          <?php
+          for ($i=0; $i < 20; $i++) {
+            ?>
+            <div class="sport">
+              <img src="assets/images/logo.png" alt="test" />
+              <span>test</span>
+            </div>
+            <?php
+          }
+          ?>
+
       </div>
     </section>
     <?php include 'assets/template/footer.php'; ?>

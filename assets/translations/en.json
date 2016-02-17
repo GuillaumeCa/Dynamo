@@ -3,6 +3,9 @@
 {"id": "Forum", "str": "Forum"}
 {"id": "Aide", "str":"Help"}
 {"id": "rester-connecté", "str": "Stay sign in"}
+{"id": "motdepasse", "str": "Password"}
+{"id": "adresse-email", "str": "Email adress"}
+{"id": "valider", "str": "connect"}
 {"id":"mdp-oublié", "str": "Did you forget your password?"}
 {"id": "inscrit-title", "str": "Sign up"}
 {"id": "inscription", "str": "Inscription"}

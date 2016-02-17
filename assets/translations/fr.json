@@ -4,5 +4,8 @@
 {"id": "Aide", "str": "Aide"}
 {"id": "rester-connecté", "str": "Rester connecté"}
 {"id": "mdp-oublie", "str": "Mot de passe oublié ?"}
+{"id": "motdepasse", "str": "Mot de passe"}
+{"id": "adresse-email", "str": "Adresse email"}
+{"id": "valider", "str": "valider"}
 {"id": "inscrit-title", "str": "Pas encore inscrit ?"}
 {"id": "inscription", "str": "Inscription"}
