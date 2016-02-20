@@ -364,7 +364,7 @@ form > label {
 }
 
 a.forget {
-  display: block;
+  display: inline-block;
   text-align: center;
   color: white;
   font-weight: 600;
