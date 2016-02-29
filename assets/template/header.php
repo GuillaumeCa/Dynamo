@@ -1,6 +1,6 @@
 <header>
   <div class="logo">
-    <a href="/Dynamo">
+    <a href="/">
     <img src="assets/images/logo.png" alt="logo" />
     </a>
   </div>

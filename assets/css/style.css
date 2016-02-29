@@ -452,6 +452,7 @@ select.clear-form {
   padding: 3px 10px;
   padding-right: 25px;
   margin: 10px 1px;
+  outline: none;
 }
 
 .label-center {
