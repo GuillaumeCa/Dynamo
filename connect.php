@@ -27,7 +27,7 @@ getLanguage('fr');
       <div class="overlay dark-grad"></div>
       <div class="content">
         <h1 class="light-text"><?php lang('inscrit-title') ?></h1>
-        <a href="#" class="button margin dark"><?php lang('inscription') ?></a>
+        <a href="inscription.php" class="button margin dark"><?php lang('inscription') ?></a>
       </div>
     </section>
     <?php include 'assets/template/footer.php'; ?>
