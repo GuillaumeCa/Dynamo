@@ -16,7 +16,7 @@ getLanguage('fr');
       <div class="content">
         <h1 class="green-text">Dynamo</h1>
         <p>Dynamo vous permet de trouver et gérer des groupes de sport selon votre position géographique, votre niveau de sport et vos sports favoris.</p>
-        <a href="#" class="button"><?php lang('inscris-moi'); ?></a>
+        <a href="inscription.php" class="button"><?php lang('inscris-moi'); ?></a>
       </div>
     </section>
     <section class="dark-bg">

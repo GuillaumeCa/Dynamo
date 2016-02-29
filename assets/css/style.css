@@ -441,3 +441,30 @@ a.forget:hover {
   margin-bottom: 10px;
   font-weight: lighter;
 }
+
+select.clear-form {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: auto;
+  display: inline-block;
+  color: white;
+  padding: 3px 10px;
+  padding-right: 25px;
+  margin: 10px 1px;
+}
+
+.label-center {
+  margin: 0 auto;
+  width: 250px;
+  text-align: left;
+}
+
+.label-center label {
+  color: white;
+  font-size: 1.2em;
+}
+
+.radio-button {
+  margin: 10px 0;
+}
