@@ -63,7 +63,7 @@
   </div>
   <nav>
     <ul>
-      <li><a href="connect.php"><?php lang('Connexion') ?></a></li>
+      <li><a href="connect.php"><?php lang('Connexion') ?><span class="notif">1</span></a></li>
       <li><a href="#"><?php lang('Forum') ?></a></li>
       <li><a href="help.php"><?php lang('Aide') ?></a></li>
     </ul>

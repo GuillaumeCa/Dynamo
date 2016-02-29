@@ -209,6 +209,27 @@ header nav li {
   color: #9972FA;
 }
 
+header nav li a {
+  position: relative;
+}
+
+header nav li .notif {
+  background: red;
+  color: white;
+  border-radius: 20px;
+  padding: .1rem .1rem;
+  font-size: .7em;
+  vertical-align: baseline;
+  position: absolute;
+  display: block;
+  left: 100%;
+  box-sizing: content-box;
+  text-align: center;
+  min-width: 1rem;
+  top: .1rem;
+  margin-left: .2rem;
+}
+
 .grad {
   background: linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);
 }
