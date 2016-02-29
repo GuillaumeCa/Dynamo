@@ -20,7 +20,7 @@ getLanguage('fr');
               <input class="clear-form" type="text" name="prenom" placeholder="prénom">
               <input class="clear-form" type="email" name="email" placeholder="e-mail">
               <input class="clear-form" type="password" name="mdp" placeholder="mot de passe">
-              <input class="clear-form" type="password" name="verifmdp" placeholder="vérifier mot de passe">
+              <input class="clear-form" type="password" name="verifmdp" placeholder="confirmer mot de passe">
               <input class="clear-form" type="text" name="ville" placeholder="ville">
               <input class="clear-form" type="text" name="codepostal" placeholder="code postal">
               <div class="label-center">
