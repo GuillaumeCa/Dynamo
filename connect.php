@@ -11,7 +11,7 @@ getLanguage('fr');
   </head>
   <body>
     <?php include 'assets/template/header.php' ?>
-    <section class="grad">
+    <section class="pink-bg">
       <div class="column">
         <h1><?php lang('Connexion') ?></h1>
         <form action="index.php" method="post">
