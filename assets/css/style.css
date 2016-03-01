@@ -223,20 +223,19 @@ header nav li a {
 }
 
 header nav li .notif {
-  background: red;
-  color: white;
-  border-radius: 20px;
-  padding: .1rem .1rem;
-  font-size: .7em;
-  vertical-align: baseline;
-  position: absolute;
-  display: block;
-  left: 100%;
-  box-sizing: content-box;
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 4px;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
   text-align: center;
-  min-width: 1rem;
-  top: .1rem;
-  margin-left: .2rem;
+  font-weight: bold;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #53FFC0;
+  border-radius: 10px;
+  box-sizing: content-box;
 }
 
 .grad {
