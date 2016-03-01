@@ -14,35 +14,47 @@ getLanguage('fr');
     <?php include 'assets/template/header.php' ?>
     <section class="dark-bg">
         <div class="column">
-            <h1>Inscription</h1>
-            <form class="inscription" action="index.html" method="post">
-              <input class="clear-form" type="text" name="nom" placeholder="nom">
-              <input class="clear-form" type="text" name="prenom" placeholder="prénom">
-              <input class="clear-form" type="email" name="email" placeholder="e-mail">
-              <input class="clear-form" type="password" name="mdp" placeholder="mot de passe">
-              <input class="clear-form" type="password" name="verifmdp" placeholder="confirmer mot de passe">
-              <input class="clear-form" type="text" name="ville" placeholder="ville">
-              <input class="clear-form" type="text" name="codepostal" placeholder="code postal">
+          <form class="inscription" action="index.php" method="post">
+              <h1 class="green-text">Inscription</h1>
+              <h3>Tout les champs sont obligatoires</h3>
+              <input class="clear-form pink" type="text" name="nom" placeholder="nom">
+              <input class="clear-form pink" type="text" name="prenom" placeholder="prénom">
+              <input class="clear-form pink" type="email" name="email" placeholder="e-mail">
+              <input class="clear-form pink" type="password" name="mdp" placeholder="mot de passe">
+              <input class="clear-form pink" type="password" name="verifmdp" placeholder="vérifier mot de passe">
+              <h2 class="green-text">Adresse</h2>
+              <input class="clear-form pink" type="text" name="ville" placeholder="ville">
+              <input class="clear-form pink" type="text" name="codepostal" placeholder="code postal">
+              <h2 class="green-text">Date de naissance</h2>
               <div class="label-center">
-                <label>Date de naissance</label><br>
-                <select class="clear-form " name="jour">
+                <select class="clear-form pink" name="jour">
                   <option value="option" disabled selected>jour</option>
+                  <?php for ($i = 0; $i < 31; $i++): ?>
+                    <option value="<?php echo $i ?>"><?php echo $i+1; ?></option>
+                  <?php endfor; ?>
                 </select>
-                <select class="clear-form" name="mois">
+                <select class="clear-form pink" name="mois">
                   <option value="option" disabled selected>mois</option>
+                  <?php for ($i = 0; $i < 12; $i++): ?>
+                    <option value="<?php echo $i ?>"><?php echo $i+1; ?></option>
+                  <?php endfor; ?>
                 </select>
-                <select class="clear-form" name="année">
+                <select class="clear-form pink" name="année">
                   <option value="option" disabled selected>année</option>
+                  <?php $date = intval(date('Y')); ?>
+                  <?php for ($i = 14; $i < 99; $i++): ?>
+                    <option value="<?php echo $i ?>"><?php echo $date-$i; ?></option>
+                  <?php endfor; ?>
                 </select>
               </div>
+              <h2 class="green-text">Sexe</h2>
               <div class="label-center">
-                <label>Sexe</label><br>
                 <input type="radio" class="radio-button" name="name" value="" checked="checked" id="H">
                 <label for="H">Homme</label>
                 <input type="radio" class="radio-button" name="name" value="" id="F">
                 <label for="F">Femme</label>
               </div>
-              <input type="submit" class="button" value="s'inscrire">
+              <input type="submit" class="button dark" value="s'inscrire">
             </form>
         </div>
     </section>

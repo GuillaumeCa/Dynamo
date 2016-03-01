@@ -11,7 +11,7 @@ getLanguage('fr');
   </head>
   <body>
     <?php include 'assets/template/header.php' ?>
-    <section class="info" style="background-image: url(http://medias.portailbienetre.fr/coach-sportif.png);">
+    <section class="info" style="background-image: url(assets/images/sport1.png);">
       <div class="overlay"></div>
       <div class="content">
         <h1 class="green-text">Dynamo</h1>

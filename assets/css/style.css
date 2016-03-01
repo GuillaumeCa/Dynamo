@@ -10,6 +10,14 @@
   font-family: inherit;
 }
 
+input {
+  outline: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 body {
   font-family: Avenir next, Helvetica Neue, Arial, sans-serif;
   font-size: 14px;
@@ -43,8 +51,8 @@ footer p {
   border-radius: 100px;
   font-weight: 500;
   display: inline-block;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  /*-webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;*/
 }
 
 .button:hover {
@@ -113,6 +121,7 @@ header .search input {
   color: #9972FA;
   border: lightgrey solid 1px;
   border-radius: 100px;
+  -webkit-transition: border-color .3s ease;
   transition: border-color .3s ease;
 }
 
@@ -209,7 +218,29 @@ header nav li {
   color: #9972FA;
 }
 
+header nav li a {
+  position: relative;
+}
+
+header nav li .notif {
+  background: red;
+  color: white;
+  border-radius: 20px;
+  padding: .1rem .1rem;
+  font-size: .7em;
+  vertical-align: baseline;
+  position: absolute;
+  display: block;
+  left: 100%;
+  box-sizing: content-box;
+  text-align: center;
+  min-width: 1rem;
+  top: .1rem;
+  margin-left: .2rem;
+}
+
 .grad {
+  background: -webkit-linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);
   background: linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);
 }
 
@@ -231,11 +262,14 @@ section .overlay {
   width: 100%;
   height: 100%;
   opacity: 1;
-  background: linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);
+  /*background: -webkit-linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);
+  background: linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);*/
+  background: rgba(153, 114, 250, 0.76);
   z-index: 0;
 }
 
 section .dark-grad {
+  background:  -webkit-linear-gradient(rgba(44, 33, 71, 0.5), #2C2147);
   background:  linear-gradient(rgba(44, 33, 71, 0.5), #2C2147);
 }
 
@@ -254,6 +288,10 @@ section.info p {
 
 .content {
   position: relative;
+}
+
+.pink-bg {
+  background: #9972FA;
 }
 
 .dark-bg {
@@ -287,13 +325,6 @@ section .column h1 {
   font-weight: lighter;
 }
 
-input {
-  outline: none;
-  background-color: transparent;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
 .clear-form {
   padding: .5em;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -304,8 +335,8 @@ input {
   font-size: 1.2em;
   margin: 20px auto;
   color: white;
-  -webkit-transition: border .3s ease;
-  transition: border .3s ease;
+  /*-webkit-transition: border .3s ease;
+  transition: border .3s ease;*/
 }
 
 .clear-form:focus {
@@ -327,6 +358,7 @@ input[type=checkbox] {
   border-radius: 3px;
   vertical-align: middle;
   position: relative;
+  -webkit-transition: opacity .3s ease;
   transition: opacity .3s ease;
 }
 
@@ -421,29 +453,80 @@ a.forget:hover {
   font-weight: lighter;
 }
 
+.inscription {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.inscription input.clear-form {
+  width: 300px;
+}
+
+.inscription h1.green-text {
+  color: #53FFC0;
+}
+
+form .pink {
+  color: #9972FA;
+  border-color: rgba(153, 114, 250, 0.55);
+}
+
+form .pink:focus {
+  border-color: #9972FA;
+}
+
+form .pink::-webkit-input-placeholder {
+  color: rgba(153, 114, 250, 0.56);
+}
+
 select.clear-form {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   width: auto;
   display: inline-block;
-  color: white;
+  color: #9972FA;
   padding: 3px 10px;
   padding-right: 25px;
-  margin: 10px 1px;
+  margin: 20px 1px;
+  outline: none;
+  -webkit-transition: border;
+  transition: border;
 }
 
 .label-center {
   margin: 0 auto;
-  width: 250px;
+  width: 300px;
   text-align: left;
 }
 
-.label-center label {
+input[type="radio"] {
+  -webkit-appearance: radio;
+     -moz-appearance: radio;
+          appearance: radio;
+}
+
+.inscription h3 {
   color: white;
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: .9em;
+}
+
+.inscription > h2 {
   font-size: 1.2em;
+  font-weight: normal;
+  text-align: left;
+  display: block;
 }
 
 .radio-button {
-  margin: 10px 0;
+  margin: 20px 0;
+}
+.radio-button + label{
+  margin: 0 5px;
+  color: #9972FA;
+  margin-right: 20px;
 }
