@@ -61,6 +61,8 @@
       </div>
     </div>
   </div>
+  
+
   <nav>
     <ul>
       <li><a href="connect.php"><?php lang('Connexion') ?> <span class="notif">3</span></a></li>

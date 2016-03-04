@@ -6,7 +6,6 @@ getLanguage('fr');
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
     <title>Inscription</title>
   </head>
@@ -21,7 +20,7 @@ getLanguage('fr');
               <input class="clear-form pink" type="text" name="prenom" placeholder="prénom">
               <input class="clear-form pink" type="email" name="email" placeholder="e-mail">
               <input class="clear-form pink" type="password" name="mdp" placeholder="mot de passe">
-              <input class="clear-form pink" type="password" name="verifmdp" placeholder="vérifier mot de passe">
+              <input class="clear-form pink" type="password" name="verifmdp" placeholder="confirmer mot de passe">
               <h2 class="green-text">Adresse</h2>
               <input class="clear-form pink" type="text" name="ville" placeholder="ville">
               <input class="clear-form pink" type="text" name="codepostal" placeholder="code postal">
@@ -49,10 +48,16 @@ getLanguage('fr');
               </div>
               <h2 class="green-text">Sexe</h2>
               <div class="label-center">
-                <input type="radio" class="radio-button" name="name" value="" checked="checked" id="H">
-                <label for="H">Homme</label>
-                <input type="radio" class="radio-button" name="name" value="" id="F">
-                <label for="F">Femme</label>
+                <div class="radio">
+                  <input type="radio" class="radio-button" name="name" value="" checked="checked" id="H">
+                  <span class="radio-inner"></span>
+                  <label for="H">Homme</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" class="radio-button" name="name" value="" id="F">
+                  <span class="radio-inner"></span>
+                  <label for="F">Femme</label>
+                </div>
               </div>
               <input type="submit" class="button dark" value="s'inscrire">
             </form>

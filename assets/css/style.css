@@ -263,7 +263,7 @@ section .overlay {
   opacity: 1;
   /*background: -webkit-linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);
   background: linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);*/
-  background: rgba(153, 114, 250, 0.76);
+  background: rgba(153, 114, 250, 0.9);
   z-index: 0;
 }
 
@@ -380,7 +380,7 @@ input[type=checkbox]:checked::after {
 form > input[type=submit] {
   background: none;
   display: block;
-  margin: 20px auto;
+  margin: 30px auto;
   cursor: pointer;
 }
 
@@ -487,23 +487,27 @@ select.clear-form {
   color: #9972FA;
   padding: 3px 10px;
   padding-right: 25px;
-  margin: 20px 1px;
+  background-image: url(/assets/images/arrows.png);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 5px) 50%;
+  background-size: 10px;
+  margin: 0 1px;
   outline: none;
   -webkit-transition: border;
   transition: border;
 }
 
 .label-center {
-  margin: 0 auto;
+  margin: 10px auto;
   width: 300px;
   text-align: left;
 }
 
-input[type="radio"] {
+/*input[type="radio"] {
   -webkit-appearance: radio;
      -moz-appearance: radio;
           appearance: radio;
-}
+}*/
 
 .inscription h3 {
   color: white;
@@ -523,9 +527,41 @@ input[type="radio"] {
 
 .radio-button {
   margin: 20px 0;
+  background: none;
+  border: #9972FA solid 1px;
+  width: 1.6em;
+  height: 1.6em;
+  vertical-align: top;
+  border-radius: 2em;
+  margin: 0;
 }
-.radio-button + label{
+
+.radio-inner {
+  position: absolute;
+  box-sizing: box;
+  left: 0;
+  top: 0;
+  height: 8px;
+  width: 8px;
+  margin: 5px;
+  border-radius: 10px;
+  background: #9972FA;
+  transform: scale(0.01);
+  transition: transform .3s ease;
+}
+
+.radio-button:checked + .radio-inner {
+  transform: scale(1);
+}
+
+.radio > label{
   margin: 0 5px;
   color: #9972FA;
   margin-right: 20px;
+  cursor: pointer;
+}
+
+.radio {
+  display: inline-block;
+  position: relative;
 }
