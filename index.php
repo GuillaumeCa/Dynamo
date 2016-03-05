@@ -11,6 +11,7 @@ getLanguage('fr');
   </head>
   <body>
     <?php include 'assets/template/header.php' ?>
+    <?php require 'assets/images/svg.php' ?>
     <section class="info" style="background-image: url(assets/images/sport1.png);">
       <div class="overlay"></div>
       <div class="content">
@@ -21,14 +22,21 @@ getLanguage('fr');
     </section>
     <section class="dark-bg">
       <div class="column">
-        <h1>Sports</h1>
+        <h1>Types de sports</h1>
         <div class="grid">
           <?php
           for ($i=0; $i < 20; $i++) {
             ?>
             <div class="sport">
-              <img src="assets/images/logo.png" alt="test" />
-              <span>test</span>
+              <a href="#">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#ball"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Balle</span>
             </div>
             <?php
           }
