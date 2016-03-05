@@ -532,10 +532,10 @@ a.forget:hover {
   margin: 20px 0;
   background: none;
   border: #9972FA solid 1px;
-  width: 1.6em;
-  height: 1.6em;
+  width: 18px;
+  height: 18px;
   vertical-align: top;
-  border-radius: 2em;
+  border-radius: 30px;
   margin: 0;
 }
 
