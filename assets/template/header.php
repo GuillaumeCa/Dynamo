@@ -14,7 +14,7 @@
         </div>
         <ul>
           <li>
-            <div class="image" style="background-image: url(http://medias.portailbienetre.fr/coach-sportif.png)"></div>
+            <div class="image" style="background-image: url(/assets/images/sport1.png)"></div>
             <div class="text">
               <h2>Nom groupe</h2>
               <h3><b>Sport</b> basketball</h3>
@@ -23,7 +23,7 @@
             <span>2<span class="small">/7</span></span>
           </li>
           <li>
-            <div class="image" style="background-image: url(http://medias.portailbienetre.fr/coach-sportif.png)"></div>
+            <div class="image" style="background-image: url(/assets/images/sport1.png)"></div>
             <div class="text">
               <h2>Nom groupe</h2>
               <h3><b>Sport</b> basketball</h3>
@@ -40,7 +40,7 @@
         </div>
         <ul>
           <li>
-            <div class="image" style="background-image: url(http://medias.portailbienetre.fr/coach-sportif.png)"></div>
+            <div class="image" style="background-image: url(/assets/images/sport1.png)"></div>
             <div class="text">
               <h2>Nom groupe</h2>
               <h3><b>Sport</b> basketball</h3>
@@ -49,7 +49,7 @@
             <span>2<span class="small">/7</span></span>
           </li>
           <li>
-            <div class="image" style="background-image: url(http://medias.portailbienetre.fr/coach-sportif.png)"></div>
+            <div class="image" style="background-image: url(/assets/images/sport1.png)"></div>
             <div class="text">
               <h2>Nom groupe</h2>
               <h3><b>Sport</b> basketball</h3>
@@ -61,7 +61,7 @@
       </div>
     </div>
   </div>
-  
+
 
   <nav>
     <ul>

@@ -457,6 +457,17 @@ a.forget:hover {
   margin: 0 auto;
 }
 
+.inscription .clear-form {
+  color: #9972FA;
+  border-color: rgba(153, 114, 250, 0.55);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.inscription .clear-form:focus {
+  border-color: #9972FA;
+}
+
 .inscription input.clear-form {
   width: 300px;
 }
@@ -465,20 +476,16 @@ a.forget:hover {
   color: #53FFC0;
 }
 
-form .pink {
-  color: #9972FA;
-  border-color: rgba(153, 114, 250, 0.55);
-}
 
-form .pink:focus {
-  border-color: #9972FA;
-}
-
-form .pink::-webkit-input-placeholder {
+.inscription .clear-form::-webkit-input-placeholder {
   color: rgba(153, 114, 250, 0.56);
 }
 
-select.clear-form {
+.inscription .clear-form::-moz-placeholder {
+  color: rgba(153, 114, 250, 0.56);
+}
+
+.inscription select.clear-form {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -498,16 +505,11 @@ select.clear-form {
 }
 
 .label-center {
-  margin: 10px auto;
+  margin: 0 auto;
+  margin-bottom: 20px;
   width: 300px;
   text-align: left;
 }
-
-/*input[type="radio"] {
-  -webkit-appearance: radio;
-     -moz-appearance: radio;
-          appearance: radio;
-}*/
 
 .inscription h3 {
   color: white;
@@ -519,10 +521,11 @@ select.clear-form {
 }
 
 .inscription > h2 {
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: normal;
   text-align: left;
   display: block;
+  margin-bottom: 10px;
 }
 
 .radio-button {
@@ -557,6 +560,7 @@ select.clear-form {
 .radio > label{
   margin: 0 5px;
   color: #9972FA;
+  font-size: 1.2em;
   margin-right: 20px;
   cursor: pointer;
 }
