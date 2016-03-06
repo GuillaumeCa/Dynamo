@@ -68,6 +68,16 @@ footer p {
   color: white;
 }
 
+.bg-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-image-overlay {
+  position: relative;
+}
+
 header .logo, header .search, header nav li, header nav {
   display: inline-block;
   vertical-align: top;
@@ -248,9 +258,9 @@ section.info {
   color: white;
   padding: 50px 20px;
   text-align: center;
-  background-position: center;
+  /*background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
   position: relative;
 }
 
@@ -605,6 +615,7 @@ a.forget:hover {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
 }
 
 .auto-width .column-2 {
@@ -653,26 +664,45 @@ a.forget:hover {
 .gallerie .group {
   width: 160px;
   height: 220px;
-  border: #9972FA solid 1px;
-  border-radius: 5px;
+  /*border: #9972FA solid 1px;*/
+  border-radius: 7px;
   margin: 10px;
   display: inline-block;
   color: #53FFC0;
   overflow: hidden;
+  background: #9972FA;
 }
 
 .gallerie .group .image {
-  height: 140px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 150px;
   width: 100%;
-  background: lightgrey;
 }
 
 .gallerie .group h3 {
-  font-size: 1.2em;
-  padding: 5px;
-  font-weight: 500;
+  font-size: 1.3em;
+  padding: 6px;
+  line-height: 1.3em;
+  font-weight: 600;
 }
 
 .gallerie .group p {
+  padding: 0 6px;
+  font-size: 0.9em;
+  color: white;
+  display: inline-block;
+  width: 100px;
+}
+
+.gallerie .group .people {
+  float: right;
   padding: 0 5px;
+  font-weight: lighter;
+  color: white;
+}
+
+.gallerie .group .people span {
+  font-size: 2em;
 }

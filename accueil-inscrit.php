@@ -11,20 +11,18 @@ getLanguage('fr');
   </head>
   <body>
     <?php include 'assets/template/header-priv.php' ?>
-    <section class="pink-bg">
+    <section class="bg-image bg-image-overlay" style="background-image: url(assets/images/sport2.jpg);">
+      <div class="overlay"></div>
       <div class="auto-width">
         <div class="column-2 today">
           <h2>AUJOURD'HUI</h1>
           <h3><a href="#">Groupe 1</a></h3>
           <ul>
             <li>
-              <span>19h15 - 20h00</span>Entrainement
+              <span>9h00 - 10h00</span>Entrainement
             </li>
             <li>
-              <span>19h15 - 20h00</span>Entrainement
-            </li>
-            <li>
-              <span>19h15 - 20h00</span>Entrainement
+              <span>10h00 - 12h00</span>Competition
             </li>
           </ul>
           <h3><a href="#">Groupe 2</a></h3>
@@ -62,28 +60,28 @@ getLanguage('fr');
       <div class="gallerie">
         <a href="">
           <div class="group">
-            <div class="image"></div>
+            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 1</h3>
             <p>Desc...</p>
           </div>
         </a>
         <a href="">
           <div class="group">
-            <div class="image"></div>
+            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 2</h3>
             <p>Desc...</p>
           </div>
         </a>
         <a href="">
           <div class="group">
-            <div class="image"></div>
+            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 3</h3>
             <p>Desc...</p>
           </div>
         </a>
         <a href="">
           <div class="group">
-            <div class="image"></div>
+            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 4</h3>
             <p>Desc...</p>
           </div>
@@ -95,28 +93,31 @@ getLanguage('fr');
       <div class="gallerie">
         <a href="">
           <div class="group">
-            <div class="image"></div>
+            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 1</h3>
             <p>Desc...</p>
+            <div class="people" title="Nombre de membres du groupe">
+              <span>7</span>/10
+            </div>
           </div>
         </a>
         <a href="">
           <div class="group">
-            <div class="image"></div>
+            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 2</h3>
             <p>Desc...</p>
           </div>
         </a>
         <a href="">
           <div class="group">
-            <div class="image"></div>
+            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 3</h3>
             <p>Desc...</p>
           </div>
         </a>
         <a href="">
           <div class="group">
-            <div class="image"></div>
+            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 4</h3>
             <p>Desc...</p>
           </div>
