@@ -300,12 +300,28 @@ section.info-groupe h1 {
 }
 
 section.info-groupe p {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 10px;
+  margin: 10px 0px;
+  max-width: 500px;
   font-size: 1.3em;
+  text-align: justify;
 }
 
+.div-nav {
+  border-bottom: #9972FA solid 1px;
+}
+
+.nav-groupe {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.nav-groupe li {
+  color: #9972FA;
+  display: inline-block;
+  margin-right: 50px;
+  font-size: 1.4em;
+}
 
 .content {
   position: relative;
@@ -336,10 +352,30 @@ section.info-groupe p {
 .en-tete-groupe {
   position: relative;
   text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .en-tete-groupe h1 {
   color: #53FFC0;
+}
+
+.en-tete-groupe p {
+  color: #53FFC0;
+}
+
+b {
+  font-weight: 600;
+}
+
+.en-tete-groupe span {
+  margin-right: 20px;
+  font-size: 1.8em;
+  font-weight: lighter;
+}
+
+.en-tete-groupe div {
+  margin-top: 10px;
 }
 
 section .column {
