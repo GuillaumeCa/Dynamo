@@ -1,9 +1,9 @@
 function verif() {
-  var mdp1 = document.getElementsByClassName('clear-form')[1];
-  var mdp2 = document.getElementsByClassName('clear-form')[2];
+  var mdp1 = document.getElementsByClassName('mdp')[0];
+  var mdp2 = document.getElementsByClassName('mdp')[1];
   if ((mdp1.value != mdp2.value) && mdp2.value != "") {
-    mdp1.style.backgroundColor = "red";
-    mdp2.style.backgroundColor = "red";
+    mdp1.style.backgroundColor = "rgba(255, 34, 34, 0.55)";
+    mdp2.style.backgroundColor = "rgba(255, 34, 34, 0.55)";
     document.getElementById('submit').disabled = true;
   } else {
     document.getElementById('submit').disabled = false;
