@@ -554,7 +554,7 @@ a.forget:hover {
   background: none;
   border: #9972FA solid 1px;
   width: 18px;
-  height: 18px;
+  height: 18px;g
   vertical-align: top;
   border-radius: 30px;
   margin: 0;
@@ -604,6 +604,12 @@ a.forget:hover {
   border: #9972FA solid 1px;
   border-radius: 30px;
   transition: all .2s ease;
+}
+
+.logoP {
+  color: white;
+  border: white solid 1px;
+  float: none;
 }
 
 .profile-btn:hover, .profile-btn.selected {
@@ -705,4 +711,17 @@ a.forget:hover {
 
 .gallerie .group .people span {
   font-size: 2em;
+}
+
+section .text-left {
+    text-align: left;
+}
+
+.text-left h1 {
+  display: inline-block;
+
+}
+
+.logoP-left {
+    text-align: left;
 }
