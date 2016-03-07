@@ -1,3 +1,7 @@
+<?php
+include 'function.php';
+getLanguage('fr');
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,26 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <header>
-      <div class="logo">
-        <a href="/">
-        <img src="assets/images/logo.png" alt="logo" />
-        </a>
-      </div>
-      <div class="search">
-        <input type="text" name="name" placeholder="rechercher">
-        <div class="result">
-
-        </div>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="connect.php">Connection</a></li>
-          <li><a href="#">Forum</a></li>
-          <li><a href="#">Aide</a></li>
-        </ul>
-      </nav>
-    </header>
+    <?php include 'assets/template/header.php' ?>
     <section class="info-groupe" style="background-image: url(/assets/images/sport1.png);">
       <div class="overlay"></div>
       <div class="en-tete-groupe">
@@ -40,12 +25,13 @@
     <div class="div-nav">
       <nav class="nav-groupe">
         <ul>
-          <a href="#"><li>informations</li></a>
+          <li><a href="#">informations</a></li>
           <li><a href="#">membres</a></li>
           <li><a href="#">planning</a></li>
           <li><a href="#">discussions</a></li>
         </ul>
       </nav>
     </div>
+    <?php include 'assets/template/footer.php'; ?>
   </body>
 </html>
