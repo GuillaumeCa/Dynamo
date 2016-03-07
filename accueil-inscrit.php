@@ -62,28 +62,40 @@ getLanguage('fr');
           <div class="group">
             <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 1</h3>
-            <p>Desc...</p>
+            <p>Description</p>
+            <div class="people" title="Nombre de membres du groupe">
+              <span>7</span>/10
+            </div>
           </div>
         </a>
         <a href="">
           <div class="group">
             <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 2</h3>
-            <p>Desc...</p>
+            <p>Description</p>
+            <div class="people" title="Nombre de membres du groupe">
+              <span>7</span>/10
+            </div>
           </div>
         </a>
         <a href="">
           <div class="group">
             <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 3</h3>
-            <p>Desc...</p>
+            <p>Description</p>
+            <div class="people" title="Nombre de membres du groupe">
+              <span>7</span>/10
+            </div>
           </div>
         </a>
         <a href="">
           <div class="group">
             <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 4</h3>
-            <p>Desc...</p>
+            <p>Description</p>
+            <div class="people" title="Nombre de membres du groupe">
+              <span>7</span>/10
+            </div>
           </div>
         </a>
       </div>
@@ -95,7 +107,7 @@ getLanguage('fr');
           <div class="group">
             <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 1</h3>
-            <p>Desc...</p>
+            <p>Description</p>
             <div class="people" title="Nombre de membres du groupe">
               <span>7</span>/10
             </div>
@@ -105,21 +117,30 @@ getLanguage('fr');
           <div class="group">
             <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 2</h3>
-            <p>Desc...</p>
+            <p>Description</p>
+            <div class="people" title="Nombre de membres du groupe">
+              <span>7</span>/10
+            </div>
           </div>
         </a>
         <a href="">
           <div class="group">
             <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 3</h3>
-            <p>Desc...</p>
+            <p>Description</p>
+            <div class="people" title="Nombre de membres du groupe">
+              <span>7</span>/10
+            </div>
           </div>
         </a>
         <a href="">
           <div class="group">
             <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
             <h3>Groupe 4</h3>
-            <p>Desc...</p>
+            <p>Description</p>
+            <div class="people" title="Nombre de membres du groupe">
+              <span>7</span>/10
+            </div>
           </div>
         </a>
       </div>
