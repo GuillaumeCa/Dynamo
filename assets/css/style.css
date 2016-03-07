@@ -68,12 +68,6 @@ footer p {
   color: white;
 }
 
-.bg-image {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .bg-image-overlay {
   position: relative;
 }
@@ -253,7 +247,7 @@ header nav li .notif {
   background: linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);
 }
 
-section.info {
+.info {
   background: #42306f;
   color: white;
   padding: 50px 20px;
@@ -329,7 +323,7 @@ section .column {
 }
 
 section .column h1 {
-  font-size: 3em;
+  font-size: 4em;
   color: white;
   font-weight: lighter;
 }
@@ -422,7 +416,8 @@ a.forget:hover {
 }
 
 .grid {
-  font-size: 0
+  font-size: 0;
+  margin-top: 20px;
 }
 
 .grid .sport {
@@ -616,6 +611,10 @@ a.forget:hover {
   margin: 0 auto;
   padding: 20px;
   position: relative;
+}
+
+.hud-padding {
+  padding: 40px 20px;
 }
 
 .auto-width .column-2 {

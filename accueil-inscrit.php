@@ -11,11 +11,11 @@ getLanguage('fr');
   </head>
   <body>
     <?php include 'assets/template/header-priv.php' ?>
-    <section class="bg-image bg-image-overlay" style="background-image: url(assets/images/sport2.jpg);">
+    <section class="bg-image-center bg-image-overlay" style="background-image: url(assets/images/sport2.jpg);">
       <div class="overlay"></div>
-      <div class="auto-width">
+      <div class="auto-width hud-padding">
         <div class="column-2 today">
-          <h2>AUJOURD'HUI</h1>
+          <h2><?php lang('auj-caps') ?></h1>
           <h3><a href="#">Groupe 1</a></h3>
           <ul>
             <li>
@@ -39,7 +39,7 @@ getLanguage('fr');
           </ul>
 
         </div><div class="column-2">
-          <h2>DEMAIN</h2>
+          <h2><?php lang('demain-caps') ?></h2>
           <h3><a href="#">Groupe 1</a></h3>
           <ul>
             <li>
@@ -56,7 +56,7 @@ getLanguage('fr');
       </div>
     </section>
     <section class="auto-width">
-      <h2 class="green-text">SELECTIONNÉ POUR VOUS</h2>
+      <h2 class="green-text"><?php lang('select') ?></h2>
       <div class="gallerie">
         <a href="">
           <div class="group">
@@ -89,7 +89,7 @@ getLanguage('fr');
       </div>
     </section>
     <section class="auto-width">
-      <h2 class="caps-txt green-text">PRÈS DE CHEZ VOUS</h2>
+      <h2 class="caps-txt green-text"><?php lang('near-you') ?></h2>
       <div class="gallerie">
         <a href="">
           <div class="group">

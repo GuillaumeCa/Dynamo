@@ -12,7 +12,7 @@ getLanguage('fr');
   <body>
     <?php include 'assets/template/header.php' ?>
     <?php require 'assets/images/svg.php' ?>
-    <section class="info bg-image" style="background-image: url(assets/images/sport1.png);">
+    <section class="info bg-image-center" style="background-image: url(assets/images/sport1.png);">
       <div class="overlay"></div>
       <div class="content">
         <h1 class="green-text">Dynamo</h1>
