@@ -19,13 +19,14 @@ getLanguage('fr');
         <h1><?php lang('Name') ?></h1>
       </div>
     </section>
+    <nav class="nav-groupe">
+      <ul>
+        <a href="#"><li>informations</li></a>
+        <li><a href="#">membres</a></li>
+        <li><a href="#">planning</a></li>
+        <li><a href="#">discussions</a></li>
+      </ul>
+    </nav>
     <?php include 'assets/template/footer.php'; ?>
-    <nav>
-    <ul>
-      <li>information</li>
-      <li>planning</li>
-      <li>historique</li>
-    </ul>
-  </nav>
   </body>
 </html>
