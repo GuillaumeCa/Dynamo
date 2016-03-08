@@ -295,14 +295,14 @@ section.info-groupe {
 }
 
 section.info-groupe h1 {
-  font-size: 5em;
+  font-size: 3em;
   font-weight: lighter;
 }
 
 section.info-groupe p {
   margin: 10px 0px;
   max-width: 500px;
-  font-size: 1.3em;
+  font-size: 1em;
   text-align: justify;
 }
 
@@ -320,7 +320,23 @@ section.info-groupe p {
   color: #9972FA;
   display: inline-block;
   margin-right: 50px;
-  font-size: 1.4em;
+  font-size: 1em;
+}
+
+.nav-groupe a {
+  border: transparent solid 1px;
+  width: 18px;
+  height: 18px;
+  border-radius: 30px;
+  padding: 3px 7px;
+}
+
+.nav-groupe a:hover {
+  border: #9972FA solid 1px;
+  width: 18px;
+  height: 18px;
+  border-radius: 30px;
+  padding: 3px 7px;
 }
 
 .content {
@@ -370,7 +386,7 @@ b {
 
 .en-tete-groupe span {
   margin-right: 20px;
-  font-size: 1.8em;
+  font-size: 1.4em;
   font-weight: lighter;
 }
 
