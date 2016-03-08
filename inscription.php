@@ -22,8 +22,8 @@ getLanguage('fr');
               <h2 class="green-text">Email</h2>
               <input class="clear-form" type="email" name="email" placeholder="e-mail">
               <h2 class="green-text">Mot de passe</h2>
-              <input class="clear-form" type="password" name="mdp" placeholder="mot de passe">
-              <input class="clear-form" type="password" name="verifmdp" placeholder="confirmer mot de passe">
+              <input class="clear-form mdp" type="password" name="mdp" placeholder="mot de passe">
+              <input class="clear-form mdp" type="password" name="verifmdp" placeholder="confirmer mot de passe" oninput="verif()">
               <h2 class="green-text">Adresse</h2>
               <input class="clear-form" type="text" name="ville" placeholder="ville">
               <input class="clear-form" type="text" name="codepostal" placeholder="code postal">
@@ -37,8 +37,9 @@ getLanguage('fr');
                 </select>
                 <select class="clear-form" name="mois">
                   <option value="option" disabled selected>mois</option>
+                  <?php $mois=["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"] ?>
                   <?php for ($i = 0; $i < 12; $i++): ?>
-                    <option value="<?php echo $i ?>"><?php echo $i+1; ?></option>
+                    <option value="<?php echo $i ?>"><?php echo $mois[$i]; ?></option>
                   <?php endfor; ?>
                 </select>
                 <select class="clear-form" name="année">
@@ -62,10 +63,11 @@ getLanguage('fr');
                   <label for="F">Femme</label>
                 </div>
               </div>
-              <input type="submit" class="button dark" value="s'inscrire">
+              <input id="submit" type="submit" class="button dark" value="s'inscrire">
             </form>
         </div>
     </section>
+    <script src="/assets/js/verif.js" charset="utf-8"></script>
     <?php include 'assets/template/footer.php'; ?>
   </body>
 </html>
