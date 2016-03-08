@@ -20,7 +20,7 @@
       </div>
       <nav>
         <ul>
-          <li><a href="connect.php">Connection</a></li>
+          <li><a href="connect.php">Connexion</a></li>
           <li><a href="#">Forum</a></li>
           <li><a href="#">Aide</a></li>
         </ul>

@@ -743,3 +743,53 @@ a.forget:hover {
 .gallerie .group p {
   padding: 0 5px;
 }
+
+.list-large li {
+  margin: 20px 0;
+  border: #9972FA solid 1px;
+  border-radius: 5px;
+  display: block;
+  height: 100px;
+  overflow: hidden;
+}
+
+.left-icon {
+  width: 150px;
+  display: inline-block;
+  position: relative;
+}
+
+.img-group {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+}
+
+.circle {
+  position: relative;
+  padding: 25px 50px;
+  height: 100px;
+}
+.circle svg {
+  color: #9972FA;
+  width: 50px;
+  height: 50px;
+}
+
+.middle-text{
+  display: inline-block;
+  margin-left: 50px;
+  color: #9972FA;
+  font-weight: lighter;
+}
+
+.middle-text h1{
+  font-size: 2em;
+}
+
+.middle-text .group-text {
+  font-size: 1.5em;
+}
