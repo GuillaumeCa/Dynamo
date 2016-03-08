@@ -21,7 +21,7 @@ getLanguage('fr');
     <section class="auto-width">
     <div class="list-large">
       <ul>
-        <a href="">
+        <a href="groupe.php">
           <li>
             <div class="left-icon">
               <div class="img-group" style="background-image: url(http://greatist.com/sites/default/files/styles/big_share/public/free-yoga.png?itok=uwn98osm);">
