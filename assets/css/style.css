@@ -386,7 +386,7 @@ section .column {
 }
 
 section .column h1 {
-  font-size: 3em;
+  font-size: 4em;
   color: white;
   font-weight: lighter;
 }
@@ -479,7 +479,8 @@ a.forget:hover {
 }
 
 .grid {
-  font-size: 0
+  font-size: 0;
+  margin-top: 20px;
 }
 
 .grid .sport {
@@ -751,6 +752,7 @@ a.forget:hover {
   display: block;
   height: 100px;
   overflow: hidden;
+  background: rgba(153, 114, 250, 0.1);
 }
 
 .left-icon {
@@ -768,12 +770,13 @@ a.forget:hover {
   opacity: 0.4;
 }
 
-.circle {
+.left-icon .circle {
   position: relative;
   padding: 25px 50px;
   height: 100px;
 }
-.circle svg {
+
+.left-icon .circle svg {
   color: #9972FA;
   width: 50px;
   height: 50px;
@@ -781,15 +784,23 @@ a.forget:hover {
 
 .middle-text{
   display: inline-block;
-  margin-left: 50px;
+  padding: 10px;
+  vertical-align: top;
   color: #9972FA;
+
   font-weight: lighter;
+  height: 100px;
 }
 
 .middle-text h1{
   font-size: 2em;
+  margin-bottom: 20px;
 }
 
 .middle-text .group-text {
   font-size: 1.5em;
+}
+
+.margin-top {
+  margin-top: 30px;
 }

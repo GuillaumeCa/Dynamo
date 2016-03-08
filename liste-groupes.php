@@ -15,8 +15,7 @@ getLanguage('fr');
     <section class="pink-bg">
       <div class="column">
         <h1>Mes Groupes</h1>
-        </br>
-        <a href="#" class="button">Créer un groupe</a>
+        <a href="#" class="button margin-top">Créer un groupe</a>
       </div>
     </section>
     <section class="auto-width">
@@ -35,14 +34,17 @@ getLanguage('fr');
             </div>
             <div class="middle-text">
               <h1>Groupe #1</h1>
-              </br>
               <span class="group-text"><b>Sport</b> yoga</span>
               <span class="group-text"><b>Club</b> Forest Hill</span>
             </div>
           </li>
         </a>
-        <li></li>
-        <li></li>
+        <a href="#">
+          <li></li>
+        </a>
+        <a href="#">
+          <li></li>
+        </a>
       </ul>
     </div>
     </section>
