@@ -394,6 +394,43 @@ b {
   margin-top: 10px;
 }
 
+.discussion{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.creer-discussion {
+  margin-top: 20px;
+}
+
+.boutton-discussion {
+  margin-top: 20px;
+  padding: 10px;
+  color: #9972FA;
+  border: #9972FA solid 1px;
+  border-radius: 5px;
+  background-color: rgba(153, 114, 250, 0.2);
+}
+
+.boutton-discussion h1 {
+  font-weight: normal;
+  display: inline-block;
+}
+
+.boutton-discussion h2 {
+  font-weight: lighter;
+  display: inline-block;
+}
+
+.parti-boutton {
+  display: inline-block;
+}
+
+.parti-boutton-2{
+  display: inline-block;
+  float: right;
+}
+
 section .column {
   max-width: 900px;
   margin: 0 auto;
