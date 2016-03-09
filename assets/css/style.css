@@ -441,6 +441,11 @@ a.forget:hover {
   width: 70px;
   display: inline-block;
   margin-bottom: 10px;
+  transition: transform .3s ease;
+}
+
+.sport .circle:hover {
+  transform: scale(1.1);
 }
 
 .grid .sport span {
