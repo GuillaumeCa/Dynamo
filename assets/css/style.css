@@ -313,14 +313,19 @@ section.info-groupe p {
 .nav-groupe {
   max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 12px;
 }
 
 .nav-groupe li {
   color: #9972FA;
   display: inline-block;
-  margin-right: 50px;
+  margin-right: 10px;
   font-size: 1em;
+}
+
+.nav-groupe li:last-child {
+  margin: 0;
+  float: right;
 }
 
 .nav-groupe a {
@@ -328,15 +333,11 @@ section.info-groupe p {
   width: 18px;
   height: 18px;
   border-radius: 30px;
-  padding: 3px 7px;
+  padding: 3px 10px;
 }
 
-.nav-groupe a:hover {
+.nav-groupe a:hover, .nav-groupe a.active {
   border: #9972FA solid 1px;
-  width: 18px;
-  height: 18px;
-  border-radius: 30px;
-  padding: 3px 7px;
 }
 
 .content {

@@ -25,10 +25,12 @@ getLanguage('fr');
     <div class="div-nav">
       <nav class="nav-groupe">
         <ul>
-          <li><a href="#">informations</a></li>
+          <li><a href="#" class="active">informations</a></li>
           <li><a href="#">membres</a></li>
           <li><a href="#">planning</a></li>
           <li><a href="#">discussions</a></li>
+          <!-- bouton réglage temporaire -->
+          <li><a href="#">reglages</a></li>
         </ul>
       </nav>
     </div>
