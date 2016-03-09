@@ -31,7 +31,7 @@ getLanguage('fr');
               <a href="#">
                 <div class="circle">
                   <svg>
-                    <use xlink:href="#run"></use>
+                    <use xlink:href="#ball"></use>
                   </svg>
                 </div>
               </a>
