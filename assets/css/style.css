@@ -294,6 +294,61 @@ section.info p {
   font-size: 1.3em;
 }
 
+section.info-groupe {
+  background: #42306f;
+  color: white;
+  padding: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+section.info-groupe h1 {
+  font-size: 3em;
+  font-weight: lighter;
+}
+
+section.info-groupe p {
+  margin: 10px 0px;
+  max-width: 500px;
+  font-size: 1em;
+  text-align: justify;
+}
+
+.div-nav {
+  border-bottom: #9972FA solid 1px;
+}
+
+.nav-groupe {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.nav-groupe li {
+  color: #9972FA;
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1em;
+}
+
+.nav-groupe li:last-child {
+  margin: 0;
+  float: right;
+}
+
+.nav-groupe a {
+  border: transparent solid 1px;
+  width: 18px;
+  height: 18px;
+  border-radius: 30px;
+  padding: 3px 10px;
+}
+
+.nav-groupe a:hover, .nav-groupe a.active {
+  border: #9972FA solid 1px;
+}
 
 .content {
   position: relative;
@@ -321,6 +376,72 @@ section.info p {
   background-repeat: no-repeat;
 }
 
+.en-tete-groupe {
+  position: relative;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.en-tete-groupe h1 {
+  color: #53FFC0;
+}
+
+.en-tete-groupe p {
+  color: #53FFC0;
+}
+
+b {
+  font-weight: 600;
+}
+
+.en-tete-groupe span {
+  margin-right: 20px;
+  font-size: 1.4em;
+  font-weight: lighter;
+}
+
+.en-tete-groupe div {
+  margin-top: 10px;
+}
+
+.discussion{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.creer-discussion {
+  margin-top: 20px;
+}
+
+.boutton-discussion {
+  margin-top: 20px;
+  padding: 10px;
+  color: #9972FA;
+  border: #9972FA solid 1px;
+  border-radius: 5px;
+  background-color: rgba(153, 114, 250, 0.2);
+}
+
+.boutton-discussion h1 {
+  font-weight: normal;
+  display: inline-block;
+}
+
+.boutton-discussion h2 {
+  font-weight: lighter;
+  display: inline-block;
+}
+
+.parti-boutton {
+  display: inline-block;
+}
+
+.parti-boutton-2{
+  display: inline-block;
+  float: right;
+}
+
 section .column {
   max-width: 900px;
   margin: 0 auto;
@@ -329,7 +450,7 @@ section .column {
 }
 
 section .column h1 {
-  font-size: 3em;
+  font-size: 4em;
   color: white;
   font-weight: lighter;
 }
@@ -422,7 +543,8 @@ a.forget:hover {
 }
 
 .grid {
-  font-size: 0
+  font-size: 0;
+  margin-top: 20px;
 }
 
 .grid .sport {
@@ -724,4 +846,64 @@ section .text-left {
 
 .logoP-left {
     text-align: left;
+}
+
+.list-large li {
+  margin: 20px 0;
+  border: #9972FA solid 1px;
+  border-radius: 5px;
+  display: block;
+  height: 100px;
+  overflow: hidden;
+  background: rgba(153, 114, 250, 0.1);
+}
+
+.left-icon {
+  width: 150px;
+  display: inline-block;
+  position: relative;
+}
+
+.img-group {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+}
+
+.left-icon .circle {
+  position: relative;
+  padding: 25px 50px;
+  height: 100px;
+}
+
+.left-icon .circle svg {
+  color: #9972FA;
+  width: 50px;
+  height: 50px;
+}
+
+.middle-text{
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  color: #9972FA;
+
+  font-weight: lighter;
+  height: 100px;
+}
+
+.middle-text h1{
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.middle-text .group-text {
+  font-size: 1.5em;
+}
+
+.margin-top {
+  margin-top: 30px;
 }
