@@ -10,7 +10,7 @@ getLanguage('fr');
     <title><?php lang('Connexion') ?> - Dynamo</title>
   </head>
   <body>
-    <?php include 'assets/template/header.php' ?>
+    <?php include 'assets/template/header-priv.php' ?>
     <section class="pink-bg">
       <div class="column">
         <h1><?php lang('Connexion') ?></h1>

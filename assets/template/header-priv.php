@@ -62,11 +62,13 @@
     </div>
   </div>
 
-
+  <a href="" class="profile-btn">
+    D
+  </a>
   <nav>
     <ul>
-      <li><a href="connect.php"><?php lang('Connexion') ?> </a></li>
-      <li><a href="#"><?php lang('Forum') ?></a></li>
+      <li><a href="liste-groupes.php"><?php lang('Groupes') ?> <span class="notif">3</span></a></li>
+      <li><a href="#"><?php lang('Forum') ?> <span class="notif">30</span></a></li>
       <li><a href="help.php"><?php lang('Aide') ?></a></li>
     </ul>
   </nav>
