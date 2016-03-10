@@ -68,6 +68,10 @@ footer p {
   color: white;
 }
 
+.bg-image-overlay {
+  position: relative;
+}
+
 header .logo, header .search, header nav li, header nav {
   display: inline-block;
   vertical-align: top;
@@ -243,14 +247,14 @@ header nav li .notif {
   background: linear-gradient(rgba(153, 114, 250, 0.51), #9972FA);
 }
 
-section.info {
+.info {
   background: #42306f;
   color: white;
   padding: 50px 20px;
   text-align: center;
-  background-position: center;
+  /*background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
   position: relative;
 }
 
@@ -504,6 +508,11 @@ a.forget:hover {
   width: 70px;
   display: inline-block;
   margin-bottom: 10px;
+  transition: transform .3s ease;
+}
+
+.sport .circle:hover {
+  transform: scale(1.1);
 }
 
 .grid .sport span {
@@ -673,6 +682,17 @@ a.forget:hover {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
+}
+
+.auto-width h2 {
+  padding: 5px 0;
+  color: #53FFC0;
+  font-weight: 600;
+}
+
+.hud-padding {
+  padding: 30px 20px;
 }
 
 .auto-width .column-2 {
@@ -682,20 +702,20 @@ a.forget:hover {
   vertical-align: top;
 }
 
+.column-2 h2 {
+  font-size: 2.5em;
+  font-weight: lighter;
+}
+
 .auto-width .today {
   width: 60%;
   margin-right: 4%;
 }
 
 .auto-width .column-2:first-child {
-  border-right: #53FFC0 solid 1px;
+  border-right: white solid 1px;
 }
 
-.auto-width h2 {
-  padding: 5px 0;
-  color: #53FFC0;
-  font-weight: 600;
-}
 
 .auto-width .column-2 h3 {
   margin-bottom: 5px;
@@ -722,7 +742,7 @@ a.forget:hover {
   width: 160px;
   height: 220px;
   border: #9972FA solid 1px;
-  border-radius: 5px;
+  border-radius: 7px;
   margin: 10px;
   display: inline-block;
   color: #53FFC0;
@@ -730,19 +750,37 @@ a.forget:hover {
 }
 
 .gallerie .group .image {
-  height: 140px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 150px;
   width: 100%;
-  background: lightgrey;
 }
 
 .gallerie .group h3 {
-  font-size: 1.2em;
-  padding: 5px;
-  font-weight: 500;
+  font-size: 1.3em;
+  padding: 6px;
+  line-height: 1.3em;
+  font-weight: 600;
 }
 
 .gallerie .group p {
+  padding: 0 6px;
+  font-size: 0.9em;
+  color: #9972FA;
+  display: inline-block;
+  width: 100px;
+}
+
+.gallerie .group .people {
+  float: right;
   padding: 0 5px;
+  font-weight: lighter;
+  color: #9972FA;
+}
+
+.gallerie .group .people span {
+  font-size: 2em;
 }
 
 .list-large li {

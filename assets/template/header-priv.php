@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <a href="" class="profile-btn">
+  <a href="" class="profile-btn" title="Dynamo User">
     D
   </a>
   <nav>
