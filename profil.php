@@ -14,7 +14,7 @@ getLanguage('fr');
     <section class="pink-bg">
       <div class="text-left column">
         <a href="" class="profile-btn logoP " title="Dynamo User">
-          D
+          N
         </a>
         <h1><?php lang('Name') ?></h1>
       </div>
@@ -22,9 +22,8 @@ getLanguage('fr');
     <nav class="nav-groupe">
       <ul>
         <a href="#"><li>informations</li></a>
-        <li><a href="#">membres</a></li>
         <li><a href="#">planning</a></li>
-        <li><a href="#">discussions</a></li>
+        <li><a href="#">Historique</a></li>
       </ul>
     </nav>
     <?php include 'assets/template/footer.php'; ?>
