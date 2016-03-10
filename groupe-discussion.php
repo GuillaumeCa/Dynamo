@@ -25,14 +25,45 @@ getLanguage('fr');
     <div class="div-nav">
       <nav class="nav-groupe">
         <ul>
-          <li><a href="#" class="active">informations</a></li>
+          <li><a href="#">informations</a></li>
           <li><a href="#">membres</a></li>
           <li><a href="#">planning</a></li>
           <li><a href="#">discussions</a></li>
-          <!-- bouton réglage temporaire -->
-          <li><a href="#">reglages</a></li>
         </ul>
       </nav>
+    </div>
+    <div class="discussion">
+      <div class="creer-discussion">
+        <a href="#" class="button light">Créer une discussion</a>
+      </div>
+        <ul>
+          <li>
+            <a href="#">
+              <div class="boutton-discussion">
+                <div class="parti-boutton">
+                  <h1>Discussion #1</h1>
+                  <p>Créée le 08/03/2016 par Alizée Faytre</p>
+                </div>
+                <div class="parti-boutton-2">
+                  <h2>77 messages</h2>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="boutton-discussion">
+                <div class="parti-boutton">
+                  <h1>Discussion #1</h1>
+                  <p>Créée le 08/03/2016 par Alizée Faytre</p>
+                </div>
+                <div class="parti-boutton-2">
+                  <h2>77 messages</h2>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
     </div>
     <?php include 'assets/template/footer.php'; ?>
   </body>
