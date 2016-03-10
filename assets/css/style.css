@@ -340,6 +340,16 @@ section.info-groupe p {
   border: #9972FA solid 1px;
 }
 
+.nav-groupe a.settings {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.nav-groupe a svg {
+  width: 20px;
+  height: 20px;
+}
+
 .content {
   position: relative;
 }
