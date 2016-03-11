@@ -23,7 +23,7 @@ getLanguage('fr');
         </form>
       </div>
     </section>
-    <section class="info" style="background-image: url(assets/images/sport2.jpg);">
+    <section class="info bg-image-center" style="background-image: url(assets/images/sport2.jpg);">
       <div class="overlay dark-grad"></div>
       <div class="content">
         <h1 class="light-text"><?php lang('inscrit-title') ?></h1>
