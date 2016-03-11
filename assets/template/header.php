@@ -5,7 +5,12 @@
     </a>
   </div>
   <div class="search">
-    <input type="text" name="name" placeholder="rechercher">
+    <div class="search-field">
+      <form class="" action="search.php" method="get">
+        <input type="text" name="name" placeholder="rechercher">
+        <button type="submit" name="submit"><svg><use xlink:href="#search"></use></svg></button>
+      </form>
+    </div>
     <div class="result">
       <div class="cat">
         <div class="head">

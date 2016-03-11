@@ -5,7 +5,13 @@
     </a>
   </div>
   <div class="search">
-    <input type="text" name="name" placeholder="rechercher">
+    <?php require_once 'assets/images/svg.php'; ?>
+    <div class="search-field">
+      <form class="" action="search.php" method="get">
+        <input type="text" name="search" placeholder="rechercher">
+        <button type="submit"><svg><use xlink:href="#search"></use></svg></button>
+      </form>
+    </div>
     <div class="result">
       <div class="cat">
         <div class="head">

@@ -115,16 +115,35 @@ header .search input:focus + .result{
   visibility: visible;
 }
 
+header .search-field {
+  max-width: 300px;
+  padding: .3em 1em;
+  height: 2em;
+  border: #9972FA solid 1px;
+  border-radius: 100px;
+}
+
+header .search-field button {
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+header .search-field button svg {
+  width: 1em;
+  height: 1em;
+  color: #9972FA
+}
+
+header .search-field input::-webkit-input-placeholder {
+  color: #9972FA;
+}
+
 header .search input {
   -webkit-appearance: none;
   outline: none;
   font-family: inherit;
   font-size: 1em;
-  padding: .3em 1em;
-  height: 2em;
   color: #9972FA;
-  border: lightgrey solid 1px;
-  border-radius: 100px;
   -webkit-transition: border-color .3s ease;
   transition: border-color .3s ease;
 }
@@ -140,10 +159,6 @@ header .search .result::after {
   border-color: transparent transparent white transparent;
 }
 
-
-header .search input:focus {
-  border: #9972FA solid 1px;
-}
 
 header .result .cat  {
   margin-top: 10px;
