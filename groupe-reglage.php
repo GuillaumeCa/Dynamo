@@ -11,6 +11,7 @@ getLanguage('fr');
   </head>
   <body>
     <?php include 'assets/template/header.php' ?>
+    <?php require 'assets/images/svg.php'; ?>
     <section class="info-groupe" style="background-image: url(/assets/images/sport1.png);">
       <div class="overlay"></div>
       <div class="en-tete-groupe">
@@ -28,43 +29,19 @@ getLanguage('fr');
           <li><a href="#">informations</a></li>
           <li><a href="/groupe-membre.php">membres</a></li>
           <li><a href="#">planning</a></li>
-          <li><a href="#" class="active">discussions</a></li>
-          <li><a href="/groupe-reglage.php">réglages</a></li>
+          <li><a href="/groupe-discussion.php">discussions</a></li>
+          <!-- bouton réglage temporaire -->
+          <li><a href="#"><svg class="boutton-reglage"><use xlink:href="#gear"></use></svg></a></li>
         </ul>
       </nav>
     </div>
-    <div class="discussion">
-      <div class="creer-discussion">
-        <a href="#" class="button light">Créer une discussion</a>
-      </div>
-        <ul>
-          <li>
-            <a href="#">
-              <div class="boutton-discussion">
-                <div class="parti-boutton">
-                  <h1>Discussion #1</h1>
-                  <p>Créée le 08/03/2016 par Alizée Faytre</p>
-                </div>
-                <div class="parti-boutton-2">
-                  <h2>77 messages</h2>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="boutton-discussion">
-                <div class="parti-boutton">
-                  <h1>Discussion #1</h1>
-                  <p>Créée le 08/03/2016 par Alizée Faytre</p>
-                </div>
-                <div class="parti-boutton-2">
-                  <h2>77 messages</h2>
-                </div>
-              </div>
-            </a>
-          </li>
-        </ul>
+    <div class="reglage">
+      <p>Recevoir des notifications par mail lorsqu'une nouvelle activité est ajoutée</p>
+      <a href="#" class="button light">Désactiver</a>
+    </div>
+    <div class="reglage">
+      <p>Recevoir des notifications par mail lorsque quelqu'un répond à ma discussion</p>
+      <a href="#" class="button light">Désactiver</a>
     </div>
     <?php include 'assets/template/footer.php'; ?>
   </body>

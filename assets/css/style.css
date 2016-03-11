@@ -340,6 +340,59 @@ section.info-groupe p {
   border: #9972FA solid 1px;
 }
 
+.membre {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.membre span {
+  color: #53FFC0;
+  border: #53FFC0 solid 1px;
+  border-radius: 50%;
+  font-size: 2.5em;
+  font-weight: bold;
+  padding: 6px;
+}
+
+.membre h1 {
+  color: #53FFC0;
+  font-weight: lighter;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.membre h3 {
+  color: rgb(167, 178, 184);
+  display:inline-block;
+  float:right;
+  font-weight: lighter;
+}
+
+.reglage {
+  max-width: 900px;
+  margin: 0 auto;
+  border-bottom: #9972FA solid 1px;
+  padding: 40px 0;
+}
+
+.reglage p {
+  color: #9972FA;
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: lighter;
+  max-width: 550px;
+}
+
+.reglage a {
+  display: inline-block;
+  float: right;
+}
+
+.boutton-reglage {
+  width: 20px;
+  height: 20px;
+}
+
 .content {
   position: relative;
 }
@@ -410,7 +463,7 @@ b {
   color: #9972FA;
   border: #9972FA solid 1px;
   border-radius: 5px;
-  background-color: rgba(153, 114, 250, 0.2);
+  background-color: rgba(153, 114, 250, 0.5);
 }
 
 .boutton-discussion h1 {
