@@ -4,7 +4,7 @@
  * Connection à la base de données
  */
 
-abstract class Modele {
+abstract class Database {
 
   // Objet PDO d'accès à la BDD
   private $bdd;

@@ -1,7 +1,3 @@
-<?php
-include 'function.php';
-getLanguage('fr');
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,12 +10,12 @@ getLanguage('fr');
     <section class="pink-bg">
       <div class="column">
         <h1><?php lang('Connexion') ?></h1>
-        <form action="index.php" method="post">
+        <form action="" method="post">
           <input type="email" class="clear-form" name="email" placeholder="<?php lang('adresse-email') ?>">
-          <input type="password" class="clear-form" name="passwd" placeholder="<?php lang('motdepasse') ?>">
+          <input type="password" class="clear-form" name="password" placeholder="<?php lang('motdepasse') ?>">
           <input id="remember" type="checkbox" name="remember" checked><label for="remember"><?php lang('rester-connecté') ?></label>
           <input class="button" type="submit" name="send" value="<?php lang('valider') ?>">
-          <a href="#" class="forget"><?php lang('mdp-oublie') ?></a>
+          <a href="/fr/forgot" class="forget"><?php lang('mdp-oublie') ?></a>
         </form>
       </div>
     </section>
@@ -27,7 +23,7 @@ getLanguage('fr');
       <div class="overlay dark-grad"></div>
       <div class="content">
         <h1 class="light-text"><?php lang('inscrit-title') ?></h1>
-        <a href="inscription.php" class="button margin dark"><?php lang('inscription') ?></a>
+        <a href="/fr/inscription" class="button margin dark"><?php lang('inscription') ?></a>
       </div>
     </section>
     <?php include 'assets/template/footer.php'; ?>

@@ -608,19 +608,18 @@ a.forget:hover {
 }
 
 .radio-button {
-  margin: 20px 0;
   background: none;
   border: #9972FA solid 1px;
   width: 18px;
   height: 18px;
   vertical-align: top;
   border-radius: 30px;
-  margin: 0;
+  vertical-align: top;
+  margin-right: 5px;
 }
 
 .radio-inner {
   position: absolute;
-  box-sizing: box;
   left: 0;
   top: 0;
   height: 8px;
@@ -628,8 +627,9 @@ a.forget:hover {
   margin: 5px;
   border-radius: 10px;
   background: #9972FA;
-  transform: scale(0.01);
+  transform: scale(0.001);
   transition: transform .3s ease;
+  vertical-align: top;
 }
 
 .radio-button:checked + .radio-inner {
@@ -642,12 +642,13 @@ a.forget:hover {
   font-size: 1.2em;
   margin-right: 20px;
   cursor: pointer;
+  position: relative;
 }
 
 .radio {
   display: inline-block;
-  position: relative;
 }
+
 .profile-btn {
   display: inline-block;
   float: right;

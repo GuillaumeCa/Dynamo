@@ -1,7 +1,3 @@
-<?php
-include 'function.php';
-getLanguage('fr');
-?>
 <!DOCTYPE html>
 <html>
   <head>

@@ -1,6 +1,6 @@
 <header>
   <div class="logo">
-    <a href="index.php">
+    <a href="/fr">
     <img src="assets/images/logo.png" alt="logo" />
     </a>
   </div>
@@ -67,9 +67,9 @@
   </a>
   <nav>
     <ul>
-      <li><a href="liste-groupes.php"><?php lang('Groupes') ?> <span class="notif">3</span></a></li>
-      <li><a href="#"><?php lang('Forum') ?> <span class="notif">30</span></a></li>
-      <li><a href="help.php"><?php lang('Aide') ?></a></li>
+      <li><a href="/fr/groupe"><?php lang('Groupes') ?> <span class="notif">3</span></a></li>
+      <li><a href="/fr/forum"><?php lang('Forum') ?> <span class="notif">30</span></a></li>
+      <li><a href="/fr/help"><?php lang('Aide') ?></a></li>
     </ul>
   </nav>
 </header>

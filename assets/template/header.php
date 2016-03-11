@@ -1,6 +1,6 @@
 <header>
   <div class="logo">
-    <a href="index.php">
+    <a href="/fr">
     <img src="assets/images/logo.png" alt="logo" />
     </a>
   </div>
@@ -65,9 +65,9 @@
 
   <nav>
     <ul>
-      <li><a href="connect.php"><?php lang('Connexion') ?> </a></li>
-      <li><a href="#"><?php lang('Forum') ?></a></li>
-      <li><a href="help.php"><?php lang('Aide') ?></a></li>
+      <li><a href="/fr/login"><?php lang('Connexion') ?> </a></li>
+      <li><a href="/fr/forum"><?php lang('Forum') ?></a></li>
+      <li><a href="/fr/help"><?php lang('Aide') ?></a></li>
     </ul>
   </nav>
 </header>

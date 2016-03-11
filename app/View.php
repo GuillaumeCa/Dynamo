@@ -1,5 +1,7 @@
 <?php
 
+require_once 'app/Translate.php';
+
 /**
  * Permet d'afficher les pages et d'associer les parametres issus du modele.
  */
@@ -16,9 +18,9 @@ class Vue
   {
     $data = $parameters;
     if ($template == 'base') {
-      require 'view/template/header.php';
+      //require 'assets/template/header.php';
       require $this->fichier;
-      require 'view/template/footer.php';
+      //require 'assets/template/footer.php';
     }
   }
 

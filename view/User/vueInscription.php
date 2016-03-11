@@ -1,19 +1,15 @@
-<?php
-include 'function.php';
-getLanguage('fr');
-?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="assets/css/style.css" charset="utf-8">
     <title>Inscription</title>
   </head>
   <body>
     <?php include 'assets/template/header.php' ?>
     <section class="dark-bg">
         <div class="column">
-          <form class="inscription" action="index.php" method="post">
+          <form class="inscription" action="" method="post">
               <h1 class="green-text">Inscription</h1>
               <h3>Tout les champs sont obligatoires</h3>
               <h2 class="green-text">Nom</h2>
@@ -22,8 +18,8 @@ getLanguage('fr');
               <h2 class="green-text">Email</h2>
               <input class="clear-form" type="email" name="email" placeholder="e-mail">
               <h2 class="green-text">Mot de passe</h2>
-              <input class="clear-form mdp" type="password" name="mdp" placeholder="mot de passe">
-              <input class="clear-form mdp" type="password" name="verifmdp" placeholder="confirmer mot de passe" oninput="verif()">
+              <input class="clear-form mdp" type="password" name="password" placeholder="mot de passe">
+              <input class="clear-form mdp" type="password" name="confirmation" placeholder="confirmer mot de passe" oninput="verif()">
               <h2 class="green-text">Adresse</h2>
               <input class="clear-form" type="text" name="ville" placeholder="ville">
               <input class="clear-form" type="text" name="codepostal" placeholder="code postal">
@@ -53,14 +49,14 @@ getLanguage('fr');
               <h2 class="green-text">Sexe</h2>
               <div class="label-center">
                 <div class="radio">
-                  <input type="radio" class="radio-button" name="name" value="" checked="checked" id="H">
+                  <label><input type="radio" class="radio-button" name="sexe" value="1" checked="checked">
                   <span class="radio-inner"></span>
-                  <label for="H">Homme</label>
+                  Homme</label>
                 </div>
                 <div class="radio">
-                  <input type="radio" class="radio-button" name="name" value="" id="F">
+                  <label><input type="radio" class="radio-button" name="sexe" value="0">
                   <span class="radio-inner"></span>
-                  <label for="F">Femme</label>
+                  Femme</label>
                 </div>
               </div>
               <input id="submit" type="submit" class="button dark" value="s'inscrire">
