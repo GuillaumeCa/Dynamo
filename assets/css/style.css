@@ -708,14 +708,9 @@ a.forget:hover {
   margin-bottom: 5px;
 }
 
-.auto-width li span {
+.auto-width li .group-text {
   margin-right: 10px;
-  font-weight: normal;
-  font-size: 0.8em;
-}
-
-.gallerie {
-
+  font-weight: lighter;
 }
 
 .gallerie .group {
@@ -787,14 +782,14 @@ a.forget:hover {
   padding: 10px;
   vertical-align: top;
   color: #9972FA;
-
   font-weight: lighter;
   height: 100px;
 }
 
-.middle-text h1{
+.middle-text h1 {
   font-size: 2em;
   margin-bottom: 20px;
+  font-weight : lighter;
 }
 
 .middle-text .group-text {
@@ -803,4 +798,59 @@ a.forget:hover {
 
 .margin-top {
   margin-top: 30px;
+}
+
+.list-large li {
+  background-color: rgba(153, 114, 250, 0.2)
+}
+
+.leader {
+  color: #9972FA;
+  margin-left: 200px;
+  font-size: 20px;
+  font-weight: lighter;
+  padding: 40px 0;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.note {
+  color: #9972FA;
+  margin-left: 40px;
+  font-size: 20px;
+  font-weight: lighter;
+  padding: 20px 0;
+  vertical-align: bottom;
+  display: inline-block;
+}
+
+.note span{
+  font-size: 60px;
+  font-weight: lighter;
+  line-height: 60px;
+  display: inline-block;
+}
+
+.invitations {
+  color: #9972FA;
+  max-width: 400px;
+  padding: 20px;
+  border-top: #9972FA solid 1px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.button-invit {
+  display: inline-block;
+  margin-left: 60px;
+  text-align: center;
+  padding-top: 7px;
+}
+
+.note-invit {
+  display: inline-block;
+  height: 84px;
+  vertical-align: top;
+  margin-left: 120px;
+  padding-top: 8px;
 }
