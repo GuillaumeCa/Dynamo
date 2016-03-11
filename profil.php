@@ -24,7 +24,7 @@ getLanguage('fr');
       <nav class="nav-groupe">
         <ul>
           <li><a href="#" class="active">informations</a></li>
-          <li><a href="#">planning</a></li>
+          <li><a href="profil-planning.php">planning</a></li>
           <li><a href="#">Historique</a></li>
           <!-- bouton réglage temporaire -->
           <li><a href="#">
@@ -71,11 +71,11 @@ getLanguage('fr');
             <td align=left> xxxxxx  </td>
           </TR>
           <TR>
-            <TH>Complément d'adresse : </TH>
+            <TH> Complément d'adresse : </TH>
             <td align=left> xxxxxx  </td>
           </TR>
           <TR>
-            <TH> mail : </TH>
+            <TH> Email : </TH>
             <td align=left> xxxxxxxxxxxxx </td>
           </TR>
         </TABLE>
