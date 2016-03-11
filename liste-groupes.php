@@ -37,8 +37,8 @@ getLanguage('fr');
               <span class="group-text"><b>Sport</b> yoga</span>
               <span class="group-text"><b>Club</b> Forest Hill</span>
             </div>
-            <span class="leader">LEADER</span>
             <span class="note"><span>7</span>/7</span>
+            <span class="leader">LEADER</span>
           </li>
         </a>
         <a href="groupe.php">
@@ -57,8 +57,8 @@ getLanguage('fr');
               <span class="group-text"><b>Sport</b> yoga</span>
               <span class="group-text"><b>Club</b> Forest Hill</span>
             </div>
-            <span class="leader">LEADER</span>
             <span class="note"><span>7</span>/7</span>
+            <span class="leader">LEADER</span>
           </li>
         </a>
         <a href="groupe.php">
@@ -77,8 +77,8 @@ getLanguage('fr');
               <span class="group-text"><b>Sport</b> yoga</span>
               <span class="group-text"><b>Club</b> Forest Hill</span>
             </div>
-            <span class="leader">LEADER</span>
             <span class="note"><span>7</span>/7</span>
+            <span class="leader">LEADER</span>
           </li>
         </a>
       </ul>
@@ -103,9 +103,6 @@ getLanguage('fr');
               <span class="group-text"><b>Sport</b> yoga</span>
               <span class="group-text"><b>Club</b> Forest Hill</span>
             </div>
-            <div class="note-invit">
-              <span class="note"><span>7</span>/7</span>
-            </div>
             <div class="button-invit">
               <div>
                 <a href="#" class="button">Accepter</a>
@@ -114,6 +111,9 @@ getLanguage('fr');
               <div>
                 <a href="#" class="button">Refuser</a>
               </div>
+            </div>
+            <div class="note-invit">
+              <span class="note"><span>7</span>/7</span>
             </div>
           </li>
 <!--Suite des invitations -->

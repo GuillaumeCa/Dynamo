@@ -860,7 +860,7 @@ a.forget:hover {
 
 .leader {
   color: #9972FA;
-  margin-left: 200px;
+  float: right;
   font-size: 20px;
   font-weight: lighter;
   padding: 40px 0;
@@ -870,10 +870,10 @@ a.forget:hover {
 
 .note {
   color: #9972FA;
-  margin-left: 40px;
+  float: right;
   font-size: 20px;
   font-weight: lighter;
-  padding: 20px 0;
+  padding: 20px 40px;
   vertical-align: bottom;
   display: inline-block;
 }
@@ -896,15 +896,16 @@ a.forget:hover {
 
 .button-invit {
   display: inline-block;
-  margin-left: 60px;
+  float: right;
   text-align: center;
   padding-top: 7px;
+  padding-right: 30px;
 }
 
 .note-invit {
   display: inline-block;
   height: 84px;
   vertical-align: top;
-  margin-left: 120px;
+  float: right;
   padding-top: 8px;
 }
