@@ -320,6 +320,38 @@ section.info-groupe p {
   border-bottom: #9972FA solid 1px;
 }
 
+.liste {
+  border-top: #53FFC0 solid 1px;
+  text-align:right; 
+}
+
+.titre{
+  font-size: 20px;
+  color: #53FFC0;
+  display: inline-block;
+}
+
+.modification {
+  float: right;
+  margin-top:10px;
+}
+
+.deconnexion {
+  text-align: center;
+}
+
+.deconnexion a{
+  color: grey;
+  font-size: 1em;
+  border-color: grey;
+}
+
+.deconnexion a:hover{
+  background: none;
+  color: grey;
+
+}
+
 .nav-groupe {
   max-width: 900px;
   margin: 0 auto;
@@ -336,6 +368,19 @@ section.info-groupe p {
 .nav-groupe li:last-child {
   margin: 0;
   float: right;
+}
+
+.nav-groupe li:last-child a {
+  border: none;
+}
+
+.nav-groupe li:last-child a:hover {
+  border: none;
+}
+
+.nav-groupe li svg {
+  width: 20px;
+  height: 20px;
 }
 
 .nav-groupe a {
