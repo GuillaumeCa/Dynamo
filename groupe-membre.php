@@ -10,8 +10,7 @@ getLanguage('fr');
     <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <?php include 'assets/template/header-priv.php' ?>
-    <?php require 'assets/images/svg.php'; ?>
+    <?php include 'assets/template/header.php' ?>
     <section class="info-groupe" style="background-image: url(/assets/images/sport1.png);">
       <div class="overlay"></div>
       <div class="en-tete-groupe">
@@ -26,16 +25,27 @@ getLanguage('fr');
     <div class="div-nav">
       <nav class="nav-groupe">
         <ul>
-          <li><a href="#" class="active">informations</a></li>
-          <li><a href="#">membres</a></li>
+          <li><a href="#">informations</a></li>
+          <li><a href="#" class="active">membres</a></li>
           <li><a href="#">planning</a></li>
-          <li><a href="groupe-discussion.php">discussions</a></li>
+          <li><a href="/groupe-discussion.php">discussions</a></li>
           <!-- bouton réglage temporaire -->
-          <li><a href="#" class="settings"><svg>
-            <use xlink:href="#gear"></use>
-          </svg></a></li>
+          <li><a href="/groupe-reglage.php">reglages</a></li>
         </ul>
       </nav>
+    </div>
+    <div class="membre">
+      <a href="#">
+        <span>GC</span>
+        <h1>Guillaume Carre</h1>
+      </a>
+      <h3>LEADER</h3>
+    </div>
+    <div class="membre">
+      <a href="#">
+        <span>AA</span>
+        <h1>Anthony Agnel</h1>
+      </a>
     </div>
     <?php include 'assets/template/footer.php'; ?>
   </body>

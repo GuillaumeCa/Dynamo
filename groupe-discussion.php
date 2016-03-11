@@ -26,9 +26,10 @@ getLanguage('fr');
       <nav class="nav-groupe">
         <ul>
           <li><a href="#">informations</a></li>
-          <li><a href="#">membres</a></li>
+          <li><a href="/groupe-membre.php">membres</a></li>
           <li><a href="#">planning</a></li>
-          <li><a href="#">discussions</a></li>
+          <li><a href="#" class="active">discussions</a></li>
+          <li><a href="/groupe-reglage.php">réglages</a></li>
         </ul>
       </nav>
     </div>
