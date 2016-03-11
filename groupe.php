@@ -10,7 +10,8 @@ getLanguage('fr');
     <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <?php include 'assets/template/header.php' ?>
+    <?php include 'assets/template/header-priv.php' ?>
+    <?php require 'assets/images/svg.php'; ?>
     <section class="info-groupe" style="background-image: url(/assets/images/sport1.png);">
       <div class="overlay"></div>
       <div class="en-tete-groupe">
@@ -28,9 +29,11 @@ getLanguage('fr');
           <li><a href="#" class="active">informations</a></li>
           <li><a href="#">membres</a></li>
           <li><a href="#">planning</a></li>
-          <li><a href="#">discussions</a></li>
+          <li><a href="groupe-discussion.php">discussions</a></li>
           <!-- bouton réglage temporaire -->
-          <li><a href="#">reglages</a></li>
+          <li><a href="#" class="settings"><svg>
+            <use xlink:href="#gear"></use>
+          </svg></a></li>
         </ul>
       </nav>
     </div>

@@ -340,6 +340,7 @@ section.info-groupe p {
   border: #9972FA solid 1px;
 }
 
+<<<<<<< HEAD
 .membre {
   max-width: 900px;
   margin: 40px auto;
@@ -389,6 +390,14 @@ section.info-groupe p {
 }
 
 .boutton-reglage {
+=======
+.nav-groupe a.settings {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.nav-groupe a svg {
+>>>>>>> 732220b64e0f7c33a7e2a824ce1caec5d03f17cc
   width: 20px;
   height: 20px;
 }
