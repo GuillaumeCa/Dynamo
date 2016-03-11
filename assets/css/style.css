@@ -754,6 +754,7 @@ a.forget:hover {
   width: 150px;
   display: inline-block;
   position: relative;
+  vertical-align: top;
 }
 
 .img-group {
