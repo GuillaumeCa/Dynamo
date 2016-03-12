@@ -22,7 +22,6 @@ class UserController
       $validate = new Validate($_POST);
 
       if ($validate->isEmpty('cgu')) {
-
         $validate->notEmpty('nom', "le nom ne peut être vide");
         $validate->notEmpty('prenom', "le prénom ne peut être vide");
 
@@ -31,7 +30,7 @@ class UserController
         $validate->isUnique('email', $email, "l'email est déjà utilisé");
 
         $validate->doubleCheck('password', 'confirmation', "les mot de passe ne correspondent pas");
-
+        Router::debug($validate->error);
         if ($validate->isValid()) {
           $_SESSION["inscription"] = $_POST;
           $vue = new Vue("CGU", "User");
@@ -55,6 +54,14 @@ class UserController
     }
 
   }
+
+  public function verifinscription($token)
+  {
+    $tok = $this->user->getUserFromToken($token);
+    $vue = new Vue("Verif", "User");
+    $vue->render(['token' => $tok]);
+  }
+
 
   public function login()
   {

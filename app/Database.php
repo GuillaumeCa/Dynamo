@@ -40,4 +40,18 @@ abstract class Database {
     return $this->bdd;
   }
 
+
+  // génere une chaine de caractères aléatoires.
+  public function generateToken($length = 30)
+  {
+    $token = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    $token = substr(str_shuffle(str_repeat($token,10)), 0, $length);
+    return $token;
+  }
+
+  public function queryEmpty($result)
+  {
+    return is_bool($result);
+  }
+
 }

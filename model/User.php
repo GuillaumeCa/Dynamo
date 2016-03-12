@@ -25,7 +25,7 @@ class User extends Database
   {
     $q = "SELECT email FROM utilisateur WHERE email = ?";
     $req = $this->executerRequete($q, [$_POST['email']]);
-    return $req->fetch();
+    return $req;
   }
 
   public function handleLogin()
