@@ -449,6 +449,11 @@ section .column h1 {
   color: rgba(255, 255, 255, 0.50);
 }
 
+.inscription .errors {
+  color: rgba(254, 170, 36, 0.57);
+  margin-bottom: 10px;
+}
+
 form > label, form > input[type=checkbox] {
   display: inline-block;
 }
