@@ -753,13 +753,17 @@ a.forget:hover {
   margin-bottom: 5px;
 }
 
-.auto-width ul {
+.hud-padding ul {
+  padding-left: 20px;
+}
+
+.list-large ul {
   font-weight: 600;
   font-size: 0.9em;
   margin-bottom: 5px;
 }
 
-.auto-width li .group-text {
+.auto-width li .group-text, .hud-padding li span {
   margin-right: 10px;
   font-weight: lighter;
 }
