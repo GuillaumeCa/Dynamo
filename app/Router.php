@@ -107,7 +107,7 @@ class Router {
     header("Location: /fr/$url");
   }
 
-  static function debug($var)
+  public static function debug($var)
   {
     echo "<pre>";
     var_dump($var);

@@ -30,7 +30,7 @@ class UserController
         $validate->isUnique('email', $email, "l'email est déjà utilisé");
 
         $validate->doubleCheck('password', 'confirmation', "les mot de passe ne correspondent pas");
-        Router::debug($validate->error);
+        //Router::debug($validate->error);
         if ($validate->isValid()) {
           $_SESSION["inscription"] = $_POST;
           $vue = new Vue("CGU", "User");

@@ -378,6 +378,49 @@ b {
   margin-top: 10px;
 }
 
+.cgu {
+  background-color: #2C2147;
+  color: #53FFC0;
+}
+
+.cgu h1, h2 {
+  text-align: center;
+  padding: 8px;
+  font-weight: lighter;
+}
+
+.cgu input {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.condition-utilisation {
+  max-width: 900px;
+  margin: 0 auto;
+  border: #53FFC0 solid 1px;
+  border-radius: 5px;
+  text-align: justify;
+  padding: 10px;
+}
+
+.mdp-oublie {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mdp-oublie input {
+  color: #53FFC0;
+  border: #53FFC0 solid 1px;
+  border-radius: 5px;
+}
+
+.logo-en-tete {
+  height: 100px;
+  color: #53FFC0;
+  font-weight: lighter;
+}
+
 section .column {
   max-width: 900px;
   margin: 0 auto;
