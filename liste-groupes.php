@@ -24,7 +24,7 @@ getLanguage('fr');
         <a href="groupe.php">
           <li>
             <div class="left-icon">
-              <div class="img-group" style="background-image: url(http://greatist.com/sites/default/files/styles/big_share/public/free-yoga.png?itok=uwn98osm);">
+              <div class="img-group" style="background-image: url(/assets/images/yoga.png);">
               </div>
               <div class="circle">
                   <svg>
@@ -44,7 +44,7 @@ getLanguage('fr');
         <a href="groupe.php">
           <li>
             <div class="left-icon">
-              <div class="img-group" style="background-image: url(http://greatist.com/sites/default/files/styles/big_share/public/free-yoga.png?itok=uwn98osm);">
+              <div class="img-group" style="background-image: url(/assets/images/yoga.png);">
               </div>
               <div class="circle">
                   <svg>
@@ -64,7 +64,7 @@ getLanguage('fr');
         <a href="groupe.php">
           <li>
             <div class="left-icon">
-              <div class="img-group" style="background-image: url(http://greatist.com/sites/default/files/styles/big_share/public/free-yoga.png?itok=uwn98osm);">
+              <div class="img-group" style="background-image: url(/assets/images/yoga.png);">
               </div>
               <div class="circle">
                   <svg>
@@ -88,34 +88,60 @@ getLanguage('fr');
       <div class="invitations"><b>INVITATIONS</b></div>
       <div class="list-large">
         <ul>
-          <li>
-            <div class="left-icon">
-              <div class="img-group" style="background-image: url(http://greatist.com/sites/default/files/styles/big_share/public/free-yoga.png?itok=uwn98osm);">
+            <li>
+              <a href="groupe.php"><span class="overlay"></span></a>
+              <div class="left-icon">
+                <div class="img-group" style="background-image: url(/assets/images/yoga.png);">
+                </div>
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#ball"></use>
+                  </svg>
+                </div>
               </div>
-              <div class="circle">
-                <svg>
-                  <use xlink:href="#ball"></use>
-                </svg>
+              <div class="middle-text">
+                <h1>Groupe #7</h1>
+                <span class="group-text"><b>Sport</b> yoga</span>
+                <span class="group-text"><b>Club</b> Forest Hill</span>
               </div>
-            </div>
-            <div class="middle-text">
-              <h1>Groupe #7</h1>
-              <span class="group-text"><b>Sport</b> yoga</span>
-              <span class="group-text"><b>Club</b> Forest Hill</span>
-            </div>
-            <div class="button-invit">
-              <div>
-                <a href="#" class="button">Accepter</a>
+              <div class="button-invit">
+                <div>
+                  <a href="#" class="button purple">Accepter</a>
+                </div>
+                </br>
+                <div>
+                  <a href="#" class="button purple">Refuser</a>
+                </div>
               </div>
-              </br>
-              <div>
-                <a href="#" class="button">Refuser</a>
-              </div>
-            </div>
-            <div class="note-invit">
               <span class="note"><span>7</span>/7</span>
-            </div>
-          </li>
+            </li>
+            <li>
+              <a href="groupe.php"><span class="overlay"></span></a>
+              <div class="left-icon">
+                <div class="img-group" style="background-image: url(/assets/images/yoga.png);">
+                </div>
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#ball"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="middle-text">
+                <h1>Groupe #7</h1>
+                <span class="group-text"><b>Sport</b> yoga</span>
+                <span class="group-text"><b>Club</b> Forest Hill</span>
+              </div>
+              <div class="button-invit">
+                <div>
+                  <a href="#" class="button purple">Accepter</a>
+                </div>
+                </br>
+                <div>
+                  <a href="#" class="button purple">Refuser</a>
+                </div>
+              </div>
+              <span class="note"><span>7</span>/7</span>
+            </li>
 <!--Suite des invitations -->
         </ul>
       </div>

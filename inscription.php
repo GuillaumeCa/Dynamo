@@ -22,8 +22,11 @@ getLanguage('fr');
               <h2 class="green-text">Email</h2>
               <input class="clear-form" type="email" name="email" placeholder="e-mail">
               <h2 class="green-text">Mot de passe</h2>
-              <input class="clear-form mdp" type="password" name="mdp" placeholder="mot de passe">
+              <input class="clear-form mdp" type="password" name="mdp" placeholder="mot de passe" onclick="resetMdp()">
               <input class="clear-form mdp" type="password" name="verifmdp" placeholder="confirmer mot de passe" oninput="verif()">
+              <div class="errors">
+
+              </div>
               <h2 class="green-text">Adresse</h2>
               <input class="clear-form" type="text" name="ville" placeholder="ville">
               <input class="clear-form" type="text" name="codepostal" placeholder="code postal">
