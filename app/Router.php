@@ -65,6 +65,11 @@ class Router {
           $this->ctr['User']->logout();
           break;
 
+        case 'dev':
+          $vue = new Vue('Success','User');
+          $vue->render();
+          break;
+
         default:
           throw new Exception("Page non valide");
           break;

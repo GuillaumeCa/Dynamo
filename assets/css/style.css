@@ -306,6 +306,19 @@ section.info-groupe p {
   text-align: justify;
 }
 
+.column {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.column h1 {
+  font-size: 4em;
+  color: white;
+  font-weight: lighter;
+}
+
 .div-nav {
   border-bottom: #9972FA solid 1px;
 }
@@ -381,26 +394,38 @@ b {
 .cgu {
   background-color: #2C2147;
   color: #53FFC0;
+  padding: 20px;
 }
 
-.cgu h1, h2 {
+.cgu h1, .cgu h2 {
   text-align: center;
   padding: 8px;
   font-weight: lighter;
 }
 
-.cgu input {
-  font-size: 20px;
-  padding-bottom: 20px;
+.cgu h2 {
+  font-size: 2em;
+  text-align: left;
 }
 
 .condition-utilisation {
-  max-width: 900px;
-  margin: 0 auto;
-  border: #53FFC0 solid 1px;
+  border: lightgrey solid 1px;
   border-radius: 5px;
   text-align: justify;
-  padding: 10px;
+  padding: 20px;
+  height: 400px;
+  overflow: auto;
+  color: white;
+}
+
+.condition-utilisation h3 {
+  font-weight: 600;
+  font-size: 1.7em;
+}
+
+.condition-utilisation p {
+  margin-bottom: 10px;
+  font-size: 1.2em;
 }
 
 .mdp-oublie {
@@ -421,18 +446,7 @@ b {
   font-weight: lighter;
 }
 
-section .column {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 20px 0;
-}
 
-section .column h1 {
-  font-size: 4em;
-  color: white;
-  font-weight: lighter;
-}
 
 .clear-form {
   padding: .5em;
