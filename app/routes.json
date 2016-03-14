@@ -1,0 +1,6 @@
+{
+  "accueil" : "accueil",
+  "groupe"  : "groupe",
+  "inscription" : "inscription",
+  "inscription-verif" : "inscription/activ/([a-zA-Z0-9]+)"
+}

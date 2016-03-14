@@ -13,10 +13,15 @@ class Router {
 
   private $page;
   private $params;
+  private $routes;
 
 
   public function __construct() {
     session_start();
+    $myfile = file_get_contents("app/routes.json", "r") or die("Unable to open file!");
+    // Output one line until end-of-file
+    $this->routes = json_decode($myfile, true);
+    var_dump($this->routes);
     $this->ctr = [
       'Accueil' => new AccueilController(),
       'Group' => new GroupController(),
@@ -118,4 +123,10 @@ class Router {
   private function erreur($msgErreur) {
     echo $msgErreur;
   }
+
+  private function getPage($nom)
+  {
+    return $this->routes[$nom];
+  }
+
 }
