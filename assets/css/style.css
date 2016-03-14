@@ -1026,3 +1026,9 @@ a.forget:hover {
   float: right;
   padding-top: 8px;
 }
+
+.column p {
+  color: #53FFC0;
+  display: inline-block;
+  font-size: 1.2em;
+}
