@@ -27,7 +27,7 @@ getLanguage('fr');
           <li><a href="profil-planning.php">planning</a></li>
           <li><a href="#">Historique</a></li>
           <!-- bouton réglage temporaire -->
-          <li><a href="#">
+          <li><a href="#" class="settings">
             <svg>
               <use xlink:href="#gear"></use>
             </svg>

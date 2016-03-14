@@ -322,7 +322,7 @@ section.info-groupe p {
 
 .liste {
   border-top: #53FFC0 solid 1px;
-  text-align:right; 
+  text-align:right;
 }
 
 .titre{
@@ -368,14 +368,6 @@ section.info-groupe p {
 .nav-groupe li:last-child {
   margin: 0;
   float: right;
-}
-
-.nav-groupe li:last-child a {
-  border: none;
-}
-
-.nav-groupe li:last-child a:hover {
-  border: none;
 }
 
 .nav-groupe li svg {
