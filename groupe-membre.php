@@ -11,6 +11,7 @@ getLanguage('fr');
   </head>
   <body>
     <?php include 'assets/template/header.php' ?>
+    <?php require 'assets/images/svg.php'; ?>
     <section class="info-groupe" style="background-image: url(/assets/images/sport1.png);">
       <div class="overlay"></div>
       <div class="en-tete-groupe">
@@ -30,7 +31,7 @@ getLanguage('fr');
           <li><a href="#">planning</a></li>
           <li><a href="/groupe-discussion.php">discussions</a></li>
           <!-- bouton réglage temporaire -->
-          <li><a href="/groupe-reglage.php">reglages</a></li>
+          <li><a href="/groupe-reglage.php" class="settings"><svg class="boutton-reglage"><use xlink:href="#gear"></use></svg></a></li>
         </ul>
       </nav>
     </div>

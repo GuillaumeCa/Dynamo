@@ -27,11 +27,11 @@ getLanguage('fr');
       <nav class="nav-groupe">
         <ul>
           <li><a href="#" class="active">informations</a></li>
-          <li><a href="#">membres</a></li>
+          <li><a href="/groupe-membre.php">membres</a></li>
           <li><a href="#">planning</a></li>
           <li><a href="groupe-discussion.php">discussions</a></li>
           <!-- bouton réglage temporaire -->
-          <li><a href="#" class="settings"><svg>
+          <li><a href="groupe-reglage.php" class="settings"><svg>
             <use xlink:href="#gear"></use>
           </svg></a></li>
         </ul>
