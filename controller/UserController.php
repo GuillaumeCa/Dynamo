@@ -37,7 +37,7 @@ class UserController
           $vue->render();
         } else {
           $vue = new Vue("Inscription", "User");
-          $vue->render(['inscription' => $inscription]);
+          $vue->render();
         }
 
       } else {
@@ -50,7 +50,7 @@ class UserController
 
     } else {
       $vue = new Vue("Inscription", "User");
-      $vue->render(['inscription' => $inscription]);
+      $vue->render();
     }
 
   }
