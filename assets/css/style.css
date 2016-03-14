@@ -359,6 +359,16 @@ section.info-groupe p {
   border: #9972FA solid 1px;
 }
 
+.nav-groupe a.settings {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.nav-groupe a svg {
+  width: 20px;
+  height: 20px;
+}
+
 .membre {
   max-width: 900px;
   margin: 40px auto;
@@ -482,7 +492,7 @@ b {
   color: #9972FA;
   border: #9972FA solid 1px;
   border-radius: 5px;
-  background-color: rgba(153, 114, 250, 0.5);
+  background-color: rgba(153, 114, 250, 0.2);
 }
 
 .boutton-discussion h1 {
