@@ -13,15 +13,10 @@ class Router {
 
   private $page;
   private $params;
-  private $routes;
 
 
   public function __construct() {
     session_start();
-    $myfile = file_get_contents("app/routes.json", "r") or die("Unable to open file!");
-    // Output one line until end-of-file
-    $this->routes = json_decode($myfile, true);
-    var_dump($this->routes);
     $this->ctr = [
       'Accueil' => new AccueilController(),
       'Group' => new GroupController(),
@@ -33,74 +28,52 @@ class Router {
   // url : site.com/index.php?lang=fr&p=groupe/{id-groupe}/...
   public function routerRequete() {
     try {
-      if ($this->page) {
-        switch ($this->page) {
+      switch ($this->page) {
+        case 'accueil':
+          $this->ctr['Accueil']->accueil();
+          break;
 
-          case 'groupe':
-            if ($this->isLoggedIn()) {
-              $this->ctr['Group']->informations();
-            } else {
-              $this->redirect();
-            }
-            break;
-
-          case 'inscription':
-            if ($this->param('activ')) {
-              $this->ctr['User']->verifinscription($this->param('activ'));
-            } else {
-              $this->ctr['User']->inscription();
-            }
-            break;
-
-          case 'login':
-            $this->ctr['User']->login();
-            break;
-
-          case 'forgot':
-            if ($this->param('verif')) {
-              $this->ctr['User']->resetPwd($this->param('verif'));
-            } else {
-              $this->ctr['User']->forgot();
-            }
-            break;
-
-          case 'logout':
-            $this->ctr['User']->logout();
-            break;
-
-          default:
-            throw new Exception("Page non valide");
-            break;
+        case 'groupe':
+          if ($this->isLoggedIn()) {
+            $this->ctr['Group']->informations();
+          } else {
+            $this->redirect();
           }
-        } else {
-        // aucune action définie : affichage de l'accueil
-        $this->ctr['Accueil']->accueil();
+          break;
+
+        case 'inscription':
+          $this->ctr['User']->inscription();
+          break;
+
+        case 'inscription-verif':
+          $this->ctr['User']->verifinscription($this->params[0]);
+          break;
+
+        case 'login':
+          $this->ctr['User']->login();
+          break;
+
+        case 'forgot':
+          $this->ctr['User']->forgot();
+          break;
+
+        case 'forgot-verif':
+          $this->ctr['User']->resetPwd($this->params[0]);
+          break;
+
+        case 'logout':
+          $this->ctr['User']->logout();
+          break;
+
+        default:
+          throw new Exception("Page non valide");
+          break;
       }
     }
     catch (Exception $e) {
       $this->erreur($e->getMessage());
     }
   }
-
-  public function getParams()
-  {
-    if (isset($_GET['p'])) {
-      $url = explode("/", $_GET['p']);
-      $this->page = $url[0];
-      $parametres = array_slice($url, 1);
-      for ($i=0; $i < count($parametres)-1; $i+=2) {
-        if (!empty($parametres[$i+1])) {
-          $this->params[$parametres[$i]] = $parametres[$i+1];
-        }
-      }
-    }
-  }
-
-  public function param($value)
-  {
-    return isset($this->params[$value]) ? $this->params[$value] : null;
-  }
-
 
   private function isLoggedIn()
   {
@@ -124,9 +97,21 @@ class Router {
     echo $msgErreur;
   }
 
-  private function getPage($nom)
+  public function getPage()
   {
-    return $this->routes[$nom];
+    $myfile = file_get_contents("app/routes.json", "r") or die("Unable to open file!");
+    // Output one line until end-of-file
+    $routes = json_decode($myfile, true);
+    if (empty($_GET['p'])) {
+      $this->page = "accueil";
+    } else {
+      foreach ($routes as $key => $value) {
+        if (preg_match_all("#".$value."#", $_GET['p'], $param)) {
+          $this->page = $key;
+          $this->params = isset($param[1]) ? $param[1] : null;
+        }
+      }
+    }
   }
 
 }

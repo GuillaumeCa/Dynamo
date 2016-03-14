@@ -3,5 +3,5 @@
 require 'app/Router.php';
 
 $routeur = new Router();
-$routeur->getParams();
+$routeur->getPage();
 $routeur->routerRequete();
