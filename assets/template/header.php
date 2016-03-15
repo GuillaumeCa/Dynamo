@@ -1,7 +1,7 @@
 <header>
   <div class="logo">
     <a href="/fr">
-    <img src="assets/images/logo.png" alt="logo" />
+    <img src="/assets/images/logo.png" alt="logo" />
     </a>
   </div>
   <div class="search">

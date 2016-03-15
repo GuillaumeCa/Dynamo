@@ -70,7 +70,7 @@ class Router {
 
         case 'dev':
           $vue = new Vue('Success','User');
-          $vue->render();
+          $vue->render(['msg' => "Le mail est bien envoyé lol xD"]);
           break;
 
         default:

@@ -1,6 +1,6 @@
     <section class="pink-bg">
       <div class="column">
-        <h1>Mes Groupes</h1>
+        <h1 class="title">Mes Groupes</h1>
         <a href="#" class="button margin-top">Créer un groupe</a>
       </div>
     </section>

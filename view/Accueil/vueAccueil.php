@@ -8,7 +8,7 @@
     </section>
     <section class="dark-bg">
       <div class="column">
-        <h1>Types de sports</h1>
+        <h1 class="title">Types de sports</h1>
         <div class="grid">
           <?php for ($i = 0; $i < 20; $i++): ?>
             <div class="sport">

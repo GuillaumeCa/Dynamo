@@ -1,7 +1,7 @@
     <section class="dark-bg">
         <div class="column">
           <form class="inscription" action="" method="post">
-              <h1 class="green-text">Inscription</h1>
+              <h1 class="title green-text">Inscription</h1>
               <h3>Tout les champs sont obligatoires</h3>
               <h2 class="green-text">Nom</h2>
               <input class="clear-form" type="text" name="nom" placeholder="nom">

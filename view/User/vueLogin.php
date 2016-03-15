@@ -1,7 +1,7 @@
 
     <section class="pink-bg">
       <div class="column">
-        <h1><?php lang('Connexion') ?></h1>
+        <h1 class="title"><?php lang('Connexion') ?></h1>
         <form action="" method="post">
           <input type="email" class="clear-form" name="email" placeholder="<?php lang('adresse-email') ?>">
           <input type="password" class="clear-form" name="password" placeholder="<?php lang('motdepasse') ?>">

@@ -90,7 +90,7 @@ class UserController
         $vue = new Vue("Success", "User");
         $vue->render(['msg' => "Un lien de réinitialisation de votre mot de passe vous a été envoyé par mail."]);
       } else {
-        Routeur::debug($validate->errors);
+        Router::debug($validate->errors);
         $vue = new Vue("Forgot", "User");
         $vue->render();
       }

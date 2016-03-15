@@ -5,9 +5,13 @@
     <title>Success</title>
   </head>
   <body>
-    <h1>✔︎</h1>
-    <p>
-      <?php echo $data['msg'] ?>
-    </p>
+    <section class="pink-bg">
+      <div class="column success-section">
+        <h1 class="title success-title">✔︎</h1>
+        <p class="success-msg">
+          <?php echo $data['msg'] ?>
+        </p>
+      </div>
+    </section>
   </body>
 </html>

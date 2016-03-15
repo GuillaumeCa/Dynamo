@@ -1,6 +1,6 @@
     <section class="dark-bg">
         <div class="column cgu">
-          <h1>Inscription</h1>
+          <h1 class="title">Inscription</h1>
           <h2>Conditions d'utilisation</h2>
           <div class="condition-utilisation">
             <h3>Licence</h3>
