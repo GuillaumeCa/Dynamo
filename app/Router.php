@@ -16,7 +16,6 @@ class Router {
 
 
   public function __construct() {
-    session_start();
     $this->ctr = [
       'Accueil' => new AccueilController(),
       'Group' => new GroupController(),
@@ -30,12 +29,16 @@ class Router {
     try {
       switch ($this->page) {
         case 'accueil':
-          $this->ctr['Accueil']->accueil();
+          if (Router::isLoggedIn()){
+            $this->ctr['Accueil']->accueil_logged();
+          } else {
+            $this->ctr['Accueil']->accueil();
+          }
           break;
 
         case 'groupe':
-          if ($this->isLoggedIn()) {
-            $this->ctr['Group']->informations();
+          if (Router::isLoggedIn()) {
+            $this->ctr['Group']->liste();
           } else {
             $this->redirect();
           }
@@ -50,7 +53,7 @@ class Router {
           break;
 
         case 'login':
-          $this->ctr['User']->login();
+            $this->ctr['User']->login();
           break;
 
         case 'forgot':
@@ -80,7 +83,7 @@ class Router {
     }
   }
 
-  private function isLoggedIn()
+  public static function isLoggedIn()
   {
     return isset($_SESSION['auth']);
   }
@@ -88,6 +91,7 @@ class Router {
   private function redirect($url = "")
   {
     header("Location: /fr/$url");
+    exit();
   }
 
   public static function debug($var)
@@ -111,7 +115,7 @@ class Router {
       $this->page = "accueil";
     } else {
       foreach ($routes as $key => $value) {
-        if (preg_match_all("#".$value."#", $_GET['p'], $param)) {
+        if (preg_match_all("#^".$value."$#", $_GET['p'], $param)) {
           $this->page = $key;
           $this->params = isset($param[1]) ? $param[1] : null;
         }

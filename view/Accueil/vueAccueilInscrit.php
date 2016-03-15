@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
-    <title>Dynamo</title>
-  </head>
-  <body>
-    <?php include 'assets/template/header-priv.php' ?>
+
     <section class="pink-bg">
       <div class="auto-width">
         <div class="column-2 today">
@@ -119,6 +111,3 @@
         </a>
       </div>
     </section>
-    <?php include 'assets/template/footer.php'; ?>
-  </body>
-</html>

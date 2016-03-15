@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/style.css" charset="utf-8">
-    <title>Dynamo</title>
-  </head>
-  <body>
-    <?php include 'assets/template/header.php' ?>
-    <?php require_once 'assets/images/svg.php' ?>
     <section class="info bg-image-center" style="background-image: url(assets/images/sport1.png);">
       <div class="overlay"></div>
       <div class="content">
@@ -20,9 +10,7 @@
       <div class="column">
         <h1>Types de sports</h1>
         <div class="grid">
-          <?php
-          for ($i=0; $i < 20; $i++) {
-            ?>
+          <?php for ($i = 0; $i < 20; $i++): ?>
             <div class="sport">
               <a href="#">
                 <div class="circle">
@@ -34,12 +22,7 @@
               <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Balle</span>
             </div>
-            <?php
-          }
-          ?>
-
+          <?php endfor; ?>
+        </div>
       </div>
     </section>
-    <?php include 'assets/template/footer.php'; ?>
-  </body>
-</html>

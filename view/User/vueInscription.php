@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/style.css" charset="utf-8">
-    <title>Inscription</title>
-  </head>
-  <body>
-    <?php include 'assets/template/header.php' ?>
     <section class="dark-bg">
         <div class="column">
           <form class="inscription" action="" method="post">
@@ -63,7 +54,4 @@
             </form>
         </div>
     </section>
-    <script src="/assets/js/verif.js" charset="utf-8"></script>
-    <?php include 'assets/template/footer.php'; ?>
-  </body>
-</html>
+    <!-- <script src="/assets/js/verif.js" charset="utf-8"></script> -->

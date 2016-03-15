@@ -19,9 +19,9 @@ class GroupController
 
   public function liste()
   {
-    $list = $this->group->listGroupFromUser();
-    $vue = new Vue("liste_groupes");
-    $vue->render(['liste_groupe'=> $list]);
+    //$list = $this->group->listGroupFromUser();
+    $vue = new Vue("ListeGroupes", "Groupe");
+    $vue->render();
   }
 
   public function informations()

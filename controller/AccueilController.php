@@ -17,6 +17,11 @@ class AccueilController
     $this->user = new User();
   }
 
+  public function accueil_logged()
+  {
+    $vue = new Vue("AccueilInscrit", "Accueil");
+    $vue->render();
+  }
   public function accueil()
   {
     $vue = new Vue("Accueil", "Accueil");

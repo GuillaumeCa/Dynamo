@@ -8,24 +8,51 @@ require_once 'app/Translate.php';
 class Vue
 {
   private $fichier;
+  private $page;
+
+  private $css = ['style.css'];
+  private $script;
 
   public function __construct($page, $controller)
   {
+    $this->page = $page;
     $this->fichier = "view/". $controller ."/vue" . $page . ".php";
   }
 
   public function render($parameters=[], $template = 'base')
   {
     $data = $parameters;
-    if ($template == 'base') {
-      //require 'assets/template/header.php';
-      require $this->fichier;
-      //require 'assets/template/footer.php';
+    require "assets/template/base.php";
+  }
+
+  public function loadCss($files)
+  {
+    foreach ($files as $value) {
+      echo "<link rel='stylesheet' href='/assets/css/$value' charset='utf-8'>";
+    }
+  }
+
+  public static function loadScript($files)
+  {
+    if (isset($files)) {
+      foreach ($files as $value) {
+        echo "<script src='/assets/js/$value' charset='utf-8'></script>";
+      }
     }
   }
 
   public static function date($format, $str)
   {
     return date($format, strtotime($str));
+  }
+
+  public function setCss($value)
+  {
+    $this->css = $value;
+  }
+
+  public function setScript($value)
+  {
+    $this->script = $value;
   }
 }

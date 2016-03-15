@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="assets/css/style.css" charset="utf-8">
-  </head>
-  <body>
-    <?php require 'assets/template/header.php' ?>
     <section class="dark-bg">
         <div class="column cgu">
           <h1>Inscription</h1>
@@ -34,6 +25,3 @@
         </div>
       </div>
     </section>
-      <?php require 'assets/template/footer.php' ?>
-  </body>
-</html>

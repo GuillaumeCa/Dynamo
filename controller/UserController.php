@@ -50,6 +50,7 @@ class UserController
 
     } else {
       $vue = new Vue("Inscription", "User");
+      $vue->setScript(['verif.js']);
       $vue->render();
     }
 
