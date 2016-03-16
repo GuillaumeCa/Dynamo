@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <?php $this->loadCss($this->css) ?>
     <title><?php echo $this->page ?> - Dynamo</title>
   </head>
