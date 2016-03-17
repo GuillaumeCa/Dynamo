@@ -80,7 +80,101 @@ getLanguage('fr');
           </TR>
         </TABLE>
       </div>
+      <div class="auto-width">
+        <div class "bordure">
+          <div class="titre">
+            <h1>Mes Sports</h1>
+          </div>
+          <div class="modification">
+            <a href="#" class="button">modifier</a>
+          </div>
+      </div>
+    </div>
+<section class="auto-width">
+  <div class="list">
+    <ul>
+      <li>
+        <div class="left-icon">
+          <div class="circle">
+            <svg>
+              <use xlink:href="#ball"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="middle-text">
+          <h1>football</h1>
+            <h3>faible</h3>
+            <div class="coleurRect1">
+              <div class="rectangle">
+              </div>
+            </div>
+            <div class="coleurRect2">
+                <div class="rectangle">
+                </div>
+            </div>
+            <div class="coleurRect3">
+              <div class="rectangle">
+              </div>
+            </div>
+            <div class="coleurRect4">
+              <div class="rectangle">
+              </div>
+            </div>
+            <div class="coleurRect5">
+              <div class="rectangle">
+              </div>
+            </div>
+            <h3>élevé</h3>
+        </div>
+        <div class="sup">
+          <div class="modification">
+            <a href="#" class="button">supprimer</a>
+          </div>
+        </div>
+    </li>
+    <li>
+      <div class="left-icon">
+        <div class="circle">
+          <svg>
+            <use xlink:href="#ball"></use>
+          </svg>
+        </div>
+      </div>
+      <div class="sup">
+        <div class="modification">
+          <a href="#" class="button">supprimer</a>
+        </div>
+      </div>
+      <div class="middle-text">
+        <h1>football</h1>
+        <h3>faible</h3>
+        <div class="coleurRect6">
+          <div class="rectangle">
+          </div>
+        </div>
+        <div class="coleurRect7">
+          <div class="rectangle">
+          </div>
+        </div>
+        <div class="coleurRect8">
+          <div class="rectangle">
+          </div>
+        </div>
+        <div class="coleurRect9">
+          <div class="rectangle">
+          </div>
+        </div>
+        <div class="coleurRect10">
+          <div class="rectangle">
+          </div>
+        </div>
+        <h3>élevé</h3>
+      </div>
+    </div>
+  </li>
+      </section>
       <div class="deconnexion">
+        <br>
         <a href="#" class="button">SE DÉCONNECTER</a>
       </div>
 

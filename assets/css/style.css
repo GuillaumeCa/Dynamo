@@ -322,7 +322,7 @@ section.info-groupe p {
 
 .liste {
   border-top: #53FFC0 solid 1px;
-  text-align:right; 
+  text-align:right;
 }
 
 .titre{
@@ -837,6 +837,108 @@ a.forget:hover {
   background: #9972FA
 }
 
+.rectangle{
+  display: inline-block;
+  text-align: right;
+  width:20px;
+  height:10px;
+  border:1px solid #9972FA;
+}
+
+.coleurRect1{
+  display: inline-block;
+}
+
+.coleurRect1:hover{
+  display: inline-block;
+  background-color: #9972FA;
+}
+
+.coleurRect2{
+  display: inline-block;
+}
+
+.coleurRect2:hover{
+  display: inline-block;
+  background-color: #9972FA;
+}
+
+.coleurRect3{
+  display: inline-block;
+}
+
+.coleurRect3:hover{
+  display: inline-block;
+  background-color: #9972FA;
+}
+
+.coleurRect4{
+  display: inline-block;
+}
+
+.coleurRect4:hover{
+  display: inline-block;
+  background-color: #9972FA;
+}
+
+.coleurRect5{
+  display: inline-block;
+}
+
+.coleurRect5:hover{
+  display: inline-block;
+  background-color: #9972FA;
+}
+
+.coleurRect6{
+  display: inline-block;
+}
+
+.coleurRect6:hover{
+  display: inline-block;
+  background-color: #9972FA;
+}
+
+.coleurRect7{
+  display: inline-block;
+}
+
+.coleurRect7:hover{
+  display: inline-block;
+  background-color: #9972FA;
+}
+
+.coleurRect8{
+  display: inline-block;
+}
+
+.coleurRect8:hover{
+  display: inline-block;
+  background-color: #9972FA;
+}
+
+.coleurRect9{
+  display: inline-block;
+}
+
+.coleurRect9:hover{
+  display: inline-block;
+  background-color: #9972FA;
+}
+
+.coleurRect10{
+  display: inline-block;
+}
+
+.coleurRect10:hover{
+  display: inline-block;
+  background-color: #9972FA;
+}
+
+.middle-text h1{
+  margin-right: 100px;
+}
+
 .auto-width {
   max-width: 900px;
   margin: 0 auto;
@@ -855,7 +957,42 @@ a.forget:hover {
   width: 60%;
   margin-right: 4%;
 }
+.bordure {
+  border-bottom: #53FFC0 solid 1px;
+  display: inline-block;
+}
+.deconnexion{
+  border-top: #53FFC0 solid 1px;
+}
+.modification{
+  display: inline-block;
+}
 
+.sup{
+  display: inline-block;
+  margin-top: 30px;
+  float:right;
+}
+
+.middle-text h3 {
+  display: inline-block;
+  text-align: rigth;
+}
+
+.middle-text h1 {
+  display: inline-block;
+ }
+
+.middle-text{
+  margin-top: 25px;
+  display: inline-block;
+}
+.list li {
+    border-bottom: #9972FA solid 1px;
+}
+.list{
+  border-top: #53FFC0 solid 1px;
+}
 .auto-width .column-2:first-child {
   border-right: #53FFC0 solid 1px;
 }
@@ -865,7 +1002,12 @@ a.forget:hover {
   color: #53FFC0;
   font-weight: 600;
 }
-
+.sport{
+  display: inline-block;
+}
+.left-icon{
+  display: inline-block;
+}
 .auto-width .column-2 h3 {
   margin-bottom: 5px;
 }
