@@ -370,14 +370,6 @@ section.info-groupe p {
   float: right;
 }
 
-.nav-groupe li:last-child a {
-  border: none;
-}
-
-.nav-groupe li:last-child a:hover {
-  border: none;
-}
-
 .nav-groupe li svg {
   width: 20px;
   height: 20px;
@@ -393,6 +385,16 @@ section.info-groupe p {
 
 .nav-groupe a:hover, .nav-groupe a.active {
   border: #9972FA solid 1px;
+}
+
+.nav-groupe a.settings {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.nav-groupe a svg {
+  width: 20px;
+  height: 20px;
 }
 
 .membre {
@@ -518,7 +520,7 @@ b {
   color: #9972FA;
   border: #9972FA solid 1px;
   border-radius: 5px;
-  background-color: rgba(153, 114, 250, 0.5);
+  background-color: rgba(153, 114, 250, 0.2);
 }
 
 .boutton-discussion h1 {

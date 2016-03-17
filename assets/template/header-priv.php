@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <a href="" class="profile-btn" title="Dynamo User">
+  <a href="profil.php" class="profile-btn" title="Dynamo User">
     D
   </a>
   <nav>

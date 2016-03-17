@@ -23,7 +23,7 @@ getLanguage('fr');
     <div class="div-nav">
       <nav class="nav-groupe">
         <ul>
-          <li><a href="#">informations</a></li>
+          <li><a href="profil.php">informations</a></li>
           <li><a href="#" class="active">planning</a></li>
           <li><a href="#">Historique</a></li>
           <!-- bouton réglage temporaire -->
