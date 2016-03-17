@@ -109,13 +109,12 @@ class Router {
   public function getPage()
   {
     $myfile = file_get_contents("app/routes.json", "r") or die("Unable to open file!");
-    // Output one line until end-of-file
     $routes = json_decode($myfile, true);
     if (empty($_GET['p'])) {
       $this->page = "accueil";
     } else {
       foreach ($routes as $key => $value) {
-        if (preg_match_all("#^".$value."$#", $_GET['p'], $param)) {
+        if (preg_match("#^".$value."$#", $_GET['p'], $param)) {
           $this->page = $key;
           $this->params = isset($param[1]) ? $param[1] : null;
         }
