@@ -19,21 +19,21 @@
                 <select class="clear-form" name="jour">
                   <option value="option" disabled selected>jour</option>
                   <?php for ($i = 0; $i < 31; $i++): ?>
-                    <option value="<?php echo $i ?>"><?php echo $i+1; ?></option>
+                    <option value="<?php echo $i+1 ?>"><?php echo $i+1; ?></option>
                   <?php endfor; ?>
                 </select>
                 <select class="clear-form" name="mois">
                   <option value="option" disabled selected>mois</option>
                   <?php $mois=["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"] ?>
                   <?php for ($i = 0; $i < 12; $i++): ?>
-                    <option value="<?php echo $i ?>"><?php echo $mois[$i]; ?></option>
+                    <option value="<?php echo $i+1 ?>"><?php echo $mois[$i]; ?></option>
                   <?php endfor; ?>
                 </select>
                 <select class="clear-form" name="année">
                   <option value="option" disabled selected>année</option>
                   <?php $date = intval(date('Y')); ?>
                   <?php for ($i = 14; $i < 99; $i++): ?>
-                    <option value="<?php echo $i ?>"><?php echo $date-$i; ?></option>
+                    <option value="<?php echo $date-$i ?>"><?php echo $date-$i; ?></option>
                   <?php endfor; ?>
                 </select>
               </div>
@@ -54,4 +54,3 @@
             </form>
         </div>
     </section>
-    <!-- <script src="/assets/js/verif.js" charset="utf-8"></script> -->

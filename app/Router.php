@@ -49,7 +49,7 @@ class Router {
           break;
 
         case 'inscription-verif':
-          $this->ctr['User']->verifinscription($this->params[0]);
+          $this->ctr['User']->verifinscription($this->params);
           break;
 
         case 'login':
@@ -61,7 +61,7 @@ class Router {
           break;
 
         case 'forgot-verif':
-          $this->ctr['User']->resetPwd($this->params[0]);
+          $this->ctr['User']->resetPwd($this->params);
           break;
 
         case 'logout':
@@ -69,8 +69,8 @@ class Router {
           break;
 
         case 'dev':
-          $vue = new Vue('Success','User');
-          $vue->render(['msg' => "Le mail est bien envoyé lol xD"]);
+          $vue = new Vue("Success", "User");
+          $vue->render(['msg' => "L'inscription a bien été enregistré.<br> Un email vous a été envoyé."]);
           break;
 
         default:

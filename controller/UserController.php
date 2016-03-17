@@ -47,7 +47,7 @@ class UserController
 
         session_unset($_SESSION["inscription"]);
         $vue = new Vue("Success", "User");
-        $vue->render(['msg' => "L'inscription a bien été enregistré. Un email vous a été envoyé."]);
+        $vue->render(['msg' => "L'inscription a bien été enregistré.<br> Un email vous a été envoyé."]);
       }
 
     } else {
