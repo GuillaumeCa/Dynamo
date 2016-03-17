@@ -911,3 +911,48 @@ a.forget:hover {
 .margin-top {
   margin-top: 30px;
 }
+
+.list-large2 li {
+  margin: 20px 0;
+  border: #9972FA solid 1px;
+  border-radius: 5px;
+  display: block;
+  height: 100px;
+  overflow: hidden;
+  background: rgba(153, 114, 250, 0.1);
+}
+.en-tete-type {
+  position: relative;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.en-tete-type h1 {
+  color: #53FFC0;
+}
+
+.en-tete-type p {
+  color: #53FFC0;
+}
+
+b {
+  font-weight: 600;
+}
+
+.en-tete-type span {
+  margin-right: 20px;
+  font-size: 1.4em;
+  font-weight: lighter;
+}
+
+.en-tete-type div {
+  margin-top: 10px;
+}
+
+
+.right-icon {
+  width: 150px;
+  display: inline-block;
+  float:right;
+}
