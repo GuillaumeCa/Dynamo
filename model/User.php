@@ -12,13 +12,15 @@ class User extends Database
   public function inscrireUtilisateur($insc)
   {
     $token = $this->generateToken();
-    $q = "INSERT INTO utilisateur (nom, prénom, email, password, token) VALUES (?, ?, ?, ?, ?)";
+    $idVille = $this->executerRequete("SELECT id FROM villes WHERE ville_nom_reel = ?", [$insc['ville']])->fetch()->id;
+    $date = $insc['année']."-".$insc['mois']."-".$insc['jour'];
+    $q = "INSERT INTO utilisateur (nom, prénom, email, password, naissance, id_ville, token) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $password = sha1($insc['password']);
     $insc['token'] = $token;
     $mail = new Mail($insc['email'], "Validation compte Dynamo", "activate.php");
     $mail->render($insc);
     $mail->send();
-    $this->executerRequete($q, [$insc['nom'], $insc['prenom'], $insc['email'], $password, $token]);
+    $this->executerRequete($q, [$insc['nom'], $insc['prenom'], $insc['email'], $password, $date, $idVille, $token]);
   }
 
   public function emailExist()
