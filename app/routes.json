@@ -7,5 +7,6 @@
   "forgot"  : "login/forgot",
   "forgot-verif"  : "login/forgot/verif/([a-zA-Z0-9]+)",
   "logout"  : "logout",
-  "dev" : "dev"
+  "dev" : "dev",
+  "CGU" : "CGU"
 }

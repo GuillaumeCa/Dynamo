@@ -73,6 +73,11 @@ class Router {
           $vue->render(['msg' => "Le mail est bien envoyé lol xD"]);
           break;
 
+        case 'CGU':
+          $vue = new Vue('CGU','User');
+          $vue->render();
+          break;
+
         default:
           throw new Exception("Page non valide");
           break;
