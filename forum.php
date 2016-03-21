@@ -24,7 +24,7 @@ getLanguage('fr');
         <h1>Choisis ton Topic</h1>
         <div class="grid">
           <?php
-          for ($i=0; $i < 5; $i++) {
+          for ($i=0; $i < 1; $i++) {
             ?>
             <div class="sport">
               <a href="topic.php">
@@ -64,6 +64,116 @@ getLanguage('fr');
                 <div class="circle">
                   <svg>
                     <use xlink:href="#run"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Topic</span>
+            </div>
+            <div class="sport">
+              <a href="topic.php">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#pingpong"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Topic</span>
+            </div>
+            <div class="sport">
+              <a href="topic.php">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#boxe"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Topic</span>
+            </div>
+            <div class="sport">
+              <a href="topic.php">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#ski"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Topic</span>
+            </div>
+            <div class="sport">
+              <a href="topic.php">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#bike"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Topic</span>
+            </div>
+            <div class="sport">
+              <a href="topic.php">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#swim"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Topic</span>
+            </div>
+            <div class="sport">
+              <a href="topic.php">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#kayak"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Topic</span>
+            </div>
+            <div class="sport">
+              <a href="topic.php">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#arrow"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Topic</span>
+            </div>
+            <div class="sport">
+              <a href="topic.php">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#fencing"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Topic</span>
+            </div>
+            <div class="sport">
+              <a href="topic.php">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#billard"></use>
+                  </svg>
+                </div>
+              </a>
+              <!-- <img src="assets/images/logo.png" alt="test" /> -->
+              <span>Topic</span>
+            </div>
+            <div class="sport">
+              <a href="topic.php">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href="#rugby"></use>
                   </svg>
                 </div>
               </a>
