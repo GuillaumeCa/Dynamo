@@ -60,8 +60,15 @@ class Validate extends Database
 
   public function isDate($name, $day, $month, $year, $error)
   {
-    if (!checkdate($month, $day, $year)) {
+    if (!checkdate($this->getField($month), $this->getField($day), $this->getField($year))) {
       $this->errors[$name][] = $error;
+    }
+  }
+
+  public function isVille($ville, $cp, $error){
+    $req = $this->executerRequete("SELECT ville_nom_reel FROM villes WHERE ville_nom_reel = ? AND ville_code_postal =?", [$this->getField($ville), $this->getField($cp)]);
+    if($this->queryEmpty($req->fetch())) {
+      $this->errors[$ville][] = $error;
     }
   }
 
@@ -69,4 +76,5 @@ class Validate extends Database
   {
     return empty($this->errors);
   }
+
 }
