@@ -32,7 +32,7 @@ class UserController
         $validate->doubleCheck('password', 'confirmation', "les mot de passe ne correspondent pas");
         //Router::debug($validate->error);
         $validate->isVille('ville','codepostal', "Votre adresse n'est pas valide");
-        $validate->isDate('date','jour','mois','année', "Votre date de naissance n'est pas vallide");
+        $validate->isDate('date','jour','mois','année', "Votre date de naissance n'est pas valide");
         if ($validate->isValid()) {
           $_SESSION["inscription"] = $_POST;
           $vue = new Vue("CGU", "User");
