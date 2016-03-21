@@ -28,7 +28,7 @@ getLanguage('fr');
         <ul>
           <li><a href="#">informations</a></li>
           <li><a href="/groupe-membre.php">membres</a></li>
-          <li><a href="#">planning</a></li>
+          <li><a href="groupe-planning.php">planning</a></li>
           <li><a href="#" class="active">discussions</a></li>
           <li><a href="/groupe-reglage.php" class="settings"><svg class="boutton-reglage"><use xlink:href="#gear"></use></svg></a></li>
         </ul>
