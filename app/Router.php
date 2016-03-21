@@ -73,6 +73,11 @@ class Router {
           $vue->render(['msg' => "L'inscription a bien été enregistré.<br> Un email vous a été envoyé."]);
           break;
 
+        case 'CGU':
+          $vue = new Vue('CGU','User');
+          $vue->render();
+          break;
+
         default:
           throw new Exception("Page non valide");
           break;
