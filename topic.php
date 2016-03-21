@@ -14,8 +14,10 @@ getLanguage('fr');
     <?php require 'assets/images/svg.php' ?>
     <section class="pink-bg">
       <div class="column">
-        <h1>Forum</h1>
-        <p>Une question ? Une idée ? Votre espace de discussion publique totalement dédié au sport !</p>
+        <h1>Topic #1</h1>
+        <p>Une réponse ? Une suggestion ?</p>
+        </br>
+        <p>Boîte à idées et partage de connaissances :)</p>
       </div>
     </section>
     <div class="discussion">
