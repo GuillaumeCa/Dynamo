@@ -31,9 +31,12 @@ getLanguage('fr');
           <li><a href="groupe-planning.php">planning</a></li>
           <li><a href="groupe-discussion.php">discussions</a></li>
           <!-- bouton réglage temporaire -->
+<<<<<<< HEAD
           <li><a href="groupe-reglage.php" class="settings"><svg>
             <use xlink:href="#gear"></use>
           </svg></a></li>
+=======
+>>>>>>> ce9c9b618a6c9147cc02fc4eeef39a1a68f77596
         </ul>
       </nav>
     </div>
