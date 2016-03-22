@@ -11,9 +11,9 @@ getLanguage('fr');
   </head>
   <body>
     <?php include 'assets/template/header-priv.php' ?>
-    <section class="pink-bg">
+    <section class="sec sec-bg-violet">
       <div class="column">
-        <h1><?php lang('Connexion') ?></h1>
+        <h1 class="ttl ttl-md"><?php lang('Connexion') ?></h1>
         <form action="index.php" method="post" class="login">
           <input type="email" class="clear-form" name="email" placeholder="<?php lang('adresse-email') ?>">
           <input type="password" class="clear-form" name="passwd" placeholder="<?php lang('motdepasse') ?>">
@@ -23,10 +23,10 @@ getLanguage('fr');
         </form>
       </div>
     </section>
-    <section class="info bg-image-center" style="background-image: url(assets/images/sport2.jpg);">
-      <div class="overlay dark-grad"></div>
-      <div class="content">
-        <h1 class="light-text"><?php lang('inscrit-title') ?></h1>
+    <section class="sec sec-bg-img sec-bg-overlay" style="background-image: url(assets/images/sport2.jpg);">
+      <div class="sec-overlay sec-over-dark"></div>
+      <div class="column">
+        <h1 class="ttl ttl-lg"><?php lang('inscrit-title') ?></h1>
         <a href="inscription.php" class="button margin dark"><?php lang('inscription') ?></a>
       </div>
     </section>

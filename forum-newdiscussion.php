@@ -12,10 +12,10 @@ getLanguage('fr');
   <body>
     <?php include 'assets/template/header-priv.php' ?>
     <?php require 'assets/images/svg.php' ?>
-    <section class="pink-bg">
+    <section class="sec sec-bg-violet">
       <div class="column">
-        <h1>Forum</h1>
-        <p>Une question ? Une idée ? Votre espace de discussion publique totalement dédié au sport !</p>
+        <h1 class="ttl ttl-md ttl-green">Forum</h1>
+        <p class="txt-desc">Une question ? Une idée ? Votre espace de discussion publique totalement dédié au sport !</p>
       </div>
     </section>
 

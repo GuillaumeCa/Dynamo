@@ -12,26 +12,27 @@ getLanguage('fr');
   <body>
     <?php include 'assets/template/header-priv.php' ?>
     <?php require 'assets/images/svg.php'; ?>
-    <section class="pink-bg">
-      <div class="text-left column">
-        <a href="" class="profile-btn logoP " title="Dynamo User">
-          N
+    <section class="sec sec-bg-violet">
+      <div class="auto-width left-align">
+        <a href="" class="profile-btn profile-btn-sm" title="Dynamo User">
+          D
         </a>
-        <h1>Nom</h1>
+        <h1 class="ttl ttl-md ttl-band">Dynamo User</h1>
       </div>
     </section>
-    <div class="div-nav">
-      <nav class="nav-groupe">
+    <div class="nav-bbar">
+      <nav class="tab-menu">
         <ul>
-          <li><a href="#" class="active">informations</a></li>
-          <li><a href="profil-planning.php">planning</a></li>
-          <li><a href="#">Historique</a></li>
-          <!-- bouton réglage temporaire -->
-          <li><a href="#" class="settings">
-            <svg>
-              <use xlink:href="#gear"></use>
-            </svg>
-          </a></li>
+          <li><a href="profile.php" class="active">informations</a></li>
+          <li><a href="profile-planning.php">planning</a></li>
+          <li><a href="profile-historique.php">Historique</a></li>
+          <li>
+            <a href="profile-reglage.php" class="settings">
+              <svg>
+                <use xlink:href="#gear"></use>
+              </svg>
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

@@ -11,10 +11,10 @@ getLanguage('fr');
   </head>
   <body>
     <?php include 'assets/template/header.php' ?>
-    <section class="dark-bg">
+    <section class="sec sec-bg-dviolet">
         <div class="column">
           <form class="inscription" action="index.php" method="post">
-              <h1 class="green-text">Inscription</h1>
+              <h1 class="ttl ttl-md ttl-green">Inscription</h1>
               <h3 class="form-desc">Tout les champs sont obligatoires</h3>
               <h2 class="form-label green-text">Nom</h2>
               <input class="clear-form" type="text" name="nom" placeholder="nom">

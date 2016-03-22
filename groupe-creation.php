@@ -11,12 +11,12 @@ getLanguage('fr');
   </head>
   <body>
     <?php include 'assets/template/header-priv.php' ?>
-    <section class="pink-bg">
+    <section class="sec sec-bg-violet">
       <div class="column">
-        <h1>Créer votre groupe</h1>
+        <h1 class="ttl ttl-md">Créer votre groupe</h1>
       </div>
     </section>
-    <section>
+    <section class="sec">
       <div class="column">
         <form class="groupe_crea" action="index.php" method="post">
           <h2 class="form-label pink-text">Nom de groupe</h2>
