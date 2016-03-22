@@ -1,3 +1,15 @@
+/*----------------------*
+
+  STRUCTURE CSS
+    1. Css reset
+    2. Boutons
+    3. Header
+
+*----------------------*/
+
+/*----------------------*
+  CSS RESET
+*----------------------*/
 * {
   margin: 0;
   border: 0;
@@ -30,8 +42,8 @@ header {
 
 footer {
   padding: 20px;
-  color: white;
-  background: #53FFC0;
+  color: #53FFC0;
+  background: white;
   text-align: center;
 }
 
@@ -39,6 +51,9 @@ footer p {
   margin-top: 40px;
 }
 
+/*----------------------*
+  BOUTONS
+*----------------------*/
 
 .button {
   border: #53FFC0 solid 1px;
@@ -88,6 +103,10 @@ footer p {
 .bg-image-overlay {
   position: relative;
 }
+
+/*----------------------*
+  HEADER
+*----------------------*/
 
 header .logo, header .search, header nav li, header nav {
   display: inline-block;
@@ -774,6 +793,14 @@ a.forget:hover {
   margin-bottom: 10px;
 }
 
+.form-info {
+  color: rgba(153, 114, 250, 0.8);
+  font-size: .9em;
+  text-align: left;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
 .radio-button {
   margin: 20px 0;
   background: none;
@@ -1301,7 +1328,7 @@ span.overlay {
   background: transparent;
 }
 
-.column p {
+.column > p {
   color: #53FFC0;
   display: inline-block;
   font-size: 1.2em;
