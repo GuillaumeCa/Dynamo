@@ -644,6 +644,10 @@ a.forget:hover {
 
 .login {
   max-width: 250px;
+  margin: 0 auto;
+}
+
+.login .clear-form {
   margin: 20px auto;
 }
 
