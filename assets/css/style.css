@@ -547,31 +547,39 @@ section .column h1 {
   font-weight: lighter;
 }
 
-.login .clear-form {
+/*----------------------*
+  FORMULAIRE
+*----------------------*/
+
+.clear-form {
   padding: .5em;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   display: block;
   background: none;
-  width: 250px;
   font-size: 1.2em;
-  margin: 20px auto;
   color: white;
+  width: 100%;
   /*-webkit-transition: border .3s ease;
   transition: border .3s ease;*/
 }
 
-.login .clear-form:focus {
+.clear-form:focus {
   border-color: white;
 }
 
-.login .clear-form::-webkit-input-placeholder {
+.clear-form::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.50);
 }
 
-.inscription .errors {
+.errors {
   color: rgba(254, 170, 36, 0.57);
   margin-bottom: 10px;
+}
+
+textarea {
+  outline: none;
+  resize: vertical;
 }
 
 form > label, form > input[type=checkbox] {
@@ -633,6 +641,147 @@ a.forget {
 a.forget:hover {
   opacity: 1;
 }
+
+.login {
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.login .clear-form {
+  margin: 20px auto;
+}
+
+.inscription {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.groupe_crea{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.inscription .clear-form, .groupe_crea .clear-form {
+  color: #9972FA;
+  border-color: rgba(153, 114, 250, 0.55);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.inscription .clear-form:focus {
+  border-color: #9972FA;
+}
+
+.inscription input.clear-form {
+  width: 100%;
+}
+
+.inscription h1.green-text {
+  color: #53FFC0;
+}
+
+
+.inscription .clear-form::-webkit-input-placeholder {
+  color: rgba(153, 114, 250, 0.56);
+}
+
+.inscription .clear-form::-moz-placeholder {
+  color: rgba(153, 114, 250, 0.56);
+}
+
+.dropdown {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: auto;
+  display: inline-block;
+  color: #9972FA;
+  padding: 3px 10px;
+  padding-right: 25px;
+  background-image: url(/assets/images/arrows.png);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 5px) 50%;
+  background-size: 10px;
+  margin: 0 1px;
+  outline: none;
+  -webkit-transition: border;
+  transition: border;
+}
+
+.dropdown-lg {
+  width: 100%;
+  height: 40px;
+}
+
+.label-center {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 300px;
+  text-align: left;
+}
+
+.form-desc {
+  color: white;
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: .9em;
+}
+
+.form-label {
+  font-size: 1.3em;
+  font-weight: normal;
+  text-align: left;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.radio-button {
+  margin: 20px 0;
+  background: none;
+  border: #9972FA solid 1px;
+  width: 18px;
+  height: 18px;
+  vertical-align: top;
+  border-radius: 30px;
+  margin: 0;
+}
+
+.radio-inner {
+  position: absolute;
+  box-sizing: box;
+  left: 0;
+  top: 0;
+  height: 8px;
+  width: 8px;
+  margin: 5px;
+  border-radius: 10px;
+  background: #9972FA;
+  transform: scale(0.01);
+  transition: transform .3s ease;
+}
+
+.radio-button:checked + .radio-inner {
+  transform: scale(1);
+}
+
+.radio > label{
+  margin: 0 5px;
+  color: #9972FA;
+  font-size: 1.2em;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.radio {
+  display: inline-block;
+  position: relative;
+}
+
+/*----------------------*
+
+*----------------------*/
 
 .margin {
   margin-top: 30px;
@@ -697,129 +846,6 @@ a.forget:hover {
   font-weight: lighter;
 }
 
-.inscription {
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.inscription .clear-form {
-  color: #9972FA;
-  border-color: rgba(153, 114, 250, 0.55);
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-.inscription .clear-form:focus {
-  border-color: #9972FA;
-}
-
-.inscription input.clear-form {
-  width: 300px;
-}
-
-.inscription h1.green-text {
-  color: #53FFC0;
-}
-
-
-.inscription .clear-form::-webkit-input-placeholder {
-  color: rgba(153, 114, 250, 0.56);
-}
-
-.inscription .clear-form::-moz-placeholder {
-  color: rgba(153, 114, 250, 0.56);
-}
-
-.inscription .clear-form, .groupe_crea .clear-form {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  width: auto;
-  display: inline-block;
-  color: #9972FA;
-  padding: 3px 10px;
-  padding-right: 25px;
-  background-image: url(/assets/images/arrows.png);
-  background-repeat: no-repeat;
-  background-position: calc(100% - 5px) 50%;
-  background-size: 10px;
-  margin: 0 1px;
-  outline: none;
-  -webkit-transition: border;
-  transition: border;
-}
-
-.groupe_crea{
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-
-.label-center {
-  margin: 0 auto;
-  margin-bottom: 20px;
-  width: 300px;
-  text-align: left;
-}
-
-.inscription h3 {
-  color: white;
-  font-style: italic;
-  font-weight: normal;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: .9em;
-}
-
-.inscription > h2 {
-  font-size: 1.3em;
-  font-weight: normal;
-  text-align: left;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.radio-button {
-  margin: 20px 0;
-  background: none;
-  border: #9972FA solid 1px;
-  width: 18px;
-  height: 18px;
-  vertical-align: top;
-  border-radius: 30px;
-  margin: 0;
-}
-
-.radio-inner {
-  position: absolute;
-  box-sizing: box;
-  left: 0;
-  top: 0;
-  height: 8px;
-  width: 8px;
-  margin: 5px;
-  border-radius: 10px;
-  background: #9972FA;
-  transform: scale(0.01);
-  transition: transform .3s ease;
-}
-
-.radio-button:checked + .radio-inner {
-  transform: scale(1);
-}
-
-.radio > label{
-  margin: 0 5px;
-  color: #9972FA;
-  font-size: 1.2em;
-  margin-right: 20px;
-  cursor: pointer;
-}
-
-.radio {
-  display: inline-block;
-  position: relative;
-}
 .profile-btn {
   display: inline-block;
   float: right;
