@@ -5,12 +5,18 @@
     </a>
   </div>
   <div class="search">
-    <input type="text" name="name" placeholder="rechercher">
+    <?php require_once 'assets/images/svg.php'; ?>
+    <div class="search-field">
+      <form class="" action="search.php" method="get">
+        <input type="text" name="search" placeholder="rechercher">
+        <button type="submit"><svg><use xlink:href="#search"></use></svg></button>
+      </form>
+    </div>
     <div class="result">
       <div class="cat">
         <div class="head">
           <span class="title">GROUPES</span>
-          <a href="#">VOIR</a>
+          <a href="groupe.php">VOIR</a>
         </div>
         <ul>
           <li>
@@ -36,7 +42,7 @@
       <div class="cat">
         <div class="head">
           <span class="title">GROUPES</span>
-          <a href="#">VOIR</a>
+          <a href="groupe.php">VOIR</a>
         </div>
         <ul>
           <li>
@@ -67,8 +73,8 @@
   </a>
   <nav>
     <ul>
-      <li><a href="liste-groupes.php"><?php lang('Groupes') ?> <span class="notif">3</span></a></li>
-      <li><a href="#"><?php lang('Forum') ?> <span class="notif">30</span></a></li>
+      <li><a href="liste-groupes.php"><?php lang('Groupes') ?> <span class="notif">2</span></a></li>
+      <li><a href="forum.php"><?php lang('Forum') ?> <span class="notif">3</span></a></li>
       <li><a href="help.php"><?php lang('Aide') ?></a></li>
     </ul>
   </nav>
