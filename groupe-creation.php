@@ -18,7 +18,7 @@ getLanguage('fr');
     </section>
     <section>
       <div class="column">
-        <form class="groupe_crea" action="index.php" method="post">
+        <form class="inscription" action="index.php" method="post">
           <h2 class="pink-text">Nom de groupe</h2>
           <input class="clear-form" type="text" name="name_grp" placeholder="">
           <h2 class="pink-text">Ajouter vos amis</h2>
@@ -32,7 +32,7 @@ getLanguage('fr');
           <h2 class="pink-text">Combien de membres ?</h2>
           <select class="clear-form" name="jour">
             <option value="option" disabled selected>Membres</option>
-            <?php for ($i = 0; $i < 7; $i++): ?>
+            <?php for ($i = 0; $i < 12; $i++): ?>
               <option value="<?php echo $i ?>"><?php echo $i+1; ?></option>
             <?php endfor; ?>
           </select>
@@ -40,5 +40,6 @@ getLanguage('fr');
           <input class="clear-form" type="text" name="description_grp" placeholder="Décrivez votre groupe en quelques lignes ...">
       </div>
     </section>
+    <?php include 'assets/template/footer.php' ?>
   </body>
 </html>
