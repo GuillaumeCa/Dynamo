@@ -14,7 +14,7 @@ getLanguage('fr');
     <section class="pink-bg">
       <div class="column">
         <h1><?php lang('Connexion') ?></h1>
-        <form action="index.php" method="post">
+        <form action="index.php" method="post" class="login">
           <input type="email" class="clear-form" name="email" placeholder="<?php lang('adresse-email') ?>">
           <input type="password" class="clear-form" name="passwd" placeholder="<?php lang('motdepasse') ?>">
           <input id="remember" type="checkbox" name="remember" checked><label for="remember"><?php lang('rester-connecté') ?></label>

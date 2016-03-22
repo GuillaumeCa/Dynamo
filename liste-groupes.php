@@ -15,7 +15,7 @@ getLanguage('fr');
     <section class="pink-bg">
       <div class="column">
         <h1>Mes Groupes</h1>
-        <a href="" class="button margin-top">Créer un groupe</a>
+        <a href="groupe-creation.php" class="button margin-top">Créer un groupe</a>
       </div>
     </section>
     <section class="auto-width">

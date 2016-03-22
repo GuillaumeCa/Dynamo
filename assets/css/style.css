@@ -455,6 +455,9 @@ section.info-groupe p {
   color: #53FFC0;
 }
 
+.pink-text{
+  color: #9972FA;
+}
 .light-text {
   color: white;
 }
@@ -544,7 +547,7 @@ section .column h1 {
   font-weight: lighter;
 }
 
-.clear-form {
+.login .clear-form {
   padding: .5em;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
@@ -558,11 +561,11 @@ section .column h1 {
   transition: border .3s ease;*/
 }
 
-.clear-form:focus {
+.login .clear-form:focus {
   border-color: white;
 }
 
-.clear-form::-webkit-input-placeholder {
+.login .clear-form::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.50);
 }
 
@@ -727,7 +730,7 @@ a.forget:hover {
   color: rgba(153, 114, 250, 0.56);
 }
 
-.inscription select.clear-form {
+.inscription .clear-form, .groupe_crea .clear-form {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -745,6 +748,12 @@ a.forget:hover {
   -webkit-transition: border;
   transition: border;
 }
+
+.groupe_crea{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
 
 .label-center {
   margin: 0 auto;
@@ -996,7 +1005,6 @@ a.forget:hover {
   margin-top: 30px;
 }
 
-<<<<<<< HEAD
 .list-large li {
   background-color: rgba(153, 114, 250, 0.2)
 }
@@ -1072,7 +1080,8 @@ span.overlay {
   color: #53FFC0;
   display: inline-block;
   font-size: 1.2em;
-=======
+}
+
 .list-large2 li {
   margin: 20px 0;
   border: #9972FA solid 1px;
@@ -1116,5 +1125,4 @@ b {
   width: 150px;
   display: inline-block;
   float:right;
->>>>>>> ce9c9b618a6c9147cc02fc4eeef39a1a68f77596
 }
