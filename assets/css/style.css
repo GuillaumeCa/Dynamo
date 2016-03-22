@@ -959,10 +959,7 @@ a.forget:hover {
   width: 60%;
   margin-right: 4%;
 }
-.bordure {
-  border-bottom: #53FFC0 solid 1px;
-  display: inline-block;
-}
+
 .deconnexion{
   border-top: #53FFC0 solid 1px;
 }
@@ -992,9 +989,16 @@ a.forget:hover {
 .list li {
     border-bottom: #9972FA solid 1px;
 }
+
 .list{
   border-top: #53FFC0 solid 1px;
 }
+
+.titre {
+margin-bottom: auto; 
+}
+
+
 .auto-width .column-2:first-child {
   border-right: #53FFC0 solid 1px;
 }

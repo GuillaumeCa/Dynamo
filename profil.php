@@ -45,6 +45,7 @@ getLanguage('fr');
         </div>
     </div>
       <div class="liste">
+        <br>
         <TABLE BORDER="1">
           <TR>
             <TH> Nom : </TH>
@@ -81,7 +82,6 @@ getLanguage('fr');
         </TABLE>
       </div>
       <div class="auto-width">
-        <div class "bordure">
           <div class="titre">
             <h1>Mes Sports</h1>
           </div>
@@ -89,10 +89,8 @@ getLanguage('fr');
             <a href="#" class="button">modifier</a>
           </div>
       </div>
-    </div>
 <section class="auto-width">
   <div class="list">
-    <ul>
       <li>
         <div class="left-icon">
           <div class="circle">
