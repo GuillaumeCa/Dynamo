@@ -505,6 +505,7 @@ footer p {
   display: block;
   height: 100px;
   overflow: hidden;
+  position: relative;
   background: rgba(153, 114, 250, 0.1);
 }
 .liste-licon {
