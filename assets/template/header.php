@@ -15,7 +15,7 @@
       <div class="cat">
         <div class="head">
           <span class="title">GROUPES</span>
-          <a href="#">VOIR</a>
+          <a href="groupe.php">VOIR</a>
         </div>
         <ul>
           <li>
@@ -41,7 +41,7 @@
       <div class="cat">
         <div class="head">
           <span class="title">GROUPES</span>
-          <a href="#">VOIR</a>
+          <a href="groupe.php">VOIR</a>
         </div>
         <ul>
           <li>
@@ -71,7 +71,7 @@
   <nav>
     <ul>
       <li><a href="connect.php"><?php lang('Connexion') ?> </a></li>
-      <li><a href="#"><?php lang('Forum') ?></a></li>
+      <li><a href="forum.php"><?php lang('Forum') ?></a></li>
       <li><a href="help.php"><?php lang('Aide') ?></a></li>
     </ul>
   </nav>

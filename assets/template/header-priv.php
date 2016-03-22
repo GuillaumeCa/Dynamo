@@ -16,7 +16,7 @@
       <div class="cat">
         <div class="head">
           <span class="title">GROUPES</span>
-          <a href="#">VOIR</a>
+          <a href="groupe.php">VOIR</a>
         </div>
         <ul>
           <li>
@@ -42,7 +42,7 @@
       <div class="cat">
         <div class="head">
           <span class="title">GROUPES</span>
-          <a href="#">VOIR</a>
+          <a href="groupe.php">VOIR</a>
         </div>
         <ul>
           <li>
@@ -74,7 +74,7 @@
   <nav>
     <ul>
       <li><a href="liste-groupes.php"><?php lang('Groupes') ?> <span class="notif">2</span></a></li>
-      <li><a href="#"><?php lang('Forum') ?> <span class="notif">3</span></a></li>
+      <li><a href="forum.php"><?php lang('Forum') ?> <span class="notif">3</span></a></li>
       <li><a href="help.php"><?php lang('Aide') ?></a></li>
     </ul>
   </nav>
