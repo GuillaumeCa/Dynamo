@@ -718,11 +718,11 @@ a.forget:hover {
 }
 
 
-.inscription .clear-form::-webkit-input-placeholder {
+.inscription .clear-form::-webkit-input-placeholder, .groupe_crea .clear-form::-webkit-input-placeholder {
   color: rgba(153, 114, 250, 0.56);
 }
 
-.inscription .clear-form::-moz-placeholder {
+.inscription .clear-form::-moz-placeholder, .groupe_crea .clear-form::-webkit-input-placeholder {
   color: rgba(153, 114, 250, 0.56);
 }
 
@@ -1064,14 +1064,6 @@ a.forget:hover {
   text-align: rigth;
 }
 
-.middle-text h1 {
-  display: inline-block;
- }
-
-.middle-text{
-  margin-top: 25px;
-  display: inline-block;
-}
 .list li {
     border-bottom: #9972FA solid 1px;
 }

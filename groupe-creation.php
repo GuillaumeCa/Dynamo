@@ -31,7 +31,7 @@ getLanguage('fr');
           <input class="clear-form" type="text" name="lieu" placeholder="Paris, 75015, Essonne ...">
           <h2 class="form-label pink-text">Combien de membres ?</h2>
           <select class="clear-form dropdown dropdown-lg" name="jour">
-            <option value="option" disabled selected>Membres</option>
+            <option value="option" disabled selected>Nombre de membres</option>
             <?php for ($i = 0; $i < 12; $i++): ?>
               <option value="<?php echo $i ?>"><?php echo $i+1; ?></option>
             <?php endfor; ?>
