@@ -17,7 +17,7 @@ getLanguage('fr');
         <a href="" class="profile-btn logoP " title="Dynamo User">
           N
         </a>
-        <h1><?php lang('Name') ?></h1>
+        <h1>Nom</h1>
       </div>
     </section>
     <div class="div-nav">
@@ -27,11 +27,13 @@ getLanguage('fr');
           <li><a href="#" class="active">planning</a></li>
           <li><a href="#">Historique</a></li>
           <!-- bouton réglage temporaire -->
-          <li><a href="#">
-            <svg>
-              <use xlink:href="#gear"></use>
-            </svg>
-          </a></li>
+          <li>
+            <a href="#" class="settings">
+              <svg>
+                <use xlink:href="#gear"></use>
+              </svg>
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
