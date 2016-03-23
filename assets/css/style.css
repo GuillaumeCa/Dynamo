@@ -222,6 +222,14 @@ header nav {
   float: right;
 }
 
+header .btn-nav {
+  display: none;
+  color: #9972FA;
+  line-height: 1.5em;
+  padding: 0 .5em;
+  font-size: 2em;
+}
+
 header nav li {
   line-height: 1em;
   padding: 1em;
@@ -867,6 +875,52 @@ a.forget:hover {
 /*----------------------*
   7. MEDIA QUERY
 *----------------------*/
+
+@media (max-width: 610px) {
+
+  header .search {
+    display: none;
+  }
+
+  header {
+    position: relative;
+  }
+
+  .nav-menu {
+    position: absolute;
+    display: none;
+    top: 4em;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .visible {
+    display: block;
+  }
+
+  .nav-menu li {
+    display: block;
+    text-align: center;
+    font-size: 1.8em;
+    padding: 15px 0;
+    font-weight: lighter;
+  }
+
+  header .btn-nav {
+    display: block;
+    cursor: pointer;
+  }
+
+  header .profile-btn {
+    display: none;
+  }
+
+
+}
+
 
 /*----------------------*
   CSS A REFORMATER

@@ -69,10 +69,13 @@
 
 
   <nav>
-    <ul>
+    <ul class="nav-menu">
       <li><a href="connect.php"><?php lang('Connexion') ?> </a></li>
       <li><a href="forum.php"><?php lang('Forum') ?></a></li>
       <li><a href="help.php"><?php lang('Aide') ?></a></li>
     </ul>
+    <div class="btn-nav" onclick="toggle('.nav-menu')">
+      ☰
+    </div>
   </nav>
 </header>

@@ -72,10 +72,13 @@
     D
   </a>
   <nav>
-    <ul>
+    <ul class="nav-menu">
       <li><a href="liste-groupes.php"><?php lang('Groupes') ?> <span class="notif">2</span></a></li>
       <li><a href="forum.php"><?php lang('Forum') ?> <span class="notif">3</span></a></li>
       <li><a href="help.php"><?php lang('Aide') ?></a></li>
     </ul>
+    <div class="btn-nav" onclick="toggle('.nav-menu')">
+      ☰
+    </div>
   </nav>
 </header>
