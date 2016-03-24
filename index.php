@@ -28,7 +28,7 @@ getLanguage('fr');
           for ($i=0; $i < 20; $i++) {
             ?>
             <div class="sport">
-              <a href="#">
+              <a href="type-sport.php">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#ball"></use>
