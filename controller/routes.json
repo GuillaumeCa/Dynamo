@@ -2,11 +2,12 @@
   "accueil" : "",
   "groupe"  : "groupe",
   "inscription" : "inscription",
-  "inscription-verif" : "inscription/activ/([a-zA-Z0-9]+)",
+  "inscription-verif" : "inscription/activ/{token}",
   "login" : "login",
   "forgot"  : "login/forgot",
-  "forgot-verif"  : "login/forgot/verif/([a-zA-Z0-9]+)",
+  "forgot-verif"  : "login/forgot/verif/{token}",
   "logout"  : "logout",
+  "type-sport"  : "sport-type",
   "dev" : "dev",
   "CGU" : "CGU"
 }

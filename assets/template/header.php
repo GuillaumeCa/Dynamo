@@ -70,9 +70,9 @@
 
   <nav>
     <ul class="nav-menu">
-      <li><a href="/fr/login"><?php lang('Connexion') ?> </a></li>
-      <li><a href="/fr/forum"><?php lang('Forum') ?></a></li>
-      <li><a href="/fr/help"><?php lang('Aide') ?></a></li>
+      <li><a href="<?php page('login') ?>"><?php lang('Connexion') ?> </a></li>
+      <li><a href="<?php page('forum') ?>"><?php lang('Forum') ?></a></li>
+      <li><a href="<?php page('aide') ?>"><?php lang('Aide') ?></a></li>
     </ul>
     <div class="btn-nav" onclick="toggle('.nav-menu')">
       ☰

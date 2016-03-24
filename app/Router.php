@@ -11,11 +11,13 @@ class Router {
 
   private $ctr;
 
+  private static $routes;
   private $page;
   private $params;
 
 
   public function __construct() {
+    $this->buildRoutes();
     $this->ctr = [
       'Accueil' => new AccueilController(),
       'Group' => new GroupController(),
@@ -113,12 +115,11 @@ class Router {
 
   public function getPage()
   {
-    $myfile = file_get_contents("app/routes.json", "r") or die("Unable to open file!");
-    $routes = json_decode($myfile, true);
     if (empty($_GET['p'])) {
       $this->page = "accueil";
     } else {
-      foreach ($routes as $key => $value) {
+      foreach (static::$routes as $key => $value) {
+        $value = preg_replace("/{[^}]*}/", "([a-zA-Z0-9]+)", $value);
         if (preg_match("#^".$value."$#", $_GET['p'], $param)) {
           $this->page = $key;
           $this->params = isset($param[1]) ? $param[1] : null;
@@ -127,4 +128,30 @@ class Router {
     }
   }
 
+  private function buildRoutes()
+  {
+    $file = file_get_contents("controller/routes.json", "r") or die("Fichier routes introuvable !");
+    static::$routes = json_decode($file, true);
+  }
+
+  public static function getRoute($route, $param)
+  {
+    if (isset(static::$routes[$route])) {
+      if (!empty($param)) {
+        $url = static::$routes[$route];
+        foreach ($param as $key => $value) {
+          $url = str_replace('{'.$key.'}', $value, $url);
+        }
+        return $url;
+      }
+      return static::$routes[$route];
+    } else {
+      return;
+    }
+  }
+}
+
+function page($route, $param=[])
+{
+  echo "/".$_GET['lang']."/".Router::getRoute($route, $param);
 }

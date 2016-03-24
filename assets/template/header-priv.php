@@ -68,14 +68,14 @@
     </div>
   </div>
 
-  <a href="profile.php" class="profile-btn" title="Dynamo User">
+  <a href="<?php page('profil') ?>" class="profile-btn" title="Dynamo User">
     D
   </a>
   <nav>
     <ul class="nav-menu">
-      <li><a href="/fr/groupe"><?php lang('Groupes') ?> <span class="notif">2</span></a></li>
-      <li><a href="/fr/forum"><?php lang('Forum') ?> <span class="notif">3</span></a></li>
-      <li><a href="/fr/help"><?php lang('Aide') ?></a></li>
+      <li><a href="<?php page('liste-groupe') ?>"><?php lang('Groupes') ?> <span class="notif">2</span></a></li>
+      <li><a href="<?php page('forum') ?>"><?php lang('Forum') ?> <span class="notif">3</span></a></li>
+      <li><a href="<?php page('aide') ?>"><?php lang('Aide') ?></a></li>
     </ul>
     <div class="btn-nav" onclick="toggle('.nav-menu')">
       ☰

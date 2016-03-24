@@ -3,7 +3,7 @@
   <div class="column">
     <h1 class="ttl ttl-lg ttl-green green-text">Dynamo</h1>
     <p class="txt-desc">Dynamo vous permet de trouver et gérer des groupes de sport selon votre position géographique, votre niveau de sport et vos sports favoris.</p>
-    <a href="inscription.php" class="button"><?php lang('inscris-moi'); ?></a>
+    <a href="<?php page('inscription') ?>" class="button"><?php lang('inscris-moi'); ?></a>
   </div>
 </section>
 <section class="sec sec-bg-dviolet">
@@ -12,7 +12,7 @@
     <div class="grid">
         <?php for ($i = 0; $i < 20; $i++): ?>
           <div class="sport">
-            <a href="type-sport.php">
+            <a href="<?php page('type-sport') ?>">
               <div class="circle">
                 <svg>
                   <use xlink:href="#ball"></use>

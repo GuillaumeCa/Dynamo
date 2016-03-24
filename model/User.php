@@ -40,7 +40,6 @@ class User extends Database
       $result = $req->fetch();
       if ($result !== false && $result->token == '') {
         $_SESSION['auth'] = $result;
-        header('Location: /fr/');
       }
     }
   }
