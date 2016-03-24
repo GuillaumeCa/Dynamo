@@ -3,6 +3,7 @@
 {"id": "Groupes", "str": "Groupes"}
 {"id": "Forum", "str": "Forum"}
 {"id": "Aide", "str": "Aide"}
+{"id": "lang", "str": "langue"}
 {"id": "rester-connecté", "str": "Rester connecté"}
 {"id": "mdp-oublie", "str": "Mot de passe oublié ?"}
 {"id": "motdepasse", "str": "Mot de passe"}
@@ -10,3 +11,7 @@
 {"id": "valider", "str": "valider"}
 {"id": "inscrit-title", "str": "Pas encore inscrit ?"}
 {"id": "inscription", "str": "Inscription"}
+{"id": "auj-caps", "str": "AUJOURD'HUI"}
+{"id": "demain-caps", "str": "DEMAIN"}
+{"id": "select", "str": "SELECTIONNÉ POUR VOUS"}
+{"id": "near-you", "str": "PRÈS DE CHEZ VOUS"}

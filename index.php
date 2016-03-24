@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require 'app/Router.php';
 
