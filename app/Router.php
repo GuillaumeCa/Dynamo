@@ -88,7 +88,31 @@ class Router {
           if (Router::isLoggedIn()) {
             $this->ctr['Group']->reglage();
           } else {
-            $this->redirect();
+            Router::redirect();
+          }
+          break;
+
+        case 'profile':
+          if (Router::isLoggedIn()) {
+            $this->ctr['User']->profile();
+          } else {
+            Router::redirect();
+          }
+          break;
+
+        case 'profile-planning':
+          if (Router::isLoggedIn()) {
+            $this->ctr['User']->profilePlanning();
+          } else {
+            Router::redirect();
+          }
+          break;
+
+        case 'profile-reglage':
+          if (Router::isLoggedIn()) {
+            $this->ctr['User']->profileReglage();
+          } else {
+            Router::redirect();
           }
           break;
 
@@ -141,10 +165,9 @@ class Router {
     return isset($_SESSION['auth']);
   }
 
-  private function redirect($url = "")
+  public static function redirect($url = "")
   {
-    header("Location: /fr/$url");
-    exit();
+    header("Location: /{$_GET['lang']}/".Router::getRoute($url));
   }
 
   public static function debug($var)

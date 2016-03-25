@@ -68,8 +68,8 @@
     </div>
   </div>
 
-  <a href="<?php page('profil') ?>" class="profile-btn" title="Dynamo User">
-    D
+  <a href="<?php page('profile') ?>" class="profile-btn" title="Dynamo User">
+    <?php echo substr(ucfirst($_SESSION['auth']->prénom), 0, 1) ?>
   </a>
   <nav>
     <ul class="nav-menu">

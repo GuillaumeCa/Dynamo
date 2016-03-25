@@ -23,25 +23,14 @@ class User extends Database
     $this->executerRequete($q, [$insc['nom'], $insc['prenom'], $insc['email'], $password, $date, $idVille, $token]);
   }
 
-  public function emailExist()
-  {
-    $q = "SELECT email FROM utilisateur WHERE email = ?";
-    $req = $this->executerRequete($q, [$_POST['email']]);
-    return $req;
-  }
+
 
   public function handleLogin()
   {
-    if (!empty($_POST)) {
-      $email = $_POST['email'];
-      $password = sha1($_POST['password']);
-      $q = "SELECT * FROM utilisateur WHERE email = ? AND password = ?";
-      $req = $this->executerRequete($q, [$email, $password]);
-      $result = $req->fetch();
-      if ($result !== false && $result->token == '') {
-        $_SESSION['auth'] = $result;
-      }
-    }
+    $email = $_POST['email'];
+    $password = sha1($_POST['password']);
+    $q = "SELECT * FROM utilisateur WHERE email = ? AND password = ?";
+    return $this->executerRequete($q, [$email, $password]);
   }
 
   public function tokenToUser($token)

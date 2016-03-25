@@ -5,7 +5,7 @@
     </section>
     <section class="sec">
       <div class="column">
-        <form class="groupe_crea" action="index.php" method="post">
+        <form class="groupe_crea" action="" method="post">
           <h2 class="form-label pink-text">Nom de groupe</h2>
           <input class="clear-form" type="text" name="name_grp" placeholder="">
 
@@ -34,5 +34,8 @@
 
           <h2 class="form-label pink-text">Description du groupe</h2>
           <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder="Décrivez votre groupe en quelques lignes ..."></textarea>
+
+          <input type="submit" value="Ajouter" class="button purple">
+        </form>
       </div>
     </section>

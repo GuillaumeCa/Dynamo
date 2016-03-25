@@ -21,7 +21,7 @@ class Vue
 
   public function render($parameters=[], $template = 'base')
   {
-    $data = $parameters;
+    extract($parameters);
     require "assets/template/base.php";
   }
 

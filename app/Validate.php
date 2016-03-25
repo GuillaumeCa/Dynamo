@@ -51,6 +51,13 @@ class Validate extends Database
     }
   }
 
+  public function isInDB($name, $sql, $error)
+  {
+    if ($this->queryEmpty($sql)) {
+      $this->errors[$name][] = $error;
+    }
+  }
+
   public function doubleCheck($first, $second, $error)
   {
     if ($this->getField($first) != $this->getField($second)) {

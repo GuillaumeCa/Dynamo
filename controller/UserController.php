@@ -68,9 +68,22 @@ class UserController
 
   public function login()
   {
-    $this->user->handleLogin();
-    $vue = new Vue("Login", "User");
-    $vue->render();
+    if (!empty($_POST)) {
+      $validate = new Validate($_POST);
+      $validate->isEmail('email', "l'email n'est pas valide");
+      $login = $this->user->handleLogin()->fetch();
+      $validate->isInDB('login', $login, "L'email et/ou le mot de passe sont incorrect");
+      if ($validate->isValid()) {
+        $_SESSION['auth'] = $login;
+        Router::redirect('profile');
+      } else {
+        $vue = new Vue("Login", "User");
+        $vue->render(['errors'=>$validate->errors]);
+      }
+    } else {
+      $vue = new Vue("Login", "User");
+      $vue->render();
+    }
   }
 
   public function logout()
@@ -78,7 +91,7 @@ class UserController
     if (isset($_SESSION['auth'])) {
       session_unset($_SESSION['auth']);
     }
-    header('Location: /fr/');
+    header('Location: /');
   }
 
   public function forgot()
@@ -121,4 +134,24 @@ class UserController
       $vue->render();
     }
   }
+
+  public function profile()
+  {
+    $vue = new Vue("Profile", "User");
+    $vue->render();
+  }
+
+  public function profilePlanning()
+  {
+    $vue = new Vue("ProfilePlanning", "User");
+    $vue->render();
+  }
+
+  public function profileReglage()
+  {
+    $vue = new Vue("ProfileReglage", "User");
+    $vue->render();
+  }
+
+
 }
