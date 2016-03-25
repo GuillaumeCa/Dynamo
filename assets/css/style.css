@@ -278,7 +278,7 @@ footer p {
   3.1 section
 *----------------------*/
 
-.sec { padding: 10px; }
+.sec { padding: 10px; overflow: hidden;}
 .column {
   max-width: 900px;
   margin: 0 auto;
@@ -296,6 +296,9 @@ footer p {
   text-align: left;
   color: #53FFC0;
   padding: 0;
+}
+.success-section {
+  padding: 150px 0;
 }
 
 .sec-bg-img {
