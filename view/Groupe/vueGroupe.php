@@ -1,17 +1,3 @@
-<?php
-include 'function.php';
-getLanguage('fr');
-?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Groupe-dynamo</title>
-    <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
-  </head>
-  <body>
-    <?php include 'assets/template/header-priv.php' ?>
-    <?php require 'assets/images/svg.php'; ?>
     <section class="sec sec-bg-img sec-bg-overlay" style="background-image: url(/assets/images/sport1.png);">
       <div class="sec-overlay sec-over-violet"></div>
       <div class="auto-width group">
@@ -26,10 +12,10 @@ getLanguage('fr');
     <div class="nav-bbar">
       <nav class="tab-menu">
         <ul>
-          <li><a href="groupe.php" class="active">informations</a></li>
-          <li><a href="groupe-membre.php">membres</a></li>
-          <li><a href="groupe-planning.php">planning</a></li>
-          <li><a href="groupe-discussion.php">discussions</a></li>
+          <li><a href="<?php page('groupe') ?>" class="active">informations</a></li>
+          <li><a href="<?php page('membres-groupe') ?>">membres</a></li>
+          <li><a href="<?php page('planning-groupe') ?>">planning</a></li>
+          <li><a href="<?php page('discussion-groupe') ?>">discussions</a></li>
           <li>
             <a href="groupe-reglage.php" class="settings">
               <svg>
@@ -40,6 +26,3 @@ getLanguage('fr');
         </ul>
       </nav>
     </div>
-    <?php include 'assets/template/footer.php'; ?>
-  </body>
-</html>

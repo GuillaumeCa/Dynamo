@@ -1,6 +1,12 @@
 {
   "accueil" : "",
-  "groupe"  : "groupe",
+  "liste-groupe" : "listegroupe",
+  "creation-groupe" : "listegroupe/add",
+  "groupe"  : "groupe/info",
+  "discussion-groupe" : "groupe/discussion",
+  "membres-groupe" : "groupe/membres",
+  "planning-groupe" : "groupe/planning",
+  "reglage-groupe" : "groupe/reglage",
   "inscription" : "inscription",
   "inscription-verif" : "inscription/activ/{token}",
   "login" : "login",

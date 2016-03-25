@@ -9,8 +9,8 @@
               <h2 class="form-label green-text">Email</h2>
               <input class="clear-form" type="email" name="email" placeholder="e-mail">
               <h2 class="form-label green-text">Mot de passe</h2>
-              <input class="clear-form mdp" type="password" name="mdp" placeholder="mot de passe" onclick="resetMdp()">
-              <input class="clear-form mdp" type="password" name="verifmdp" placeholder="confirmer mot de passe" oninput="verif()">
+              <input class="clear-form mdp" type="password" name="password" placeholder="mot de passe" onclick="resetMdp()">
+              <input class="clear-form mdp" type="password" name="confirmation" placeholder="confirmer mot de passe" oninput="verif()">
               <div class="errors">
 
               </div>

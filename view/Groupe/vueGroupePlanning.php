@@ -1,18 +1,3 @@
-<?php
-include 'function.php';
-getLanguage('fr');
-?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Groupe-dynamo</title>
-    <link rel="stylesheet" href="assets/css/style.css" charset="utf-8">
-    <link rel="stylesheet" href="assets/css/planning.css" charset="utf-8">
-  </head>
-  <body>
-    <?php include 'assets/template/header-priv.php' ?>
-    <?php require 'assets/images/svg.php'; ?>
     <?php require 'Calendar.php'; ?>
     <section class="sec sec-bg-img sec-bg-overlay" style="background-image: url(/assets/images/sport1.png);">
       <div class="sec-overlay sec-over-violet"></div>
@@ -55,6 +40,3 @@ getLanguage('fr');
       <?php Calendar(12, $events); ?>
       <script src="assets/js/cal.js" charset="utf-8"></script>
     </div>
-    <?php include 'assets/template/footer.php'; ?>
-  </body>
-</html>

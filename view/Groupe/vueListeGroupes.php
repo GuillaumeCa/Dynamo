@@ -1,13 +1,13 @@
     <section class="sec sec-bg-violet">
       <div class="column">
         <h1 class="ttl ttl-md">Mes Groupes</h1>
-        <a href="groupe-creation.php" class="button margin-top">Créer un groupe</a>
+        <a href="<?php page('creation-groupe') ?>" class="button margin-top">Créer un groupe</a>
       </div>
     </section>
     <section class="sec">
       <div class="auto-width">
           <ul class="liste-lg">
-            <a href="groupe.php">
+            <a href="<?php page('groupe') ?>">
               <li>
                 <div class="liste-licon">
                   <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
@@ -27,7 +27,7 @@
                 <span class="liste-leader">LEADER</span>
               </li>
             </a>
-            <a href="groupe.php">
+            <a href="<?php page('groupe') ?>">
               <li>
                 <div class="liste-licon">
                   <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
@@ -47,7 +47,7 @@
                 <span class="liste-leader">LEADER</span>
               </li>
             </a>
-            <a href="groupe.php">
+            <a href="<?php page('groupe') ?>">
               <li>
                 <div class="liste-licon">
                   <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">

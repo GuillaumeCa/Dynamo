@@ -38,9 +38,55 @@ class Router {
           }
           break;
 
+        case 'liste-groupe':
+          if (Router::isLoggedIn()){
+            $this->ctr['Group']->liste();
+          }else {
+            $this->redirect();
+          }
+          break;
+
+        case 'creation-groupe':
+          if (Router::isLoggedIn()){
+            $this->ctr['Group']->creation();
+          }else {
+            $this->redirect();
+          }
+          break;
+
         case 'groupe':
           if (Router::isLoggedIn()) {
-            $this->ctr['Group']->liste();
+            $this->ctr['Group']->informations();
+          } else {
+            $this->redirect();
+          }
+          break;
+
+        case 'discussion-groupe':
+          if (Router::isLoggedIn()) {
+            $this->ctr['Group']->discussion();
+          } else {
+            $this->redirect();
+          }
+          break;
+
+        case 'membres-groupe':
+          if (Router::isLoggedIn()) {
+            $this->ctr['Group']->membres();
+          } else {
+            $this->redirect();
+          }
+          break;
+        case 'planning-groupe':
+          if (Router::isLoggedIn()) {
+            $this->ctr['Group']->planning();
+          } else {
+            $this->redirect();
+          }
+          break;
+        case 'reglage-groupe':
+          if (Router::isLoggedIn()) {
+            $this->ctr['Group']->reglage();
           } else {
             $this->redirect();
           }

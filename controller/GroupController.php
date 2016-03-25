@@ -19,30 +19,42 @@ class GroupController
 
   public function liste()
   {
-    //$list = $this->group->listGroupFromUser();
-    $vue = new Vue("ListeGroupes", "Groupe");
+    $vue = new Vue("ListeGroupes","Groupe");
     $vue->render();
   }
 
   public function informations()
   {
-    $vue = new Vue("Groupe" , "Groupe");
+    $vue = new Vue("Groupe","Groupe");
     $vue->render();
   }
 
   public function membres()
   {
-    # code...
+    $vue = new Vue("GroupeMembre","Groupe");
+    $vue->render();
   }
 
   public function planning()
   {
-    # code...
+    $vue = new Vue("GroupePlanning","Groupe");
+    $vue->render();
   }
 
   public function discussion()
   {
-    # code...
+    $vue = new Vue("GroupeDiscussion","Groupe");
+    $vue->render();
+  }
+  public function reglage()
+  {
+    $vue = new Vue("GroupeReglage","Groupe");
+    $vue->render();
+  }
+  public function creation()
+  {
+    $vue = new Vue("GroupeCreation","Groupe");
+    $vue->render();
   }
 
 }
