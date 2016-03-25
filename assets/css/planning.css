@@ -83,6 +83,8 @@ table thead td {
   text-align: center;
   font-weight: bold;
   padding: 5px;
+  text-transform: uppercase;
+  color: grey;
 }
 
 table .disabled {

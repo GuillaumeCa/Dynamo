@@ -12,16 +12,16 @@ getLanguage('fr');
   <body>
     <?php include 'assets/template/header.php' ?>
     <?php require_once 'assets/images/svg.php' ?>
-    <section class="info bg-image-center" style="background-image: url(assets/images/sport1.png);">
-      <div class="overlay"></div>
-      <div class="content">
-        <h1 class="green-text">Forum</h1>
-        <p>Une question ? Une idée ? Votre espace de discussion publique totalement dédié au sport !</p>
+    <section class="sec sec-bg-img sec-bg-overlay" style="background-image: url(assets/images/sport1.png);">
+      <div class="sec-overlay sec-over-violet"></div>
+      <div class="column">
+        <h1 class="ttl ttl-lg green-text">Forum</h1>
+        <p class="txt-desc">Une question ? Une idée ? Votre espace de discussion publique totalement dédié au sport !</p>
       </div>
     </section>
-    <section class="dark-bg">
+    <section class="sec sec-bg-dviolet">
       <div class="column">
-        <h1>Choisis ton Topic</h1>
+        <h1 class="ttl ttl-md">Choisis ton Topic</h1>
         <div class="grid">
           <?php
           for ($i=0; $i < 1; $i++) {

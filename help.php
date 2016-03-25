@@ -12,7 +12,7 @@ getLanguage('fr');
   <body>
     <?php include 'assets/template/header.php'; ?>
 
-    <section class="pink-bg list">
+    <section class="sec-bg-violet list">
       <div>
         <article>
           <h1>Comment se connecter&nbsp;?</h1>
