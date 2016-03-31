@@ -4,6 +4,7 @@
           D
         </a>
         <h1 class="ttl ttl-md ttl-band">Dynamo User</h1>
+        <a href="<?php page('logout') ?>" class="button btn-purple-inv btn-right btn-band btn-sm">SE DÉCONNECTER</a>
       </div>
     </section>
     <div class="nav-bbar">
@@ -22,144 +23,135 @@
         </ul>
       </nav>
     </div>
-    <div class="auto-width">
-      <div>
-        <div class="titre">
-          <h1>Information</h1>
-        </div>
-        <div class="modification">
-          <a href="#" class="button">modifier</a>
-        </div>
+    <section class="auto-width">
+      <div class="ttl-group-underline-gr">
+        <h1 class="ttl ttl-green ttl-inline ttl-sm">Informations</h1>
+        <a href="#" class="button btn-sm btn-right btn-wh-inv">modifier</a>
+      </div>
+      <table class="info-table">
+        <tr>
+          <th>Nom</th>
+          <td>Carré</td>
+        </tr>
+        <tr>
+          <th>Prénom</th>
+          <td>Guillaume</td>
+        </tr>
+        <tr>
+          <th>Pseudo</th>
+          <td>Irong</td>
+        </tr>
+        <tr>
+          <th>Sexe</th>
+          <td>Homme</td>
+        </tr>
+        <tr>
+          <th>Date de naissance</th>
+          <td>06/04/1995</td>
+        </tr>
+        <tr>
+          <th>Addresse</th>
+          <td>8 rue de la côte<br> 78220 Viroflay </td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td>guicarre1@gmail.com</td>
+        </tr>
+      </table>
     </div>
-      <div class="liste">
-        <br>
-        <TABLE BORDER="1">
-          <TR>
-            <TH> Nom : </TH>
-            <td align=left> xxxx </td>
-          </TR>
-          <TR>
-            <TH> Prénom : </TH>
-            <td align=left> xxxx </td>
-          </TR>
-          <TR>
-            <TH> Pseudo : </TH>
-            <td align=left> xxxx </td>
-          </TR>
-          <TR>
-            <TH> Sexe : </TH>
-            <td align=left> xxxxxx </td>
-          </TR>
-          <TR>
-            <TH> Date de naissance : </TH>
-            <td align=left> xxxxxx </td>
-          </TR>
-          <TR>
-            <TH> Adresse : </TH>
-            <td align=left> xxxxxx  </td>
-          </TR>
-          <TR>
-            <TH> Complément d'adresse : </TH>
-            <td align=left> xxxxxx  </td>
-          </TR>
-          <TR>
-            <TH> Email : </TH>
-            <td align=left> xxxxxxxxxxxxx </td>
-          </TR>
-        </TABLE>
-      </div>
-      <div class="auto-width">
-          <div class="titre">
-            <h1>Mes Sports</h1>
-          </div>
-          <div class="modification">
-            <a href="#" class="button">modifier</a>
-          </div>
-      </div>
-<section class="auto-width">
-  <div class="list">
+    <div class="ttl-group-underline-gr">
+      <h1 class="ttl ttl-green ttl-inline ttl-sm">Mes sports</h1>
+      <a href="#" class="button btn-sm btn-right btn-wh-inv">modifier</a>
+    </div>
+
+    <ul class="liste-smp">
       <li>
-        <div class="left-icon">
-          <div class="circle">
-            <svg>
-              <use xlink:href="#ball"></use>
-            </svg>
-          </div>
-        </div>
-        <div class="middle-text">
-          <h1>football</h1>
-            <h3>faible</h3>
-            <div class="coleurRect1">
-              <div class="rectangle">
-              </div>
-            </div>
-            <div class="coleurRect2">
-                <div class="rectangle">
-                </div>
-            </div>
-            <div class="coleurRect3">
-              <div class="rectangle">
-              </div>
-            </div>
-            <div class="coleurRect4">
-              <div class="rectangle">
-              </div>
-            </div>
-            <div class="coleurRect5">
-              <div class="rectangle">
-              </div>
-            </div>
-            <h3>élevé</h3>
-        </div>
-        <div class="sup">
-          <div class="modification">
-            <a href="#" class="button">supprimer</a>
-          </div>
-        </div>
-    </li>
-    <li>
-      <div class="left-icon">
         <div class="circle">
           <svg>
             <use xlink:href="#ball"></use>
           </svg>
         </div>
-      </div>
-      <div class="sup">
-        <div class="modification">
-          <a href="#" class="button">supprimer</a>
+        <h1 class="ttl ttl-sm ttl-inline ttl-purple">Basket</h1>
+        <div class="liste-button">
+          <a href="#" class="button btn-sm purple btn-right">supprimer</a>
         </div>
-      </div>
-      <div class="middle-text">
-        <h1>football</h1>
-        <h3>faible</h3>
-        <div class="coleurRect6">
-          <div class="rectangle">
+        <div class="liste-niveau">
+          <span class="liste-desc">faible</span>
+          <div class="liste-scope">
+            <span class="rectangle filled"></span>
+            <span class="rectangle filled"></span>
+            <span class="rectangle filled"></span>
+            <span class="rectangle"></span>
+            <span class="rectangle"></span>
           </div>
+          <span class="liste-desc">élevé</span>
         </div>
-        <div class="coleurRect7">
-          <div class="rectangle">
+      </li>
+      <li>
+        <div class="circle">
+          <svg>
+            <use xlink:href="#pingpong"></use>
+          </svg>
+        </div>
+          <h1 class="ttl ttl-sm ttl-inline ttl-purple">Ping Pong</h1>
+          <div class="liste-button">
+            <a href="#" class="button btn-sm purple btn-right">supprimer</a>
           </div>
-        </div>
-        <div class="coleurRect8">
-          <div class="rectangle">
+          <div class="liste-niveau">
+            <span class="liste-desc">faible</span>
+            <div class="liste-scope">
+              <span class="rectangle filled"></span>
+              <span class="rectangle filled"></span>
+              <span class="rectangle filled"></span>
+              <span class="rectangle"></span>
+              <span class="rectangle"></span>
+            </div>
+            <span class="liste-desc">élevé</span>
           </div>
+      </li>
+      <li>
+        <div class="circle">
+          <svg>
+            <use xlink:href="#pingpong"></use>
+          </svg>
         </div>
-        <div class="coleurRect9">
-          <div class="rectangle">
+          <h1 class="ttl ttl-sm ttl-inline ttl-purple">Ping Pong</h1>
+          <div class="liste-button">
+            <a href="#" class="button btn-sm purple btn-right">supprimer</a>
           </div>
-        </div>
-        <div class="coleurRect10">
-          <div class="rectangle">
+          <div class="liste-niveau">
+            <span class="liste-desc">faible</span>
+            <div class="liste-scope">
+              <span class="rectangle filled"></span>
+              <span class="rectangle filled"></span>
+              <span class="rectangle filled"></span>
+              <span class="rectangle"></span>
+              <span class="rectangle"></span>
+            </div>
+            <span class="liste-desc">élevé</span>
           </div>
+      </li>
+      <li>
+        <div class="circle">
+          <svg>
+            <use xlink:href="#pingpong"></use>
+          </svg>
         </div>
-        <h3>élevé</h3>
-      </div>
-    </div>
-  </li>
-      </section>
-      <div class="deconnexion">
-        <br>
-        <a href="<?php page('logout') ?>" class="button">SE DÉCONNECTER</a>
-      </div>
-    </div>
+          <h1 class="ttl ttl-sm ttl-inline ttl-purple">Ping Pong</h1>
+          <div class="liste-button">
+            <a href="#" class="button btn-sm purple btn-right">supprimer</a>
+          </div>
+          <div class="liste-niveau">
+            <span class="liste-desc">faible</span>
+            <div class="liste-scope">
+              <span class="rectangle filled"></span>
+              <span class="rectangle filled"></span>
+              <span class="rectangle filled"></span>
+              <span class="rectangle"></span>
+              <span class="rectangle"></span>
+            </div>
+            <span class="liste-desc">élevé</span>
+          </div>
+      </li>
+    </ul>
+  </section>

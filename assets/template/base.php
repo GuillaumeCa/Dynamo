@@ -19,6 +19,10 @@
     <?php require $this->fichier ?>
     <?php $this->loadScript($this->script) ?>
     <?php require 'assets/template/footer.php' ?>
-    <script src="" charset="utf-8"></script>
+    <script type="text/javascript">
+      function toggle(element) {
+        document.body.querySelector(element).classList.toggle('visible');
+      }
+    </script>
   </body>
 </html>

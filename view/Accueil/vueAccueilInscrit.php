@@ -1,5 +1,5 @@
-    <section class="bg-image-center bg-image-overlay" style="background-image: url(assets/images/sport2.jpg);">
-      <div class="overlay"></div>
+    <section class="sec sec-bg-img sec-bg-overlay" style="background-image: url(assets/images/sport3.jpg);">
+      <div class="sec-overlay sec-over-dark"></div>
       <div class="auto-width hud-padding">
         <div class="column-2 today">
           <h2><?php lang('auj-caps') ?></h1>
@@ -42,12 +42,12 @@
         </div>
       </div>
     </section>
-    <section class="auto-width">
+    <section class="sec auto-width">
       <h2 class="green-text"><?php lang('select') ?></h2>
       <div class="gallerie">
         <a href="">
           <div class="group">
-            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
+            <div class="image" style="background-image: url(assets/images/sport2.jpg);"></div>
             <h3>Groupe 1</h3>
             <p>Description</p>
             <div class="people" title="Nombre de membres du groupe">
@@ -57,7 +57,7 @@
         </a>
         <a href="">
           <div class="group">
-            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
+            <div class="image" style="background-image: url(assets/images/sport2.jpg);"></div>
             <h3>Groupe 2</h3>
             <p>Description</p>
             <div class="people" title="Nombre de membres du groupe">
@@ -67,7 +67,7 @@
         </a>
         <a href="">
           <div class="group">
-            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
+            <div class="image" style="background-image: url(assets/images/sport2.jpg);"></div>
             <h3>Groupe 3</h3>
             <p>Description</p>
             <div class="people" title="Nombre de membres du groupe">
@@ -77,7 +77,7 @@
         </a>
         <a href="">
           <div class="group">
-            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
+            <div class="image" style="background-image: url(assets/images/sport2.jpg);"></div>
             <h3>Groupe 4</h3>
             <p>Description</p>
             <div class="people" title="Nombre de membres du groupe">
@@ -92,7 +92,7 @@
       <div class="gallerie">
         <a href="">
           <div class="group">
-            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
+            <div class="image" style="background-image: url(assets/images/sport2.jpg);"></div>
             <h3>Groupe 1</h3>
             <p>Description</p>
             <div class="people" title="Nombre de membres du groupe">
@@ -102,7 +102,7 @@
         </a>
         <a href="">
           <div class="group">
-            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
+            <div class="image" style="background-image: url(assets/images/sport2.jpg);"></div>
             <h3>Groupe 2</h3>
             <p>Description</p>
             <div class="people" title="Nombre de membres du groupe">
@@ -112,7 +112,7 @@
         </a>
         <a href="">
           <div class="group">
-            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
+            <div class="image" style="background-image: url(assets/images/sport2.jpg);"></div>
             <h3>Groupe 3</h3>
             <p>Description</p>
             <div class="people" title="Nombre de membres du groupe">
@@ -122,7 +122,7 @@
         </a>
         <a href="">
           <div class="group">
-            <div class="image" style="background-image: url(assets/images/sport3.jpg);"></div>
+            <div class="image" style="background-image: url(assets/images/sport2.jpg);"></div>
             <h3>Groupe 4</h3>
             <p>Description</p>
             <div class="people" title="Nombre de membres du groupe">

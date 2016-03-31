@@ -7,7 +7,7 @@
 #
 # Hôte: localhost (MySQL 5.6.27)
 # Base de données: Dynamo
-# Temps de génération: 2016-03-12 12:59:26 +0000
+# Temps de génération: 2016-03-31 09:23:11 +0000
 # ************************************************************
 
 
@@ -42,10 +42,8 @@ CREATE TABLE `club` (
 DROP TABLE IF EXISTS `club_sport`;
 
 CREATE TABLE `club_sport` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_club` int(11) unsigned DEFAULT NULL,
   `id_sport` int(11) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`),
   KEY `id_club` (`id_club`),
   KEY `id_sport` (`id_sport`),
   CONSTRAINT `club_sport_ibfk_1` FOREIGN KEY (`id_club`) REFERENCES `club` (`id`),
@@ -125,36 +123,12 @@ CREATE TABLE `groupe` (
 DROP TABLE IF EXISTS `groupe_discussion`;
 
 CREATE TABLE `groupe_discussion` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `id_utilisateur` int(11) unsigned DEFAULT NULL,
-  `id_groupe` int(11) unsigned DEFAULT NULL,
-  `titre` varchar(100) DEFAULT NULL,
-  `creation` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_utilisateur` (`id_utilisateur`),
-  KEY `id_groupe` (`id_groupe`),
-  CONSTRAINT `groupe_discussion_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`),
-  CONSTRAINT `groupe_discussion_ibfk_2` FOREIGN KEY (`id_groupe`) REFERENCES `groupe` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-# Affichage de la table groupe_message
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `groupe_message`;
-
-CREATE TABLE `groupe_message` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `id_utilisateur` int(11) unsigned DEFAULT NULL,
-  `id_discussion` int(11) unsigned DEFAULT NULL,
-  `texte` text,
-  `date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_utilisateur` (`id_utilisateur`),
+  `id_groupe` int(11) unsigned NOT NULL,
+  `id_discussion` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id_groupe`,`id_discussion`),
   KEY `id_discussion` (`id_discussion`),
-  CONSTRAINT `groupe_message_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`),
-  CONSTRAINT `groupe_message_ibfk_2` FOREIGN KEY (`id_discussion`) REFERENCES `discussion` (`id`)
+  CONSTRAINT `groupe_discussion_ibfk_1` FOREIGN KEY (`id_groupe`) REFERENCES `groupe` (`id`),
+  CONSTRAINT `groupe_discussion_ibfk_2` FOREIGN KEY (`id_discussion`) REFERENCES `discussion` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -299,7 +273,7 @@ CREATE TABLE `utilisateur` (
 DROP TABLE IF EXISTS `utilisateur_groupe`;
 
 CREATE TABLE `utilisateur_groupe` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `id_groupe` int(11) unsigned NOT NULL,
   `id_utilisateur` int(11) unsigned NOT NULL,
   `leader` tinyint(1) NOT NULL,
@@ -320,7 +294,7 @@ CREATE TABLE `utilisateur_groupe` (
 DROP TABLE IF EXISTS `utilisateur_sport`;
 
 CREATE TABLE `utilisateur_sport` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `id_utilisateur` int(11) unsigned DEFAULT NULL,
   `id_sport` int(11) unsigned DEFAULT NULL,
   `niveau_util` int(1) DEFAULT NULL,

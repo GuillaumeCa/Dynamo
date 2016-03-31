@@ -4,6 +4,7 @@
           D
         </a>
         <h1 class="ttl ttl-md ttl-band">Dynamo User</h1>
+        <a href="<?php page('logout') ?>" class="button btn-purple-inv btn-right btn-band btn-sm">SE DÉCONNECTER</a>
       </div>
     </section>
     <div class="nav-bbar">
@@ -30,7 +31,3 @@
           <p>Supprimer mon compte</p>
           <a href="#" class="button light">Supprimer</a>
         </div>
-        <!-- <div class="deconnexion">
-          <br>
-          <a href="#" class="button">SE DÉCONNECTER</a>
-        </div> -->

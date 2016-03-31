@@ -332,8 +332,22 @@ footer p {
 .ttl { color: white; }
 .ttl-lg { font-size: 5em; font-weight: lighter; }
 .ttl-md { font-size: 4em; font-weight: lighter; }
+.ttl-sm { font-size: 2em; font-weight: normal; }
 .ttl-band { line-height: 80px; display: inline-block;}
 .ttl-green { color: #53FFC0; }
+.ttl-purple { color: #9972FA; }
+.ttl-inline { display: inline-block; }
+
+.ttl-group-underline-gr {
+  border-bottom: #53FFC0 solid 1px;
+  padding: 5px 0;
+  margin-bottom: 5px;
+}
+
+.ttl-group-underline-gr .button {
+  vertical-align: bottom;
+}
+
 /*----------------------*
   3.3 texte
 *----------------------*/
@@ -474,6 +488,16 @@ footer p {
   color: #53FFC0;
 }
 
+.btn-wh-inv {
+  border-color: #53FFC0;
+  color: #53FFC0;
+}
+
+.btn-wh-inv:hover {
+  background: #53FFC0;
+  color: white;
+}
+
 .button.purple {
   border-color: #9972FA;
   color: #9972FA;
@@ -482,6 +506,28 @@ footer p {
 .button.purple:hover {
   background: #9972FA;
   color: white;
+}
+
+.btn-purple-inv {
+  border-color: white;
+  color: white;
+}
+
+.btn-purple-inv:hover {
+  background: white;
+  color: #9972FA;
+}
+
+.btn-sm {
+  font-size: 1em;
+}
+
+.btn-right {
+  float: right;
+}
+
+.btn-band {
+  margin: 2em 0;
 }
 
 .profile-btn {
@@ -890,6 +936,100 @@ a.forget:hover {
 }
 
 /*----------------------*
+  5.4 Liste simple
+*----------------------*/
+
+.liste-smp li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: #9972FA solid 1px;
+  vertical-align: top;
+  margin-left: 20px;
+}
+
+.liste-smp .circle {
+  background: #9972FA;
+  padding: 12px;
+  margin: 8px;
+  height: 80px;
+  width: 80px;
+  border-radius: 100px;
+  display: inline-block;
+}
+
+.liste-smp .circle svg {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.liste-group {
+
+}
+
+.liste-niveau {
+  display: inline-block;
+  float: right;
+  padding: 35px 15px;
+}
+
+.liste-niveau .liste-desc {
+  color: #9972FA;
+}
+
+.liste-smp .ttl {
+  line-height: 96px;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+.liste-scope {
+  display: inline-block;
+  height: 16px;
+  vertical-align: bottom;
+}
+
+.liste-scope .rectangle {
+  width: 20px;
+  height: 10px;
+  border: #9972FA solid 1px;
+  margin: 3px;
+  display: inline-block;
+}
+
+.liste-scope .filled {
+  background: #9972FA
+}
+
+.liste-button {
+  height: 96px;
+  display: inline-block;
+  padding: 30px 5px;
+  vertical-align: top;
+  float: right;
+}
+
+/*----------------------*
+  5.5 Tableaux
+*----------------------*/
+
+.info-table {
+  padding: 10px;
+  font-weight: 400;
+  font-size: 1.2em;
+  color: #9972FA;
+}
+.info-table tr {
+  line-height: 1.5;
+}
+.info-table th {
+  padding-right: 10px;
+  text-align: right;
+  vertical-align: top;
+  font-weight: 600;
+}
+
+/*----------------------*
   6. ANIMATION
 *----------------------*/
 
@@ -947,13 +1087,6 @@ a.forget:hover {
 /*----------------------*
   CSS A REFORMATER
 *----------------------*/
-
-
-
-.liste {
-  border-top: #53FFC0 solid 1px;
-  text-align:right;
-}
 
 .titre{
   font-size: 20px;

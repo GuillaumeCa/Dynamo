@@ -4,6 +4,7 @@
           D
         </a>
         <h1 class="ttl ttl-md ttl-band">Dynamo User</h1>
+        <a href="<?php page('logout') ?>" class="button btn-purple-inv btn-right btn-band btn-sm">SE DÉCONNECTER</a>
       </div>
     </section>
     <div class="nav-bbar">
@@ -22,9 +23,4 @@
         </ul>
       </nav>
     </div>
-
-      <div class="deconnexion">
-        <a href="#" class="button">SE DÉCONNECTER</a>
-      </div>
-
     </div>
