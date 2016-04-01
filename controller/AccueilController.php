@@ -1,7 +1,7 @@
 <?php
 
 require_once 'model/Group.php';
-require_once 'app/View.php';
+require_once 'app/Vue.php';
 require_once 'model/User.php';
 
 
@@ -25,6 +25,12 @@ class AccueilController
   public function accueil()
   {
     $vue = new Vue("Accueil", "Accueil");
+    $vue->render();
+  }
+
+  public function recherche()
+  {
+    $vue = new Vue("Recherche", "Accueil");
     $vue->render();
   }
 

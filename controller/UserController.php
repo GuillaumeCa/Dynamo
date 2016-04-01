@@ -1,7 +1,7 @@
 <?php
 
 require_once 'model/User.php';
-require_once 'app/View.php';
+require_once 'app/Vue.php';
 require_once 'app/Validate.php';
 
 /**

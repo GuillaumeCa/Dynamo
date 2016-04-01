@@ -6,9 +6,9 @@
   </div>
   <div class="search">
     <div class="search-field">
-      <form class="" action="search.php" method="get">
-        <input type="text" name="name" placeholder="rechercher">
-        <button type="submit" name="submit"><svg><use xlink:href="#search"></use></svg></button>
+      <form class="" action="<?php page('recherche') ?>" method="get">
+        <input type="text" name="s" placeholder="rechercher">
+        <button type="submit"><svg><use xlink:href="#search"></use></svg></button>
       </form>
     </div>
     <div class="result">

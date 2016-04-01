@@ -1458,6 +1458,18 @@ a.forget:hover {
   margin-right: 4%;
 }
 
+.box {
+  padding: 8px;
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.box:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+
 .deconnexion{
   border-top: #53FFC0 solid 1px;
 }
@@ -1505,12 +1517,13 @@ margin-bottom: auto;
   margin-bottom: 5px;
 }
 
-.hud-padding ul {
+.hud-padding table {
   padding-left: 20px;
 }
 
-.hud-padding li span {
-  margin-right: 10px;
+.hud-padding th {
+  padding-right: 10px;
+  text-align: right;
   font-weight: lighter;
 }
 

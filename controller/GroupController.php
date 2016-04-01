@@ -1,7 +1,7 @@
 <?php
 
 require_once 'model/Group.php';
-require_once 'app/View.php';
+require_once 'app/Vue.php';
 
 /**
  *

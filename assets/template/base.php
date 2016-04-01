@@ -7,7 +7,7 @@
     <title><?php echo $this->page ?> - Dynamo</title>
   </head>
   <body>
-    <?php require_once 'assets/images/svg.php' ?>
+    <?php require_once 'assets/images/icons.svg' ?>
     <?php
     // affiche le header de l'utilisateur connecté
     if (Router::isLoggedIn()) {

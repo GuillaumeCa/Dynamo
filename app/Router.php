@@ -1,5 +1,5 @@
 <?php
-require_once 'app/View.php';
+require_once 'app/Vue.php';
 require_once 'controller/AccueilController.php';
 require_once 'controller/GroupController.php';
 require_once 'controller/UserController.php';
@@ -30,6 +30,7 @@ class Router {
   public function routerRequete() {
     try {
       switch ($this->page) {
+        // Accueil
         case 'accueil':
           if (Router::isLoggedIn()){
             $this->ctr['Accueil']->accueil_logged();
@@ -38,6 +39,11 @@ class Router {
           }
           break;
 
+        case 'recherche':
+          $this->ctr['Accueil']->recherche();
+          break;
+
+        // Groupe
         case 'liste-groupe':
           if (Router::isLoggedIn()){
             $this->ctr['Group']->liste();
@@ -92,6 +98,7 @@ class Router {
           }
           break;
 
+        // Profile
         case 'profile':
           if (Router::isLoggedIn()) {
             $this->ctr['User']->profile();
@@ -116,6 +123,7 @@ class Router {
           }
           break;
 
+        // Inscription
         case 'inscription':
           $this->ctr['User']->inscription();
           break;
@@ -124,6 +132,7 @@ class Router {
           $this->ctr['User']->verifinscription($this->params);
           break;
 
+        // Login
         case 'login':
             $this->ctr['User']->login();
           break;

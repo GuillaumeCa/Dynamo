@@ -3,42 +3,57 @@
       <div class="auto-width hud-padding">
         <div class="column-2 today">
           <h2><?php lang('auj-caps') ?></h1>
-          <h3><a href="#">Groupe 1</a></h3>
-          <ul>
-            <li>
-              <span>9h00 - 10h00</span>Entrainement
-            </li>
-            <li>
-              <span>10h00 - 12h00</span>Competition
-            </li>
-          </ul>
-          <h3><a href="#">Groupe 2</a></h3>
-          <ul>
-            <li>
-              <span>19h15 - 20h00</span>Entrainement
-            </li>
-            <li>
-              <span>19h15 - 20h00</span>Entrainement
-            </li>
-            <li>
-              <span>19h15 - 20h00</span>Entrainement
-            </li>
-          </ul>
-
+          <div class="">
+            <a href="#" class="box">
+              <h3>Groupe 1</h3>
+              <table>
+                <tr>
+                  <th>9h00 - 10h00</th>
+                  <td>Competition</td>
+                </tr>
+                <tr>
+                  <th>10h00 - 12h00</th>
+                  <td>Entrainement</td>
+                </tr>
+              </table>
+            </a>
+          </div>
+          <div class="">
+            <a href="#" class="box">
+              <h3>Groupe 2</h3>
+              <table>
+                <tr>
+                  <th>9h00 - 10h00</th>
+                  <td>Competition</td>
+                </tr>
+                <tr>
+                  <th>10h00 - 12h00</th>
+                  <td>Entrainement</td>
+                </tr>
+                <tr>
+                  <th>10h00 - 12h00</th>
+                  <td>Entrainement</td>
+                </tr>
+              </table>
+            </a>
+          </div>
         </div><div class="column-2">
           <h2><?php lang('demain-caps') ?></h2>
-          <h3><a href="#">Groupe 1</a></h3>
-          <ul>
-            <li>
-              <span>19h15 - 20h00</span>Entrainement
-            </li>
-            <li>
-              <span>19h15 - 20h00</span>Entrainement
-            </li>
-            <li>
-              <span>19h15 - 20h00</span>Entrainement
-            </li>
-          </ul>
+          <div class="">
+            <a href="#" class="box">
+              <h3>Groupe 1</h3>
+              <table>
+                <tr>
+                  <th>9h00 - 10h00</th>
+                  <td>Competition</td>
+                </tr>
+                <tr>
+                  <th>10h00 - 12h00</th>
+                  <td>Entrainement</td>
+                </tr>
+              </table>
+            </a>
+          </div>
         </div>
       </div>
     </section>
