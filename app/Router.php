@@ -220,7 +220,7 @@ class Router {
   }
 }
 
-function page($route, $param=[])
+function page($route="", $param=[])
 {
   echo "/".$_GET['lang']."/".Router::getRoute($route, $param);
 }

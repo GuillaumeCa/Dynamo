@@ -17,13 +17,8 @@ class Translate
 
   private function getLanguage($lang)
   {
-    $myfile = fopen("assets/translations/".$lang.".json", "r") or die("Unable to open file!");
-    // Output one line until end-of-file
-    while(!feof($myfile)) {
-      $trans = json_decode(fgets($myfile), true);
-      $translation[$trans['id']] = $trans['str'];
-    }
-    fclose($myfile);
+    $myfile = file_get_contents("assets/translations/".$lang.".json", "r") or die("Unable to open file!");
+    $translation = json_decode($myfile, true);
     return $translation;
   }
 

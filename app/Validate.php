@@ -72,8 +72,8 @@ class Validate extends Database
     }
   }
 
-  public function isVille($ville, $cp, $error){
-    $req = $this->executerRequete("SELECT ville_nom_reel FROM villes WHERE ville_nom_reel = ? AND ville_code_postal =?", [$this->getField($ville), $this->getField($cp)]);
+  public function isVille($ville, $error){
+    $req = $this->executerRequete("SELECT ville_nom_reel FROM villes WHERE ville_nom_reel = ?", [$this->getField($ville)]);
     if($this->queryEmpty($req->fetch())) {
       $this->errors[$ville][] = $error;
     }

@@ -1,6 +1,6 @@
 <header>
   <div class="logo">
-    <a href="/fr">
+    <a href="<?php page() ?>">
     <img src="/assets/images/logo.png" alt="logo" />
     </a>
   </div>
