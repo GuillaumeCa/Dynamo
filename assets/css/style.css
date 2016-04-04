@@ -44,9 +44,14 @@ input {
   appearance: none;
 }
 
+html {
+  background: #49e0a9;
+}
+
 body {
   font-family: Avenir next, Helvetica Neue, Arial, sans-serif;
   font-size: 14px;
+  background: white;
 }
 
 b {
@@ -61,7 +66,9 @@ b {
 
 header {
   max-width: 900px;
-  margin: 1em auto;
+  margin: 0 auto;
+  padding: 1em 0;
+  background: white;
 }
 
 header .logo, header .search, header nav li, header nav {

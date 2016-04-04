@@ -34,4 +34,10 @@ class AccueilController
     $vue->render();
   }
 
+  public function langue()
+  {
+    $vue = new Vue("Langue", "Accueil");
+    $vue->render();
+  }
+
 }

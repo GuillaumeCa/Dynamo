@@ -38,6 +38,8 @@ class GroupController
   public function planning()
   {
     $vue = new Vue("GroupePlanning","Groupe");
+    $vue->setScript('cal.js');
+    $vue->setCss('planning.css');
     $vue->render();
   }
 

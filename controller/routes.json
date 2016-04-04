@@ -19,5 +19,6 @@
   "type-sport"  : "sport-type",
   "dev" : "dev",
   "CGU" : "CGU",
-  "recherche" : "recherche"
+  "recherche" : "recherche",
+  "langue" : "langue"
 }

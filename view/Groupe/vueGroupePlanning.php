@@ -13,12 +13,12 @@
     <div class="nav-bbar">
       <nav class="tab-menu">
         <ul>
-          <li><a href="#">informations</a></li>
-          <li><a href="/groupe-membre.php">membres</a></li>
-          <li><a href="groupe-planning.php" class="active">planning</a></li>
-          <li><a href="groupe-discussion.php">discussions</a></li>
+          <li><a href="<?php page('groupe') ?>">informations</a></li>
+          <li><a href="<?php page('membres-groupe') ?>">membres</a></li>
+          <li><a href="<?php page('planning-groupe') ?>" class="active">planning</a></li>
+          <li><a href="<?php page('discussion-groupe') ?>">discussions</a></li>
           <li>
-            <a href="groupe-reglage.php" class="settings">
+            <a href="<?php page('reglage-groupe') ?>" class="settings">
               <svg>
                 <use xlink:href="#gear"></use>
               </svg>
@@ -38,5 +38,4 @@
 
       ?>
       <?php Calendar(12, $events); ?>
-      <script src="assets/js/cal.js" charset="utf-8"></script>
     </div>

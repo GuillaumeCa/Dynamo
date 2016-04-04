@@ -43,6 +43,10 @@ class Router {
           $this->ctr['Accueil']->recherche();
           break;
 
+        case 'langue':
+          $this->ctr['Accueil']->langue();
+          break;
+
         // Groupe
         case 'liste-groupe':
           if (Router::isLoggedIn()){

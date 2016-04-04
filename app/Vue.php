@@ -25,14 +25,14 @@ class Vue
     require "assets/template/base.php";
   }
 
-  public function loadCss($files)
+  private function loadCss($files)
   {
     foreach ($files as $value) {
       echo "<link rel='stylesheet' href='/assets/css/$value' charset='utf-8'>";
     }
   }
 
-  public static function loadScript($files)
+  private function loadScript($files)
   {
     if (isset($files)) {
       foreach ($files as $value) {
@@ -48,11 +48,11 @@ class Vue
 
   public function setCss($value)
   {
-    $this->css = $value;
+    $this->css[] = $value;
   }
 
   public function setScript($value)
   {
-    $this->script = $value;
+    $this->script[] = $value;
   }
 }
