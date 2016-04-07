@@ -58,6 +58,14 @@ class Validate extends Database
     }
   }
 
+  public function compteActive($error)
+  {
+    $req = $this->executerRequete("SELECT email FROM utilisateur WHERE email = ? AND token IS NULL ", [$this->getField('email')]);
+    if($this->queryEmpty($req->fetch())) {
+      $this->errors['activation'][] = $error;
+   }
+  }
+
   public function doubleCheck($first, $second, $error)
   {
     if ($this->getField($first) != $this->getField($second)) {

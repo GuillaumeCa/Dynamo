@@ -70,9 +70,10 @@ class UserController
   {
     if (!empty($_POST)) {
       $validate = new Validate($_POST);
-      $validate->isEmail('email', "l'email n'est pas valide");
+      //$validate->isEmail('email', "l'email n'est pas valide");
       $login = $this->user->handleLogin()->fetch();
       $validate->isInDB('login', $login, "L'email et/ou le mot de passe sont incorrect");
+      $validate->compteActive("le compte n'est pas active");
       if ($validate->isValid()) {
         $_SESSION['auth'] = $login;
         Router::redirect('profile');
