@@ -22,7 +22,12 @@ class Vue
   public function render($parameters=[], $template = 'base')
   {
     extract($parameters);
-    require "assets/template/base.php";
+    include "assets/template/base.php";
+  }
+
+  public function emptyPage()
+  {
+    include $this->fichier;
   }
 
   private function loadCss($files)

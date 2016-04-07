@@ -58,6 +58,12 @@ class User extends Database
     }
   }
 
+  public function emailExist()
+  {
+    $q = "SELECT email FROM utilisateur WHERE email = ?";
+    $req = $this->executerRequete($q, [$_POST['email']]);
+    return $req;
+  }
 
   public function resetAccount()
   {

@@ -26,7 +26,7 @@ class Router {
   }
 
   // Traite une requête entrante
-  // url : site.com/index.php?lang=fr&p=groupe/{id-groupe}/...
+  // url : site.com/index.php?lang=fr&p=url
   public function routerRequete() {
     try {
       switch ($this->page) {
@@ -192,7 +192,8 @@ class Router {
 
   // Affiche une erreur
   private function erreur($msgErreur) {
-    echo $msgErreur;
+    $vue = new Vue('404', 'Accueil');
+    $vue->emptyPage();
   }
 
   public function getPage()

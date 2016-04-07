@@ -7,7 +7,7 @@
   <div class="search">
     <div class="search-field">
       <form class="" action="<?php page('recherche') ?>" method="get">
-        <input type="text" name="s" placeholder="rechercher">
+        <input type="text" name="search" placeholder="rechercher">
         <button type="submit"><svg><use xlink:href="#search"></use></svg></button>
       </form>
     </div>

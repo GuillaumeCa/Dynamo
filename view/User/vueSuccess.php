@@ -2,7 +2,7 @@
       <div class="column success-section">
         <h1 class="ttl ttl-md success-title FadeArrival">✔︎</h1>
         <p class="success-msg">
-          <?php echo $data['msg'] ?>
+          <?php echo $msg ?>
         </p>
       </div>
     </section>

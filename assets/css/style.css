@@ -340,6 +340,7 @@ footer p {
 .ttl-lg { font-size: 5em; font-weight: lighter; }
 .ttl-md { font-size: 4em; font-weight: lighter; }
 .ttl-sm { font-size: 2em; font-weight: normal; }
+.ttl-cps { text-transform:uppercase; }
 .ttl-band { line-height: 80px; display: inline-block;}
 .ttl-green { color: #53FFC0; }
 .ttl-purple { color: #9972FA; }
@@ -591,6 +592,7 @@ footer p {
 }
 .liste-licon {
   width: 150px;
+  height: 100px;
   display: inline-block;
   position: relative;
   vertical-align: top;
@@ -713,8 +715,16 @@ footer p {
   font-size: 1.2em;
   color: white;
   width: 100%;
-  /*-webkit-transition: border .3s ease;
-  transition: border .3s ease;*/
+}
+
+.search-form-lg {
+  max-width: 600px;
+  margin: 20px auto;
+  padding-left: 40px;
+  background-image: url(/assets/images/search.svg);
+  background-size: 20px 20px;
+  background-position: 10px 50%;
+  background-repeat: no-repeat;
 }
 
 .clear-form:focus {
@@ -848,7 +858,7 @@ a.forget:hover {
   appearance: none;
   width: auto;
   display: inline-block;
-  color: #9972FA;
+  /*color: #9972FA;*/
   padding: 3px 10px;
   padding-right: 25px;
   background-image: url(/assets/images/arrows.png);
@@ -1624,4 +1634,45 @@ section .text-left {
 .FadeArrival {
   transition: all 1s ease;
   animation: FadeArrival 0.5s;
+}
+
+.search-optbar {
+  border-bottom: #9972FA solid 1px;
+  padding: 10px;
+}
+
+.search-bar {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.search-tool {
+  overflow: hidden;
+  max-height: 0;
+}
+
+.search-bar span {
+  line-height: 2em;
+}
+
+.search-bar .button {
+  float: right;
+}
+
+.container-404 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #9972FA;
+  color: white;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+.title-404 {
+  font-weight: lighter;
+  font-size: 4em;
+  padding-top: 20%;
+  margin-bottom: 30px;
 }
