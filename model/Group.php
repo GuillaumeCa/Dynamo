@@ -10,7 +10,11 @@ class Group extends Database
 
   public function listGroupFromUser()
   {
-    
+    $sql = "SELECT groupe.* FROM utilisateur_groupe
+    JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
+    WHERE id_utilisateur = ?";
+    $listGroupFromUser = $this->executerRequete($sql, [$_SESSION['auth']->id]);
+    return $listGroupFromUser;
   }
 
   public function getName($id)

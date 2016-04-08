@@ -19,9 +19,10 @@ class GroupController
 
   public function liste()
   {
+    $liste_groupe = array('liste' => $this->group->listGroupFromUser()->fetchAll());
     $vue = new Vue("ListeGroupes","Groupe");
     $vue->setTitle('Groupes');
-    $vue->render();
+    $vue->render($liste_groupe);
   }
 
   public function informations()

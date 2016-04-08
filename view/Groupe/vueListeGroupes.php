@@ -7,7 +7,29 @@
     <section class="sec">
       <div class="auto-width">
           <ul class="liste-lg">
-            <a href="<?php page('groupe') ?>">
+            <?php foreach ($liste as $groupe): ?>
+              <a href="<?php page('groupe') ?>">
+                <li>
+                  <div class="liste-licon">
+                    <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
+                    </div>
+                    <div class="liste-svg">
+                        <svg>
+                          <use xlink:href="#ball"></use>
+                        </svg>
+                    </div>
+                  </div>
+                  <div class="liste-mid-txt">
+                    <h1 class="liste-ttl"><?php echo $groupe->titre ?></h1>
+                    <span class="liste-ttl-sub"><b>Sport</b> yoga</span>
+                    <span class="liste-ttl-sub"><b>Club</b> Forest Hill</span>
+                  </div>
+                  <span class="liste-note"><span>7</span>/7</span>
+                  <span class="liste-leader"><?php echo ($groupe->leader == 1) ? "LEADER" : Null ?></span>
+                </li>
+              </a>
+            <?php endforeach; ?>
+            <!-- <a href="<?php page('groupe') ?>">
               <li>
                 <div class="liste-licon">
                   <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
@@ -68,7 +90,7 @@
               </li>
             </a>
           </ul>
-        </section>
+        </section> -->
         <section class="sec">
           <div class="auto-width">
             <div class="liste-separator"><b>INVITATIONS</b></div>
