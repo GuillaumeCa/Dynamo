@@ -8,9 +8,9 @@ require_once 'app/Database.php';
 class Group extends Database
 {
 
-  public function listGroupFromUser($user)
+  public function listGroupFromUser()
   {
-
+    
   }
 
   public function getName($id)

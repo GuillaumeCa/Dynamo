@@ -1,13 +1,12 @@
 <header>
   <div class="logo">
-    <a href="/fr">
+    <a href="<?php page() ?>">
     <img src="/assets/images/logo.png" alt="logo" />
     </a>
   </div>
   <div class="search">
-    <?php require_once 'assets/images/svg.php'; ?>
     <div class="search-field">
-      <form class="" action="search.php" method="get">
+      <form class="" action="<?php page('recherche') ?>" method="get">
         <input type="text" name="search" placeholder="rechercher">
         <button type="submit"><svg><use xlink:href="#search"></use></svg></button>
       </form>

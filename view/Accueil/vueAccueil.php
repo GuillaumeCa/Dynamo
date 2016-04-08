@@ -10,18 +10,18 @@
   <div class="column">
     <h1 class="ttl ttl-md">Types de sports</h1>
     <div class="grid">
-        <?php for ($i = 0; $i < 20; $i++): ?>
-          <div class="sport">
-            <a href="<?php page('type-sport') ?>">
-              <div class="circle">
-                <svg>
-                  <use xlink:href="#ball"></use>
-                </svg>
-              </div>
-            </a>
-            <span>Balle</span>
-          </div>
-        <?php endfor; ?>
+      <?php for ($i = 0; $i < 20; $i++): ?>
+        <div class="sport">
+          <a href="<?php page('type-sport') ?>">
+            <div class="circle">
+              <svg>
+                <use xlink:href="#ball"></use>
+              </svg>
+            </div>
+          </a>
+          <span>Balle</span>
         </div>
-      </div>
-    </section>
+      <?php endfor; ?>
+    </div>
+  </div>
+</section>

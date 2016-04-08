@@ -24,7 +24,6 @@ class Mail
     include "assets/mailtemplate/{$this->path}";
     $this->content = ob_get_contents();
     ob_end_clean();
-    // var_dump($this->mo);
   }
 
   public function send()

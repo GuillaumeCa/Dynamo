@@ -12,12 +12,12 @@
     <div class="nav-bbar">
       <nav class="tab-menu">
         <ul>
-          <li><a href="groupe.php">informations</a></li>
-          <li><a href="groupe-membre.php">membres</a></li>
-          <li><a href="groupe-planning.php">planning</a></li>
-          <li><a href="groupe-discussion.php">discussions</a></li>
+          <li><a href="<?php page('groupe') ?>">informations</a></li>
+          <li><a href="<?php page('membres-groupe') ?>">membres</a></li>
+          <li><a href="<?php page('planning-groupe') ?>">planning</a></li>
+          <li><a href="<?php page('discussion-groupe') ?>">discussions</a></li>
           <li>
-            <a href="groupe-reglage.php" class="settings active">
+            <a href="<?php page('reglage-groupe') ?>" class="settings active">
               <svg>
                 <use xlink:href="#gear"></use>
               </svg>

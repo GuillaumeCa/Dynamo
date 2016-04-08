@@ -1,7 +1,7 @@
 <?php
 
 require_once 'model/Group.php';
-require_once 'app/View.php';
+require_once 'app/Vue.php';
 
 /**
  *
@@ -20,6 +20,7 @@ class GroupController
   public function liste()
   {
     $vue = new Vue("ListeGroupes","Groupe");
+    $vue->setTitle('Groupes');
     $vue->render();
   }
 
@@ -38,6 +39,8 @@ class GroupController
   public function planning()
   {
     $vue = new Vue("GroupePlanning","Groupe");
+    $vue->setScript('cal.js');
+    $vue->setCss('planning.css');
     $vue->render();
   }
 
@@ -49,11 +52,13 @@ class GroupController
   public function reglage()
   {
     $vue = new Vue("GroupeReglage","Groupe");
+    $vue->setTitle('Réglages');
     $vue->render();
   }
   public function creation()
   {
     $vue = new Vue("GroupeCreation","Groupe");
+    $vue->setTitle('Créer un groupe');
     $vue->render();
   }
 

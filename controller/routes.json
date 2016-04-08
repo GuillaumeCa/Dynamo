@@ -1,6 +1,6 @@
 {
   "accueil" : "",
-  "liste-groupe" : "listegroupe",
+  "liste-groupe" : "mesgroupes",
   "creation-groupe" : "listegroupe/add",
   "groupe"  : "groupe/info",
   "discussion-groupe" : "groupe/discussion",
@@ -18,5 +18,7 @@
   "logout"  : "logout",
   "type-sport"  : "sport-type",
   "dev" : "dev",
-  "CGU" : "CGU"
+  "CGU" : "CGU",
+  "recherche" : "recherche",
+  "langue" : "langue"
 }

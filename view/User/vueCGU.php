@@ -1,7 +1,7 @@
-    <section class="dark-bg">
+    <section class="sec sec-bg-dviolet">
         <div class="column cgu">
-          <h1 class="title">Inscription</h1>
-          <h2>Conditions d'utilisation</h2>
+          <h1 class="ttl ttl-md ttl-green">Inscription</h1>
+          <h2 class="ttl ttl-green">Conditions d'utilisation</h2>
           <div class="condition-utilisation">
             <h3>Licence</h3>
             <p>

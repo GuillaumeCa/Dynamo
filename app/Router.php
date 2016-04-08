@@ -1,5 +1,5 @@
 <?php
-require_once 'app/View.php';
+require_once 'app/Vue.php';
 require_once 'controller/AccueilController.php';
 require_once 'controller/GroupController.php';
 require_once 'controller/UserController.php';
@@ -26,10 +26,11 @@ class Router {
   }
 
   // Traite une requête entrante
-  // url : site.com/index.php?lang=fr&p=groupe/{id-groupe}/...
+  // url : site.com/index.php?lang=fr&p=url
   public function routerRequete() {
     try {
       switch ($this->page) {
+        // Accueil
         case 'accueil':
           if (Router::isLoggedIn()){
             $this->ctr['Accueil']->accueil_logged();
@@ -38,6 +39,15 @@ class Router {
           }
           break;
 
+        case 'recherche':
+          $this->ctr['Accueil']->recherche();
+          break;
+
+        case 'langue':
+          $this->ctr['Accueil']->langue();
+          break;
+
+        // Groupe
         case 'liste-groupe':
           if (Router::isLoggedIn()){
             $this->ctr['Group']->liste();
@@ -92,6 +102,7 @@ class Router {
           }
           break;
 
+        // Profile
         case 'profile':
           if (Router::isLoggedIn()) {
             $this->ctr['User']->profile();
@@ -116,6 +127,7 @@ class Router {
           }
           break;
 
+        // Inscription
         case 'inscription':
           $this->ctr['User']->inscription();
           break;
@@ -124,6 +136,7 @@ class Router {
           $this->ctr['User']->verifinscription($this->params);
           break;
 
+        // Login
         case 'login':
             $this->ctr['User']->login();
           break;
@@ -179,7 +192,8 @@ class Router {
 
   // Affiche une erreur
   private function erreur($msgErreur) {
-    echo $msgErreur;
+    $vue = new Vue('404', 'Accueil');
+    $vue->emptyPage();
   }
 
   public function getPage()
@@ -220,7 +234,7 @@ class Router {
   }
 }
 
-function page($route, $param=[])
+function page($route="", $param=[])
 {
   echo "/".$_GET['lang']."/".Router::getRoute($route, $param);
 }
