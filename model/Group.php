@@ -10,7 +10,7 @@ class Group extends Database
 
   public function listGroupFromUser()
   {
-    
+
   }
 
   public function getName($id)
@@ -25,6 +25,10 @@ class Group extends Database
     $sql = "SELECT photo.nom AS photo FROM groupe JOIN photo ON groupe.id = photo.id_groupe WHERE groupe.id = ?";
     $photos = $this->executerRequete($sql, [$id]);
     return $photos;
+  }
+  public function creerGroupe($crea){
+    $idLieu = $this->executerRequete("SELECT id FROM villes WHERE ville_nom_reel = ?", [$crea['lieu']])->fetch()->id;
+    $q = "INSERT INTO groupe (name_grp, sport, lieu) VALUES (?, ?, ?)";
   }
 }
 //
