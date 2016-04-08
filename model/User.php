@@ -97,4 +97,12 @@ class User extends Database
       header('Location: /fr/');
     }
   }
+
+  public function getInfoUser()
+  {
+    $q = "SELECT * FROM utilisateur WHERE id = ?";
+    $req = $this->executerRequete($q, [intval($_SESSION['auth']->id)]);
+    return $req;
+  }
+
 }
