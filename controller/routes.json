@@ -1,6 +1,6 @@
 {
   "accueil" : "",
-  "liste-groupe" : "listegroupe",
+  "liste-groupe" : "mesgroupes",
   "creation-groupe" : "listegroupe/add",
   "groupe"  : "groupe/info",
   "discussion-groupe" : "groupe/discussion",

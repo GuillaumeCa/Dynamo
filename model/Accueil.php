@@ -17,7 +17,13 @@ class Accueil extends Database
     $groupe = $this->executerRequete($sql, ["%".$search."%"])->fetchAll();
 
     // Récupère le nombre d'utilisateur par groupe recherché
-    $nbusers = $this->executerRequete("SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM groupe JOIN club ON club.id = groupe.id_club JOIN sport ON sport.id = groupe.id_sport JOIN utilisateur_groupe ON utilisateur_groupe.id_groupe = groupe.id JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_groupe WHERE titre LIKE ? AND visibilité=1 GROUP BY groupe.titre", ["%".$search."%"])->fetchAll();
+    $nbusers = $this->executerRequete(
+              "SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM groupe 
+              JOIN club ON club.id = groupe.id_club
+              JOIN sport ON sport.id = groupe.id_sport
+              JOIN utilisateur_groupe ON utilisateur_groupe.id_groupe = groupe.id
+              JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_groupe
+              WHERE titre LIKE ? AND visibilité=1 GROUP BY groupe.titre", ["%".$search."%"])->fetchAll();
 
     $newgroupe = [];
     foreach ($groupe as $value) {

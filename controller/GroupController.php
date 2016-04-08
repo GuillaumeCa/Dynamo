@@ -20,6 +20,7 @@ class GroupController
   public function liste()
   {
     $vue = new Vue("ListeGroupes","Groupe");
+    $vue->setTitle('Groupes');
     $vue->render();
   }
 
@@ -51,11 +52,13 @@ class GroupController
   public function reglage()
   {
     $vue = new Vue("GroupeReglage","Groupe");
+    $vue->setTitle('Réglages');
     $vue->render();
   }
   public function creation()
   {
     $vue = new Vue("GroupeCreation","Groupe");
+    $vue->setTitle('Créer un groupe');
     $vue->render();
   }
 

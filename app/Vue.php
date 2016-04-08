@@ -60,4 +60,9 @@ class Vue
   {
     $this->script[] = $value;
   }
+
+  public function setTitle($value)
+  {
+    $this->page = $value;
+  }
 }

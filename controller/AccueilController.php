@@ -20,6 +20,7 @@ class AccueilController
   public function accueil_logged()
   {
     $vue = new Vue("AccueilInscrit", "Accueil");
+    $vue->setTitle('Accueil');
     $vue->render();
   }
   public function accueil()

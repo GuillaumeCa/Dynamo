@@ -132,6 +132,7 @@ class UserController
     } else {
       $this->user->resetPwd($token);
       $vue = new Vue("Reset", "User");
+      $vue->setScript('verif.js');
       $vue->render();
     }
   }
