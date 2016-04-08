@@ -132,14 +132,16 @@ class UserController
     } else {
       $this->user->resetPwd($token);
       $vue = new Vue("Reset", "User");
+      $vue->setScript('verif.js');
       $vue->render();
     }
   }
 
   public function profile()
   {
+    $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("Profile", "User");
-    $vue->render();
+    $vue->render(['infos' => $infos]);
   }
 
   public function profilePlanning()
