@@ -41,7 +41,7 @@
                 </select>
               </div>
               <h2 class="form-label green-text">Sexe</h2>
-              <div class="label-center">
+              <div class="label">
                 <div class="radio">
                   <label><input type="radio" class="radio-button" name="sexe" value="1" checked="checked">
                   <span class="radio-inner"></span>
