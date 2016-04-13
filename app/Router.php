@@ -25,8 +25,8 @@ class Router {
     ];
   }
 
-  // Traite une requête entrante
-  // url : site.com/index.php?lang=fr&p=url
+  // Charge un controleur selon la page demandé
+  // (nom de l'url définit dans controller/routes.json)
   public function routerRequete() {
     try {
       switch ($this->page) {
@@ -196,6 +196,8 @@ class Router {
     $vue->emptyPage();
   }
 
+  // Compare le parametre p de l'url avec les urls du fichier routes.json
+  // et assigne a $page le nom de l'url.
   public function getPage()
   {
     if (empty($_GET['p'])) {
@@ -205,8 +207,10 @@ class Router {
         $value = preg_replace("/{[^}]*}/", "([a-zA-Z0-9]+)", $value);
         if (preg_match("#^".$value."$#", $_GET['p'], $param)) {
           $this->page = $key;
+
           $this->params = isset($param[1]) ? $param[1] : null;
         }
+
       }
     }
   }
@@ -215,6 +219,7 @@ class Router {
   {
     $file = file_get_contents("controller/routes.json", "r") or die("Fichier routes introuvable !");
     static::$routes = json_decode($file, true);
+    //Router::debug(static::$routes);
   }
 
   public static function getRoute($route, $param)

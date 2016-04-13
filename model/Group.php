@@ -10,14 +10,14 @@ class Group extends Database
 
   public function listGroupFromUser()
   {
-    $sql = "SELECT groupe.titre as nomGroupe sport.nom as sport club.nom as club utilisateur_groupe.invite utilisateur_groupe.leader
+    $sql = "SELECT groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader
     FROM utilisateur_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
     JOIN club ON groupe.id_club=club.id
     WHERE id_utilisateur = ?";
-    $listGroupFromUser = $this->executerRequete($sql, [$_SESSION['auth']->id]);
-    return $listGroupFromUser;
+    $listGroup = $this->executerRequete($sql, [intval($_SESSION['auth']->id)]);
+    return $listGroup;
   }
 
   public function getName($id)

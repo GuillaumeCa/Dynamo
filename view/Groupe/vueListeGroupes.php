@@ -22,8 +22,8 @@
                     </div>
                     <div class="liste-mid-txt">
                       <h1 class="liste-ttl"><?php echo $groupe->nomGroupe ?></h1>
-                      <span class="liste-ttl-sub"><b>Sport</b> <?php $groupe->sport ?></span>
-                      <span class="liste-ttl-sub"><b>Club</b> <?php $groupe->club ?></span>
+                      <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe->sport ?></span>
+                      <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe->club ?></span>
                     </div>
                     <span class="liste-note"><span>7</span>/7</span>
                     <span class="liste-leader"><?php echo ($groupe->leader == 1) ? "LEADER" : Null ?></span>

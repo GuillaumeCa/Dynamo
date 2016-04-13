@@ -4,7 +4,7 @@ function getFilters() {
   var filters = {};
   // Parcours tous les menu déroulant
   for (var i = 0; i < select.length; i++) {
-    // Sélectionne uniquement les menu du filtre
+    // Sélectionne uniquement les menus du filtre
     if (select[i].hasAttribute('filter-type')) {
       var option = select[i].options[select[i].selectedIndex];
       var type = select[i].getAttribute('filter-type');
@@ -65,9 +65,9 @@ function filterSearch(e) {
 
 
 function initSearch() {
-  // Parcours tous les menu déroulant
+  // Parcours tous les menus déroulants
   for (var i = 0; i < select.length; i++) {
-    // Sélectionne uniquement les menu du filtre
+    // Sélectionne uniquement les menus du filtre
     if (select[i].hasAttribute('filter-type')) {
       // Attache une fonction sur les menus
       select[i].onchange = function (e) {
