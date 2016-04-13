@@ -34,7 +34,7 @@
           </select>
 
           <h2 class="form-label pink-text">Visibilité du groupe</h2>
-          <div class="label-center">
+          <div class="label label-center">
             <div class="radio">
               <label><input type="radio" class="radio-button" name="visibilite" value="1" checked="checked">
               <span class="radio-inner"></span>

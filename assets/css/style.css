@@ -308,6 +308,8 @@ footer p {
   padding: 150px 0;
 }
 
+.minh-lg { min-height: 400px }
+
 .sec-bg-img {
   background-repeat: no-repeat;
   background-position: center;
@@ -340,6 +342,7 @@ footer p {
 .ttl-lg { font-size: 5em; font-weight: lighter; }
 .ttl-md { font-size: 4em; font-weight: lighter; }
 .ttl-sm { font-size: 2em; font-weight: normal; }
+.ttl-s { font-size: 1em !important; font-weight: normal; }
 .ttl-cps { text-transform:uppercase; }
 .ttl-band { line-height: 80px; display: inline-block;}
 .ttl-green { color: #53FFC0; }
@@ -372,6 +375,15 @@ footer p {
   font-size: 1em;
   text-align: justify;
 }
+.txt-center-warn {
+  text-align: center;
+  margin: 100px 0;
+  padding: 0 80px;
+  font-size: 2.5em;
+  font-weight: lighter;
+  color: rgba(153, 114, 250, 0.6);
+}
+
 .column .success-title {
   background: #53FFC0;
   border-radius: 100px;
@@ -696,7 +708,7 @@ footer p {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0
+  top: 0;
   left: 0;
   z-index: 1;
   background: transparent;
@@ -874,13 +886,18 @@ a.forget:hover {
 .dropdown-lg {
   width: 100%;
   height: 40px;
+  margin: 0;
 }
 
-.label-center {
+.label {
   margin: 0 auto;
   margin-bottom: 20px;
   width: 300px;
   text-align: left;
+}
+
+.label-center {
+  text-align: center;
 }
 
 .form-desc {
@@ -914,7 +931,6 @@ a.forget:hover {
   border: #9972FA solid 1px;
   width: 18px;
   height: 18px;
-  vertical-align: top;
   border-radius: 30px;
   vertical-align: top;
   margin-right: 5px;
@@ -1637,22 +1653,39 @@ section .text-left {
 }
 
 .search-optbar {
+  transform: translate3d(0,0,0);
   border-bottom: #9972FA solid 1px;
   padding: 10px;
 }
 
 .search-bar {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 1px auto;
 }
 
 .search-tool {
   overflow: hidden;
   max-height: 0;
+  margin: 0 auto;
+  padding: 0 5px;
+  max-width: 900px;
+  text-align: left;
+  transition: all .45s ease;
 }
 
-.search-bar span {
+.search-tool.active {
+  padding-top: 20px;
+  max-height: 300px;
+}
+
+.search-bar span:not(.number) {
   line-height: 2em;
+  color: #9972FA;
+  margin-right: 10px;
+}
+
+.search-select {
+  width: 400px;
 }
 
 .search-bar .button {
