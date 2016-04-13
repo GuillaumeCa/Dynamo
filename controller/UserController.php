@@ -139,8 +139,9 @@ class UserController
 
   public function profile()
   {
+    $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("Profile", "User");
-    $vue->render();
+    $vue->render(['infos' => $infos]);
   }
 
   public function profilePlanning()

@@ -58,9 +58,27 @@ class GroupController
   }
   public function creation()
   {
+    if (!empty($_POST)) {
+      Router::debug($_POST);
+      $validate = new Validate($_POST);
+/* Il faut ajouter celui qui créer le groupe au groupe et le mettre en leader, envoyer des invitations par mail aux personnes invitées, */
+      $validate->notEmpty('name_grp', "Veuiller rentrer un nom de groupe");
+      $validate->notEmpty('membre', "Ne restez pas seul, ajoutez des amis !");
+      $validate->notEmpty('sport', "Vous n'avez pas ajouté de sport à votre groupe");
+      $validate->isVille('lieu', "Votre localisation n'est pas valide");
+      $validate->notEmpty('nbr_membre', "Selectionner le nombre maximum de membres dans votre groupe");
+      $validate->notEmpty('description_grp',"Ajoutez une description à votre groupe");
+      if ($validate->isValid()) {
+        redirect("groupe/info");
+      } else {
+        $vue = new Vue("GroupeCreation", "Groupe");
+        echo "Bug";
+        $vue->render();
+      }
+    }else{
     $vue = new Vue("GroupeCreation","Groupe");
     $vue->setTitle('Créer un groupe');
     $vue->render();
+    }
   }
-
 }

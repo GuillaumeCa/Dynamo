@@ -31,31 +31,31 @@
       <table class="info-table">
         <tr>
           <th>Nom</th>
-          <td>Carré</td>
+          <td><?php echo $infos->nom ?></td>
         </tr>
         <tr>
           <th>Prénom</th>
-          <td>Guillaume</td>
+          <td><?php echo $infos->prénom ?></td>
         </tr>
         <tr>
           <th>Pseudo</th>
-          <td>Irong</td>
+          <td><?php echo $infos->pseudo ?></td>
         </tr>
         <tr>
           <th>Sexe</th>
-          <td>Homme</td>
+          <td><?php echo $infos->sexe ?></td>
         </tr>
         <tr>
           <th>Date de naissance</th>
-          <td>06/04/1995</td>
+          <td><?php echo Vue::date('d - m - Y',$infos->naissance) ?></td>
         </tr>
         <tr>
           <th>Addresse</th>
-          <td>8 rue de la côte<br> 78220 Viroflay </td>
+          <td>8 rue de la côte<br> <?php echo $infos->code_postal ?> </td>
         </tr>
         <tr>
           <th>Email</th>
-          <td>guicarre1@gmail.com</td>
+          <td><?php echo $infos->email ?></td>
         </tr>
       </table>
     </div>

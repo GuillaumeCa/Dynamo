@@ -10,8 +10,11 @@ class Group extends Database
 
   public function listGroupFromUser()
   {
-    $sql = "SELECT groupe.* FROM utilisateur_groupe
+    $sql = "SELECT groupe.titre as nomGroupe sport.nom as sport club.nom as club utilisateur_groupe.invite utilisateur_groupe.leader
+    FROM utilisateur_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
+    JOIN sport ON groupe.id_sport=sport.id
+    JOIN club ON groupe.id_club=club.id
     WHERE id_utilisateur = ?";
     $listGroupFromUser = $this->executerRequete($sql, [$_SESSION['auth']->id]);
     return $listGroupFromUser;
@@ -29,6 +32,10 @@ class Group extends Database
     $sql = "SELECT photo.nom AS photo FROM groupe JOIN photo ON groupe.id = photo.id_groupe WHERE groupe.id = ?";
     $photos = $this->executerRequete($sql, [$id]);
     return $photos;
+  }
+  public function creerGroupe($crea){
+    $idLieu = $this->executerRequete("SELECT id FROM villes WHERE ville_nom_reel = ?", [$crea['lieu']])->fetch()->id;
+    $q = "INSERT INTO groupe (name_grp, sport, lieu) VALUES (?, ?, ?)";
   }
 }
 //
