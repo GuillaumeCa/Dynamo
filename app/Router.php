@@ -54,7 +54,7 @@ class Router {
         // Forum
         case 'forum':
           if (Router::isLoggedIn()){
-            $this->ctr['Forum']->Forum();
+            $this->ctr['Forum']->forum();
           }else {
             $this->redirect();
           }
@@ -62,7 +62,7 @@ class Router {
 
         case 'forumDiscussion':
           if (Router::isLoggedIn()){
-            $this->ctr['Forum']->ForumDiscussion();
+            $this->ctr['Forum']->forumDiscussion();
           }else {
             $this->redirect();
           }
@@ -70,7 +70,7 @@ class Router {
 
         case 'forumNewDiscussion':
           if (Router::isLoggedIn()) {
-            $this->ctr['Forum']->ForumNewDiscussion();
+            $this->ctr['Forum']->forumNewDiscussion();
           } else {
             $this->redirect();
           }
