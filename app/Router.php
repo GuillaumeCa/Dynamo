@@ -3,6 +3,8 @@ require_once 'app/Vue.php';
 require_once 'controller/AccueilController.php';
 require_once 'controller/GroupController.php';
 require_once 'controller/UserController.php';
+require_once 'controller/SportController.php';
+require_once 'controller/ForumController.php';
 
 /**
  * Permet de router les requetes vers un controlleur
@@ -22,6 +24,8 @@ class Router {
       'Accueil' => new AccueilController(),
       'Group' => new GroupController(),
       'User' => new UserController(),
+      'Sport' => new SportController(),
+      'Forum' => new ForumController(),
     ];
   }
 
@@ -45,6 +49,39 @@ class Router {
 
         case 'langue':
           $this->ctr['Accueil']->langue();
+          break;
+
+        // Forum
+        case 'forum':
+          if (Router::isLoggedIn()){
+            $this->ctr['Forum']->Forum();
+          }else {
+            $this->redirect();
+          }
+          break;
+
+        case 'forumDiscussion':
+          if (Router::isLoggedIn()){
+            $this->ctr['Forum']->ForumDiscussion();
+          }else {
+            $this->redirect();
+          }
+          break;
+
+        case 'forumNewDiscussion':
+          if (Router::isLoggedIn()) {
+            $this->ctr['Forum']->ForumNewDiscussion();
+          } else {
+            $this->redirect();
+          }
+          break;
+
+        case 'topic':
+          if (Router::isLoggedIn()) {
+            $this->ctr['Forum']->Topic();
+          } else {
+            $this->redirect();
+          }
           break;
 
         // Groupe
@@ -100,6 +137,19 @@ class Router {
           } else {
             Router::redirect();
           }
+          break;
+
+        // Sport
+        case 'SportClub':
+            $this->ctr['Sport']->SportClub();
+          break;
+
+        case 'SportGroupe':
+          $this->ctr['Sport']->SportGroupe();
+          break;
+
+        case 'typeSport':
+          $this->ctr['Sport']->TypeSport();
           break;
 
         // Profile
