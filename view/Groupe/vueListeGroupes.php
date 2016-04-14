@@ -38,7 +38,7 @@
             <div class="liste-separator"><b>INVITATIONS</b></div>
             <ul class="liste-lg">
               <?php foreach ($liste as $groupe): ?>
-                <?php if ($goupe->invite == 1): ?>
+                <?php if ($groupe->invite == 1): ?>
                   <li>
                     <a href="groupe.php"><span class="liste-overlay"></span></a>
                     <div class="liste-licon">

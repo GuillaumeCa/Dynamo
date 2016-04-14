@@ -12,7 +12,7 @@
     <div class="grid">
       <?php for ($i = 0; $i < 20; $i++): ?>
         <div class="sport">
-          <a href="<?php page('type-sport') ?>">
+          <a href="<?php page('typeSport') ?>">
             <div class="circle">
               <svg>
                 <use xlink:href="#ball"></use>

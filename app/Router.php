@@ -51,6 +51,10 @@ class Router {
           $this->ctr['Accueil']->langue();
           break;
 
+        case 'aide':
+          $this->ctr['Accueil']->aide();
+          break;
+
         // Forum
         case 'forum':
           if (Router::isLoggedIn()){

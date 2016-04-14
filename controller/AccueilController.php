@@ -29,6 +29,12 @@ class AccueilController
     $vue->render();
   }
 
+  public function aide()
+  {
+    $vue = new Vue("Help", "Accueil");
+    $vue->render();
+  }
+
   public function recherche()
   {
     $sportlist = $this->acc->getSportList();
@@ -39,7 +45,7 @@ class AccueilController
       $result = $this->acc->getSearchResult($_GET);
       $num = count($result['groupe'])+count($result['sports']);
       $vue->render(['groupe'=>$result['groupe'], 'sports'=>$result['sports'], "listsports"=>$sportlist, "num"=>$num, "deptlist"=>$deptlist]);
-    }else {
+    } else {
       $vue->render(["listsports"=>$sportlist, "deptlist"=>$deptlist]);
     }
   }
