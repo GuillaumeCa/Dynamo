@@ -7,7 +7,31 @@
     <section class="sec">
       <div class="auto-width">
           <ul class="liste-lg">
-            <a href="<?php page('groupe') ?>">
+            <?php foreach ($liste as $groupe): ?>
+              <?php if ($groupe->invite == 0): ?>
+                <a href="<?php page('groupe') ?>">
+                  <li>
+                    <div class="liste-licon">
+                      <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
+                      </div>
+                      <div class="liste-svg">
+                          <svg>
+                            <use xlink:href="#ball"></use>
+                          </svg>
+                      </div>
+                    </div>
+                    <div class="liste-mid-txt">
+                      <h1 class="liste-ttl"><?php echo $groupe->nomGroupe ?></h1>
+                      <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe->sport ?></span>
+                      <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe->club ?></span>
+                    </div>
+                    <span class="liste-note"><span>7</span>/7</span>
+                    <span class="liste-leader"><?php echo ($groupe->leader == 1) ? "LEADER" : Null ?></span>
+                  </li>
+                </a>
+              <?php endif; ?>
+            <?php endforeach; ?>
+            <!-- <a href="<?php page('groupe') ?>">
               <li>
                 <div class="liste-licon">
                   <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
@@ -68,7 +92,7 @@
               </li>
             </a>
           </ul>
-        </section>
+        </section> -->
         <section class="sec">
           <div class="auto-width">
             <div class="liste-separator"><b>INVITATIONS</b></div>

@@ -26,12 +26,29 @@
           <input class="clear-form" type="text" name="lieu" placeholder="Paris, 75015, Essonne ...">
 
           <h2 class="form-label pink-text">Nombre de membres maximum</h2>
-          <select class="clear-form dropdown dropdown-lg" name="jour">
+          <select class="clear-form dropdown dropdown-lg" name="nbr_membre">
             <option value="option" disabled selected>Nombre</option>
             <?php for ($i = 0; $i < 12; $i++): ?>
               <option value="<?php echo $i ?>"><?php echo $i+1; ?></option>
             <?php endfor; ?>
           </select>
+
+          <h2 class="form-label pink-text">Visibilité du groupe</h2>
+          <div class="label label-center">
+            <div class="radio">
+              <label><input type="radio" class="radio-button" name="visibilite" value="1" checked="checked">
+              <span class="radio-inner"></span>
+              Publique</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" class="radio-button" name="visibilite" value="0">
+              <span class="radio-inner"></span>
+              Privé</label>
+            </div>
+          </div>
+          <p class="form-info">
+            Toutes les personnes inscrites sur le site peuvent demander à rejoindre un groupe publique alors qu'un groupe privé n'est accessible que par invitations
+          </p>
 
           <h2 class="form-label pink-text">Description du groupe</h2>
           <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder="Décrivez votre groupe en quelques lignes ..."></textarea>

@@ -32,13 +32,15 @@ class AccueilController
   public function recherche()
   {
     $sportlist = $this->acc->getSportList();
+    $deptlist = $this->acc->getDptList();
     $vue = new Vue("Recherche", "Accueil");
+    $vue->setScript('search.js');
     if (isset($_GET) && !empty($_GET['search'])){
       $result = $this->acc->getSearchResult($_GET);
       $num = count($result['groupe'])+count($result['sports']);
-      $vue->render(['groupe'=>$result['groupe'], 'sports'=>$result['sports'], "listsports"=>$sportlist, "num"=>$num]);
+      $vue->render(['groupe'=>$result['groupe'], 'sports'=>$result['sports'], "listsports"=>$sportlist, "num"=>$num, "deptlist"=>$deptlist]);
     }else {
-      $vue->render(["listsports"=>$sportlist]);
+      $vue->render(["listsports"=>$sportlist, "deptlist"=>$deptlist]);
     }
   }
 

@@ -17,6 +17,7 @@ class Mail
     $this->path = $modele;
   }
 
+  // Génère le mail à partir d'un modèle
   public function render($param)
   {
     ob_start();
@@ -26,6 +27,7 @@ class Mail
     ob_end_clean();
   }
 
+  // Envoie le mail
   public function send()
   {
     $headers = 'MIME-Version: 1.0' . "\r\n";
