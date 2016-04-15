@@ -10,18 +10,18 @@
   <div class="column">
     <h1 class="ttl ttl-md">Types de sports</h1>
     <div class="grid">
-      <?php for ($i = 0; $i < 20; $i++): ?>
+      <?php foreach($types_sports as $type): ?>
         <div class="sport">
-          <a href="<?php page('typeSport') ?>">
+          <a href="<?php page('typeSport', ['id' => $type->id]) ?>">
             <div class="circle">
               <svg>
                 <use xlink:href="#ball"></use>
               </svg>
             </div>
           </a>
-          <span>Balle</span>
+          <span><?php echo $type->nom ?></span>
         </div>
-      <?php endfor; ?>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>

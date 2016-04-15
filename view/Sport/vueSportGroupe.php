@@ -1,7 +1,7 @@
     <section class="sec sec-bg-img sec-bg-overlay" style="background-image: url(/assets/images/sport1.png);">
       <div class="sec-overlay sec-over-violet"></div>
       <div class="column">
-        <h1 class="ttl ttl-lg">Tennis</h1>
+        <h1 class="ttl ttl-lg"><?php echo $nom_sport ?></h1>
       </div>
     </section>
     <div class="nav-bbar">

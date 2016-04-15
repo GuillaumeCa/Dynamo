@@ -149,11 +149,11 @@ class Router {
           break;
 
         case 'SportGroupe':
-          $this->ctr['Sport']->SportGroupe();
+          $this->ctr['Sport']->SportGroupe($this->params);
           break;
 
         case 'typeSport':
-          $this->ctr['Sport']->TypeSport();
+          $this->ctr['Sport']->TypeSport($this->params);
           break;
 
         // Profile
@@ -213,7 +213,7 @@ class Router {
           break;
 
         case 'CGU':
-          $vue = new Vue('CGU','User');
+          $vue = new Vue('SportGroupe','Sport');
           $vue->render();
           break;
 

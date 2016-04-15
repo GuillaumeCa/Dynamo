@@ -3,18 +3,23 @@
 require_once 'app/Vue.php';
 require_once 'model/User.php';
 require_once 'model/Accueil.php';
+require_once 'model/Sport.php';
+
 
 /**
  *
  */
 class AccueilController
 {
+  private $acc;
   private $user;
+  private $sport;
 
   function __construct()
   {
     $this->acc = new Accueil();
     $this->user = new User();
+    $this->sport = new Sport();
   }
 
   public function accueil_logged()
@@ -25,8 +30,9 @@ class AccueilController
   }
   public function accueil()
   {
+    $types_sports = $this->sport->getSportList();
     $vue = new Vue("Accueil", "Accueil");
-    $vue->render();
+    $vue->render(["types_sports"=> $types_sports]);
   }
 
   public function aide()

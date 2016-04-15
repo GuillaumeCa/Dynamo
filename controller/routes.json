@@ -14,8 +14,8 @@
   "membres-groupe" : "groupe/membres",
   "planning-groupe" : "groupe/planning",
   "reglage-groupe" : "groupe/reglage",
-  "typeSport"  : "sport/type",
-  "SportGroupe"  : "sport/groupe",
+  "typeSport"  : "sport/type/{id}",
+  "SportGroupe"  : "sport/groupes/{id}",
   "SportClub"  : "Sport/club",
   "profile" : "profile",
   "profile-planning"  : "profile/planning",
@@ -28,4 +28,5 @@
   "logout"  : "logout",
   "dev" : "dev",
   "CGU" : "CGU"
+
 }
