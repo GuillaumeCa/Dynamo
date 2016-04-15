@@ -98,9 +98,9 @@
       <h1 class="ttl ttl-green ttl-cps">Sports</h1>
       <ul class="liste-lg search-result">
 
-      <?php foreach ($sports as $type => $value): ?>
+      <?php foreach ($sports as $value): ?>
 
-        <a href="<?php page('sport-groupe') ?>" filter-sporttype="<?php echo $value->id_type ?>">
+        <a href="<?php page('SportGroupe', ['id' => $value->id]) ?>" filter-sporttype="<?php echo $value->id_type ?>">
           <li>
             <div class="liste-licon">
               <div class="liste-svg">

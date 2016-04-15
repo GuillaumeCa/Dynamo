@@ -50,7 +50,12 @@ class AccueilController
     if (isset($_GET) && !empty($_GET['search'])){
       $result = $this->acc->getSearchResult($_GET);
       $num = count($result['groupe'])+count($result['sports']);
-      $vue->render(['groupe'=>$result['groupe'], 'sports'=>$result['sports'], "listsports"=>$sportlist, "num"=>$num, "deptlist"=>$deptlist]);
+      $vue->render(['groupe' => $result['groupe'],
+                    'sports' => $result['sports'],
+                    "listsports" => $sportlist,
+                    "num" => $num, 
+                    "deptlist" => $deptlist
+                  ]);
     } else {
       $vue->render(["listsports"=>$sportlist, "deptlist"=>$deptlist]);
     }

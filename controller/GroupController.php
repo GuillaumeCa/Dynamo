@@ -73,7 +73,7 @@ class GroupController
       } else {
         $vue = new Vue("GroupeCreation", "Groupe");
         echo "Bug";
-        $vue->render();
+        $vue->render(['errors'=>$validate->errors]);
       }
     }else{
     $vue = new Vue("GroupeCreation","Groupe");

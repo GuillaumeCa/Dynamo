@@ -55,7 +55,9 @@ class Validate extends Database
   {
     if ($this->queryEmpty($sql)) {
       $this->errors[$name][] = $error;
+      return false;
     }
+    return true;
   }
 
   public function compteActive($error)

@@ -57,19 +57,11 @@ class Router {
 
         // Forum
         case 'forum':
-          if (Router::isLoggedIn()){
-            $this->ctr['Forum']->forum();
-          }else {
-            $this->redirect();
-          }
+          $this->ctr['Forum']->forum();
           break;
 
         case 'forumDiscussion':
-          if (Router::isLoggedIn()){
-            $this->ctr['Forum']->forumDiscussion();
-          }else {
-            $this->redirect();
-          }
+          $this->ctr['Forum']->forumDiscussion();
           break;
 
         case 'forumNewDiscussion':
@@ -81,11 +73,7 @@ class Router {
           break;
 
         case 'topic':
-          if (Router::isLoggedIn()) {
-            $this->ctr['Forum']->Topic();
-          } else {
-            $this->redirect();
-          }
+          $this->ctr['Forum']->Topic();
           break;
 
         // Groupe
@@ -223,7 +211,7 @@ class Router {
       }
     }
     catch (Exception $e) {
-      $this->erreur($e->getMessage());
+      Router::erreur();
     }
   }
 
@@ -245,7 +233,7 @@ class Router {
   }
 
   // Affiche une erreur
-  private function erreur($msgErreur) {
+  public static function erreur() {
     $vue = new Vue('404', 'Accueil');
     $vue->emptyPage();
   }

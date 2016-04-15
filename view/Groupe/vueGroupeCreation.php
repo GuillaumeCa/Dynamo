@@ -6,6 +6,17 @@
     <section class="sec">
       <div class="column">
         <form class="groupe_crea" action="" method="post">
+          <?php if (isset($errors)): ?>
+            <div class="form-errors form-errors-inv">
+              <ul>
+                <?php foreach ($errors as $value): ?>
+                  <?php foreach ($value as $error): ?>
+                    <li><?php echo $error ?></li>
+                  <?php endforeach; ?>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php endif; ?>
           <h2 class="form-label pink-text">Nom de groupe</h2>
           <input class="clear-form" type="text" name="name_grp" placeholder="">
 

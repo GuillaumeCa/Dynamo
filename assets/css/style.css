@@ -315,6 +315,11 @@ footer p {
   background-position: center;
   background-size: cover;
 }
+.sec-bg-pattern {
+  background-position: center;
+  background-size: 200px;
+}
+
 .sec-bg-violet { background: #9972FA; }
 .sec-bg-dviolet { background: #2C2147; }
 .sec-bg-overlay { position: relative; }
@@ -641,14 +646,19 @@ footer p {
 
 .liste-ttl {
   font-size: 2.5em;
-  margin-bottom: 12px;
   font-weight : lighter;
 }
 
 .liste-ttl-sub {
   font-size: 1.5em;
+  display: inline-block;
   margin-right: 10px;
+  margin-top: 12px;
   font-weight: lighter;
+}
+
+.liste-ttl-desc {
+  margin-left: 5px;
 }
 
 .liste-leader {
@@ -967,6 +977,30 @@ a.forget:hover {
   display: inline-block;
   position: relative;
 }
+
+.form-errors {
+  text-align: left;
+  color: white;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.form-errors-inv {
+  color: #9972FA;
+  background: rgba(153, 114, 250, 0.1);
+}
+
+.form-errors ul {
+  padding-left: 20px;
+}
+
+.form-errors li {
+  margin-bottom: 5px;
+  list-style: circle;
+}
+
 
 /*----------------------*
   5.4 Liste simple
@@ -1312,6 +1346,7 @@ a.forget:hover {
   padding: 30px 4%;
   font-size: 14px;
   display: inline-block;
+  vertical-align: top;
 }
 
 .sport .circle svg {

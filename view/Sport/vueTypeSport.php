@@ -1,4 +1,4 @@
-    <section class="sec sec-bg-img sec-bg-overlay" style="background-image: url(/assets/images/sport1.png);">
+    <section class="sec sec-bg-pattern sec-bg-overlay" style="background-image: url(/assets/images/pattern_cycling.png);">
       <div class="sec-overlay sec-over-violet"></div>
       <div class="column">
         <h1 class="ttl ttl-lg"><?php echo $nom_type ?></h1>
@@ -19,6 +19,9 @@
                   </div>
                   <div class="liste-mid-txt">
                     <h1 class="liste-ttl"><?php echo $sport->nom ?></h1>
+                    <p class="liste-ttl-desc">
+                      <?php echo $sport->description ?>
+                    </p>
                   </div>
                 </li>
               </a>

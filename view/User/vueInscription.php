@@ -3,6 +3,17 @@
           <form class="inscription" action="" method="post">
               <h1 class="ttl ttl-md ttl-green">Inscription</h1>
               <h3 class="form-desc">Tout les champs sont obligatoires</h3>
+              <?php if (isset($errors)): ?>
+                <div class="form-errors form-errors-inv">
+                  <ul>
+                    <?php foreach ($errors as $value): ?>
+                      <?php foreach ($value as $error): ?>
+                        <li><?php echo $error ?></li>
+                      <?php endforeach; ?>
+                    <?php endforeach; ?>
+                  </ul>
+                </div>
+              <?php endif; ?>
               <h2 class="form-label green-text">Nom</h2>
               <input class="clear-form" type="text" name="nom" placeholder="nom">
               <input class="clear-form" type="text" name="prenom" placeholder="prénom">
@@ -11,6 +22,9 @@
               <h2 class="form-label green-text">Mot de passe</h2>
               <input class="clear-form mdp" type="password" name="password" placeholder="mot de passe" onclick="resetMdp()">
               <input class="clear-form mdp" type="password" name="confirmation" placeholder="confirmer mot de passe" oninput="verif()">
+              <p class="form-info">
+                Le mot de passe doit contenir au moins 1 lettre majuscule, 1 chiffre et doit posséder 8 caractères au minimum.
+              </p>
               <div class="errors">
 
               </div>

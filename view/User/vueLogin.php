@@ -3,9 +3,15 @@
     <h1 class="ttl ttl-md"><?php lang('Connexion') ?></h1>
     <form action="" method="post" class="login">
       <?php if (isset($errors)): ?>
-        <pre>
-          <?php print_r($errors) ?>
-        </pre>
+        <div class="form-errors">
+          <ul>
+            <?php foreach ($errors as $value): ?>
+              <?php foreach ($value as $error): ?>
+                <li><?php echo $error ?></li>
+              <?php endforeach; ?>
+            <?php endforeach; ?>
+          </ul>
+        </div>
       <?php endif; ?>
       <input type="email" class="clear-form" name="email" placeholder="<?php lang('adresse-email') ?>">
       <input type="password" class="clear-form" name="password" placeholder="<?php lang('motdepasse') ?>">
