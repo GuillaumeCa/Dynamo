@@ -20,7 +20,7 @@ class Sport extends Database
 
   public function getSportListeByID($id)
   {
-    $res =  $this->executerRequete("SELECT id, nom, description FROM sport WHERE id_type = ?", [$id]);
+    $res =  $this->executerRequete("SELECT id, id_type, nom, description FROM sport WHERE id_type = ?", [$id]);
     return $res->fetchAll();
   }
 

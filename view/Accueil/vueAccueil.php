@@ -15,7 +15,7 @@
           <a href="<?php page('typeSport', ['id' => $type->id]) ?>">
             <div class="circle">
               <svg>
-                <use xlink:href='#typeSport8'></use>
+                <use xlink:href='#typeSport<?php echo $type->id ?>'></use>
               </svg>
             </div>
           </a>

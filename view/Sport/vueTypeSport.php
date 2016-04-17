@@ -1,4 +1,4 @@
-    <section class="sec sec-bg-pattern sec-bg-overlay" style="background-image: url(/assets/images/pattern_cycling.png);">
+    <section class="sec sec-bg-pattern sec-bg-overlay" style="background-image: url(/assets/images/sport-bg/pattern_sport_<?php echo $id ?>.png);">
       <div class="sec-overlay sec-over-violet"></div>
       <div class="column">
         <h1 class="ttl ttl-lg"><?php echo $nom_type ?></h1>
@@ -13,7 +13,7 @@
                   <div class="liste-licon">
                     <div class="liste-svg">
                         <svg>
-                          <use xlink:href="#ball"></use>
+                          <use xlink:href="#typeSport<?php echo $sport->id_type ?>"></use>
                         </svg>
                     </div>
                   </div>

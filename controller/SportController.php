@@ -34,6 +34,6 @@ class SportController
     $liste_sport = $this->sport->getSportListeByID($id);
     $vue = new Vue("TypeSport", "Sport");
     $vue->setTitle('TypeSport');
-    $vue->render(['nom_type' => $nom_type , 'liste_sport' => $liste_sport]);
+    $vue->render(['nom_type' => $nom_type , 'liste_sport' => $liste_sport, 'id' => $id]);
   }
 }

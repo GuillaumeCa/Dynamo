@@ -10,7 +10,7 @@ class Group extends Database
 
   public function listGroupFromUser()
   {
-    $sql = "SELECT groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader
+    $sql = "SELECT groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type
     FROM utilisateur_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
@@ -37,15 +37,15 @@ class Group extends Database
     $idLieu = $this->executerRequete("SELECT id FROM villes WHERE ville_nom_reel = ?", [$crea['lieu']])->fetch()->id;
     $q = "INSERT INTO groupe (name_grp, sport, lieu) VALUES (?, ?, ?)";
   }
+
+  public function getEventsFromGroupe()
+  {
+    $sql = "SELECT groupe.titre, planning.date, planning.activité, planning.description AS description, dstart, dend FROM planning JOIN groupe ON groupe.id = planning.id_groupe WHERE groupe.id = 3";
+    $res = $this->executerRequete($sql)->fetchAll();
+    $events = [];
+    foreach ($res as $r) {
+      $events[$r->titre][] = [$r->date, $r->activité, $r->description, $r->dstart, $r->dend];
+    }
+    return $events;
+  }
 }
-//
-//
-// $G1 = new Group();
-//
-// foreach ($G1->getName(1) as $key => $value) {
-//   echo $value['titre'];
-// }
-//
-// foreach ($G1->getPhoto(1) as $key => $value) {
-//   echo $value['photo'];
-// }

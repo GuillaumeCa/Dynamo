@@ -72,6 +72,9 @@
   </a>
   <nav>
     <ul class="nav-menu">
+      <?php if ($_SESSION['auth']->admin == '1'): ?>
+        <li><a href="<?php page('backoffice') ?>">Admin</a></li>
+      <?php endif; ?>
       <li><a href="<?php page('liste-groupe') ?>"><?php lang('Groupes') ?> <span class="notif">2</span></a></li>
       <li><a href="<?php page('forum') ?>"><?php lang('Forum') ?> <span class="notif">3</span></a></li>
       <li><a href="<?php page('aide') ?>"><?php lang('Aide') ?></a></li>

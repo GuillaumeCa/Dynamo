@@ -13,7 +13,7 @@
           </ul>
         </div>
       <?php endif; ?>
-      <input type="email" class="clear-form" name="email" placeholder="<?php lang('adresse-email') ?>">
+      <input type="email" class="clear-form" name="email" placeholder="<?php lang('adresse-email') ?>" autocomplete="off" spellcheck="false">
       <input type="password" class="clear-form" name="password" placeholder="<?php lang('motdepasse') ?>">
       <input id="remember" type="checkbox" name="confirmation" checked><label for="remember"><?php lang('rester-connecté') ?></label>
       <input class="button" type="submit" value="<?php lang('valider') ?>">

@@ -1,4 +1,4 @@
-    <?php require 'Calendar.php'; ?>
+    <?php require 'app/Calendar.php'; ?>
     <section class="sec sec-bg-img sec-bg-overlay" style="background-image: url(/assets/images/sport1.png);">
       <div class="sec-overlay sec-over-violet"></div>
       <div class="auto-width group">
@@ -29,12 +29,12 @@
     </div>
     <div class="column">
       <?php
-      $events = [
-        "CALENDRIER 1" => [
-                            ["2016-03-15", "titre1", "descrition1","09:00:00","12:00:00"],
-                            ["2016-03-20", "titre2", "descrition1","09:00:00","12:00:00"]
-                          ],
-      ];
+      // $events = [
+      //   "CALENDRIER 1" => [
+      //                       ["2016-03-15", "titre1", "descrition1","09:00:00","12:00:00"],
+      //                       ["2016-03-20", "titre2", "descrition1","09:00:00","12:00:00"]
+      //                     ],
+      // ];
 
       ?>
       <?php Calendar(12, $events); ?>

@@ -78,6 +78,11 @@
             <div class="liste-licon">
               <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
               </div>
+              <div class="liste-svg">
+                  <svg>
+                    <use xlink:href="#typeSport<?php echo $value['data']->sport_type ?>"></use>
+                  </svg>
+              </div>
             </div>
             <div class="liste-mid-txt">
               <h1 class="liste-ttl"><?php echo $value['data']->titre ?></h1>
@@ -105,12 +110,15 @@
             <div class="liste-licon">
               <div class="liste-svg">
                   <svg>
-                    <use xlink:href="#ball"></use>
+                    <use xlink:href="#typeSport<?php echo $value->id_type ?>"></use>
                   </svg>
               </div>
             </div>
             <div class="liste-mid-txt">
               <h1 class="liste-ttl"><?php echo $value->nom ?></h1>
+              <p class="liste-ttl-desc">
+                <?php echo $value->description ?>
+              </p>
             </div>
           </li>
         </a>

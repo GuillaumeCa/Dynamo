@@ -39,10 +39,11 @@ class GroupController
 
   public function planning()
   {
+    $events = $this->group->getEventsFromGroupe();
     $vue = new Vue("GroupePlanning","Groupe");
     $vue->setScript('cal.js');
     $vue->setCss('planning.css');
-    $vue->render();
+    $vue->render(['events' => $events]);
   }
 
   public function discussion()
@@ -61,7 +62,8 @@ class GroupController
     if (!empty($_POST)) {
       Router::debug($_POST);
       $validate = new Validate($_POST);
-/* Il faut ajouter celui qui créer le groupe au groupe et le mettre en leader, envoyer des invitations par mail aux personnes invitées, */
+      // TODO: Il faut ajouter celui qui crée le groupe au groupe et le mettre en leader,
+      // envoyer des invitations par mail aux personnes invitées.
       $validate->notEmpty('name_grp', "Veuiller rentrer un nom de groupe");
       $validate->notEmpty('membre', "Ne restez pas seul, ajoutez des amis !");
       $validate->notEmpty('sport', "Vous n'avez pas ajouté de sport à votre groupe");

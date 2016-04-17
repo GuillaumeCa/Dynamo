@@ -105,4 +105,20 @@ class User extends Database
     return $req;
   }
 
+  public function getEventsFromUser()
+  {
+    $sql = "SELECT groupe.titre, planning.date, planning.activité, planning.description AS description, dstart, dend
+            FROM planning
+            JOIN groupe ON groupe.id = planning.id_groupe
+            JOIN utilisateur_groupe
+            ON utilisateur_groupe.id_groupe = groupe.id
+            WHERE utilisateur_groupe.id_utilisateur = ?";
+    $res = $this->executerRequete($sql, [$_SESSION['auth']->id])->fetchAll();
+    $events = [];
+    foreach ($res as $r) {
+      $events[$r->titre][] = [$r->date, $r->activité, $r->description, $r->dstart, $r->dend];
+    }
+    return $events;
+  }
+
 }

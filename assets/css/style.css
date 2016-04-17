@@ -1259,6 +1259,7 @@ a.forget:hover {
   display: inline-block;
   font-size: 1.5em;
   font-weight: lighter;
+  padding: 0 10px;
   max-width: 550px;
 }
 

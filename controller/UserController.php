@@ -147,8 +147,11 @@ class UserController
 
   public function profilePlanning()
   {
+    $events = $this->user->getEventsFromUser();
     $vue = new Vue("ProfilePlanning", "User");
-    $vue->render();
+    $vue->setScript('cal.js');
+    $vue->setCss('planning.css');
+    $vue->render(['events' => $events]);
   }
 
   public function profileReglage()
