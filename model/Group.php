@@ -35,7 +35,17 @@ class Group extends Database
   }
   public function creerGroupe($crea){
     $idLieu = $this->executerRequete("SELECT id FROM villes WHERE ville_nom_reel = ?", [$crea['lieu']])->fetch()->id;
-    $q = "INSERT INTO groupe (name_grp, sport, lieu) VALUES (?, ?, ?)";
+    $q = "INSERT INTO groupe (titre, description) VALUES (?, ?, ?)";
+    $this->executerRequete($q, [$crea['name_grp'], $crea['prenom'], $insc['description_grp']]);
+    for ($i=0; $i < nbr_membre; $i++) {
+      invitDansGroupe($crea);
+    }
+  }
+
+  public function invitDansGroupe($inv){
+    $mail = new Mail($inv['email'], "Vous avez été invité dans un groupe !", "invit.php");
+    $mail->render($inv);
+    $mail->send();
   }
 
   public function getEventsFromGroupe()
