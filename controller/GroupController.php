@@ -71,9 +71,8 @@ class GroupController
       $validate->notEmpty('nbr_membre', "Selectionner le nombre maximum de membres dans votre groupe");
       $validate->notEmpty('description_grp',"Ajoutez une description à votre groupe");
       if ($validate->isValid()) {
-        $_SESSION["GroupeCreation"] = $_POST;
         Router::redirect("groupe");
-        creerGroupe($_SESSION["GroupeCreation"]);
+        $this->Group->creerGroupe($_POST);
       } else {
         $vue = new Vue("GroupeCreation", "Groupe");
         $vue->render(['errors'=>$validate->errors]);

@@ -18,7 +18,7 @@ class Mail
   }
 
   // Génère le mail à partir d'un modèle
-  public function render($param)
+  public function render($param=[])
   {
     ob_start();
     extract($param);
