@@ -137,11 +137,11 @@ class Router {
           break;
 
         case 'SportGroupe':
-          $this->ctr['Sport']->SportGroupe($this->params);
+          $this->ctr['Sport']->SportGroupe($this->params['id']);
           break;
 
         case 'typeSport':
-          $this->ctr['Sport']->TypeSport($this->params);
+          $this->ctr['Sport']->TypeSport($this->params['id']);
           break;
 
         // Profile
@@ -175,7 +175,7 @@ class Router {
           break;
 
         case 'inscription-verif':
-          $this->ctr['User']->verifinscription($this->params);
+          $this->ctr['User']->verifinscription($this->params['token']);
           break;
 
         // Login
@@ -188,7 +188,7 @@ class Router {
           break;
 
         case 'forgot-verif':
-          $this->ctr['User']->resetPwd($this->params);
+          $this->ctr['User']->resetPwd($this->params['token']);
           break;
 
         case 'logout':
@@ -211,6 +211,7 @@ class Router {
       }
     }
     catch (Exception $e) {
+      //var_dump($e);
       Router::erreur();
     }
   }
@@ -246,11 +247,18 @@ class Router {
       $this->page = "accueil";
     } else {
       foreach (static::$routes as $key => $value) {
+        $param_keys = [];
+        preg_match("/{(.*)}/", $value, $param_keys);
+        $param_keys = isset($param_keys[1]) ? array_slice($param_keys, 1) : null;
         $value = preg_replace("/{[^}]*}/", "([a-zA-Z0-9]+)", $value);
         if (preg_match("#^".$value."$#", $_GET['p'], $param)) {
           $this->page = $key;
-
-          $this->params = isset($param[1]) ? $param[1] : null;
+          if (isset($param[1])) {
+            $param = array_slice($param, 1);
+            foreach ($param_keys as $key => $value) {
+              $this->params[$value] = $param[$key];
+            }
+          }
         }
 
       }
@@ -264,7 +272,7 @@ class Router {
     //Router::debug(static::$routes);
   }
 
-  public static function getRoute($route, $param)
+  public static function getRoute($route, $param=[])
   {
     if (isset(static::$routes[$route])) {
       if (!empty($param)) {

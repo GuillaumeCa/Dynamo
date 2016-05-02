@@ -7,7 +7,7 @@
   <div class="column">
     <div class="grid">
         <div class="sport">
-          <a href="<?php page('type-sport') ?>">
+          <a href="/fr">
             <div class="circle">
               <svg>
                 <use xlink:href="#ball"></use>
@@ -17,7 +17,7 @@
           <span>Français</span>
         </div>
         <div class="sport">
-          <a href="<?php page('type-sport') ?>">
+          <a href="/en">
             <div class="circle">
               <svg>
                 <use xlink:href="#ball"></use>

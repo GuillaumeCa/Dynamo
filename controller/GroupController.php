@@ -79,6 +79,7 @@ class GroupController
       }
     }else{
     $vue = new Vue("GroupeCreation","Groupe");
+    $vue->setScript('list.js');
     $vue->setTitle('Créer un groupe');
     $vue->render();
     }

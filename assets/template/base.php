@@ -23,6 +23,10 @@
       function toggle(element) {
         document.body.querySelector(element).classList.toggle('visible');
       }
+      function close(e) {
+        console.log(e);
+        document.querySelector(e).classList.add('hide-fade');
+      }
     </script>
   </body>
 </html>

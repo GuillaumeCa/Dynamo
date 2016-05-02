@@ -425,6 +425,10 @@ footer p {
   padding: 12px;
 }
 
+.tab-menu-center {
+  text-align: center;
+}
+
 .tab-menu li {
   color: #9972FA;
   display: inline-block;
@@ -432,7 +436,7 @@ footer p {
   font-size: 1em;
 }
 
-.tab-menu li:last-child {
+.tab-menu li.right {
   margin: 0;
   float: right;
 }
@@ -739,6 +743,10 @@ footer p {
   width: 100%;
 }
 
+.membres {
+  margin-bottom:
+}
+
 .search-form-lg {
   max-width: 600px;
   margin: 20px auto;
@@ -850,6 +858,14 @@ a.forget:hover {
   color: #9972FA;
   border-color: rgba(153, 114, 250, 0.55);
   margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.groupe_crea .membres {
+  margin-bottom: 10px;
+}
+
+.liste-membres {
   margin-bottom: 20px;
 }
 
@@ -987,9 +1003,36 @@ a.forget:hover {
   margin-bottom: 10px;
 }
 
+.form-errors-row {
+  display: table-row;
+}
+
 .form-errors-inv {
   color: #9972FA;
   background: rgba(153, 114, 250, 0.1);
+}
+
+.form-errors-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.form-errors-icn svg {
+  width: 25px;
+  height: 25px;
+}
+
+.form-errors-esc svg {
+  width: 15px;
+  height: 15px;
+}
+
+.form-errors-icn, .form-errors-esc {
+  padding: 0 7px;
+}
+
+.form-errors-icn {
+  width: 30px;
 }
 
 .form-errors ul {
@@ -1100,6 +1143,19 @@ a.forget:hover {
   6. ANIMATION
 *----------------------*/
 
+.hide-fade {
+  transition: opacity 1s ease;
+  animation: fadeAndHide 1s;
+}
+
+@keyframes fadeAndHide {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}
 
 /*----------------------*
   7. MEDIA QUERY

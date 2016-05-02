@@ -5,10 +5,10 @@
       </div>
     </section>
     <div class="nav-bbar">
-      <nav class="tab-menu">
+      <nav class="tab-menu tab-menu-center">
         <ul>
-          <li><a href="sport-club.php">Clubs</a></li>
           <li><a href="sport-groupe.php" class="active">Groupes</a></li>
+          <li><a href="sport-club.php">Clubs</a></li>
         </ul>
       </nav>
     </div>

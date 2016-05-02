@@ -7,21 +7,40 @@
       <div class="column">
         <form class="groupe_crea" action="" method="post">
           <?php if (isset($errors)): ?>
-            <div class="form-errors form-errors-inv">
-              <ul>
-                <?php foreach ($errors as $value): ?>
-                  <?php foreach ($value as $error): ?>
-                    <li><?php echo $error ?></li>
-                  <?php endforeach; ?>
-                <?php endforeach; ?>
-              </ul>
+            <div id='warn1' class="form-errors form-errors-inv">
+              <div class="form-errors-row">
+                <div class="form-errors-cell form-errors-icn">
+                  <svg>
+                    <use xlink:href="#warning"></use>
+                  </svg>
+                </div>
+                <div class="form-errors-cell">
+                  <ul>
+                    <?php foreach ($errors as $value): ?>
+                      <?php foreach ($value as $error): ?>
+                        <li><?php echo $error ?></li>
+                      <?php endforeach; ?>
+                    <?php endforeach; ?>
+                  </ul>
+                </div>
+                <div class="form-errors-cell form-errors-esc">
+                  <div onclick="close('#warn1')">
+                    <svg>
+                      <use xlink:href="#close"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
           <?php endif; ?>
           <h2 class="form-label pink-text">Nom de groupe</h2>
           <input class="clear-form" type="text" name="name_grp" placeholder="">
 
           <h2 class="form-label pink-text">Ajouter vos amis</h2>
-          <input class="clear-form" type="text" name="membre[]" placeholder="pseudos ou e-mails">
+          <div class='liste-membres'>
+            <input class="clear-form membres" type="text" name="membre[]" placeholder="pseudos ou e-mails">
+            <input class="clear-form membres" type="text" name="membre[]" placeholder="ajouter..." style="opacity: 0.4;" disabled>
+          </div>
 
           <p class="form-info">
             Une invitation par email sera envoyé aux membres afin qu'ils puissent rejoindre le groupe
