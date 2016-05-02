@@ -3,57 +3,38 @@
       <div class="auto-width hud-padding">
         <div class="column-2 today">
           <h2><?php lang('auj-caps') ?></h1>
-          <div class="">
-            <a href="#" class="box">
-              <h3>Groupe 1</h3>
-              <table>
-                <tr>
-                  <th>9h00 - 10h00</th>
-                  <td>Competition</td>
-                </tr>
-                <tr>
-                  <th>10h00 - 12h00</th>
-                  <td>Entrainement</td>
-                </tr>
-              </table>
-            </a>
-          </div>
-          <div class="">
-            <a href="#" class="box">
-              <h3>Groupe 2</h3>
-              <table>
-                <tr>
-                  <th>9h00 - 10h00</th>
-                  <td>Competition</td>
-                </tr>
-                <tr>
-                  <th>10h00 - 12h00</th>
-                  <td>Entrainement</td>
-                </tr>
-                <tr>
-                  <th>10h00 - 12h00</th>
-                  <td>Entrainement</td>
-                </tr>
-              </table>
-            </a>
-          </div>
+          <?php foreach ($today_group as $groupe => $events): ?>
+            <div class="">
+              <a href="<?php page('groupe') ?>" class="box">
+                <h3><?php echo $groupe ?></h3>
+                <table>
+                <?php foreach ($events as $event): ?>
+                    <tr>
+                      <th><?php echo Vue::date("G\hi", $event[1]) ?> - <?php echo Vue::date("G\hi", $event[2]) ?></th>
+                      <td><?php echo $event[0] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </table>
+              </a>
+            </div>
+          <?php endforeach; ?>
         </div><div class="column-2">
           <h2><?php lang('demain-caps') ?></h2>
-          <div class="">
-            <a href="#" class="box">
-              <h3>Groupe 1</h3>
-              <table>
-                <tr>
-                  <th>9h00 - 10h00</th>
-                  <td>Competition</td>
-                </tr>
-                <tr>
-                  <th>10h00 - 12h00</th>
-                  <td>Entrainement</td>
-                </tr>
-              </table>
-            </a>
-          </div>
+          <?php foreach ($tmw_group as $groupe => $events): ?>
+            <div class="">
+              <a href="<?php page('groupe') ?>" class="box">
+                <h3><?php echo $groupe ?></h3>
+                <table>
+                <?php foreach ($events as $event): ?>
+                    <tr>
+                      <th><?php echo Vue::date("G\hi", $event[1]) ?> - <?php echo Vue::date("G\hi", $event[2]) ?></th>
+                      <td><?php echo $event[0] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </table>
+              </a>
+            </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>

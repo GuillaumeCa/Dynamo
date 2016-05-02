@@ -134,7 +134,7 @@ header .search-field button svg {
 }
 
 header .search-field input::-webkit-input-placeholder {
-  color: #9972FA;
+  color: rgba(153, 114, 250, 0.5);
 }
 
 header .search input {
@@ -1594,6 +1594,9 @@ a.forget:hover {
   border-radius: 3px;
 }
 
+.box table {
+  white-space: nowrap;
+}
 
 .deconnexion{
   border-top: #53FFC0 solid 1px;
@@ -1655,7 +1658,8 @@ margin-bottom: auto;
 .gallerie .group {
   width: 160px;
   height: 220px;
-  border: #9972FA solid 1px;
+  box-shadow: 0 5px 12px rgb(215, 215, 215);
+  /*border: #9972FA solid 1px;*/
   border-radius: 7px;
   margin: 10px;
   display: inline-block;

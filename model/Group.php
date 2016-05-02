@@ -54,4 +54,33 @@ class Group extends Database
     }
     return $events;
   }
+
+  public function getNextEventsForUser()
+  {
+    $today = "SELECT groupe.titre, planning.activité, planning.dstart, planning.dend
+              FROM groupe
+              JOIN planning
+              ON groupe.id = planning.id_groupe
+              JOIN utilisateur_groupe
+              ON groupe.id = utilisateur_groupe.id_groupe
+              WHERE utilisateur_groupe.id_utilisateur = ? AND planning.date = CURDATE()";
+    $tmw = "SELECT groupe.titre, planning.activité, planning.dstart, planning.dend
+            FROM groupe
+            JOIN planning
+            ON groupe.id = planning.id_groupe
+            JOIN utilisateur_groupe
+            ON groupe.id = utilisateur_groupe.id_groupe
+            WHERE utilisateur_groupe.id_utilisateur = ? AND planning.date = CURRENT_DATE() + INTERVAL 1 DAY";
+    $res = $this->executerRequete($today, [$_SESSION['auth']->id])->fetchAll();
+    $todayEvents = [];
+    foreach ($res as $row) {
+      $todayEvents[$row->titre][] = [$row->activité, $row->dstart, $row->dend];
+    }
+    $res = $this->executerRequete($tmw, [$_SESSION['auth']->id])->fetchAll();
+    $tmwEvents = [];
+    foreach ($res as $row) {
+      $tmwEvents[$row->titre][] = [$row->activité, $row->dstart, $row->dend];
+    }
+    return [$todayEvents, $tmwEvents];
+  }
 }

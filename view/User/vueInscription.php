@@ -57,12 +57,12 @@
               <h2 class="form-label green-text">Sexe</h2>
               <div class="label">
                 <div class="radio">
-                  <label><input type="radio" class="radio-button" name="sexe" value="1" checked="checked">
+                  <label><input type="radio" class="radio-button" name="sexe" value="H" checked="checked">
                   <span class="radio-inner"></span>
                   Homme</label>
                 </div>
                 <div class="radio">
-                  <label><input type="radio" class="radio-button" name="sexe" value="0">
+                  <label><input type="radio" class="radio-button" name="sexe" value="F">
                   <span class="radio-inner"></span>
                   Femme</label>
                 </div>

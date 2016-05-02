@@ -4,6 +4,7 @@ require_once 'app/Vue.php';
 require_once 'model/User.php';
 require_once 'model/Accueil.php';
 require_once 'model/Sport.php';
+require_once 'model/Group.php';
 
 
 /**
@@ -14,19 +15,27 @@ class AccueilController
   private $acc;
   private $user;
   private $sport;
+  private $group;
 
   function __construct()
   {
     $this->acc = new Accueil();
     $this->user = new User();
     $this->sport = new Sport();
+    $this->group = new Group();
   }
 
   public function accueil_logged()
   {
+    $head_infos = $this->group->getNextEventsForUser();
     $vue = new Vue("AccueilInscrit", "Accueil");
     $vue->setTitle('Accueil');
-    $vue->render();
+    $vue->render([
+      'today_group' => $head_infos[0],
+      'tmw_group' => $head_infos[1],
+      'fy_group' => '',
+      'ny_group' => ''
+    ]);
   }
   public function accueil()
   {
@@ -53,7 +62,7 @@ class AccueilController
       $vue->render(['groupe' => $result['groupe'],
                     'sports' => $result['sports'],
                     "listsports" => $sportlist,
-                    "num" => $num, 
+                    "num" => $num,
                     "deptlist" => $deptlist
                   ]);
     } else {
