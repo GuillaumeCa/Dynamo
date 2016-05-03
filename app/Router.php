@@ -211,8 +211,8 @@ class Router {
       }
     }
     catch (Exception $e) {
-      //var_dump($e);
-      Router::erreur();
+      var_dump($e);
+      //Router::erreur();
     }
   }
 
