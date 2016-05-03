@@ -30,4 +30,14 @@ class Sport extends Database
     return $res->fetch()->nom;
   }
 
+  public function getSportsSortedByType()
+  {
+    $res =  $this->executerRequete("SELECT sport.id, sport.nom, sport_type.nom AS type FROM sport JOIN sport_type ON sport.id_type = sport_type.id ORDER BY sport_type.nom")->fetchAll();
+    $result = [];
+    foreach ($res as $value) {
+      $result[$value->type][] = [$value->id, $value->nom];
+    }
+    return $result;
+  }
+
 }

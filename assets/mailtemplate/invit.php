@@ -67,7 +67,7 @@
       <p>
         Si vous désirez rejoindre ce groupe, veuillez cliquer sur le lien suivant.
       </p>
-      <a href="http://dynamo.com/fr/groupe/info<?php echo $token ?>" class="button">rejoindre</a>
+      <a href="http://dynamo.com/fr/groupe/info" class="button">rejoindre</a>
     </div>
     <a href="http://dynamo.com"><img src="http://dynamo.com/assets/images/logo.png" alt="logo" /></a>
     <a href="#" class="lien">paramètres d'email</a>

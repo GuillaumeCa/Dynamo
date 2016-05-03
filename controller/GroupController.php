@@ -1,6 +1,7 @@
 <?php
 
 require_once 'model/Group.php';
+require_once 'model/Sport.php';
 require_once 'app/Vue.php';
 
 /**
@@ -10,11 +11,13 @@ class GroupController
 {
   private $group;
   private $user;
+  private $sport;
 
   function __construct()
   {
     $this->group = new Group();
     $this->user = new User();
+    $this->sport = new Sport();
   }
 
   public function liste()
@@ -59,6 +62,8 @@ class GroupController
   }
   public function creation()
   {
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $vue = new Vue("GroupeCreation", "Groupe");
     if (!empty($_POST)) {
       Router::debug($_POST);
       $validate = new Validate($_POST);
@@ -71,17 +76,15 @@ class GroupController
       $validate->notEmpty('nbr_membre', "Selectionner le nombre maximum de membres dans votre groupe");
       $validate->notEmpty('description_grp',"Ajoutez une description à votre groupe");
       if ($validate->isValid()) {
+        $this->group->creerGroupe($_POST);
         Router::redirect("groupe");
-        $this->Group->creerGroupe($_POST);
       } else {
-        $vue = new Vue("GroupeCreation", "Groupe");
-        $vue->render(['errors'=>$validate->errors]);
+        $vue->render(['errors'=>$validate->errors, 'ListeSports' => $ListeSports]);
       }
     }else{
-    $vue = new Vue("GroupeCreation","Groupe");
     $vue->setScript('list.js');
     $vue->setTitle('Créer un groupe');
-    $vue->render();
+    $vue->render(['ListeSports' => $ListeSports]);
     }
   }
 }

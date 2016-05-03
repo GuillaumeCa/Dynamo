@@ -47,7 +47,16 @@
           </p>
 
           <h2 class="form-label pink-text">Votre sport</h2>
-          <input class="clear-form" type="text" name="sport" placeholder="Football, Athlétisme, Rugby ...">
+          <select class="clear-form dropdown dropdown-lg" name="sport">
+            <option value="option" disabled selected>Football, Athlétisme, Rugby ...</option>
+            <?php foreach ($ListeSports as $type => $sports): ?>
+              <optgroup label="<?php echo $type ?>">
+                <?php foreach ($sports as $sport): ?>
+                  <option value="<?php echo $sport[0] ?>"><?php echo $sport[1] ?></option>
+                <?php endforeach; ?>
+              </optgroup>
+            <?php endforeach; ?>
+          </select>
 
           <h2 class="form-label pink-text">Club</h2>
           <input class="clear-form" type="text" name="club" placeholder="Stade Francais, Athlé 91 ...">
@@ -59,7 +68,7 @@
           <select class="clear-form dropdown dropdown-lg" name="nbr_membre">
             <option value="option" disabled selected>Nombre</option>
             <?php for ($i = 0; $i < 12; $i++): ?>
-              <option value="<?php echo $i ?>"><?php echo $i+1; ?></option>
+              <option value="<?php echo $i+1 ?>"><?php echo $i+1; ?></option>
             <?php endfor; ?>
           </select>
 
