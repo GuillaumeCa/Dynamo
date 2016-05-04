@@ -926,6 +926,18 @@ a.forget:hover {
   text-align: center;
 }
 
+.label-box {
+  margin: 25px 0;
+  text-align: center;
+}
+
+.label-box span {
+  margin: 0 auto;
+  padding: 7px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .form-desc {
   color: white;
   font-style: italic;

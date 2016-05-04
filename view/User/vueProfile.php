@@ -12,7 +12,7 @@
         <ul>
           <li><a href="<?php page('profile') ?>" class="active">informations</a></li>
           <li><a href="<?php page('profile-planning') ?>">planning</a></li>
-          <li><a href="<?php  ?>">Historique</a></li>
+          <li><a href="<?php  ?>">historique</a></li>
           <li class="right">
             <a href="<?php page('profile-reglage') ?>" class="settings">
               <svg>
