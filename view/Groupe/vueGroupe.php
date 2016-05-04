@@ -17,7 +17,7 @@
           <li><a href="<?php page('planning-groupe') ?>">planning</a></li>
           <li><a href="<?php page('discussion-groupe') ?>">discussions</a></li>
           <li class="right">
-            <a href="groupe-reglage.php" class="settings">
+            <a href="<?php page('reglage-groupe') ?>" class="settings">
               <svg>
                 <use xlink:href="#gear"></use>
               </svg>
