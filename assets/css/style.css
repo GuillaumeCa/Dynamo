@@ -1825,10 +1825,18 @@ section .text-left {
   display: inline-block;
   height: 150px;
   width: 150px;
+  vertical-align: bottom;
+  position: relative;
 }
 
 .info-planning p {
   color: rgba(112, 101, 153, 0.69);
+}
+
+.info-planning > p, .last-info-planning > p {
+  color: rgba(112, 101, 153, 0.69);
+  position: absolute;
+  bottom: 0;
 }
 
 .last-info-planning {
@@ -1836,6 +1844,8 @@ section .text-left {
   display: inline-block;
   color: rgba(112, 101, 153, 0.69);
   height: 150px;
+  vertical-align: bottom;
+  position: relative;
 }
 
 .evenement {

@@ -121,7 +121,7 @@ class User extends Database
             JOIN groupe ON groupe.id = planning.id_groupe
             JOIN utilisateur_groupe
             ON utilisateur_groupe.id_groupe = groupe.id
-            WHERE utilisateur_groupe.id_utilisateur = ?";
+            WHERE utilisateur_groupe.id_utilisateur = ? AND utilisateur_groupe.invite = 0";
     $res = $this->executerRequete($sql, [$_SESSION['auth']->id])->fetchAll();
     $events = [];
     foreach ($res as $r) {
