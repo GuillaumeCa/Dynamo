@@ -1817,3 +1817,29 @@ section .text-left {
   padding-top: 20%;
   margin-bottom: 30px;
 }
+
+/** Rajout pour la page profil**/
+
+.info-planning {
+  border-left: solid 1px rgba(112, 101, 153, 0.69);
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+}
+
+.info-planning p {
+  color: rgba(112, 101, 153, 0.69);
+}
+
+.last-info-planning {
+  border-left: solid 1px rgba(112, 101, 153, 0.69);
+  display: inline-block;
+  color: rgba(112, 101, 153, 0.69);
+  height: 150px;
+}
+
+.evenement {
+  border: solid 1px #9972FA;
+  background-color: rgba(153, 114, 250, 0.2);
+  border-radius: 5px;
+}
