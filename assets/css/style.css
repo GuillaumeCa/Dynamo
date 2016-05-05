@@ -1820,6 +1820,11 @@ section .text-left {
 
 /** Rajout pour la page profil**/
 
+.info-planning-grp {
+  margin-top: 20px;
+  margin-bottom: 200px;
+}
+
 .info-planning {
   border-left: solid 1px rgba(112, 101, 153, 0.69);
   display: inline-block;
@@ -1830,13 +1835,14 @@ section .text-left {
 }
 
 .info-planning p {
-  color: rgba(112, 101, 153, 0.69);
+  color: #9972FA;
 }
 
 .info-planning > p, .last-info-planning > p {
   color: rgba(112, 101, 153, 0.69);
   position: absolute;
   bottom: 0;
+  margin-left: 5px;
 }
 
 .last-info-planning {
@@ -1852,4 +1858,6 @@ section .text-left {
   border: solid 1px #9972FA;
   background-color: rgba(153, 114, 250, 0.2);
   border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
 }

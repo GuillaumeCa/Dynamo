@@ -22,14 +22,14 @@ class UserController
       $validate = new Validate($_POST);
 
       if ($validate->isEmpty('cgu')) {
-        $validate->notEmpty('nom', "le nom ne peut être vide");
-        $validate->notEmpty('prenom', "le prénom ne peut être vide");
+        $validate->notEmpty('nom', "Veuillez entrer un nom");
+        $validate->notEmpty('prenom', "Veuillez entrer un prénom");
 
-        $validate->isEmail('email', "l'email n'est pas valide");
+        $validate->isEmail('email', "L'email n'est pas valide");
         $email = $this->user->emailExist()->fetch();
-        $validate->isUnique('email', $email, "l'email est déjà utilisé");
+        $validate->isUnique('email', $email, "L'email est déjà utilisé");
 
-        $validate->doubleCheck('password', 'confirmation', "les mot de passe ne correspondent pas");
+        $validate->doubleCheck('password', 'confirmation', "Les mot de passe ne correspondent pas");
         //Router::debug($validate->error);
         $validate->isVille('ville', "Votre adresse n'est pas valide");
         $validate->isDate('date','jour','mois','année', "Votre date de naissance n'est pas valide");

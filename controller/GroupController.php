@@ -65,7 +65,7 @@ class GroupController
     $ListeSports = $this->sport->getSportsSortedByType();
     $vue = new Vue("GroupeCreation", "Groupe");
     if (!empty($_POST)) {
-      Router::debug($_POST);
+      //Router::debug($_POST);
       $validate = new Validate($_POST);
       // TODO: Il faut ajouter celui qui crée le groupe au groupe et le mettre en leader,
       // envoyer des invitations par mail aux personnes invitées.
