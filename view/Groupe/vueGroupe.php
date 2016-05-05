@@ -26,34 +26,46 @@
         </ul>
       </nav>
     </div>
-    <div class="ttl-green ttl-group-underline-gr ttl-md">
-      <h1>Demain</h1>
-    </div>
-    <div class="">
-      <p>
-        9h
-      </p>
-    </div>
-    <div class="">
-      <p>
-        10h
-      </p>
-    </div>
-    <div class="">
-      <p>
-        11h
-      </p>
-    </div>
-    <div class="">
-      <p>
-        12h
-      </p>
-      <div class="">
+    <section class="auto-width">
+      <div class="ttl-group-underline-gr">
+        <h1 class="ttl ttl-green ttl-inline ttl-sm">Demain</h1>
+      </div>
+      <div class="info-planning">
         <p>
-          Entrainement Football
-        </p>
-        <p>
-          12:00 - 13:00
+          9h
         </p>
       </div>
-    </div>
+      <div class="info-planning">
+        <p>
+          10h
+        </p>
+      </div>
+      <div class="info-planning">
+        <p>
+          11h
+        </p>
+      </div>
+      <div class="info-planning">
+        <div class="evenement">
+          <p>
+            Entrainement Football
+          </p>
+          <p>
+            12:00 - 13:00
+          </p>
+        </div>
+        <p>
+          12h
+        </p>
+      </div>
+      <div class="info-planning">
+        <p>
+          13h
+        </p>
+      </div>
+      <div class="last-info-planning">
+        <p>
+          14h
+        </p>
+      </div>
+    </section>
