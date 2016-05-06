@@ -126,9 +126,9 @@ class UserController
         $vue = new Vue("Success", "User");
         $vue->render(['msg' => "Le mot de passe a été modifié avec succès."]);
       } else {
-        var_dump($validate->errors);
         $vue = new Vue("Reset", "User");
-        $vue->render();
+        $vue->setScript('verif.js');
+        $vue->render(['errors'=>$validate->errors]);
       }
     } else {
       $this->user->resetPwd($token);
