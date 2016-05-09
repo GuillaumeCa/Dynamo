@@ -9,11 +9,8 @@
       <div class="column">
         <h1 class="ttl ttl-md">Choisis ton Topic</h1>
         <div class="grid">
-          <?php
-          for ($i=0; $i < 1; $i++) {
-            ?>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#eiffeltower"></use>
@@ -24,7 +21,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#ball"></use>
@@ -35,7 +32,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#NY"></use>
@@ -46,7 +43,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#run"></use>
@@ -57,7 +54,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#pingpong"></use>
@@ -68,7 +65,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#boxe"></use>
@@ -79,7 +76,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#ski"></use>
@@ -90,7 +87,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#bike"></use>
@@ -101,7 +98,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#swim"></use>
@@ -112,7 +109,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#kayak"></use>
@@ -123,7 +120,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#arrow"></use>
@@ -134,7 +131,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#fencing"></use>
@@ -145,7 +142,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#billard"></use>
@@ -156,7 +153,7 @@
               <span>Topic</span>
             </div>
             <div class="sport">
-              <a href="topic.php">
+              <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
                     <use xlink:href="#rugby"></use>
@@ -166,9 +163,6 @@
               <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
-            <?php
-          }
-          ?>
 
       </div>
     </section>

@@ -293,6 +293,10 @@ footer p {
   padding: 20px 0;
   position: relative;
 }
+.centered {
+  max-width: 900px;
+  margin: 0 auto;
+}
 .auto-width {
   max-width: 900px;
   margin: 0 auto;
@@ -1796,8 +1800,39 @@ section .text-left {
   width: 400px;
 }
 
+.search-list {
+  display: none;
+}
+
+.search-list.active {
+  display: block;
+}
+
 .search-bar .button {
   float: right;
+}
+
+.switch-bg {
+  background-color: #9972FA;
+  font-size: 0;
+}
+
+.switch-cat {
+  display: inline-block;
+  padding: 8px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: transparent solid 2px;
+  cursor: pointer;
+}
+
+.switch-cat.active {
+  border-bottom: white solid 2px;
+  font-weight: bold;
+  color: white;
+}
+.switch-cat:hover {
+  color: white;
 }
 
 .container-404 {

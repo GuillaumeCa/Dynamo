@@ -16,6 +16,7 @@ class Router {
   private static $routes;
   private $page;
   private $params;
+  const DEBUG = true;
 
 
   public function __construct() {
@@ -211,8 +212,7 @@ class Router {
       }
     }
     catch (Exception $e) {
-      var_dump($e);
-      //Router::erreur();
+      Router::erreur($e);
     }
   }
 
@@ -234,9 +234,13 @@ class Router {
   }
 
   // Affiche une erreur
-  public static function erreur() {
+  public static function erreur($e) {
     $vue = new Vue('404', 'Accueil');
-    $vue->emptyPage();
+    if (self::DEBUG) {
+      $vue->emptyPage($e);
+    } else {
+      $vue->emptyPage();
+    }
   }
 
   // Compare le parametre p de l'url avec les urls du fichier routes.json

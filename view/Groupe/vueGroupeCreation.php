@@ -67,10 +67,12 @@
           <h2 class="form-label pink-text">Nombre de membres maximum</h2>
           <select class="clear-form dropdown dropdown-lg" name="nbr_membre">
             <option value="option" disabled selected>Nombre</option>
+            <option value="0">illimité</option>
             <?php for ($i = 0; $i < 12; $i++): ?>
               <option value="<?php echo $i+1 ?>"><?php echo $i+1; ?></option>
             <?php endfor; ?>
           </select>
+          <input class="clear-form" type="number" name="nbr_membre" min="1" step="1" value="1">
 
           <h2 class="form-label pink-text">Visibilité du groupe</h2>
           <div class="label label-center">

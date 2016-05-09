@@ -56,15 +56,24 @@ class AccueilController
     $deptlist = $this->acc->getDptList();
     $vue = new Vue("Recherche", "Accueil");
     $vue->setScript('search.js');
+
     if (isset($_GET) && !empty($_GET['search'])){
-      $result = $this->acc->getSearchResult($_GET);
-      $num = count($result['groupe'])+count($result['sports']);
-      $vue->render(['groupe' => $result['groupe'],
-                    'sports' => $result['sports'],
-                    "listsports" => $sportlist,
-                    "num" => $num,
-                    "deptlist" => $deptlist
-                  ]);
+
+      // Get search results
+      $name = $_GET['search'];
+      $groups = $this->acc->getGroupInfoByName($name);
+      $sports = $this->acc->getSportsByName($name);
+      $users = $this->acc->getUsersByName($name);
+
+      $num = count($groups) + count($sports);
+      $vue->render([
+        "groupe" => $groups,
+        "sports" => $sports,
+        "users" => $users,
+        "listsports" => $sportlist,
+        "num" => $num,
+        "deptlist" => $deptlist
+      ]);
     } else {
       $vue->render(["listsports"=>$sportlist, "deptlist"=>$deptlist]);
     }

@@ -25,7 +25,7 @@ class Vue
     include "assets/template/base.php";
   }
 
-  public function emptyPage()
+  public function emptyPage($msg = [])
   {
     include $this->fichier;
   }

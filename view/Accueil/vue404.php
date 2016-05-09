@@ -9,6 +9,9 @@
     <div class="container-404">
       <h1 class="title-404">Euuuh .... la page est introuvable !</h1>
       <a href="<?php page() ?>" class="button">rejoindre la page d'accueil</a>
+      <pre>
+        <?php var_dump($msg->message) ?>
+      </pre>
     </div>
   </body>
 </html>

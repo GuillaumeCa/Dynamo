@@ -33,6 +33,8 @@ class Mail
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
     $headers .= 'From: Dynamo <contact@webmaster.com>' . "\r\n";
+    mb_internal_encoding( "UTF-8");
+    $this->sujet = mb_encode_mimeheader($this->sujet);
     return mail($this->destinataire, $this->sujet, $this->content, $headers);
   }
 
