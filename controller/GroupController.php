@@ -28,38 +28,54 @@ class GroupController
     $vue->render($liste_groupe);
   }
 
-  public function informations()
+  public function informations($id)
   {
+    $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("Groupe","Groupe");
-    $vue->render();
+    $vue->render([
+      'presentation_groupe' => $presentation_groupe,
+    ]);
   }
 
-  public function membres()
+  public function membres($id)
   {
+    $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeMembre","Groupe");
-    $vue->render();
+    $vue->render([
+      'presentation_groupe' => $presentation_groupe,
+    ]);
   }
 
-  public function planning()
+  public function planning($id)
   {
+    $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $events = $this->group->getEventsFromGroupe();
     $vue = new Vue("GroupePlanning","Groupe");
     $vue->setScript('cal.js');
     $vue->setCss('planning.css');
-    $vue->render(['events' => $events]);
+    $vue->render(['events' => $events,
+      'presentation_groupe' => $presentation_groupe,]);
   }
 
-  public function discussion()
+  public function discussion($id)
   {
+    $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeDiscussion","Groupe");
-    $vue->render();
+    $vue->render([
+      'presentation_groupe' => $presentation_groupe,
+    ]);
   }
-  public function reglage()
+
+  public function reglage($id)
   {
+    $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeReglage","Groupe");
     $vue->setTitle('Réglages');
-    $vue->render();
+    $vue->render([
+      'presentation_groupe' => $presentation_groupe,
+    ]);
   }
+  
   public function creation()
   {
     $ListeSports = $this->sport->getSportsSortedByType();
