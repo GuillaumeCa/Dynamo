@@ -10,7 +10,8 @@ class Accueil extends Database
 
   public function getGroupInfoByName($name)
   {
-    $sql = "SELECT groupe.titre,
+    $sql = "SELECT groupe.id, 
+                  groupe.titre,
                   sport.nom as sport,
                   club.nom as club,
                   nbmaxutil,

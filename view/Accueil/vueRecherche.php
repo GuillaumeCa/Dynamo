@@ -88,7 +88,7 @@
 
       <?php foreach ($groupe as $value): ?>
 
-        <a href="<?php page('groupe') ?>" filter-sporttype="<?php echo $value['data']->sport_type ?>" filter-dept="<?php echo $value['data']->dept ?>">
+        <a href="<?php page('groupe', ['id' => $value['data']->id]) ?>" filter-sporttype="<?php echo $value['data']->sport_type ?>" filter-dept="<?php echo $value['data']->dept ?>">
           <li>
             <div class="liste-licon">
               <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
@@ -156,7 +156,7 @@
     <ul class="liste-lg search-result">
       <?php foreach ($groupe as $value): ?>
 
-        <a href="<?php page('groupe') ?>" filter-sporttype="<?php echo $value['data']->sport_type ?>" filter-dept="<?php echo $value['data']->dept ?>">
+        <a href="<?php page('groupe', ['id' => $value['data']->id]) ?>" filter-sporttype="<?php echo $value['data']->sport_type ?>" filter-dept="<?php echo $value['data']->dept ?>">
           <li>
             <div class="liste-licon">
               <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">

@@ -10,7 +10,7 @@ class Group extends Database
 
   public function listGroupFromUser()
   {
-    $sql = "SELECT groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type
+    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type
     FROM utilisateur_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
@@ -21,7 +21,7 @@ class Group extends Database
   }
 
   public function getGroupeById($id){
-    $sql = "SELECT groupe.titre as nomGroupe, groupe.description as description, sport.nom as sport, club.nom as club
+    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, groupe.description as description, sport.nom as sport, club.nom as club
     FROM groupe
     JOIN sport ON groupe.id_sport=sport.id
     JOIN club ON groupe.id_club=club.id

@@ -10,7 +10,7 @@
             <?php $i = 0 ?>
             <?php foreach ($liste as $groupe): ?>
               <?php if ($groupe->invite == 0): ?>
-                <a href="<?php page('groupe') ?>">
+                <a href="<?php page('groupe', ['id' => $groupe->id]) ?>">
                   <li>
                     <div class="liste-licon">
                       <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
@@ -44,7 +44,7 @@
                 <?php foreach ($liste as $groupe): ?>
                   <?php if ($groupe->invite == 1): ?>
                     <li>
-                      <a href="groupe.php"><span class="liste-overlay"></span></a>
+                      <a href="<?php page('groupe', ['id' => $groupe->id]) ?>"><span class="liste-overlay"></span></a>
                       <div class="liste-licon">
                         <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
                         </div>
