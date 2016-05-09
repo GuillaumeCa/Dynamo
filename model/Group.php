@@ -20,6 +20,16 @@ class Group extends Database
     return $listGroup;
   }
 
+  public function getGroupeById($id){
+    $sql = "SELECT groupe.titre as nomGroupe, groupe.description as description, sport.nom as sport, club.nom as club
+    FROM groupe
+    JOIN sport ON groupe.id_sport=sport.id
+    JOIN club ON groupe.id_club=club.id
+    WHERE groupe.id = ? ";
+    $presentationGroupe = $this->executerRequete($sql, [$id]);
+    return $presentationGroupe;
+  }
+
   public function getName($id)
   {
     $sql = "SELECT titre FROM groupe WHERE id = ?";

@@ -96,7 +96,7 @@ class Router {
 
         case 'groupe':
           if (Router::isLoggedIn()) {
-            $this->ctr['Group']->informations();
+            $this->ctr['Group']->informations($this->params['id']);
           } else {
             $this->redirect();
           }
@@ -104,7 +104,7 @@ class Router {
 
         case 'discussion-groupe':
           if (Router::isLoggedIn()) {
-            $this->ctr['Group']->discussion();
+            $this->ctr['Group']->discussion($this->params['id']);
           } else {
             $this->redirect();
           }
@@ -112,21 +112,21 @@ class Router {
 
         case 'membres-groupe':
           if (Router::isLoggedIn()) {
-            $this->ctr['Group']->membres();
+            $this->ctr['Group']->membres($this->params['id']);
           } else {
             $this->redirect();
           }
           break;
         case 'planning-groupe':
           if (Router::isLoggedIn()) {
-            $this->ctr['Group']->planning();
+            $this->ctr['Group']->planning($this->params['id']);
           } else {
             $this->redirect();
           }
           break;
         case 'reglage-groupe':
           if (Router::isLoggedIn()) {
-            $this->ctr['Group']->reglage();
+            $this->ctr['Group']->reglage($this->params['id']);
           } else {
             Router::redirect();
           }
