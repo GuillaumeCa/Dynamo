@@ -40,9 +40,11 @@ class GroupController
   public function membres($id)
   {
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
+    $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
     $vue = new Vue("GroupeMembre","Groupe");
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
+      'membreGroupe' => $membreGroupe,
     ]);
   }
 
@@ -75,7 +77,7 @@ class GroupController
       'presentation_groupe' => $presentation_groupe,
     ]);
   }
-  
+
   public function creation()
   {
     $ListeSports = $this->sport->getSportsSortedByType();
