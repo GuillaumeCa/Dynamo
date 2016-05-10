@@ -75,7 +75,7 @@ class GroupController
       'presentation_groupe' => $presentation_groupe,
     ]);
   }
-  
+
   public function creation()
   {
     $ListeSports = $this->sport->getSportsSortedByType();
@@ -92,8 +92,8 @@ class GroupController
       $validate->notEmpty('nbr_membre', "Selectionner le nombre maximum de membres dans votre groupe");
       $validate->notEmpty('description_grp',"Ajoutez une description à votre groupe");
       if ($validate->isValid()) {
-        $this->group->creerGroupe($_POST);
-        Router::redirect("groupe");
+        $id = $this->group->creerGroupe($_POST);
+        Router::redirect("groupe", ['id' => $id]);
       } else {
         $vue->render(['errors'=>$validate->errors, 'ListeSports' => $ListeSports]);
       }

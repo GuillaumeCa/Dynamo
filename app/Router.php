@@ -221,9 +221,9 @@ class Router {
     return isset($_SESSION['auth']);
   }
 
-  public static function redirect($url = "")
+  public static function redirect($url = "", $param = [])
   {
-    header("Location: /{$_GET['lang']}/".Router::getRoute($url));
+    header("Location: ".page($url, $param));
   }
 
   public static function debug($var)

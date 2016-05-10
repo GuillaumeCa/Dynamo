@@ -47,7 +47,7 @@ class Group extends Database
     $departement = $this->executerRequete("SELECT ville_departement FROM villes WHERE ville_nom_reel = ?", [$crea['lieu']])->fetch()->ville_departement;
 
     $q = "INSERT INTO groupe (titre, dept, id_sport, description, visibilité, nbmaxutil, creation) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $this->executerRequete($q, [$crea['name_grp'], $departement, $crea['sport'], $crea['description_grp'], $crea['visibilite'], $crea['nbr_membre'], date('Y-m-d H:i:s')]);
+    $id = $this->executerRequete($q, [$crea['name_grp'], $departement, $crea['sport'], $crea['description_grp'], $crea['visibilite'], $crea['nbr_membre'], date('Y-m-d H:i:s')])->lastInsertId();
 
     foreach ($crea['membre'] as $membre) {
       if ($membre != '') {
@@ -56,6 +56,7 @@ class Group extends Database
         $mail->send();
       }
     }
+    return $id;
   }
 
   public function getEventsFromGroupe()
