@@ -26,7 +26,18 @@
         </ul>
       </nav>
     </div>
-    <div class="membre">
+    <?php foreach ($membreGroupe as $membre): ?>
+      <div class="membre">
+        <a href="#">
+          <span><?php echo substr($membre->prenom,0,1).substr($membre->nom,0,1) ?></span>
+          <h1><?php echo $membre->prenom." ".$membre->nom ?></h1>
+        </a>
+        <?php if ($membre->leader==1): ?>
+          <h3>LEADER</h3>
+        <?php endif; ?>
+      </div>
+    <?php endforeach; ?>
+    <!-- <div class="membre">
       <a href="#">
         <span>GC</span>
         <h1>Guillaume Carre</h1>
@@ -38,4 +49,4 @@
         <span>AA</span>
         <h1>Anthony Agnel</h1>
       </a>
-    </div>
+    </div> -->

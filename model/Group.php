@@ -74,6 +74,15 @@ class Group extends Database
     return $nbusers->fetchAll();
   }
 
+  public function getMembreFromGroupe($id){
+    $sql = "SELECT utilisateur.prénom as prenom, utilisateur.nom as nom, utilisateur_groupe.leader as leader
+    FROM utilisateur
+    JOIN utilisateur_groupe on utilisateur_groupe.id_utilisateur=utilisateur.id
+    WHERE utilisateur_groupe.id_groupe = ? ";
+    $membreGroupe = $this->executerRequete($sql, [$id]);
+    return $membreGroupe;
+  }
+
   public function getName($id)
   {
     $sql = "SELECT titre FROM groupe WHERE id = ?";
