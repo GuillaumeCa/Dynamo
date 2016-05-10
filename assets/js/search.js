@@ -1,4 +1,5 @@
 select = document.querySelectorAll('select');
+var count;
 
 function getFilters() {
   var filters = {};
@@ -23,6 +24,13 @@ function getFilters() {
   return filters;
 }
 
+function updateNumberOfResults(i) {
+  var num = document.querySe
+  
+  var result = document.querySelectorAll('.search-result');
+  num.innerHTML = result[i].length
+}
+
 function filterSearch(e) {
   // Récupère les filtres actifs
   var filters = getFilters();
@@ -31,7 +39,7 @@ function filterSearch(e) {
 
   // Sélection du compteur de résultats
   var num = document.querySelector('.number');
-  var count = 0;
+  count = 0;
 
   // Parcours toutes les listes de résultat
   for (var i = 0; i < result.length; i++) {
@@ -87,6 +95,7 @@ function switchCategory(e) {
       cat[i].classList.add('active')
       lists[i].classList.add('active')
       localStorage.setItem('cat', i)
+
     } else {
       cat[i].classList.remove('active')
       lists[i].classList.remove('active')

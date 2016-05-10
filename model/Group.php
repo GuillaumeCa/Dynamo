@@ -10,7 +10,7 @@ class Group extends Database
 
   public function listGroupFromUser()
   {
-    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type
+    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type, groupe.nbmaxutil
     FROM utilisateur_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
@@ -28,6 +28,59 @@ class Group extends Database
     WHERE groupe.id = ? ";
     $presentationGroupe = $this->executerRequete($sql, [$id]);
     return $presentationGroupe;
+  }
+
+  public function getGroupInfoByName($name)
+  {
+    $sql = "SELECT groupe.id,
+                  groupe.titre,
+                  sport.nom as sport,
+                  club.nom as club,
+                  groupe.nbmaxutil,
+                  sport_type.id as sport_type,
+                  groupe.dept
+            FROM groupe
+            JOIN club ON club.id = groupe.id_club
+            JOIN sport ON sport.id = groupe.id_sport
+            JOIN sport_type ON sport_type.id = sport.id_type
+            WHERE titre LIKE ? AND visibilité=1";
+    $groupe = $this->executerRequete($sql, ["%".$name."%"])->fetchAll();
+
+    // Récupère le nombre d'utilisateur par groupe recherché
+    $nbusers = $this->executerRequete(
+              "SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM utilisateur_groupe
+              JOIN groupe ON utilisateur_groupe.id_groupe = groupe.id
+              JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_utilisateur
+              WHERE titre LIKE ? AND visibilité=1 GROUP BY groupe.titre", ["%".$name."%"])->fetchAll();
+
+    $newgroupe = [];
+    foreach ($groupe as $value) {
+      $newgroupe[$value->titre]['data'] = $value;
+      $newgroupe[$value->titre]['nb'] = 0;
+    }
+    foreach ($nbusers as $value) {
+      $newgroupe[$value->groupe]['nb'] = $value->nb_user;
+    }
+    return $newgroupe;
+  }
+
+  public function nbUserFromGroupByUser()
+  {
+    $nbusers = $this->executerRequete(
+              "SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM utilisateur_groupe
+              JOIN groupe ON utilisateur_groupe.id_groupe = groupe.id
+              JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_utilisateur
+              WHERE utilisateur.id = ? AND visibilité = 1 GROUP BY groupe.titre", [intval($_SESSION['auth']->id)]);
+    return $nbusers->fetchAll();
+  }
+
+  public function getMembreFromGroupe($id){
+    $sql = "SELECT utilisateur.prénom as prenom, utilisateur.nom as nom, utilisateur_groupe.leader as leader
+    FROM utilisateur
+    JOIN utilisateur_groupe on utilisateur_groupe.id_utilisateur=utilisateur.id
+    WHERE utilisateur_groupe.id_groupe = ? ";
+    $membreGroupe = $this->executerRequete($sql, [$id]);
+    return $membreGroupe;
   }
 
   public function getName($id)

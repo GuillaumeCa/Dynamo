@@ -61,15 +61,7 @@
         </select>
       </div>
     </div>
-
-  <?php else: ?>
-
-    <p class="txt-center-warn">
-      Aucun résultats
-    </p>
-
   <?php endif; ?>
-
 <?php else: ?>
 
   <p class="txt-center-warn">
@@ -80,6 +72,14 @@
 
 <section class="sec">
   <div class="auto-width search-list active">
+
+    <?php if (isset($num)): ?>
+      <?php if ($num == 0): ?>
+        <p class="txt-center-warn">
+          Aucun résultat
+        </p>
+      <?php endif; ?>
+    <?php endif; ?>
 
     <?php if (!empty($groupe)): ?>
 
@@ -141,12 +141,6 @@
       <?php endforeach; ?>
     </ul>
 
-  <?php else: ?>
-
-    <p class="txt-center-warn">
-      Aucun résultats
-    </p>
-
   <?php endif; ?>
 
   </div>
@@ -179,11 +173,11 @@
       <?php endforeach; ?>
     </ul>
   <?php else: ?>
-
-    <p class="txt-center-warn">
-      Aucun résultats
-    </p>
-
+    <?php if (isset($num)): ?>
+      <p class="txt-center-warn">
+        Aucun résultat
+      </p>
+    <?php endif; ?>
   <?php endif; ?>
   </div>
 
@@ -214,9 +208,11 @@
     </ul>
   <?php else: ?>
 
-    <p class="txt-center-warn">
-      Aucun résultats
-    </p>
+      <?php if (isset($num)): ?>
+        <p class="txt-center-warn">
+          Aucun résultat
+        </p>
+      <?php endif; ?>
 
   <?php endif; ?>
   </div>
@@ -244,9 +240,11 @@
     </ul>
   <?php else: ?>
 
-    <p class="txt-center-warn">
-      Aucun résultats
-    </p>
+      <?php if (isset($num)): ?>
+        <p class="txt-center-warn">
+          Aucun résultat
+        </p>
+      <?php endif; ?>
 
   <?php endif; ?>
   </div>
