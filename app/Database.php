@@ -17,11 +17,8 @@ abstract class Database {
   // Nom de la base de donnée
   private $dbname = "Dynamo";
 
-  private $lastinsertid;
-
   // Exécute une requête SQL éventuellement paramétrée
   protected function executerRequete($sql, $params = null) {
-    $this->lastinsertid = $this->getBdd()->lastInsertId();
     if ($params == null) {
       $resultat = $this->getBdd()->query($sql);
     }
@@ -30,11 +27,6 @@ abstract class Database {
       $resultat->execute($params);
     }
     return $resultat;
-  }
-
-  public function lastinsertid()
-  {
-    return $this->lastinsertid;
   }
 
   // Renvoie un objet de connexion à la BD en initialisant la connexion au besoin

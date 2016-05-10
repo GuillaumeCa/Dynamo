@@ -90,6 +90,7 @@ class GroupController
   public function creation()
   {
     $ListeSports = $this->sport->getSportsSortedByType();
+    $ListeClub = $this->group->listClub();
     $vue = new Vue("GroupeCreation", "Groupe");
     if (!empty($_POST)) {
       //Router::debug($_POST);
@@ -106,12 +107,19 @@ class GroupController
         $id = $this->group->creerGroupe($_POST);
         Router::redirect("groupe", ['id' => $id]);
       } else {
-        $vue->render(['errors'=>$validate->errors, 'ListeSports' => $ListeSports]);
+        $vue->render([
+          'errors'=>$validate->errors,
+          'ListeSports' => $ListeSports,
+          'ListeClub' => $ListeClub
+        ]);
       }
     }else{
     $vue->setScript('list.js');
     $vue->setTitle('Créer un groupe');
-    $vue->render(['ListeSports' => $ListeSports]);
+    $vue->render([
+      'ListeSports' => $ListeSports,
+      'ListeClub' => $ListeClub
+    ]);
     }
   }
 }

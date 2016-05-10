@@ -59,7 +59,12 @@
           </select>
 
           <h2 class="form-label pink-text">Club</h2>
-          <input class="clear-form" type="text" name="club" placeholder="Stade Francais, Athlé 91 ...">
+          <select class="clear-form dropdown dropdown-lg" name="club">
+            <option value="option" disabled selected>Etes vous dans un club de sport ?</option>
+            <?php foreach ($ListeClub as $type => $club): ?>
+              <option value="<?php echo $club->id ?>"><?php echo $club->nom ?></option>
+            <?php endforeach; ?>
+          </select>
 
           <h2 class="form-label pink-text">Lieu</h2>
           <input class="clear-form" type="text" name="lieu" placeholder="Paris, 75015, Essonne ...">
@@ -72,7 +77,7 @@
               <option value="<?php echo $i+1 ?>"><?php echo $i+1; ?></option>
             <?php endfor; ?>
           </select>
-          <input class="clear-form" type="number" name="nbr_membre" min="1" step="1" value="1">
+          
 
           <h2 class="form-label pink-text">Visibilité du groupe</h2>
           <div class="label label-center">

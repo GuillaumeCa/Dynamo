@@ -96,14 +96,26 @@ class Group extends Database
     $photos = $this->executerRequete($sql, [$id]);
     return $photos;
   }
+
+  public function listClub()
+  {
+    return $this->executerRequete("SELECT * FROM club")->fetchAll();
+  }
+
   public function creerGroupe($crea){
     $departement = $this->executerRequete("SELECT ville_departement FROM villes WHERE ville_nom_reel = ?", [$crea['lieu']])->fetch()->ville_departement;
 
-    $q = "INSERT INTO groupe (titre, dept, id_sport, description, visibilité, nbmaxutil, creation) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $id = $this->executerRequete($q, [$crea['name_grp'], $departement, $crea['sport'], $crea['description_grp'], $crea['visibilite'], $crea['nbr_membre'], date('Y-m-d H:i:s')])->lastInsertId();
-
+    $q = "INSERT INTO groupe (titre, dept, id_sport, id_club, description, visibilité, nbmaxutil, creation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $this->executerRequete($q, [$crea['name_grp'], $departement, $crea['sport'], $crea['club'], $crea['description_grp'], $crea['visibilite'], $crea['nbr_membre'], date('Y-m-d H:i:s')]);
+    $id = $this->getBdd()->lastInsertId();
+    $this->executerRequete("INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, leader) VALUES (?, ?, 1) ",[
+      $id, $_SESSION['auth']->id
+    ]);
     foreach ($crea['membre'] as $membre) {
       if ($membre != '') {
+        $id_membre = $this->executerRequete("SELECT id FROM utilisateur WHERE email = ?", [$membre])->fetch()->id;
+        var_dump($id_membre);
+        $this->executerRequete("INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, leader, invite, invite_date) VALUES (?, ?, 0, 1, ?)", [ $id, $id_membre, date('Y-m-d H:i:s')]);
         $mail = new Mail($membre, "Vous avez été invité dans un groupe !", "invit.php");
         $mail->render();
         $mail->send();

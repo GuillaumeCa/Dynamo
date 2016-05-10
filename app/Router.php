@@ -223,7 +223,7 @@ class Router {
 
   public static function redirect($url = "", $param = [])
   {
-    header("Location: ".page($url, $param));
+    header("Location: /".$_GET['lang']."/".Router::getRoute($url, $param));
   }
 
   public static function debug($var)
