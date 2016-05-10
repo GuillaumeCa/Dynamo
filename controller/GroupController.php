@@ -22,10 +22,19 @@ class GroupController
 
   public function liste()
   {
-    $liste_groupe = array('liste' => $this->group->listGroupFromUser()->fetchAll());
+    $liste_groupe = $this->group->listGroupFromUser()->fetchAll();
+    $nbuser = $this->group->nbUserFromGroupByUser();
+    $liste = [];
+    foreach ($liste_groupe as $key => $value) {
+      $liste[$value->nomGroupe]['data'] = $value;
+      $liste[$value->nomGroupe]['nb'] = 0;
+    }
+    foreach ($nbuser as $key => $value) {
+      $liste[$value->groupe]['nb'] = $value->nb_user;
+    }
     $vue = new Vue("ListeGroupes","Groupe");
     $vue->setTitle('Groupes');
-    $vue->render($liste_groupe);
+    $vue->render(['liste' => $liste]);
   }
 
   public function informations($id)
@@ -75,7 +84,7 @@ class GroupController
       'presentation_groupe' => $presentation_groupe,
     ]);
   }
-  
+
   public function creation()
   {
     $ListeSports = $this->sport->getSportsSortedByType();

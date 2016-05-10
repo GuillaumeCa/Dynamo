@@ -9,25 +9,25 @@
           <ul class="liste-lg">
             <?php $i = 0 ?>
             <?php foreach ($liste as $groupe): ?>
-              <?php if ($groupe->invite == 0): ?>
-                <a href="<?php page('groupe', ['id' => $groupe->id]) ?>">
+              <?php if ($groupe['data']->invite == 0): ?>
+                <a href="<?php page('groupe', ['id' => $groupe['data']->id]) ?>">
                   <li>
                     <div class="liste-licon">
                       <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
                       </div>
                       <div class="liste-svg">
                           <svg>
-                            <use xlink:href="#typeSport<?php echo $groupe->id_type ?>"></use>
+                            <use xlink:href="#typeSport<?php echo $groupe['data']->id_type ?>"></use>
                           </svg>
                       </div>
                     </div>
                     <div class="liste-mid-txt">
-                      <h1 class="liste-ttl"><?php echo $groupe->nomGroupe ?></h1>
-                      <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe->sport ?></span>
-                      <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe->club ?></span>
+                      <h1 class="liste-ttl"><?php echo $groupe['data']->nomGroupe ?></h1>
+                      <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe['data']->sport ?></span>
+                      <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe['data']->club ?></span>
                     </div>
-                    <span class="liste-note"><span>7</span>/7</span>
-                    <span class="liste-leader"><?php echo ($groupe->leader == 1) ? "LEADER" : Null ?></span>
+                    <span class="liste-note"><span><?php echo $groupe['nb'] ?></span>/<?php echo $groupe['data']->nbmaxutil ?></span>
+                    <span class="liste-leader"><?php echo ($groupe['data']->leader == 1) ? "LEADER" : Null ?></span>
                   </li>
                 </a>
               <?php else: ?>
@@ -42,22 +42,22 @@
               <div class="liste-separator"><b>INVITATIONS</b></div>
               <ul class="liste-lg">
                 <?php foreach ($liste as $groupe): ?>
-                  <?php if ($groupe->invite == 1): ?>
+                  <?php if ($groupe['data']->invite == 1): ?>
                     <li>
-                      <a href="<?php page('groupe', ['id' => $groupe->id]) ?>"><span class="liste-overlay"></span></a>
+                      <a href="<?php page('groupe', ['id' => $groupe['data']->id]) ?>"><span class="liste-overlay"></span></a>
                       <div class="liste-licon">
                         <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
                         </div>
                         <div class="liste-svg">
                           <svg>
-                            <use xlink:href="#typeSport<?php echo $groupe->id_type ?>"></use>
+                            <use xlink:href="#typeSport<?php echo $groupe['data']->id_type ?>"></use>
                           </svg>
                         </div>
                       </div>
                       <div class="liste-mid-txt">
-                        <h1 class="liste-ttl"><?php echo $groupe->nomGroupe ?></h1>
-                        <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe->sport ?></span>
-                        <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe->club ?></span>
+                        <h1 class="liste-ttl"><?php echo $groupe['data']->nomGroupe ?></h1>
+                        <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe['data']->sport ?></span>
+                        <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe['data']->club ?></span>
                       </div>
                       <div class="liste-btn">
                         <div>
@@ -68,7 +68,7 @@
                         <a href="#" class="button purple">Refuser</a>
                       </div>
                     </div>
-                    <span class="liste-note"><span>7</span>/7</span>
+                    <span class="liste-note"><span><?php echo $groupe['nb'] ?></span>/<?php echo $groupe['data']->nbmaxutil ?></span>
                   </li>
                 <?php endif; ?>
               <?php endforeach; ?>
