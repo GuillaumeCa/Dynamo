@@ -40,5 +40,9 @@
           <h2 class="form-label pink-text">Votre commentaire</h2>
           <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder="Ecrivez et posez votre question pour commencer cette discussion..."></textarea>
 
+          <div class="post-comment">
+            <a href="<?php page('forumDiscussion')?>" class="button light">Poster le commentaire</a>
+          </div>
+
 
     </section>
