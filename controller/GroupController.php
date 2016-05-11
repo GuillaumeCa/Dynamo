@@ -22,10 +22,19 @@ class GroupController
 
   public function liste()
   {
-    $liste_groupe = array('liste' => $this->group->listGroupFromUser()->fetchAll());
+    $liste_groupe = $this->group->listGroupFromUser()->fetchAll();
+    $nbuser = $this->group->nbUserFromGroupByUser();
+    $liste = [];
+    foreach ($liste_groupe as $key => $value) {
+      $liste[$value->nomGroupe]['data'] = $value;
+      $liste[$value->nomGroupe]['nb'] = 0;
+    }
+    foreach ($nbuser as $key => $value) {
+      $liste[$value->groupe]['nb'] = $value->nb_user;
+    }
     $vue = new Vue("ListeGroupes","Groupe");
     $vue->setTitle('Groupes');
-    $vue->render($liste_groupe);
+    $vue->render(['liste' => $liste]);
   }
 
   public function informations($id)
@@ -81,6 +90,7 @@ class GroupController
   public function creation()
   {
     $ListeSports = $this->sport->getSportsSortedByType();
+    $ListeClub = $this->group->listClub();
     $vue = new Vue("GroupeCreation", "Groupe");
     if (!empty($_POST)) {
       //Router::debug($_POST);
@@ -94,15 +104,22 @@ class GroupController
       $validate->notEmpty('nbr_membre', "Selectionner le nombre maximum de membres dans votre groupe");
       $validate->notEmpty('description_grp',"Ajoutez une description à votre groupe");
       if ($validate->isValid()) {
-        $this->group->creerGroupe($_POST);
-        Router::redirect("groupe");
+        $id = $this->group->creerGroupe($_POST);
+        Router::redirect("groupe", ['id' => $id]);
       } else {
-        $vue->render(['errors'=>$validate->errors, 'ListeSports' => $ListeSports]);
+        $vue->render([
+          'errors'=>$validate->errors,
+          'ListeSports' => $ListeSports,
+          'ListeClub' => $ListeClub
+        ]);
       }
     }else{
     $vue->setScript('list.js');
     $vue->setTitle('Créer un groupe');
-    $vue->render(['ListeSports' => $ListeSports]);
+    $vue->render([
+      'ListeSports' => $ListeSports,
+      'ListeClub' => $ListeClub
+    ]);
     }
   }
 }

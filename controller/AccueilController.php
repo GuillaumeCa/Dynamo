@@ -61,7 +61,7 @@ class AccueilController
 
       // Get search results
       $name = $_GET['search'];
-      $groups = $this->acc->getGroupInfoByName($name);
+      $groups = $this->group->getGroupInfoByName($name);
       $sports = $this->acc->getSportsByName($name);
       $users = $this->acc->getUsersByName($name);
 

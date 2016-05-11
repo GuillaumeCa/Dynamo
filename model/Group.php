@@ -10,7 +10,7 @@ class Group extends Database
 
   public function listGroupFromUser()
   {
-    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type
+    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type, groupe.nbmaxutil
     FROM utilisateur_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
@@ -28,6 +28,50 @@ class Group extends Database
     WHERE groupe.id = ? ";
     $presentationGroupe = $this->executerRequete($sql, [$id]);
     return $presentationGroupe;
+  }
+
+  public function getGroupInfoByName($name)
+  {
+    $sql = "SELECT groupe.id,
+                  groupe.titre,
+                  sport.nom as sport,
+                  club.nom as club,
+                  groupe.nbmaxutil,
+                  sport_type.id as sport_type,
+                  groupe.dept
+            FROM groupe
+            JOIN club ON club.id = groupe.id_club
+            JOIN sport ON sport.id = groupe.id_sport
+            JOIN sport_type ON sport_type.id = sport.id_type
+            WHERE titre LIKE ? AND visibilité=1";
+    $groupe = $this->executerRequete($sql, ["%".$name."%"])->fetchAll();
+
+    // Récupère le nombre d'utilisateur par groupe recherché
+    $nbusers = $this->executerRequete(
+              "SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM utilisateur_groupe
+              JOIN groupe ON utilisateur_groupe.id_groupe = groupe.id
+              JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_utilisateur
+              WHERE titre LIKE ? AND visibilité=1 GROUP BY groupe.titre", ["%".$name."%"])->fetchAll();
+
+    $newgroupe = [];
+    foreach ($groupe as $value) {
+      $newgroupe[$value->titre]['data'] = $value;
+      $newgroupe[$value->titre]['nb'] = 0;
+    }
+    foreach ($nbusers as $value) {
+      $newgroupe[$value->groupe]['nb'] = $value->nb_user;
+    }
+    return $newgroupe;
+  }
+
+  public function nbUserFromGroupByUser()
+  {
+    $nbusers = $this->executerRequete(
+              "SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM utilisateur_groupe
+              JOIN groupe ON utilisateur_groupe.id_groupe = groupe.id
+              JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_utilisateur
+              WHERE utilisateur.id = ? AND visibilité = 1 GROUP BY groupe.titre", [intval($_SESSION['auth']->id)]);
+    return $nbusers->fetchAll();
   }
 
   public function getMembreFromGroupe($id){
@@ -52,19 +96,32 @@ class Group extends Database
     $photos = $this->executerRequete($sql, [$id]);
     return $photos;
   }
+
+  public function listClub()
+  {
+    return $this->executerRequete("SELECT * FROM club")->fetchAll();
+  }
+
   public function creerGroupe($crea){
     $departement = $this->executerRequete("SELECT ville_departement FROM villes WHERE ville_nom_reel = ?", [$crea['lieu']])->fetch()->ville_departement;
 
-    $q = "INSERT INTO groupe (titre, dept, id_sport, description, visibilité, nbmaxutil, creation) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $this->executerRequete($q, [$crea['name_grp'], $departement, $crea['sport'], $crea['description_grp'], $crea['visibilite'], $crea['nbr_membre'], date('Y-m-d H:i:s')]);
-
+    $q = "INSERT INTO groupe (titre, dept, id_sport, id_club, description, visibilité, nbmaxutil, creation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $this->executerRequete($q, [$crea['name_grp'], $departement, $crea['sport'], $crea['club'], $crea['description_grp'], $crea['visibilite'], $crea['nbr_membre'], date('Y-m-d H:i:s')]);
+    $id = $this->getBdd()->lastInsertId();
+    $this->executerRequete("INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, leader) VALUES (?, ?, 1) ",[
+      $id, $_SESSION['auth']->id
+    ]);
     foreach ($crea['membre'] as $membre) {
       if ($membre != '') {
+        $id_membre = $this->executerRequete("SELECT id FROM utilisateur WHERE email = ?", [$membre])->fetch()->id;
+        var_dump($id_membre);
+        $this->executerRequete("INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, leader, invite, invite_date) VALUES (?, ?, 0, 1, ?)", [ $id, $id_membre, date('Y-m-d H:i:s')]);
         $mail = new Mail($membre, "Vous avez été invité dans un groupe !", "invit.php");
         $mail->render();
         $mail->send();
       }
     }
+    return $id;
   }
 
   public function getEventsFromGroupe()
