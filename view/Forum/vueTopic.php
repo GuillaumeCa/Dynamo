@@ -7,11 +7,11 @@
     </section>
     <div class="discussion">
       <div class="creer-discussion">
-        <a href="forum-newdiscussion.php" class="button light">Créer une discussion</a>
+        <a href="<?php page('forumNewDiscussion')?>" class="button light">Créer une discussion</a>
       </div>
         <ul>
           <li>
-            <a href="forum-discussion.php">
+            <a href="<?php page('forumDiscussion')?>">
               <div class="boutton-discussion">
                 <div class="parti-boutton">
                   <h1>Discussion #3</h1>
@@ -24,7 +24,7 @@
             </a>
           </li>
           <li>
-            <a href="forum-discussion.php">
+            <a href="<?php page('forumDiscussion')?>">
               <div class="boutton-discussion">
                 <div class="parti-boutton">
                   <h1>Discussion #2</h1>
@@ -37,7 +37,7 @@
             </a>
           </li>
           <li>
-            <a href="forum-discussion.php">
+            <a href="<?php page('forumDiscussion')?>">
               <div class="boutton-discussion">
                 <div class="parti-boutton">
                   <h1>Discussion #1</h1>

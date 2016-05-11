@@ -1896,3 +1896,41 @@ section .text-left {
   margin: 5px;
   padding: 5px;
 }
+
+.liste-discussion li {
+  width: 100%;
+}
+
+.boutton-discussion {
+  width: 100%;
+  position: relative;
+}
+
+.miniature {
+  width: 80px;
+  height: 80px;
+  background-size: auto 80px;
+  background-position: center-top;
+}
+
+.parti-discussion {
+  border-right: solid 1px #49E0A9;
+  width: 180px;
+  display: inline-block;
+}
+
+.parti-discussion2 {
+  display: inline-block;
+  width: calc(100% - 180px);
+  vertical-align: top;
+}
+
+.liste-discussion .comment {
+    padding: 10px;
+}
+
+.post {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
