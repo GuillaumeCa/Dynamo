@@ -70,7 +70,7 @@ class Group extends Database
               "SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM utilisateur_groupe
               JOIN groupe ON utilisateur_groupe.id_groupe = groupe.id
               JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_utilisateur
-              WHERE utilisateur.id = ? AND visibilité = 1 GROUP BY groupe.titre", [intval($_SESSION['auth']->id)]);
+              WHERE utilisateur.id = ? GROUP BY groupe.titre", [intval($_SESSION['auth']->id)]);
     return $nbusers->fetchAll();
   }
 
