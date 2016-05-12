@@ -70,12 +70,21 @@
   <a href="<?php page('profile') ?>" class="profile-btn" title="Dynamo User">
     <?php echo substr(ucfirst($_SESSION['auth']->prénom), 0, 1) ?>
   </a>
+  <?php
+  require_once 'model/Group.php';
+  $group = new Group();
+  ?>
   <nav>
     <ul class="nav-menu">
       <?php if ($_SESSION['auth']->admin == '1'): ?>
         <li><a href="<?php page('backoffice') ?>">Admin</a></li>
       <?php endif; ?>
-      <li><a href="<?php page('liste-groupe') ?>"><?php lang('Groupes') ?> <span class="notif">2</span></a></li>
+      <li><a href="<?php page('liste-groupe') ?>"><?php lang('Groupes') ?>
+        <?php $nb = $group->nbInvitUser(); ?>
+        <?php if ($nb != 0): ?>
+          <span class="notif"><?php echo $nb; ?></span></a>
+        <?php endif; ?>
+      </li>
       <li><a href="<?php page('forum') ?>"><?php lang('Forum') ?> <span class="notif">3</span></a></li>
       <li><a href="<?php page('aide') ?>"><?php lang('Aide') ?></a></li>
     </ul>

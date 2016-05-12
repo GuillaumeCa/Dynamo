@@ -39,7 +39,7 @@
         <?php if ($i != 0): ?>
           <section class="sec">
             <div class="auto-width">
-              <div class="liste-separator"><b>INVITATIONS</b></div>
+              <div class="liste-separator" id="invitation"><b>INVITATIONS</b></div>
               <ul class="liste-lg">
                 <?php foreach ($liste as $groupe): ?>
                   <?php if ($groupe['data']->invite == 1): ?>

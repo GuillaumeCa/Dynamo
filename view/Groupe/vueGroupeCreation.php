@@ -60,7 +60,7 @@
 
           <h2 class="form-label pink-text">Club</h2>
           <select class="clear-form dropdown dropdown-lg" name="club">
-            <option value="option" disabled selected>Etes vous dans un club de sport ?</option>
+            <option value="0" selected>Pas de Club</option>
             <?php foreach ($ListeClub as $type => $club): ?>
               <option value="<?php echo $club->id ?>"><?php echo $club->nom ?></option>
             <?php endforeach; ?>
@@ -77,7 +77,7 @@
               <option value="<?php echo $i+1 ?>"><?php echo $i+1; ?></option>
             <?php endfor; ?>
           </select>
-          
+
 
           <h2 class="form-label pink-text">Visibilité du groupe</h2>
           <div class="label label-center">

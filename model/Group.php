@@ -14,7 +14,7 @@ class Group extends Database
     FROM utilisateur_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
-    JOIN club ON groupe.id_club=club.id
+    LEFT JOIN club ON groupe.id_club=club.id
     WHERE id_utilisateur = ?";
     $listGroup = $this->executerRequete($sql, [intval($_SESSION['auth']->id)]);
     return $listGroup;
@@ -24,7 +24,7 @@ class Group extends Database
     $sql = "SELECT groupe.id, groupe.titre as nomGroupe, groupe.description as description, sport.nom as sport, club.nom as club
     FROM groupe
     JOIN sport ON groupe.id_sport=sport.id
-    JOIN club ON groupe.id_club=club.id
+    LEFT JOIN club ON groupe.id_club=club.id
     WHERE groupe.id = ? ";
     $presentationGroupe = $this->executerRequete($sql, [$id]);
     return $presentationGroupe;
@@ -40,7 +40,7 @@ class Group extends Database
                   sport_type.id as sport_type,
                   groupe.dept
             FROM groupe
-            JOIN club ON club.id = groupe.id_club
+            LEFT JOIN club ON club.id = groupe.id_club
             JOIN sport ON sport.id = groupe.id_sport
             JOIN sport_type ON sport_type.id = sport.id_type
             WHERE titre LIKE ? AND visibilité=1";
@@ -104,7 +104,9 @@ class Group extends Database
 
   public function creerGroupe($crea){
     $departement = $this->executerRequete("SELECT ville_departement FROM villes WHERE ville_nom_reel = ?", [$crea['lieu']])->fetch()->ville_departement;
-
+    if ($crea['club'] == 0) {
+      $crea['club'] = null;
+    }
     $q = "INSERT INTO groupe (titre, dept, id_sport, id_club, description, visibilité, nbmaxutil, creation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $this->executerRequete($q, [$crea['name_grp'], $departement, $crea['sport'], $crea['club'], $crea['description_grp'], $crea['visibilite'], $crea['nbr_membre'], date('Y-m-d H:i:s')]);
     $id = $this->getBdd()->lastInsertId();
@@ -122,6 +124,12 @@ class Group extends Database
       }
     }
     return $id;
+  }
+
+  public function nbInvitUser()
+  {
+    $nb = $this->executerRequete("SELECT COUNT(*) AS nb FROM utilisateur_groupe WHERE invite = 1 AND id_utilisateur = ?", [$_SESSION['auth']->id]);
+    return $nb->fetch()->nb;
   }
 
   public function getEventsFromGroupe()
