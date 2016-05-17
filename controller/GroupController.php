@@ -22,6 +22,13 @@ class GroupController
 
   public function liste()
   {
+    //var_dump($_POST);
+    if (isset($_POST['Accept'])) {
+      $this->group->accepterUtilisateur();
+    }
+    if (isset($_POST['Refuse'])) {
+      $this->group->refuserUtilisateur();
+    }
     $liste_groupe = $this->group->listGroupFromUser()->fetchAll();
     $nbuser = $this->group->nbUserFromGroupByUser();
     $liste = [];
@@ -60,7 +67,7 @@ class GroupController
   }
 
   public function planning($id)
-  { 
+  {
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $events = $this->group->getEventsFromGroupe();
     $vue = new Vue("GroupePlanning","Groupe");

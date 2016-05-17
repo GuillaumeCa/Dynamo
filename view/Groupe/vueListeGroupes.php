@@ -61,11 +61,17 @@
                       </div>
                       <div class="liste-btn">
                         <div>
-                          <a href="#" class="button purple">Accepter</a>
+                          <form class="" action="" method="post">
+                            <input type="hidden" name="id" value="<?php echo $groupe['data']->id ?>">
+                            <button type="submit" name="Accept" class="button purple">Accepter</button>
+                          </form>
                         </div>
                       </br>
                       <div>
-                        <a href="#" class="button purple">Refuser</a>
+                        <form class="" action="" method="post">
+                          <input type="hidden" name="id" value="<?php echo $groupe['data']->id ?>">
+                          <button type="submit" name="Refuse" class="button purple">Refuser</button>
+                        </form>
                       </div>
                     </div>
                     <span class="liste-note"><span><?php echo $groupe['nb'] ?></span>/<?php echo $groupe['data']->nbmaxutil ?></span>

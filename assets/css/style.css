@@ -646,6 +646,23 @@ footer p {
   background: #9972FA
 }
 
+.profile-photo {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+  position: relative;
+  vertical-align: top;
+}
+
+.profile-photo img {
+  height: 110%;
+  position: absolute;
+  top: -5%;
+}
+
 /*----------------------*
   5.2 liste large
 *----------------------*/

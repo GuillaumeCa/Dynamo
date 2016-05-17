@@ -20,6 +20,18 @@ class Group extends Database
     return $listGroup;
   }
 
+  public function accepterUtilisateur()
+  {
+    $sql = "UPDATE utilisateur_groupe SET invite = 0 WHERE id_groupe = ? AND id_utilisateur = ?";
+    $this->executerRequete($sql,[$_POST['id'], $_SESSION['auth']->id]);
+  }
+
+  public function refuserUtilisateur()
+  {
+    $sql = "DELETE FROM utilisateur_groupe WHERE id_groupe = ? AND id_utilisateur = ?";
+    $this->executerRequete($sql,[$_POST['id'], $_SESSION['auth']->id]);
+  }
+
   public function getGroupeById($id){
     $sql = "SELECT groupe.id, groupe.titre as nomGroupe, groupe.description as description, sport.nom as sport, club.nom as club
     FROM groupe
