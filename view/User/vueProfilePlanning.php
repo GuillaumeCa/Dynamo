@@ -1,13 +1,6 @@
 <?php require 'app/Calendar.php' ?>
-<section class="sec sec-bg-violet">
-  <div class="auto-width left-align">
-    <a href="" class="profile-btn profile-btn-sm" title="Dynamo User">
-      <?php echo substr(ucfirst($_SESSION['auth']->prénom), 0, 1) ?>
-    </a>
-    <h1 class="ttl ttl-md ttl-band"><?php echo $infos->prénom.' '.$infos->nom ?></h1>
-    <a href="<?php page('logout') ?>" class="button btn-purple-inv btn-right btn-band btn-sm">SE DÉCONNECTER</a>
-  </div>
-</section>
+<?php include 'view/template/profile-header.php'; ?>
+
 <div class="nav-bbar">
   <nav class="tab-menu">
     <ul>
