@@ -51,7 +51,7 @@
         </tr>
         <tr>
           <th>Addresse</th>
-          <td>8 rue de la côte<br> <?php echo $infos->code_postal ?> </td>
+          <td> <?php echo $infos->ville_nom_reel ?><br><?php echo $infos->code_postal ?> </td>
         </tr>
         <tr>
           <th>Email</th>
