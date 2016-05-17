@@ -1,6 +1,7 @@
 select = document.querySelectorAll('select');
 var count;
 
+
 function getFilters() {
   var filters = {};
   // Parcours tous les menu déroulant
@@ -26,7 +27,7 @@ function getFilters() {
 
 function updateNumberOfResults(i) {
   var num = document.querySe
-  
+
   var result = document.querySelectorAll('.search-result');
   num.innerHTML = result[i].length
 }

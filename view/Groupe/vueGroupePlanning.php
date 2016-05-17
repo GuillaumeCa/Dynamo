@@ -1,15 +1,5 @@
     <?php require 'app/Calendar.php'; ?>
-    <section class="sec sec-bg-img sec-bg-overlay" style="background-image: url(/assets/images/sport1.png);">
-      <div class="sec-overlay sec-over-violet"></div>
-      <div class="auto-width group">
-        <h1 class="ttl-md"><?php echo $presentation_groupe->nomGroupe ?></h1>
-        <p class="txt-jdesc"><?php echo $presentation_groupe->description ?> </p>
-        <div class="txt-info">
-          <span><b>Sport</b> <?php echo $presentation_groupe->sport ?></span>
-          <span><b>Club</b> <?php echo $presentation_groupe->club ?></span>
-        </div>
-      </div>
-    </section>
+    <?php include 'view/template/groupe-header.php'; ?>
     <div class="nav-bbar">
       <nav class="tab-menu">
         <ul>

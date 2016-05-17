@@ -48,6 +48,10 @@ class Router {
           $this->ctr['Accueil']->recherche();
           break;
 
+        case 'search-ajax':
+          $this->ctr['Accueil']->ajaxSearch();
+          break;
+
         case 'langue':
           $this->ctr['Accueil']->langue();
           break;

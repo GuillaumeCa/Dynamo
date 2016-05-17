@@ -22,7 +22,7 @@ class Vue
   public function render($parameters=[], $template = 'base')
   {
     extract($parameters);
-    include "assets/template/base.php";
+    include "view/template/base.php";
   }
 
   public function emptyPage($msg = [])

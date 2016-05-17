@@ -79,6 +79,21 @@ class AccueilController
     }
   }
 
+  public function ajaxSearch()
+  {
+    $search = $_GET['s'];
+    $groups = $this->group->getGroupInfoByName($search);
+    $sports = $this->acc->getSportsByName($search);
+    $users = $this->acc->getUsersByName($search);
+    echo json_encode([
+      "groupe" => array_slice($groups, 0, 5),
+      "urlgroupe" => $_GET['lang']."/".Router::getRoute('groupe'),
+      "sports" => array_slice($sports, 0, 5),
+      "urlsport" => $_GET['lang']."/".Router::getRoute('SportGroupe'),
+      "users" => array_slice($users, 0, 5),
+    ]);
+  }
+
   public function langue()
   {
     $vue = new Vue("Langue", "Accueil");

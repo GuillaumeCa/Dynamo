@@ -41,6 +41,7 @@ class GroupController
   {
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("Groupe","Groupe");
+    $vue->setScript('diapo.js');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
     ]);
@@ -51,6 +52,7 @@ class GroupController
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
     $vue = new Vue("GroupeMembre","Groupe");
+    $vue->setScript('diapo.js');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
       'membreGroupe' => $membreGroupe,
@@ -58,11 +60,12 @@ class GroupController
   }
 
   public function planning($id)
-  {
+  { 
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $events = $this->group->getEventsFromGroupe();
     $vue = new Vue("GroupePlanning","Groupe");
     $vue->setScript('cal.js');
+    $vue->setScript('diapo.js');
     $vue->setCss('planning.css');
     $vue->render(['events' => $events,
       'presentation_groupe' => $presentation_groupe,]);
@@ -72,6 +75,7 @@ class GroupController
   {
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeDiscussion","Groupe");
+    $vue->setScript('diapo.js');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
     ]);
@@ -81,6 +85,7 @@ class GroupController
   {
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeReglage","Groupe");
+    $vue->setScript('diapo.js');
     $vue->setTitle('Réglages');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,

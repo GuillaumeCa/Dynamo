@@ -11,14 +11,15 @@
     <?php
     // affiche le header de l'utilisateur connecté
     if (Router::isLoggedIn()) {
-      require 'assets/template/header-priv.php';
+      require 'view/template/header-priv.php';
     } else {
-      require 'assets/template/header.php';
+      require 'view/template/header.php';
     }
     ?>
     <?php require $this->fichier ?>
     <?php $this->loadScript($this->script) ?>
-    <?php require 'assets/template/footer.php' ?>
+    <?php require 'view/template/footer.php' ?>
+    <script src="/assets/js/ajaxsearch.js" charset="utf-8"></script>
     <script type="text/javascript">
       function toggle(element) {
         document.body.querySelector(element).classList.toggle('visible');

@@ -77,7 +77,7 @@ class UserController
       }
       if ($validate->isValid()) {
         $_SESSION['auth'] = $login;
-        Router::redirect('profile');
+        Router::redirect('accueil');
       } else {
         $vue = new Vue("Login", "User");
         $vue->render(['errors'=>$validate->errors]);
