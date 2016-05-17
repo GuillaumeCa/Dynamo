@@ -26,20 +26,21 @@
     <section class="auto-width">
       <div class="ttl-group-underline-gr">
         <h1 class="ttl ttl-green ttl-inline ttl-sm">Informations</h1>
-        <a href="#" class="button btn-sm btn-right btn-wh-inv">modifier</a>
+        <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier">modifier</a>
       </div>
+      <form class="modifierinfo" action="" method="post">
       <table class="info-table">
         <tr>
           <th>Nom</th>
-          <td><?php echo $infos->nom ?></td>
+          <td><span><?php echo $infos->nom ?></span> <input type="hidden" name="name" value="<?php echo $infos->nom ?>"></td>
         </tr>
         <tr>
           <th>Prénom</th>
-          <td><?php echo $infos->prénom ?></td>
+          <td><span><?php echo $infos->prénom ?></span> <input type="hidden" name="name" value="<?php echo $infos->prénom ?>"></td>
         </tr>
         <tr>
           <th>Pseudo</th>
-          <td><?php echo $infos->pseudo ?></td>
+          <td><span><?php echo $infos->pseudo ?></span> <input type="hidden" name="name" value="<?php echo $infos->pseudo ?>"></td>
         </tr>
         <tr>
           <th>Sexe</th>
@@ -51,13 +52,18 @@
         </tr>
         <tr>
           <th>Addresse</th>
-          <td> <?php echo $infos->ville_nom_reel ?><br><?php echo $infos->code_postal ?> </td>
+          <td>
+            <span><?php echo $infos->ville_nom_reel ?><br><?php echo $infos->code_postal ?><span>
+            <input type="hidden" name="name" value="<?php echo $infos->ville_nom_reel ?>">
+            <input type="hidden" name="name" value="<?php echo $infos->code_postal ?>">
+          </td>
         </tr>
         <tr>
           <th>Email</th>
           <td><?php echo $infos->email ?></td>
         </tr>
       </table>
+    </form>
     </div>
     <div class="ttl-group-underline-gr">
       <h1 class="ttl ttl-green ttl-inline ttl-sm">Mes sports</h1>
