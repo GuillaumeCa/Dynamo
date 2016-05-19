@@ -14,7 +14,7 @@ class User extends Database
     $token = $this->generateToken();
     $idVille = $this->executerRequete("SELECT id FROM villes WHERE ville_nom_reel = ?", [$insc['ville']])->fetch()->id;
     $date = $insc['année']."-".$insc['mois']."-".$insc['jour'];
-    $q = "INSERT INTO utilisateur (nom, prénom, email, password, naissance, sexe, id_ville, code_postal, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $q = "INSERT INTO utilisateur (nom, prénom, email, password, naissance, sexe, id_ville, code_postal, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $password = sha1($insc['password']);
     $insc['token'] = $token;
     $mail = new Mail($insc['email'], "Validation compte Dynamo", "activate.php");
