@@ -5,7 +5,9 @@
     </a> -->
     <div class="profile-photo">
       <img src="/assets/images/sport1.png" alt="" />
-      <span class="upload"></span>
+      <span class="upload">
+        <span class="upload-item"></span>
+      </span>
     </div>
     <h1 class="ttl ttl-md ttl-band"><?php echo $infos->prénom.' '.$infos->nom ?></h1>
     <a href="<?php page('logout') ?>" class="button btn-purple-inv btn-right btn-band btn-sm">SE DÉCONNECTER</a>

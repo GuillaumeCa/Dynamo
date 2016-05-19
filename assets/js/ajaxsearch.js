@@ -1,4 +1,8 @@
 search = document.querySelector('.search input')
+var cats = document.querySelectorAll('.cat')
+for (var i = 0; i < cats.length; i++) {
+  cats[i].style.display = 'none'
+}
 
 function instantSearch() {
   search.onfocus = function () {
@@ -13,6 +17,10 @@ function instantSearch() {
 
   search.oninput = function (e) {
     var cats = document.querySelectorAll('.cat')
+    for (var i = 0; i < cats.length; i++) {
+      cats[i].style.display = 'block'
+    }
+    document.querySelector('.result .info').style.display = 'none'
     Ajax(e.target.value, function (res) {
       var groupes = res.groupe
       cats[0].querySelector('ul').innerHTML = ""

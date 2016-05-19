@@ -12,6 +12,9 @@
       </form>
     </div>
     <div class="result">
+      <div class="info">
+        Recherchez un groupe, un sport ou un utilisateur
+      </div>
       <div class="cat">
         <div class="head">
           <span class="title">GROUPES</span>
