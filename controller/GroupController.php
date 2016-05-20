@@ -46,56 +46,72 @@ class GroupController
 
   public function informations($id)
   {
+    $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("Groupe","Groupe");
+    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
+      'isLeader' => $isLeader,
     ]);
   }
 
   public function membres($id)
   {
+    $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
     $vue = new Vue("GroupeMembre","Groupe");
+    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
       'membreGroupe' => $membreGroupe,
+      'isLeader' => $isLeader,
     ]);
   }
 
   public function planning($id)
   {
+    $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $events = $this->group->getEventsFromGroupe();
     $vue = new Vue("GroupePlanning","Groupe");
+    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('cal.js');
     $vue->setScript('diapo.js');
     $vue->setCss('planning.css');
     $vue->render(['events' => $events,
-      'presentation_groupe' => $presentation_groupe,]);
+      'presentation_groupe' => $presentation_groupe,
+      'isLeader' => $isLeader,
+    ]);
   }
 
   public function discussion($id)
   {
+    $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeDiscussion","Groupe");
+    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
+      'isLeader' => $isLeader,
     ]);
   }
 
   public function reglage($id)
   {
+    $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeReglage","Groupe");
+    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
     $vue->setTitle('Réglages');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
+      'isLeader' => $isLeader,
     ]);
   }
 
