@@ -856,6 +856,10 @@ footer p {
   width: 100%;
 }
 
+.modif-form {
+  display: none;
+}
+
 .membres {
   margin-bottom:
 }

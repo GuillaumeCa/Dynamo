@@ -109,6 +109,13 @@ class Group extends Database
     return $photos;
   }
 
+  public function isleader($id)
+  {
+    $sql="SELECT leader FROM `utilisateur_groupe` WHERE `id_utilisateur` = ? AND id_groupe = ?";
+    $leader =$this->executerRequete($sql, [$_SESSION['auth']->id, $id]);
+    return $leader->fetch()->leader == 1;
+  }
+
   public function listClub()
   {
     return $this->executerRequete("SELECT * FROM club")->fetchAll();

@@ -24,35 +24,42 @@
       <table class="info-table">
         <tr>
           <th>Nom</th>
-          <td><span><?php echo $infos->nom ?></span> <input type="hidden" name="name" value="<?php echo $infos->nom ?>"></td>
+          <td><span><?php echo $infos->nom ?></span> <input class="modif-form" type="text" name="name" value="<?php echo $infos->nom ?>"></td>
         </tr>
         <tr>
           <th>Prénom</th>
-          <td><span><?php echo $infos->prénom ?></span> <input type="hidden" name="name" value="<?php echo $infos->prénom ?>"></td>
+          <td><span><?php echo $infos->prénom ?></span> <input class="modif-form" type="text" name="name" value="<?php echo $infos->prénom ?>"></td>
         </tr>
         <tr>
           <th>Pseudo</th>
-          <td><span><?php echo $infos->pseudo ?></span> <input type="hidden" name="name" value="<?php echo $infos->pseudo ?>"></td>
+          <td><span><?php echo $infos->pseudo ?></span> <input class="modif-form" type="text" name="name" value="<?php echo $infos->pseudo ?>"></td>
         </tr>
         <tr>
           <th>Sexe</th>
-          <td><?php echo $infos->sexe ?></td>
+          <td><span><?php echo $infos->sexe ?></span>
+            <select class="modif-form" name ="sexe">
+              <option value="F">Femme </option>
+              <option value="H">Homme</option>
+            </select>
+          </td>
         </tr>
         <tr>
           <th>Date de naissance</th>
-          <td><?php echo Vue::date('d - m - Y',$infos->naissance) ?></td>
+          <td><span><?php echo Vue::date('d - m - Y',$infos->naissance) ?></span>
+            <input class="modif-form" type="date" name="name" value="<?php echo $infos->naissance ?>">
+          </td>
         </tr>
         <tr>
           <th>Addresse</th>
           <td>
-            <span><?php echo $infos->ville_nom_reel ?><br><?php echo $infos->code_postal ?><span>
-            <input type="hidden" name="name" value="<?php echo $infos->ville_nom_reel ?>">
-            <input type="hidden" name="name" value="<?php echo $infos->code_postal ?>">
+            <span><?php echo $infos->ville_nom_reel ?><br><?php echo $infos->code_postal ?></span>
+            <input class="modif-form" type="text" name="name" value="<?php echo $infos->ville_nom_reel ?>">
+            <input class="modif-form" type="number" name="name" value="<?php echo $infos->code_postal ?>">
           </td>
         </tr>
         <tr>
           <th>Email</th>
-          <td><?php echo $infos->email ?></td>
+          <td><span><?php echo $infos->email ?></span><input class="modif-form" type="email" name="name" value="<?php echo $infos->email ?>"></td>
         </tr>
       </table>
     </form>
