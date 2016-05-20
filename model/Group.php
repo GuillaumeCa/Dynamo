@@ -183,4 +183,15 @@ class Group extends Database
     }
     return [$todayEvents, $tmwEvents];
   }
+
+  public function selectionGroup($id_user)
+  {
+    $q = "SELECT * FROM groupe
+          LEFT JOIN utilisateur_sport AS us ON us.id_sport = groupe.id_sport
+          JOIN utilisateur AS user ON user.id = us.id_utilisateur
+          WHERE us.niveau_util = groupe.niveau AND user.id = ?";
+    $res = $this->executerRequete($q, [$id_user]);
+    return $res;
+  }
+
 }

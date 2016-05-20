@@ -1,10 +1,10 @@
 <header>
   <div class="logo">
-    <a href="<?php page() ?>">
+    <a href="<?php page() ?>" title="Accueil">
     <img src="/assets/images/logo.png" alt="logo" />
     </a>
   </div>
-  <div class="search">
+  <div class="search" title="Recherchez un groupe, un sport ou un utilisateur">
     <div class="search-field">
       <form class="" action="<?php page('recherche') ?>" method="get">
         <input type="text" name="search" placeholder="rechercher" autocomplete="off">

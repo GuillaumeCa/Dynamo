@@ -668,7 +668,6 @@ footer p {
   cursor: pointer;
   position: relative;
   background: transparent;
-  /*transform: translate3d(0,0,0);*/
 }
 
 .upload {
@@ -685,6 +684,7 @@ footer p {
 
 .upload:hover .upload-item {
   opacity: 1;
+  transform: scale(1);
 }
 
 .upload-item {
@@ -696,7 +696,8 @@ footer p {
   width: 100%;
   display: inline-block;
   opacity: 0;
-  transition: opacity .5s ease;
+  transform: scale(2);
+  transition: all .5s ease;
 }
 
 .profile-photo img {
