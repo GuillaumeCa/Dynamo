@@ -2053,3 +2053,11 @@ section .text-left {
   visibility: visible;
   opacity: 1;
 }
+
+.social{
+  display: inline-block;
+}
+
+.social a:hover, .social a{
+  border: 0;
+}
