@@ -109,6 +109,13 @@ class Group extends Database
     return $photos;
   }
 
+  public function isleader($id)
+  {
+    $sql="SELECT leader FROM `utilisateur_groupe` WHERE `id_utilisateur` = ? AND id_groupe = ?";
+    $leader =$this->executerRequete($sql, [$_SESSION['auth']->id, $id]);
+    return $leader->fetch()->leader == 1;
+  }
+
   public function listClub()
   {
     return $this->executerRequete("SELECT * FROM club")->fetchAll();
@@ -183,4 +190,15 @@ class Group extends Database
     }
     return [$todayEvents, $tmwEvents];
   }
+
+  public function selectionGroup($id_user)
+  {
+    $q = "SELECT * FROM groupe
+          LEFT JOIN utilisateur_sport AS us ON us.id_sport = groupe.id_sport
+          JOIN utilisateur AS user ON user.id = us.id_utilisateur
+          WHERE us.niveau_util = groupe.niveau AND user.id = ?";
+    $res = $this->executerRequete($q, [$id_user]);
+    return $res;
+  }
+
 }
