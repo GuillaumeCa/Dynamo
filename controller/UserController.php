@@ -142,6 +142,7 @@ class UserController
   {
     $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("Profile", "User");
+    $vue->setScript('formulaire.js');
     $vue->render(['infos' => $infos]);
   }
 
