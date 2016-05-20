@@ -462,7 +462,7 @@ footer p {
   color: white;
   margin: 10px 0;
  }
-.txt-info span {
+.txt-info > span {
   margin-right: 20px;
   font-size: 1.4em;
   font-weight: lighter;
@@ -1438,11 +1438,15 @@ a.forget:hover {
 .reglage {
   max-width: 900px;
   margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.reglage-item {
   border-bottom: #9972FA solid 1px;
   padding: 40px 0;
 }
 
-.reglage p {
+.reglage-item p {
   color: #9972FA;
   display: inline-block;
   font-size: 1.5em;
@@ -1451,7 +1455,7 @@ a.forget:hover {
   max-width: 550px;
 }
 
-.reglage a {
+.reglage-item a {
   display: inline-block;
   float: right;
 }
@@ -1485,6 +1489,7 @@ a.forget:hover {
 .discussion{
   max-width: 900px;
   margin: 0 auto;
+  margin-bottom: 60px;
 }
 
 .creer-discussion {
@@ -2064,8 +2069,11 @@ section .text-left {
 
 .social{
   display: inline-block;
+  padding-right: 20px;
 }
 
 .social a:hover, .social a{
   border: 0;
+  padding: 3px;
+  margin-right: 5px;
 }
