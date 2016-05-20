@@ -857,11 +857,14 @@ footer p {
 
 .modif-form {
   display: none;
+  min-width:200px;
+  border: solid rgba(153, 114, 250, .4) 1px;
+  font-size: 16px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 5px;
 }
 
-.membres {
-  margin-bottom:
-}
 
 .search-form-lg {
   max-width: 600px;
