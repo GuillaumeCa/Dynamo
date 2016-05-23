@@ -1407,32 +1407,47 @@ a.forget:hover {
   font-size: 1.2em;
 }
 
-.membre {
+.membres {
   max-width: 900px;
-  margin: 40px auto;
+  margin: 30px auto;
+  margin-bottom: 60px;
 }
 
-.membre span {
+.membres-item {
+  margin: 20px 0;
+  height: 60px;
+  padding: 15px;
+  vertical-align: top;
+}
+
+.membres-item span {
   color: #53FFC0;
   border: #53FFC0 solid 1px;
   border-radius: 50%;
-  font-size: 2.5em;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
   font-weight: bold;
-  padding: 6px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.membre h1 {
+.membres-item h1 {
   color: #53FFC0;
   font-weight: lighter;
   display: inline-block;
   margin-left: 20px;
+  line-height: 60px;
 }
 
-.membre h3 {
+.membres-item h3 {
   color: rgb(167, 178, 184);
   display:inline-block;
   float:right;
   font-weight: lighter;
+  line-height: 60px;
 }
 
 .reglage {

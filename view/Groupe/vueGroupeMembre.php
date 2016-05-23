@@ -21,27 +21,17 @@
         </ul>
       </nav>
     </div>
+    <div class="membres">
+      <a href="#" class="button light">Inviter utilisateur</a>
     <?php foreach ($membreGroupe as $membre): ?>
-      <div class="membre">
-        <a href="#">
+      <a href="#">
+        <div class="membres-item">
           <span><?php echo substr($membre->prenom,0,1).substr($membre->nom,0,1) ?></span>
           <h1><?php echo $membre->prenom." ".$membre->nom ?></h1>
-        </a>
-        <?php if ($membre->leader==1): ?>
-          <h3>LEADER</h3>
-        <?php endif; ?>
-      </div>
+          <?php if ($membre->leader==1): ?>
+            <h3>LEADER</h3>
+          <?php endif; ?>
+        </div>
+      </a>
     <?php endforeach; ?>
-    <!-- <div class="membre">
-      <a href="#">
-        <span>GC</span>
-        <h1>Guillaume Carre</h1>
-      </a>
-      <h3>LEADER</h3>
     </div>
-    <div class="membre">
-      <a href="#">
-        <span>AA</span>
-        <h1>Anthony Agnel</h1>
-      </a>
-    </div> -->

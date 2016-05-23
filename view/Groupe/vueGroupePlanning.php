@@ -23,14 +23,6 @@
       </nav>
     </div>
     <div class="column">
-      <?php
-      // $events = [
-      //   "CALENDRIER 1" => [
-      //                       ["2016-03-15", "titre1", "descrition1","09:00:00","12:00:00"],
-      //                       ["2016-03-20", "titre2", "descrition1","09:00:00","12:00:00"]
-      //                     ],
-      // ];
-
-      ?>
+      <a href="#" class="button light">Nouvel Evènement</a>
       <?php Calendar(12, $events); ?>
     </div>
