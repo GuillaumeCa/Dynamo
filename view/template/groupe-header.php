@@ -29,7 +29,6 @@
         </span>
       </div>
     </form>
-    <?php var_dump($isLeader) ?>
     <?php if ($isLeader): ?>
       <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier">modifier</a>
     <?php endif; ?>
