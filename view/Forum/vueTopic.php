@@ -6,24 +6,29 @@
       </div>
     </section>
     <div class="discussion">
-      <div class="creer-discussion">
-        <a href="<?php page('forumNewDiscussion')?>" class="button light">Créer une discussion</a>
-      </div>
+      <?php if (Router::isLoggedIn()): ?>
+        <div class="creer-discussion">
+          <a href="<?php page('forumNewDiscussion')?>" class="button light">Créer une discussion</a>
+        </div>
+      <?php endif; ?>
         <ul>
-          <li>
-            <a href="<?php page('forumDiscussion')?>">
-              <div class="boutton-discussion">
-                <div class="parti-boutton">
-                  <h1>Discussion #3</h1>
-                  <p>Créée le 16/03/2016 par Alizée Faytre</p>
+          <?php foreach ($discussions as $discussion): ?>
+            <li>
+              <a href="<?php page('forumDiscussion')?>">
+                <div class="boutton-discussion">
+                  <div class="parti-boutton">
+                    <h1><?php echo $discussion->titre ?></h1>
+                    <p>Créée le <?php echo Vue::date("d/m/Y",$discussion->creation)." à ".Vue::date("H:i:s",$discussion->creation) ?> par <?php echo $discussion->prénom." ".$discussion->nom ?></p>
+                  </div>
+                  <div class="parti-boutton-2">
+                    <h2>77 messages</h2>
+                  </div>
                 </div>
-                <div class="parti-boutton-2">
-                  <h2>77 messages</h2>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
+              </a>
+            </li>
+          <?php endforeach; ?>
+
+          <!-- <li>
             <a href="<?php page('forumDiscussion')?>">
               <div class="boutton-discussion">
                 <div class="parti-boutton">
@@ -48,6 +53,6 @@
                 </div>
               </div>
             </a>
-          </li>
+          </li> -->
         </ul>
     </div>
