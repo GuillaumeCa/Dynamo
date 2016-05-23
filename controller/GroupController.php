@@ -150,4 +150,19 @@ class GroupController
     ]);
     }
   }
+
+  public function modificationEnTete($id)
+  {
+    if (!empty($_POST)) {
+      $validate = new Validate($_POST);
+      $validate->notEmpty('name_grp', "Veuiller rentrer un nom de groupe");
+      $validate->notEmpty('sport', "Vous n'avez pas ajouté de sport à votre groupe");
+      // $validate->isVille('lieu', "Votre localisation n'est pas valide");
+      // $validate->notEmpty('description_grp',"Ajoutez une description à votre groupe");
+      if ($validate->isValid()) {
+        $this->group->updateEnTete($_POST, $id);
+        Router::redirect("groupe", ['id' => $id]);
+      }
+    }
+  }
 }

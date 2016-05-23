@@ -100,6 +100,7 @@ class Router {
 
         case 'groupe':
           if (Router::isLoggedIn()) {
+            $this->ctr['Group']->modificationEnTete($this->params['id']);
             $this->ctr['Group']->informations($this->params['id']);
           } else {
             $this->redirect();
