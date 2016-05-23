@@ -113,7 +113,7 @@ class Group extends Database
   {
     $sql="SELECT leader FROM `utilisateur_groupe` WHERE `id_utilisateur` = ? AND id_groupe = ?";
     $leader =$this->executerRequete($sql, [$_SESSION['auth']->id, $id]);
-    return $leader->fetch()->leader == 1;
+    return $leader->rowCount() > 0 ? $leader->fetch()->leader == 1 : false;
   }
 
   public function listClub()
