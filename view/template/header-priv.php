@@ -87,8 +87,8 @@
   ?>
   <nav>
     <ul class="nav-menu">
-      <?php if ($_SESSION['auth']->admin == '1'): ?>
-        <li><a href="<?php page('backoffice') ?>">Admin</a></li>
+      <?php if (Router::isAdmin()): ?>
+        <li><a href="<?php page('backoffice-user') ?>">Admin</a></li>
       <?php endif; ?>
       <li><a href="<?php page('liste-groupe') ?>"><?php lang('Groupes') ?>
         <?php $nb = $group->nbInvitUser(); ?>

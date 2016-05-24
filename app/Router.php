@@ -5,6 +5,7 @@ require_once 'controller/GroupController.php';
 require_once 'controller/UserController.php';
 require_once 'controller/SportController.php';
 require_once 'controller/ForumController.php';
+require_once 'controller/BackofficeController.php';
 
 /**
  * Permet de router les requetes vers un controlleur
@@ -27,6 +28,7 @@ class Router {
       'User' => new UserController(),
       'Sport' => new SportController(),
       'Forum' => new ForumController(),
+      'Backoffice' => new BackofficeController(),
     ];
   }
 
@@ -210,10 +212,30 @@ class Router {
           $vue->render();
           break;
 
+        case 'backoffice-user':
+          if (Router::isAdmin()) {
+            $this->ctr['Backoffice']->user();
+          } else {
+            Router::redirect();
+          }
+          break;
+
+        case 'backoffice-group':
+          if (Router::isAdmin()) {
+            $this->ctr['Backoffice']->group();
+          } else {
+            Router::redirect();
+          }
+          break;
+
         default:
           throw new Exception("Page non valide");
           break;
       }
+    }
+    catch (PDOException $e)
+    {
+      Router::erreur($e->getMessage());
     }
     catch (Exception $e) {
       Router::erreur($e);
@@ -223,6 +245,11 @@ class Router {
   public static function isLoggedIn()
   {
     return isset($_SESSION['auth']);
+  }
+
+  public static function isAdmin()
+  {
+    return isset($_SESSION['auth']) && $_SESSION['auth']->admin == 1;
   }
 
   public static function redirect($url = "", $param = [])

@@ -28,5 +28,9 @@
   "logout"  : "logout",
   "dev" : "dev",
   "CGU" : "CGU",
-  "search-ajax" : "ajax/search"
+  "search-ajax" : "ajax/search",
+  "backoffice-user" : "admin/user",
+  "backoffice-group" : "admin/group",
+  "backoffice-forum" : "admin/forum",
+  "backoffice-help" : "admin/help"
 }

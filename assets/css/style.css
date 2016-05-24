@@ -36,7 +36,7 @@
   font-family: inherit;
 }
 
-input {
+.clear-form input {
   outline: none;
   background-color: transparent;
   -webkit-appearance: none;
@@ -333,7 +333,7 @@ footer p {
   3.1 section
 *----------------------*/
 
-.sec { padding: 10px; overflow: hidden;}
+.sec { padding: 10px; overflow: hidden; }
 .column {
   max-width: 900px;
   margin: 0 auto;
@@ -899,7 +899,7 @@ form > label, form > input[type=checkbox] {
   display: inline-block;
 }
 
-input[type=checkbox] {
+.clear-form input[type=checkbox] {
   width: 1em;
   height: 1em;
   border: white solid 1px;
@@ -910,11 +910,11 @@ input[type=checkbox] {
   transition: opacity .3s ease;
 }
 
-input[type=checkbox]:active {
+.clear-form input[type=checkbox]:active {
   opacity: 0.5;
 }
 
-input[type=checkbox]:checked::after {
+.clear-form input[type=checkbox]:checked::after {
   position: absolute;
   content: '';
   left: 15%;

@@ -133,4 +133,11 @@ class User extends Database
     return $events;
   }
 
+  public function getAllUsers($nb = 0, $page = 0)
+  {
+    $offset = $nb * $page;
+    $limit = ($nb != 0) ? "LIMIT $offset, $nb" : "";
+    return $this->executerRequete("SELECT * FROM utilisateur ".$limit);
+  }
+
 }

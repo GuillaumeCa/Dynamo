@@ -201,4 +201,21 @@ class Group extends Database
     return $res;
   }
 
+  public function nearGroup()
+  {
+    $q = "SELECT * FROM groupe WHERE dept = ? LIMIT 4";
+    $res = $this->executerRequete($q, [substr($_SESSION['auth']->code_postal, 0, 2)]);
+    return $res;
+  }
+
+  public function getAllGroups($nb = 0, $page = 0)
+  {
+    $offset = $nb * $page;
+    $limit = ($nb != 0) ? "LIMIT $offset, $nb" : "";
+    $q = "SELECT groupe.*, sport.nom as sport, club.nom as club FROM groupe
+          JOIN sport ON sport.id = groupe.id_sport
+          LEFT JOIN club ON club.id = groupe.id_club ".$limit;
+    return $this->executerRequete($q);
+  }
+
 }
