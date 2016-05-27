@@ -13,7 +13,7 @@
       <a href="<?php page('backoffice-group') ?>">
         <li class="">Groupes</li>
       </a>
-      <a href="#">
+      <a href="<?php page('backoffice-sport') ?>">
         <li class="">Sports</li>
       </a>
       <a href="#">
@@ -27,13 +27,12 @@
 
   <div class="content">
     <div class="card">
-      <a href="#" class="button light">Ajouter</a>
-      <form class="" action="index.html" method="post">
+      <form class="" action="" method="post">
 
       <div class="table-admin">
         <table>
           <tr>
-            <th><input type="checkbox" name="sel" value="all" title="Selectionner Tout" onchange="selectAll(this)"></th>
+            <th><input type="checkbox" title="Selectionner Tout" onchange="selectAll(this)"></th>
             <th>Nom</th>
             <th>Prénom</th>
             <th>Pseudo</th>
@@ -44,7 +43,7 @@
           </tr>
           <?php foreach ($users as $user): ?>
             <tr>
-              <td><input type="checkbox" name="sel" value="<?php echo $user->id ?>"></td>
+              <td><input type="checkbox" name="sel[]" value="<?php echo $user->id ?>"></td>
               <td><?php echo $user->nom ?></td>
               <td><?php echo $user->prénom ?></td>
               <td><?php echo $user->pseudo ?></td>
@@ -67,8 +66,8 @@
           <a href="<?php page('backoffice-user') ?>?page=<?php echo $suiv ?>" class="nav">></a>
         <?php endif; ?>
       </div>
-      <button href="#" class="button light">Supprimer</button>
-      <button href="#" class="button light">Modifier</button>
+      <button type="submit" name="del" class="button light">Supprimer</button>
+      <button class="button light" onclick="modify()">Modifier</button>
     </form>
     </div>
   </div>

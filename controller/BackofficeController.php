@@ -27,12 +27,18 @@ class BackofficeController
 
   public function user()
   {
+    if (isset($_POST['del'])) {
+      foreach ($_POST['sel'] as $id) {
+        $this->user->deleteUser($id);
+      }
+    }
+
     $cpage = isset($_GET['page']) ? $_GET['page'] : 0;
-    $max = floor(count($this->group->getAllGroups(0, 0)->fetchAll())/10);
+    $max = floor(count($this->group->getAllGroups(0, 0)->fetchAll())/20);
     $prec = ($cpage > 0) ? $cpage - 1 : null;
     $suiv = ($cpage < $max - 1) ? $cpage + 1 : null;
 
-    $users = $this->user->getAllUsers(10, $cpage)->fetchAll();
+    $users = $this->user->getAllUsers(20, $cpage)->fetchAll();
     $vue = new Vue("User", "Backoffice",'backoffice');
     $vue->render([
       'users' => $users,
@@ -44,6 +50,18 @@ class BackofficeController
 
   public function group()
   {
+    if (isset($_POST['add'])) {
+      $this->group->createGroup($_POST);
+    }
+    if (isset($_POST['update'])) {
+      $this->group->updateGroup($_POST);
+    }
+    if (isset($_POST['del'])) {
+      foreach ($_POST['sel'] as $id) {
+        $this->group->deleteGroup($id);
+      }
+    }
+
     $cpage = isset($_GET['page']) ? $_GET['page'] : 0;
     $max = floor(count($this->group->getAllGroups(0, 0)->fetchAll())/10);
     $prec = ($cpage > 0) ? $cpage - 1 : null;
@@ -52,7 +70,6 @@ class BackofficeController
     $sport = $this->sport->getSportsSortedByType();
     $club = $this->group->listClub();
     $groups = $this->group->getAllGroups(10, $cpage)->fetchAll();
-
 
     $vue = new Vue("Group", "Backoffice", 'backoffice');
     $vue->render([
@@ -63,6 +80,15 @@ class BackofficeController
       'cpage' => $cpage,
       'prec' => $prec,
       'suiv' => $suiv
+    ]);
+  }
+
+  public function sport()
+  {
+    $sports = $this->sport->getAllSport();
+    $vue = new Vue("Sport", "Backoffice", 'backoffice');
+    $vue->render([
+      'sports' => $sports
     ]);
   }
 

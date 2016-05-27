@@ -218,4 +218,31 @@ class Group extends Database
     return $this->executerRequete($q);
   }
 
+  public function updateGroup($data) {
+    $q = "UPDATE groupe SET titre = ?,
+                            id_sport = ?,
+                            id_club = ?,
+                            visibilité = ?,
+                            description = ?,
+                            nbmaxutil = ?,
+                            dept = ?,
+                            niveau = ? WHERE id = ?";
+    $this->executerRequete($q, [
+      $data['name_grp'],
+      $data['sport'],
+      $data['club'],
+      $data['visibilite'],
+      $data['description_grp'],
+      $data['nbr_membre'],
+      $data['dep'],
+      $data['niveau'],
+      $data['id']
+    ]);
+  }
+
+  public function deleteGroup($id)
+  {
+    $this->executerRequete("DELETE FROM groupe WHERE id = ?", [$id]);
+  }
+
 }

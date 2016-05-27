@@ -13,7 +13,7 @@
       <a href="<?php page('backoffice-group') ?>">
         <li class="active">Groupes</li>
       </a>
-      <a href="#">
+      <a href="<?php page('backoffice-sport') ?>">
         <li class="">Sports</li>
       </a>
       <a href="#">
@@ -27,13 +27,86 @@
 
   <div class="content">
     <div class="card">
-      <a href="#" class="button light">Ajouter</a>
+      <a href="#" class="button light" onclick="togglemodal('add')">Ajouter</a>
+      <div class="modal" id="add">
+        <div class="modal-window">
+          <span class="close" onclick="togglemodal('add')">╳</span>
+          <form class="groupe_crea" action="" method="post">
+
+            <input type="hidden" name="id">
+
+            <h2 class="form-label pink-text">Nom de groupe</h2>
+            <input class="clear-form" type="text" name="name_grp">
+
+            <h2 class="form-label pink-text">Votre sport</h2>
+            <select class="clear-form dropdown dropdown-lg" name="sport">
+              <option selected disabled>Sport</option>
+              <?php foreach ($ListeSports as $type => $sports): ?>
+                <optgroup label="<?php echo $type ?>">
+                  <?php foreach ($sports as $sport): ?>
+                    <option value="<?php echo $sport[0] ?>"><?php echo $sport[1] ?></option>
+                  <?php endforeach; ?>
+                </optgroup>
+              <?php endforeach; ?>
+            </select>
+
+            <h2 class="form-label pink-text">Club</h2>
+            <select class="clear-form dropdown dropdown-lg" name="club">
+              <option value="0" selected>Pas de Club</option>
+              <?php foreach ($ListeClub as $type => $club): ?>
+                <option value="<?php echo $club->id ?>"><?php echo $club->nom ?></option>
+              <?php endforeach; ?>
+            </select>
+
+            <h2 class="form-label pink-text">Département</h2>
+            <input class="clear-form" type="text" name="dep" >
+
+            <h2 class="form-label pink-text">Niveau</h2>
+            <select class="clear-form dropdown dropdown-lg" name="niveau">
+              <option selected disabled>Niveau</option>
+              <?php foreach ($niveau as $key => $value): ?>
+                <option value="<?php echo $key ?>"><?php echo $value ?></option>
+              <?php endforeach; ?>
+            </select>
+
+            <h2 class="form-label pink-text">Nombre de membres maximum</h2>
+            <select class="clear-form dropdown dropdown-lg" name="nbr_membre">
+              <option value="option" disabled selected>Nombre</option>
+              <option value="0">illimité</option>
+              <?php for ($i = 0; $i < 12; $i++): ?>
+                <option value="<?php echo $i+1 ?>"><?php echo $i+1; ?></option>
+              <?php endfor; ?>
+            </select>
+
+
+            <h2 class="form-label pink-text">Visibilité du groupe</h2>
+            <div class="label label-center">
+              <div class="radio">
+                <label><input type="radio" class="radio-button" name="visibilite" value="1" checked>
+                Publique</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" class="radio-button" name="visibilite" value="0">
+                Privé</label>
+              </div>
+            </div>
+            <p class="form-info">
+              Toutes les personnes inscrites sur le site peuvent demander à rejoindre un groupe publique alors qu'un groupe privé n'est accessible que par invitations
+            </p>
+
+            <h2 class="form-label pink-text">Description du groupe</h2>
+            <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder="Décrivez votre groupe en quelques lignes ..."></textarea>
+
+            <input type="submit" name="add" value="Créer" class="button purple">
+          </form>
+        </div>
+      </div>
       <form action="" method="post">
 
       <div class="table-admin">
         <table>
           <tr>
-            <th><input type="checkbox" name="sel" value="all" title="Selectionner Tout" onchange="selectAll(this)"></th>
+            <th><input type="checkbox" title="Selectionner Tout" onchange="selectAll(this)"></th>
             <th>Titre</th>
             <th>Sport</th>
             <th>Club</th>
@@ -46,14 +119,13 @@
           </tr>
           <?php foreach ($groups as $group): ?>
             <tr>
-
-              <td><input type="checkbox" name="sel" value="<?php echo $group->id ?>"></td>
+              <td><input type="checkbox" name="sel[]" value="<?php echo $group->id ?>"></td>
               <td><?php echo $group->titre ?></td>
               <td><?php echo $group->sport ?></td>
               <td><?php echo $group->club ?></td>
               <td><?php echo $group->visibilité == 1 ? 'public' : 'privé' ?></td>
               <td><?php echo $group->description ?></td>
-              <td><?php echo $group->nbmaxutil ?></td>
+              <td><?php echo $group->nbmaxutil == 0 ? 'inf' : $group->nbmaxutil ?></td>
               <td><?php echo Vue::date('d/m/Y H:i:s', $group->creation) ?></td>
               <td><?php echo $group->dept ?></td>
               <td><?php echo $niveau[$group->niveau] ?></td>
@@ -72,7 +144,7 @@
           <a href="<?php page('backoffice-group') ?>?page=<?php echo $suiv ?>" class="nav">></a>
         <?php endif; ?>
       </div>
-      <button href="#" class="button light">Supprimer</button>
+      <button type="submit" name="del" class="button light">Supprimer</button>
       <a href="#" class="button light" onclick="modify()">Modifier</a>
     </form>
     </div>
@@ -86,6 +158,9 @@
       <span class="close" onclick="togglemodal('modify-<?php echo $group->id ?>')">╳</span>
       <h2><?php echo $group->titre ?></h2>
       <form class="groupe_crea" action="" method="post">
+
+        <input type="hidden" name="id" value="<?php echo $group->id ?>">
+
         <h2 class="form-label pink-text">Nom de groupe</h2>
         <input class="clear-form" type="text" name="name_grp" value="<?php echo $group->titre ?>">
 
@@ -114,17 +189,16 @@
         <input class="clear-form" type="text" name="dep" value="<?php echo $group->dept ?>">
 
         <h2 class="form-label pink-text">Niveau</h2>
-        <select class="clear-form dropdown dropdown-lg" name="club">
+        <select class="clear-form dropdown dropdown-lg" name="niveau">
           <?php foreach ($niveau as $key => $value): ?>
             <?php $select = ($group->niveau == $key) ? 'selected' : '' ?>
-            <option value="<?php echo $group->key ?>" <?php echo $select ?>><?php echo $value ?></option>
+            <option value="<?php echo $key ?>" <?php echo $select ?>><?php echo $value ?></option>
           <?php endforeach; ?>
         </select>
 
         <h2 class="form-label pink-text">Nombre de membres maximum</h2>
         <select class="clear-form dropdown dropdown-lg" name="nbr_membre">
-          <option value="option" disabled selected>Nombre</option>
-          <option value="0">illimité</option>
+          <option value="0" <?php echo $group->nbmaxutil == 0 ? 'selected':'' ?>>illimité</option>
           <?php for ($i = 0; $i < 12; $i++): ?>
             <?php $selected = ($i == $group->nbmaxutil-1) ? 'selected' : '' ?>
             <option value="<?php echo $i+1 ?>" <?php echo $selected ?>><?php echo $i+1; ?></option>
@@ -150,7 +224,7 @@
         <h2 class="form-label pink-text">Description du groupe</h2>
         <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder="Décrivez votre groupe en quelques lignes ..."><?php echo $group->description ?></textarea>
 
-        <input type="submit" value="Modifier" class="button purple">
+        <input type="submit" name="update" value="Modifier" class="button purple">
       </form>
     </div>
   </div>

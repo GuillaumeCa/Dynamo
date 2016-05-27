@@ -31,6 +31,7 @@
   "search-ajax" : "ajax/search",
   "backoffice-user" : "admin/user",
   "backoffice-group" : "admin/group",
+  "backoffice-sport" : "admin/sport",
   "backoffice-forum" : "admin/forum",
   "backoffice-help" : "admin/help"
 }

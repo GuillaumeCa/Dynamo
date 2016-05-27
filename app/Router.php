@@ -227,6 +227,27 @@ class Router {
             Router::redirect();
           }
           break;
+        case 'backoffice-sport':
+          if (Router::isAdmin()) {
+            $this->ctr['Backoffice']->sport();
+          } else {
+            Router::redirect();
+          }
+          break;
+        case 'backoffice-forum':
+          if (Router::isAdmin()) {
+            $this->ctr['Backoffice']->group();
+          } else {
+            Router::redirect();
+          }
+          break;
+        case 'backoffice-help':
+          if (Router::isAdmin()) {
+            $this->ctr['Backoffice']->group();
+          } else {
+            Router::redirect();
+          }
+          break;
 
         default:
           throw new Exception("Page non valide");

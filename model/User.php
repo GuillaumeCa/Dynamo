@@ -140,4 +140,9 @@ class User extends Database
     return $this->executerRequete("SELECT * FROM utilisateur ".$limit);
   }
 
+  public function deleteUser($id)
+  {
+    $this->executerRequete("DELETE FROM utilisateur WHERE id = ?", [$id]);
+  }
+
 }

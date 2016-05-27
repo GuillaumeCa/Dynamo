@@ -36,8 +36,11 @@
   font-family: inherit;
 }
 
-.clear-form input {
+input {
   outline: none;
+}
+
+.login input {
   background-color: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -899,7 +902,7 @@ form > label, form > input[type=checkbox] {
   display: inline-block;
 }
 
-.clear-form input[type=checkbox] {
+.login input[type=checkbox] {
   width: 1em;
   height: 1em;
   border: white solid 1px;
@@ -910,11 +913,11 @@ form > label, form > input[type=checkbox] {
   transition: opacity .3s ease;
 }
 
-.clear-form input[type=checkbox]:active {
+.login input[type=checkbox]:active {
   opacity: 0.5;
 }
 
-.clear-form input[type=checkbox]:checked::after {
+.login input[type=checkbox]:checked::after {
   position: absolute;
   content: '';
   left: 15%;
