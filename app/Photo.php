@@ -1,6 +1,6 @@
 <?php
 
-require 'app/Database.php';
+require_once 'app/Database.php';
 
 /**
  *
@@ -10,6 +10,7 @@ class Photo extends Database
   private $type;
   private $file;
   private $directory = "assets/images/";
+  public $path;
 
   public function __construct($type)
   {
@@ -21,20 +22,22 @@ class Photo extends Database
     return $this->directory.$this->type."/".$nom;
   }
 
-  public function store($file, $nom = "")
+  public function store($file, $replace = false,  $nom = "")
   {
-    $this->file = $file;
-    if (file_exists($this->getpath($nom))) {
-      return unlink($this->getpath($nom));
+    $this->file = $_FILES[$file];
+    if ($replace) {
+      unlink($nom);
+      $this->path = $this->getpath($this->generateToken()).".".explode('image/', $this->file['type'])[1];
+      return move_uploaded_file($this->file['tmp_name'], $this->path);
     } else {
-      $path = $this->getpath($this->generateToken()).".".$file['type'];
-      return move_uploaded_file($file['image']['tmp_name'], $path);
+      $this->path = $this->getpath($this->generateToken()).".".explode('image/', $this->file['type'])[1];
+      return move_uploaded_file($this->file['tmp_name'], $this->path);
     }
   }
 
   public function thumbGen($width)
   {
-    $size = getimagesize($this->file['image']['tmp_name']);
+    $size = getimagesize($this->file['tmp_name']);
     $ratio = $size[0]/$size[1];
     if( $ratio > 1) {
         $height = $width/$ratio;

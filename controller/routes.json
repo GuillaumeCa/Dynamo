@@ -16,7 +16,7 @@
   "reglage-groupe" : "groupe/{id}/reglage",
   "typeSport"  : "sport/type/{id}",
   "SportGroupe"  : "sport/groupes/{id}",
-  "SportClub"  : "Sport/club",
+  "SportClub"  : "sport/club",
   "profile" : "profile",
   "profile-planning"  : "profile/planning",
   "profile-reglage"  : "profile/reglage",

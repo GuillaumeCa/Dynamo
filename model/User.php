@@ -2,6 +2,7 @@
 
 require_once 'app/Database.php';
 require_once 'app/Mail.php';
+require_once 'app/Photo.php';
 
 /**
  *
@@ -143,6 +144,35 @@ class User extends Database
   public function deleteUser($id)
   {
     $this->executerRequete("DELETE FROM utilisateur WHERE id = ?", [$id]);
+  }
+
+  public function userPhotoExist($id_user)
+  {
+    $res = $this->executerRequete("SELECT nom FROM photo WHERE id_utilisateur = ?", [$_SESSION['auth']->id]);
+    return $res->rowCount() == 1 ? $res->fetch()->nom : false;
+  }
+
+  public function getProfilePhoto()
+  {
+    return $this->executerRequete("SELECT nom FROM photo WHERE id_utilisateur = ?", [$_SESSION['auth']->id]);
+  }
+
+
+  public function updateProfilePhoto()
+  {
+    if (isset($_POST['profile-photo'])) {
+      $photo = new Photo('profil');
+      $replace = $this->userPhotoExist($_SESSION['auth']->id);
+      if ($replace) {
+        if ($photo->store('photo', true, $replace)) {
+          $this->executerRequete("UPDATE photo SET nom = ? WHERE id_utilisateur = ?", [$photo->path, $_SESSION['auth']->id]);
+        }
+      } else {
+        if ($photo->store('photo')) {
+          $this->executerRequete("INSERT INTO photo SET nom = ?, id_utilisateur = ?", [$photo->path, $_SESSION['auth']->id]);
+        }
+      }
+    }
   }
 
 }

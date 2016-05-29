@@ -1179,6 +1179,15 @@ a.forget:hover {
   list-style: circle;
 }
 
+.form-hidden {
+  display: none;
+}
+
+.upload-btn {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 
 /*----------------------*
   5.4 Liste simple

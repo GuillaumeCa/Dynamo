@@ -17,7 +17,24 @@ class Group extends Database
     LEFT JOIN club ON groupe.id_club=club.id
     WHERE id_utilisateur = ?";
     $listGroup = $this->executerRequete($sql, [intval($_SESSION['auth']->id)]);
-    return $listGroup;
+    foreach ($listGroup->fetchAll() as $key => $value) {
+      $liste[] = [
+        'data' => $value,
+        'nb' => $this->nbUserFromGroup($value->id)
+      ];
+    }
+    return $liste;
+  }
+
+  public function listGroupFromSport($id_sport)
+  {
+    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, sport.id_type, groupe.nbmaxutil
+    FROM utilisateur_groupe
+    JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
+    JOIN sport ON groupe.id_sport=sport.id
+    LEFT JOIN club ON groupe.id_club=club.id
+    WHERE sport.id = ?";
+    return $this->executerRequete($sql, [$id_sport]);
   }
 
   public function accepterUtilisateur()
@@ -76,14 +93,22 @@ class Group extends Database
     return $newgroupe;
   }
 
-  public function nbUserFromGroupByUser()
+  public function nbUserFromGroup($id)
   {
     $nbusers = $this->executerRequete(
+              "SELECT COUNT(*) as nb FROM utilisateur_groupe WHERE id_groupe = ?", [$id]);
+    return $nbusers->fetch()->nb;
+  }
+
+  public function nbUserFromGroupBySport($id_groupe)
+  {
+    $nbgroups = $this->executerRequete(
               "SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM utilisateur_groupe
               JOIN groupe ON utilisateur_groupe.id_groupe = groupe.id
+              JOIN sport ON sport.id = groupe.id_sport
               JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_utilisateur
-              WHERE utilisateur.id = ? GROUP BY groupe.titre", [intval($_SESSION['auth']->id)]);
-    return $nbusers->fetchAll();
+              WHERE sport.id = ? GROUP BY groupe.titre", [$id_groupe]);
+    return $nbgroups->fetchAll();
   }
 
   public function getMembreFromGroupe($id){
