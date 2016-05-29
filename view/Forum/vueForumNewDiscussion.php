@@ -1,7 +1,9 @@
     <section class="sec sec-bg-violet">
       <div class="column">
         <h1 class="ttl ttl-md ttl-green">Créer votre discussion</h1>
-        <h2 class="ttl-sm ttl-green">Topic #1</h1>
+        <a href="<?php page('topic', ["id" => $topic]) ?>">
+          <h2 class="ttl-sm ttl-green"><?php echo $topicName ?></h2>
+        </a>
       </div>
     </section>
     <section class="sec">

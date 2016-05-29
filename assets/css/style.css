@@ -2057,6 +2057,7 @@ section .text-left {
 .miniature {
   width: 80px;
   height: 80px;
+  border-radius: 50%;
   background-size: auto 80px;
   background-position: center-top;
 }

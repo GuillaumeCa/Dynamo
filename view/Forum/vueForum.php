@@ -11,7 +11,7 @@
         <div class="grid">
           <?php foreach ($topics as $topic): ?>
               <div class="sport">
-                <a href="<?php page('topic') ?>">
+                <a href="<?php page('topic', ['id' => $topic->id]) ?>">
                   <div class="circle">
                     <svg>
                       <?php if (isset($topic->sport_id)): ?>

@@ -21,7 +21,28 @@ class Forum extends Database
     $sql = "SELECT discussion.*, utilisateur.nom as nom, utilisateur.prénom as prénom
             FROM discussion
             LEFT JOIN utilisateur ON utilisateur.id = discussion.id_utilisateur
-            WHERE discussion.id_topic = 1";
-    return $this->executerRequete($sql);
+            WHERE discussion.id_topic = ?";
+    return $this->executerRequete($sql, [$topic]);
+  }
+
+  public function getTopicName($topic)
+  {
+    $sql = "SELECT nom FROM topic WHERE id = ?";
+    return $this->executerRequete($sql, [$topic])->fetch()->nom;
+  }
+
+  public function getDisc($disc)
+  {
+    $sql = "SELECT * FROM discussion WHERE id = ?";
+    return $this->executerRequete($sql, [$disc])->fetch();
+  }
+
+  public function getMessages($disc)
+  {
+    $sql = "SELECT * FROM message
+            JOIN discussion ON discussion.id = message.id_discussion
+            JOIN utilisateur ON utilisateur.id = message.id_utilisateur
+            WHERE discussion.id = ?";
+    return $this->executerRequete($sql, [$disc]);
   }
 }

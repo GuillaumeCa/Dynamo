@@ -1,6 +1,6 @@
     <section class="sec sec-bg-violet">
       <div class="column">
-        <h1 class="ttl ttl-md ttl-green">Topic #1</h1>
+        <h1 class="ttl ttl-md ttl-green"><?php echo $topicName ?></h1>
         <p class="txt-desc">Une réponse ? Une suggestion ? <br>
           Boîte à idées et partage de connaissances :)</p>
       </div>
@@ -8,13 +8,13 @@
     <div class="discussion">
       <?php if (Router::isLoggedIn()): ?>
         <div class="creer-discussion">
-          <a href="<?php page('forumNewDiscussion')?>" class="button light">Créer une discussion</a>
+          <a href="<?php page('forumNewDiscussion', ['id' => $topic])?>" class="button light">Créer une discussion</a>
         </div>
       <?php endif; ?>
         <ul>
           <?php foreach ($discussions as $discussion): ?>
             <li>
-              <a href="<?php page('forumDiscussion')?>">
+              <a href="<?php page('forumDiscussion', ["id" => $discussion->id])?>">
                 <div class="boutton-discussion">
                   <div class="parti-boutton">
                     <h1><?php echo $discussion->titre ?></h1>

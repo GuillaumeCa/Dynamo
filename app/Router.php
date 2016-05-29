@@ -68,19 +68,19 @@ class Router {
           break;
 
         case 'forumDiscussion':
-          $this->ctr['Forum']->forumDiscussion();
+          $this->ctr['Forum']->forumDiscussion($this->params['id']);
           break;
 
         case 'forumNewDiscussion':
           if (Router::isLoggedIn()) {
-            $this->ctr['Forum']->forumNewDiscussion();
+            $this->ctr['Forum']->forumNewDiscussion($this->params['id']);
           } else {
             $this->redirect();
           }
           break;
 
         case 'topic':
-          $this->ctr['Forum']->Topic();
+          $this->ctr['Forum']->Topic($this->params['id']);
           break;
 
         // Groupe
