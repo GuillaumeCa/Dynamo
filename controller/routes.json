@@ -4,9 +4,9 @@
   "langue" : "langue",
   "aide" : "aide",
   "forum" : "forum",
-  "forumDiscussion" : "forum/discussion",
-  "forumNewDiscussion" : "forum/newdiscussion",
-  "topic" : "forum/topic",
+  "forumDiscussion" : "forum/topic/{id}/discussion",
+  "forumNewDiscussion" : "forum/topic/{id}/newdiscussion",
+  "topic" : "forum/topic/{id}",
   "liste-groupe" : "groupe/liste",
   "creation-groupe" : "groupe/add",
   "groupe"  : "groupe/{id}/info",
@@ -16,7 +16,7 @@
   "reglage-groupe" : "groupe/{id}/reglage",
   "typeSport"  : "sport/type/{id}",
   "SportGroupe"  : "sport/groupes/{id}",
-  "SportClub"  : "Sport/club",
+  "SportClub"  : "sport/club",
   "profile" : "profile",
   "profile-planning"  : "profile/planning",
   "profile-reglage"  : "profile/reglage",
@@ -28,5 +28,10 @@
   "logout"  : "logout",
   "dev" : "dev",
   "CGU" : "CGU",
-  "search-ajax" : "ajax/search"
+  "search-ajax" : "ajax/search",
+  "backoffice-user" : "admin/user",
+  "backoffice-group" : "admin/group",
+  "backoffice-sport" : "admin/sport",
+  "backoffice-forum" : "admin/forum",
+  "backoffice-help" : "admin/help"
 }

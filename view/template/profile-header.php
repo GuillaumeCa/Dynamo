@@ -4,9 +4,14 @@
       <?php echo substr(ucfirst($_SESSION['auth']->prénom), 0, 1) ?>
     </a> -->
     <div class="profile-photo">
-      <img src="/assets/images/sport1.png" alt="" />
+      <img src="/<?php echo $photoProfile ?>" alt="" />
       <span class="upload">
-        <span class="upload-item"></span>
+        <span class="upload-item">
+          <form action="" method="post" enctype="multipart/form-data" id="profilephoto">
+            <label class="upload-btn"><input type="file" name="photo" class="form-hidden" onchange="submit('#profilephoto')"></label>
+            <input type="hidden" name="profile-photo">
+          </form>
+        </span>
       </span>
     </div>
     <h1 class="ttl ttl-md ttl-band"><?php echo $infos->prénom.' '.$infos->nom ?></h1>

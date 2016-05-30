@@ -17,7 +17,24 @@ class Group extends Database
     LEFT JOIN club ON groupe.id_club=club.id
     WHERE id_utilisateur = ?";
     $listGroup = $this->executerRequete($sql, [intval($_SESSION['auth']->id)]);
-    return $listGroup;
+    foreach ($listGroup->fetchAll() as $key => $value) {
+      $liste[] = [
+        'data' => $value,
+        'nb' => $this->nbUserFromGroup($value->id)
+      ];
+    }
+    return $liste;
+  }
+
+  public function listGroupFromSport($id_sport)
+  {
+    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, sport.id_type, groupe.nbmaxutil
+    FROM utilisateur_groupe
+    JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
+    JOIN sport ON groupe.id_sport=sport.id
+    LEFT JOIN club ON groupe.id_club=club.id
+    WHERE sport.id = ?";
+    return $this->executerRequete($sql, [$id_sport]);
   }
 
   public function accepterUtilisateur()
@@ -76,14 +93,22 @@ class Group extends Database
     return $newgroupe;
   }
 
-  public function nbUserFromGroupByUser()
+  public function nbUserFromGroup($id)
   {
     $nbusers = $this->executerRequete(
+              "SELECT COUNT(*) as nb FROM utilisateur_groupe WHERE id_groupe = ?", [$id]);
+    return $nbusers->fetch()->nb;
+  }
+
+  public function nbUserFromGroupBySport($id_groupe)
+  {
+    $nbgroups = $this->executerRequete(
               "SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM utilisateur_groupe
               JOIN groupe ON utilisateur_groupe.id_groupe = groupe.id
+              JOIN sport ON sport.id = groupe.id_sport
               JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_utilisateur
-              WHERE utilisateur.id = ? GROUP BY groupe.titre", [intval($_SESSION['auth']->id)]);
-    return $nbusers->fetchAll();
+              WHERE sport.id = ? GROUP BY groupe.titre", [$id_groupe]);
+    return $nbgroups->fetchAll();
   }
 
   public function getMembreFromGroupe($id){
@@ -215,6 +240,50 @@ class Group extends Database
       $id_club,
       $id
     ]);
+  }
+
+  public function nearGroup()
+  {
+    $q = "SELECT * FROM groupe WHERE dept = ? LIMIT 4";
+    $res = $this->executerRequete($q, [substr($_SESSION['auth']->code_postal, 0, 2)]);
+    return $res;
+  }
+
+  public function getAllGroups($nb = 0, $page = 0)
+  {
+    $offset = $nb * $page;
+    $limit = ($nb != 0) ? "LIMIT $offset, $nb" : "";
+    $q = "SELECT groupe.*, sport.nom as sport, club.nom as club FROM groupe
+          JOIN sport ON sport.id = groupe.id_sport
+          LEFT JOIN club ON club.id = groupe.id_club ".$limit;
+    return $this->executerRequete($q);
+  }
+
+  public function updateGroup($data) {
+    $q = "UPDATE groupe SET titre = ?,
+                            id_sport = ?,
+                            id_club = ?,
+                            visibilité = ?,
+                            description = ?,
+                            nbmaxutil = ?,
+                            dept = ?,
+                            niveau = ? WHERE id = ?";
+    $this->executerRequete($q, [
+      $data['name_grp'],
+      $data['sport'],
+      $data['club'],
+      $data['visibilite'],
+      $data['description_grp'],
+      $data['nbr_membre'],
+      $data['dep'],
+      $data['niveau'],
+      $data['id']
+    ]);
+  }
+
+  public function deleteGroup($id)
+  {
+    $this->executerRequete("DELETE FROM groupe WHERE id = ?", [$id]);
   }
 
 }

@@ -29,19 +29,17 @@ class GroupController
     if (isset($_POST['Refuse'])) {
       $this->group->refuserUtilisateur();
     }
-    $liste_groupe = $this->group->listGroupFromUser()->fetchAll();
-    $nbuser = $this->group->nbUserFromGroupByUser();
-    $liste = [];
-    foreach ($liste_groupe as $key => $value) {
-      $liste[$value->nomGroupe]['data'] = $value;
-      $liste[$value->nomGroupe]['nb'] = 0;
-    }
-    foreach ($nbuser as $key => $value) {
-      $liste[$value->groupe]['nb'] = $value->nb_user;
-    }
+    $liste_groupe = $this->group->listGroupFromUser();
+    // foreach ($liste_groupe as $key => $value) {
+    //   $liste[$value->nomGroupe]['data'] = $value;
+    //   $liste[$value->nomGroupe]['nb'] = 0;
+    // }
+    // foreach ($nbuser as $key => $value) {
+    //   $liste[$value->groupe]['nb'] = $value->nb_user;
+    // }
     $vue = new Vue("ListeGroupes","Groupe");
     $vue->setTitle('Groupes');
-    $vue->render(['liste' => $liste]);
+    $vue->render(['liste' => $liste_groupe]);
   }
 
   public function informations($id)
