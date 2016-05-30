@@ -39,10 +39,12 @@ class Forum extends Database
 
   public function getMessages($disc)
   {
-    $sql = "SELECT * FROM message
+    $sql = "SELECT message.*, utilisateur.*, photo.nom as url FROM message
             JOIN discussion ON discussion.id = message.id_discussion
             JOIN utilisateur ON utilisateur.id = message.id_utilisateur
+            LEFT JOIN photo ON photo.id_utilisateur = utilisateur.id
             WHERE discussion.id = ?";
     return $this->executerRequete($sql, [$disc]);
   }
+
 }
