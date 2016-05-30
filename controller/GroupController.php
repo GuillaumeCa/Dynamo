@@ -50,7 +50,6 @@ class GroupController
 
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
-
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("Groupe","Groupe");
