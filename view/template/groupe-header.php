@@ -20,7 +20,17 @@
         <span>
           <b>Sport</b>
           <span class="header_groupe"><?php echo $presentation_groupe->sport ?> </span>
-          <input class="modif-form" type="text" name="sport" value="<?php echo $presentation_groupe->sport ?>">
+          <select class="modif-form" name="sport">
+            <option value="option" disabled selected><?php echo $presentation_groupe->sport ?></option>
+            <?php foreach ($ListeSports as $type => $sports): ?>
+              <optgroup label="<?php echo $type ?>">
+                <?php foreach ($sports as $sport): ?>
+                  <option value="<?php echo $sport[0] ?>"><?php echo $sport[1] ?></option>
+                <?php endforeach; ?>
+              </optgroup>
+            <?php endforeach; ?>
+          </select>
+          <!-- <input class="modif-form" type="text" name="sport" value="<?php echo $presentation_groupe->sport ?>"> -->
         </span>
         <span>
           <b>Club</b>

@@ -44,6 +44,8 @@ class GroupController
 
   public function informations($id)
   {
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $club = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("Groupe","Groupe");
@@ -52,11 +54,15 @@ class GroupController
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
+      'ListeSports' => $ListeSports,
+      'club' => $club,
     ]);
   }
 
   public function membres($id)
   {
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $club = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
@@ -67,11 +73,15 @@ class GroupController
       'presentation_groupe' => $presentation_groupe,
       'membreGroupe' => $membreGroupe,
       'isLeader' => $isLeader,
+      'ListeSports' => $ListeSports,
+      'club' => $club,
     ]);
   }
 
   public function planning($id)
   {
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $club = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $events = $this->group->getEventsFromGroupe();
@@ -83,11 +93,15 @@ class GroupController
     $vue->render(['events' => $events,
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
+      'ListeSports' => $ListeSports,
+      'club' => $club,
     ]);
   }
 
   public function discussion($id)
   {
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $club = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeDiscussion","Groupe");
@@ -96,11 +110,15 @@ class GroupController
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
+      'ListeSports' => $ListeSports,
+      'club' => $club,
     ]);
   }
 
   public function reglage($id)
   {
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $club = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeReglage","Groupe");
@@ -110,6 +128,8 @@ class GroupController
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
+      'ListeSports' => $ListeSports,
+      'club' => $club,
     ]);
   }
 
