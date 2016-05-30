@@ -286,4 +286,22 @@ class Group extends Database
     $this->executerRequete("DELETE FROM groupe WHERE id = ?", [$id]);
   }
 
+  public function addPhoto($id)
+  {
+    if (isset($_POST['groupe-photo'])) {
+      $photo = new Photo('groupe');
+      if ($photo->store('photo')) {
+          $this->executerRequete("INSERT INTO photo SET nom = ?, id_groupe = ?", [$photo->path, $id]);
+      }
+    }
+  }
+
+  public function getPhotosFromGroup($id){
+      return $this->executerRequete("SELECT nom FROM photo WHERE id_groupe = ?", [$id]);
+  }
+
+  public function deletePhoto($id){
+    unlink();
+    return $this->executerRequete("DELETE FROM photo WHERE id_groupe = ?", [$id]);
+  }
 }

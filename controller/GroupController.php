@@ -44,12 +44,16 @@ class GroupController
 
   public function informations($id)
   {
+    $this->group->addPhoto($id);
+    $photos = $this->group->getPhotosFromGroup($id)->fetchAll();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("Groupe","Groupe");
     $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
+    $vue->setScript('form.js');
     $vue->render([
+      "photos" => $photos,
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
     ]);

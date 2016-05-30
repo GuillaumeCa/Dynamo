@@ -65,14 +65,17 @@
           </p>
         </div>
       </div>
-    </section>
-    <section class="auto-width">
+
       <div class="ttl-group-underline-gr">
         <h1 class="ttl ttl-green ttl-inline ttl-sm">Vos photos</h1>
+        <form action="" method="post" enctype="multipart/form-data" id="profilephoto">
+          <label class="button btn-sm btn-right btn-wh-inv">+<input type="file" name="photo" class="form-hidden" onchange="submit('#profilephoto')"></label>
+          <input type="hidden" name="groupe-photo">
+        </form>
       </div>
       <div class="gallerie-image">
-        <?php for ($i = 0; $i < 4; $i++): ?>
-          <img src="/assets/images/sport1.png" alt="" />
-        <?php endfor; ?>
+        <?php foreach ($photos as $photo): ?>
+          <img src="/<?php echo $photo->nom ?>" alt="" />
+        <?php endforeach; ?>
       </div>
     </section>
