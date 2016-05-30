@@ -2074,7 +2074,7 @@ section .text-left {
 }
 
 .parti-discussion {
-  border-right: solid 1px #49E0A9;
+  border-right: solid 1px #53FFC0;
   width: 180px;
   display: inline-block;
 }
@@ -2086,7 +2086,7 @@ section .text-left {
 }
 
 .liste-discussion .comment {
-    padding: 10px;
+  padding: 10px;
 }
 
 .post {
@@ -2115,4 +2115,32 @@ section .text-left {
   border: 0;
   padding: 3px;
   margin-right: 5px;
+}
+
+.line{
+  border-bottom: solid 1px #53FFC0;
+  width: 400px;
+  margin-left: 240px;
+}
+
+.boutton-discussion2{
+  margin-top: 20px;
+  padding: 10px;
+  color: #9972FA;
+  border: #9972FA solid 1px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.clear-form2 {
+  padding: 10px;
+  display: inline-block;
+  width: calc(100%);
+  vertical-align: top;
+}
+
+.clear-form2::-webkit-input-placeholder {
+  color: rgba(153, 114, 250, 0.8);
+  font-size: 15px;
+  display: inline-block;
 }

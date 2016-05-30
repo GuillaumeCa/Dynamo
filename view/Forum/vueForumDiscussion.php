@@ -8,9 +8,9 @@
       <ul class="liste-discussion">
         <?php foreach ($discussions as $message): ?>
           <li>
-              <div class="boutton-discussion ">
+              <div class="boutton-discussion">
                 <div class="parti-discussion">
-                  <div class="miniature" style="background-image:url(http://www.mrsc.vic.gov.au/files/content/public/arts_sport_leisure/sport_fitness/sport-fitness.jpg?w=535&h=360)">
+                  <div class="miniature" style="background-image:url(/<?php echo $message->url ?>)">
                   </div>
                   <h1><b><?php echo $message->nom." ".$message->prénom ?></b></h1>
                   <p>Paris, France</p>
@@ -25,6 +25,22 @@
               </div>
           </li>
         <?php endforeach; ?>
-
+      </br></br>
+      <div class="line"></div>
+      </br>
       </ul>
+      <div class="boutton-discussion2">
+        <div class="parti-discussion">
+          <div class="miniature" style="background-image:url(/<?php echo $photo->nom ?>)">
+          </div>
+          <h1><b><?php echo $_SESSION['auth']->nom." ".$_SESSION['auth']->prénom ?></b></h1>
+          <p><?php echo $_SESSION['auth']->id_ville ?></p>
+        </div><div class="parti-discussion2">
+          <textarea class="clear-form2" name="post_discussion" rows="6" cols="40" placeholder="Pour répondre et commentez cette discussion..."></textarea>
+        </div>
+      </div>
+      </br>
+      <div style="text-align: center">
+        <input type="submit" value="Commentez" class="button light">
+      </div>
     </section>
