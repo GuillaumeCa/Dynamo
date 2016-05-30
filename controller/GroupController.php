@@ -44,13 +44,13 @@ class GroupController
 
   public function informations($id)
   {
-<<<<<<< HEAD
+
     $this->group->addPhoto($id);
     $photos = $this->group->getPhotosFromGroup($id)->fetchAll();
-=======
+
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
->>>>>>> f8caef61c91710c19b9c3dfdf80e0e738b8141d9
+
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("Groupe","Groupe");
