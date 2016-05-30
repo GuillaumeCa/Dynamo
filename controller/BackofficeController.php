@@ -34,7 +34,7 @@ class BackofficeController
     }
 
     $cpage = isset($_GET['page']) ? $_GET['page'] : 0;
-    $max = floor(count($this->group->getAllGroups(0, 0)->fetchAll())/20);
+    $max = ceil(count($this->group->getAllGroups(0, 0)->fetchAll())/20);
     $prec = ($cpage > 0) ? $cpage - 1 : null;
     $suiv = ($cpage < $max - 1) ? $cpage + 1 : null;
 
@@ -63,9 +63,9 @@ class BackofficeController
     }
 
     $cpage = isset($_GET['page']) ? $_GET['page'] : 0;
-    $max = floor(count($this->group->getAllGroups(0, 0)->fetchAll())/10);
+    $max = ceil(count($this->group->getAllGroups(0, 0)->fetchAll())/10);
     $prec = ($cpage > 0) ? $cpage - 1 : null;
-    $suiv = ($cpage < $max) ? $cpage + 1 : null;
+    $suiv = ($cpage < $max - 1) ? $cpage + 1 : null;
 
     $sport = $this->sport->getSportsSortedByType();
     $club = $this->group->listClub();

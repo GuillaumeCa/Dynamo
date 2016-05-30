@@ -140,7 +140,7 @@ class Router {
 
         // Sport
         case 'SportClub':
-            $this->ctr['Sport']->SportClub();
+            $this->ctr['Sport']->SportClub($this->params['id']);
           break;
 
         case 'SportGroupe':
