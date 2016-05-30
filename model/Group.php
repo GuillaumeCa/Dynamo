@@ -115,7 +115,7 @@ class Group extends Database
     $sql = "SELECT utilisateur.prénom as prenom, utilisateur.nom as nom, utilisateur_groupe.leader as leader
     FROM utilisateur
     JOIN utilisateur_groupe on utilisateur_groupe.id_utilisateur=utilisateur.id
-    WHERE utilisateur_groupe.id_groupe = ? ";
+    WHERE utilisateur_groupe.id_groupe = ? ORDER BY leader DESC";
     $membreGroupe = $this->executerRequete($sql, [$id]);
     return $membreGroupe;
   }
@@ -144,6 +144,11 @@ class Group extends Database
   public function listClub()
   {
     return $this->executerRequete("SELECT * FROM club")->fetchAll();
+  }
+
+  public function listSport()
+  {
+    return $this->executerRequete("SELECT id, nom FROM sport")->fetchAll();
   }
 
   public function creerGroupe($crea){
@@ -228,16 +233,12 @@ class Group extends Database
 
   public function updateEnTete($modification, $id)
   {
-    $sql = "SELECT id FROM sport WHERE nom = ?";
-    $id_sport = $this->executerRequete($sql, [$modification['sport']])->fetch()->id;
-    $sql1 = "SELECT id FROM club WHERE nom = ?";
-    $id_club = $this->executerRequete($sql1, [$modification['lieu']])->fetch()->id;
     $sqlUpdate = "UPDATE groupe SET titre=?, description=?, id_sport=?, id_club=? WHERE id=?";
     $this->executerRequete($sqlUpdate, [
       $modification['name_grp'],
       $modification['description_grp'],
-      $id_sport,
-      $id_club,
+      $modification['sport'],
+      $modification['club'],
       $id
     ]);
   }
@@ -286,4 +287,22 @@ class Group extends Database
     $this->executerRequete("DELETE FROM groupe WHERE id = ?", [$id]);
   }
 
+  public function addPhoto($id)
+  {
+    if (isset($_POST['groupe-photo'])) {
+      $photo = new Photo('groupe');
+      if ($photo->store('photo')) {
+          $this->executerRequete("INSERT INTO photo SET nom = ?, id_groupe = ?", [$photo->path, $id]);
+      }
+    }
+  }
+
+  public function getPhotosFromGroup($id){
+      return $this->executerRequete("SELECT nom FROM photo WHERE id_groupe = ?", [$id]);
+  }
+
+  public function deletePhoto($id){
+    unlink();
+    return $this->executerRequete("DELETE FROM photo WHERE id_groupe = ?", [$id]);
+  }
 }

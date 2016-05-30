@@ -40,9 +40,9 @@
           <input class="clear-form" type="text" name="name_grp" placeholder="">
 
           <h2 class="form-label pink-text">Votre commentaire</h2>
-          <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder="Ecrivez et posez votre question pour commencer cette discussion..."></textarea>
+          <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder="Posez votre question pour commencer cette discussion..."></textarea>
 
-          <input type="submit" value="Poster le commentaire" class="button light">
+          <input type="submit" value="Poster cette question" class="button light">
           <!-- <div class="post-comment">
             <a href="<?php page('forumDiscussion')?>" class="button light">Poster le commentaire</a>
           </div> -->
