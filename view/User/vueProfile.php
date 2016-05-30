@@ -50,7 +50,7 @@
           </td>
         </tr>
         <tr>
-          <th>Addresse</th>
+          <th>Adresse</th>
           <td>
             <span><?php echo $infos->ville_nom_reel ?><br><?php echo $infos->code_postal ?></span>
             <input class="modif-form" type="text" name="name" value="<?php echo $infos->ville_nom_reel ?>">
