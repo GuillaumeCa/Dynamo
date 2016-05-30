@@ -45,7 +45,7 @@ class GroupController
   public function informations($id)
   {
     $ListeSports = $this->sport->getSportsSortedByType();
-    $club = $this->group->listClub();
+    $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("Groupe","Groupe");
@@ -55,14 +55,14 @@ class GroupController
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
       'ListeSports' => $ListeSports,
-      'club' => $club,
+      'ListeClub' => $ListeClub,
     ]);
   }
 
   public function membres($id)
   {
     $ListeSports = $this->sport->getSportsSortedByType();
-    $club = $this->group->listClub();
+    $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
@@ -74,14 +74,14 @@ class GroupController
       'membreGroupe' => $membreGroupe,
       'isLeader' => $isLeader,
       'ListeSports' => $ListeSports,
-      'club' => $club,
+      'ListeClub' => $ListeClub,
     ]);
   }
 
   public function planning($id)
   {
     $ListeSports = $this->sport->getSportsSortedByType();
-    $club = $this->group->listClub();
+    $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $events = $this->group->getEventsFromGroupe();
@@ -94,14 +94,14 @@ class GroupController
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
       'ListeSports' => $ListeSports,
-      'club' => $club,
+      'ListeClub' => $ListeClub,
     ]);
   }
 
   public function discussion($id)
   {
     $ListeSports = $this->sport->getSportsSortedByType();
-    $club = $this->group->listClub();
+    $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeDiscussion","Groupe");
@@ -111,14 +111,14 @@ class GroupController
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
       'ListeSports' => $ListeSports,
-      'club' => $club,
+      'ListeClub' => $ListeClub,
     ]);
   }
 
   public function reglage($id)
   {
     $ListeSports = $this->sport->getSportsSortedByType();
-    $club = $this->group->listClub();
+    $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeReglage","Groupe");
@@ -129,7 +129,7 @@ class GroupController
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
       'ListeSports' => $ListeSports,
-      'club' => $club,
+      'ListeClub' => $ListeClub,
     ]);
   }
 
@@ -174,7 +174,7 @@ class GroupController
     if (!empty($_POST)) {
       $validate = new Validate($_POST);
       $validate->notEmpty('name_grp', "Veuiller rentrer un nom de groupe");
-      $validate->notEmpty('sport', "Vous n'avez pas ajouté de sport à votre groupe");
+      // $validate->notEmpty('sport', "Vous n'avez pas ajouté de sport à votre groupe");
       // $validate->isVille('lieu', "Votre localisation n'est pas valide");
       // $validate->notEmpty('description_grp',"Ajoutez une description à votre groupe");
       if ($validate->isValid()) {

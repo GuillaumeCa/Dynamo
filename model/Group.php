@@ -233,14 +233,12 @@ class Group extends Database
 
   public function updateEnTete($modification, $id)
   {
-    $sql1 = "SELECT id FROM club WHERE nom = ?";
-    $id_club = $this->executerRequete($sql1, [$modification['lieu']])->fetch()->id;
     $sqlUpdate = "UPDATE groupe SET titre=?, description=?, id_sport=?, id_club=? WHERE id=?";
     $this->executerRequete($sqlUpdate, [
       $modification['name_grp'],
       $modification['description_grp'],
       $modification['sport'],
-      $id_club,
+      $modification['club'],
       $id
     ]);
   }
