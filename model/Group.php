@@ -115,7 +115,7 @@ class Group extends Database
     $sql = "SELECT utilisateur.prénom as prenom, utilisateur.nom as nom, utilisateur_groupe.leader as leader
     FROM utilisateur
     JOIN utilisateur_groupe on utilisateur_groupe.id_utilisateur=utilisateur.id
-    WHERE utilisateur_groupe.id_groupe = ? ";
+    WHERE utilisateur_groupe.id_groupe = ? ORDER BY leader DESC";
     $membreGroupe = $this->executerRequete($sql, [$id]);
     return $membreGroupe;
   }

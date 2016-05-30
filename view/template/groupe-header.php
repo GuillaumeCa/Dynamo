@@ -7,6 +7,9 @@
   </div>
   <div class="sec-overlay sec-over-violet"></div>
   <div class="auto-width group">
+    <?php if ($isLeader): ?>
+      <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier">modifier</a>
+    <?php endif; ?>
     <form class="modifierinfo" action="" method="post">
       <h1 class="ttl-md">
         <span class="header_groupe"><?php echo $presentation_groupe->nomGroupe ?></span>
@@ -29,8 +32,5 @@
         </span>
       </div>
     </form>
-    <?php if ($isLeader): ?>
-      <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier">modifier</a>
-    <?php endif; ?>
   </div>
 </section>
