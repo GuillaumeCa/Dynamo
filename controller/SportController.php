@@ -18,11 +18,17 @@ class SportController
     $this->group = new Group();
   }
 
-  public function sportClub()
+  public function sportClub($id)
   {
+    $nom_sport = $this->sport->getSportByID($id);
+    $clubs = $this->sport->getClubsFromSport($id)->fetchAll();
     $vue = new Vue("SportClub", "Sport");
     $vue->setTitle('SportClub');
-    $vue->render();
+    $vue->render([
+      'id' => $id,
+      'nom_sport' => $nom_sport,
+      "clubs" => $clubs
+     ]);
   }
   public function sportGroupe($id)
   {
@@ -40,6 +46,7 @@ class SportController
     $vue = new Vue("SportGroupe", "Sport");
     $vue->setTitle('SportGroupe');
     $vue->render([
+      'id' => $id,
       'nom_sport' => $nom_sport,
       'groupes' => $liste
     ]);

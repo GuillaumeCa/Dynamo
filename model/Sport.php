@@ -54,4 +54,10 @@ class Sport extends Database
     return $list;
   }
 
+  public function getClubsFromSport($id)
+  {
+    $res =  $this->executerRequete("SELECT club.* FROM club JOIN club_sport ON club_sport.id_club = club.id WHERE club_sport.id_sport = ?", [$id]);
+    return $res;
+  }
+
 }

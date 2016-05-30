@@ -66,3 +66,13 @@
         </div>
       </div>
     </section>
+    <section class="auto-width">
+      <div class="ttl-group-underline-gr">
+        <h1 class="ttl ttl-green ttl-inline ttl-sm">Vos photos</h1>
+      </div>
+      <div class="gallerie-image">
+        <?php for ($i = 0; $i < 4; $i++): ?>
+          <img src="/assets/images/sport1.png" alt="" />
+        <?php endfor; ?>
+      </div>
+    </section>

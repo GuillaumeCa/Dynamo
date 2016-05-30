@@ -152,9 +152,9 @@ class User extends Database
     return $res->rowCount() == 1 ? $res->fetch()->nom : false;
   }
 
-  public function getProfilePhoto()
+  public function getProfilePhoto($id)
   {
-    return $this->executerRequete("SELECT nom FROM photo WHERE id_utilisateur = ?", [$_SESSION['auth']->id]);
+    return $this->executerRequete("SELECT nom FROM photo WHERE id_utilisateur = ?", [$id]);
   }
 
 

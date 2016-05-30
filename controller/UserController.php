@@ -141,7 +141,7 @@ class UserController
   public function profile()
   {
     $this->user->updateProfilePhoto();
-    $photoProfile = $this->user->getProfilePhoto()->fetch()->nom;
+    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch()->nom;
 
     $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("Profile", "User");
@@ -156,7 +156,7 @@ class UserController
   public function profilePlanning()
   {
     $this->user->updateProfilePhoto();
-    $photoProfile = $this->user->getProfilePhoto()->fetch()->nom;
+    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch()->nom;
 
     $events = $this->user->getEventsFromUser();
     $infos = $this->user->getInfoUser()->fetch();
@@ -173,7 +173,7 @@ class UserController
   public function profileReglage()
   {
     $this->user->updateProfilePhoto();
-    $photoProfile = $this->user->getProfilePhoto()->fetch()->nom;
+    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch()->nom;
 
     $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("ProfileReglage", "User");
