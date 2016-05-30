@@ -226,6 +226,22 @@ class Group extends Database
     return $res;
   }
 
+  public function updateEnTete($modification, $id)
+  {
+    $sql = "SELECT id FROM sport WHERE nom = ?";
+    $id_sport = $this->executerRequete($sql, [$modification['sport']])->fetch()->id;
+    $sql1 = "SELECT id FROM club WHERE nom = ?";
+    $id_club = $this->executerRequete($sql1, [$modification['lieu']])->fetch()->id;
+    $sqlUpdate = "UPDATE groupe SET titre=?, description=?, id_sport=?, id_club=? WHERE id=?";
+    $this->executerRequete($sqlUpdate, [
+      $modification['name_grp'],
+      $modification['description_grp'],
+      $id_sport,
+      $id_club,
+      $id
+    ]);
+  }
+
   public function nearGroup()
   {
     $q = "SELECT * FROM groupe WHERE dept = ? LIMIT 4";

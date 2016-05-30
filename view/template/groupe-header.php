@@ -10,22 +10,22 @@
     <form class="modifierinfo" action="" method="post">
       <h1 class="ttl-md">
         <span class="header_groupe"><?php echo $presentation_groupe->nomGroupe ?></span>
-        <input class="modif-form" type="text" name="name" value="<?php echo $presentation_groupe->nomGroupe ?>">
+        <input class="modif-form" type="text" name="name_grp" value="<?php echo $presentation_groupe->nomGroupe ?>">
       </h1>
       <p class="txt-jdesc">
         <span class="header_groupe"><?php echo $presentation_groupe->description ?></span>
-        <input class="modif-form" type="text" name="name" value="<?php echo $presentation_groupe->description ?>">
+        <input class="modif-form" type="text" name="description_grp" value="<?php echo $presentation_groupe->description ?>">
       </p>
       <div class="txt-info">
         <span>
           <b>Sport</b>
           <span class="header_groupe"><?php echo $presentation_groupe->sport ?> </span>
-          <input class="modif-form" type="text" name="name" value="<?php echo $presentation_groupe->sport ?>">
+          <input class="modif-form" type="text" name="sport" value="<?php echo $presentation_groupe->sport ?>">
         </span>
         <span>
           <b>Club</b>
           <span class="header_groupe"> <?php echo $presentation_groupe->club ?></span>
-          <input class="modif-form" type="text" name="name" value="<?php echo $presentation_groupe->club ?>">
+          <input class="modif-form" type="text" name="lieu" value="<?php echo $presentation_groupe->club ?>">
         </span>
       </div>
     </form>
