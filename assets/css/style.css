@@ -1853,6 +1853,17 @@ margin-bottom: auto;
   font-size: 2em;
 }
 
+.gallerie-image {
+  padding-top: 10px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.gallerie-image img{
+  display: inline-block;
+  height: 150px;
+  margin: 10px;
+}
 section .text-left {
     text-align: left;
 }
