@@ -7,6 +7,9 @@
   </div>
   <div class="sec-overlay sec-over-violet"></div>
   <div class="auto-width group">
+
+    <a href="<?php page('Groupe') ?>" class="button margin-top btn-right">S'inscrire</a>
+
     <h1 class="ttl-md"><?php echo $presentation_groupe->nomGroupe ?></h1>
     <p class="txt-jdesc"><?php echo $presentation_groupe->description ?> </p>
     <div class="txt-info">
