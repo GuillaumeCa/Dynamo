@@ -183,5 +183,11 @@ class UserController
     ]);
   }
 
+  public function modifprofil($token)
+  {
+    $tok = $this->user->getUserFromToken($token);
+    $vue = new Vue("Profile", "User");
+    $vue->render(['token' => $tok]);
+  }
 
 }
