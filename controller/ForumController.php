@@ -34,13 +34,15 @@ class ForumController
     $disc = $this->forum->getDisc($disc);
     $topic = $this->forum->getTopicName($disc->id_topic);
     $discussions = $this->forum->getMessages($disc->id_topic)->fetchAll();
+    $photo = $this->user->getProfilePhoto();
 
     $vue = new Vue("ForumDiscussion", "Forum");
     $vue->setTitle('ForumDiscussion');
     $vue->render([
       "discName" => $disc->titre,
       "topicName" => $topic,
-      "discussions" => $discussions
+      "discussions" => $discussions,
+      "photo" => $photo
     ]);
   }
 

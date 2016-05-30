@@ -23,12 +23,28 @@
         <span>
           <b>Sport</b>
           <span class="header_groupe"><?php echo $presentation_groupe->sport ?> </span>
-          <input class="modif-form" type="text" name="sport" value="<?php echo $presentation_groupe->sport ?>">
+          <select class="modif-form" name="sport">
+            <?php foreach ($ListeSports as $type => $sports): ?>
+              <optgroup label="<?php echo $type ?>">
+                <?php foreach ($sports as $sport): ?>
+                  <?php $sel = ($presentation_groupe->sport == $sport[1] ? 'selected' : '') ?>
+                  <option value="<?php echo $sport[0] ?>" <?php echo $sel ?>><?php echo $sport[1] ?></option>
+                <?php endforeach; ?>
+              </optgroup>
+            <?php endforeach; ?>
+          </select>
+          <!-- <input class="modif-form" type="text" name="sport" value="<?php echo $presentation_groupe->sport ?>"> -->
         </span>
         <span>
           <b>Club</b>
           <span class="header_groupe"> <?php echo $presentation_groupe->club ?></span>
-          <input class="modif-form" type="text" name="lieu" value="<?php echo $presentation_groupe->club ?>">
+          <select class="modif-form" name="club">
+            <option value="0" selected>Pas de Club</option>
+            <?php foreach ($ListeClub as $type => $club): ?>
+              <option value="<?php echo $club->id ?>"><?php echo $club->nom ?></option>
+            <?php endforeach; ?>
+          </select>
+          <!-- <input class="modif-form" type="text" name="lieu" value="<?php echo $presentation_groupe->club ?>"> -->
         </span>
       </div>
     </form>

@@ -146,6 +146,11 @@ class Group extends Database
     return $this->executerRequete("SELECT * FROM club")->fetchAll();
   }
 
+  public function listSport()
+  {
+    return $this->executerRequete("SELECT id, nom FROM sport")->fetchAll();
+  }
+
   public function creerGroupe($crea){
     $departement = $this->executerRequete("SELECT ville_departement FROM villes WHERE ville_nom_reel = ?", [$crea['lieu']])->fetch()->ville_departement;
     if ($crea['club'] == 0) {
@@ -228,16 +233,12 @@ class Group extends Database
 
   public function updateEnTete($modification, $id)
   {
-    $sql = "SELECT id FROM sport WHERE nom = ?";
-    $id_sport = $this->executerRequete($sql, [$modification['sport']])->fetch()->id;
-    $sql1 = "SELECT id FROM club WHERE nom = ?";
-    $id_club = $this->executerRequete($sql1, [$modification['lieu']])->fetch()->id;
     $sqlUpdate = "UPDATE groupe SET titre=?, description=?, id_sport=?, id_club=? WHERE id=?";
     $this->executerRequete($sqlUpdate, [
       $modification['name_grp'],
       $modification['description_grp'],
-      $id_sport,
-      $id_club,
+      $modification['sport'],
+      $modification['club'],
       $id
     ]);
   }
