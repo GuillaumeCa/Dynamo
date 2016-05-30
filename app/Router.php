@@ -5,6 +5,7 @@ require_once 'controller/GroupController.php';
 require_once 'controller/UserController.php';
 require_once 'controller/SportController.php';
 require_once 'controller/ForumController.php';
+require_once 'controller/BackofficeController.php';
 
 /**
  * Permet de router les requetes vers un controlleur
@@ -27,6 +28,7 @@ class Router {
       'User' => new UserController(),
       'Sport' => new SportController(),
       'Forum' => new ForumController(),
+      'Backoffice' => new BackofficeController(),
     ];
   }
 
@@ -66,19 +68,19 @@ class Router {
           break;
 
         case 'forumDiscussion':
-          $this->ctr['Forum']->forumDiscussion();
+          $this->ctr['Forum']->forumDiscussion($this->params['id']);
           break;
 
         case 'forumNewDiscussion':
           if (Router::isLoggedIn()) {
-            $this->ctr['Forum']->forumNewDiscussion();
+            $this->ctr['Forum']->forumNewDiscussion($this->params['id']);
           } else {
             $this->redirect();
           }
           break;
 
         case 'topic':
-          $this->ctr['Forum']->Topic();
+          $this->ctr['Forum']->Topic($this->params['id']);
           break;
 
         // Groupe
@@ -100,6 +102,7 @@ class Router {
 
         case 'groupe':
           if (Router::isLoggedIn()) {
+            $this->ctr['Group']->modificationEnTete($this->params['id']);
             $this->ctr['Group']->informations($this->params['id']);
           } else {
             $this->redirect();
@@ -138,7 +141,7 @@ class Router {
 
         // Sport
         case 'SportClub':
-            $this->ctr['Sport']->SportClub();
+            $this->ctr['Sport']->SportClub($this->params['id']);
           break;
 
         case 'SportGroupe':
@@ -210,10 +213,51 @@ class Router {
           $vue->render();
           break;
 
+        case 'backoffice-user':
+          if (Router::isAdmin()) {
+            $this->ctr['Backoffice']->user();
+          } else {
+            Router::redirect();
+          }
+          break;
+
+        case 'backoffice-group':
+          if (Router::isAdmin()) {
+            $this->ctr['Backoffice']->group();
+          } else {
+            Router::redirect();
+          }
+          break;
+        case 'backoffice-sport':
+          if (Router::isAdmin()) {
+            $this->ctr['Backoffice']->sport();
+          } else {
+            Router::redirect();
+          }
+          break;
+        case 'backoffice-forum':
+          if (Router::isAdmin()) {
+            $this->ctr['Backoffice']->group();
+          } else {
+            Router::redirect();
+          }
+          break;
+        case 'backoffice-help':
+          if (Router::isAdmin()) {
+            $this->ctr['Backoffice']->group();
+          } else {
+            Router::redirect();
+          }
+          break;
+
         default:
           throw new Exception("Page non valide");
           break;
       }
+    }
+    catch (PDOException $e)
+    {
+      Router::erreur($e->getMessage());
     }
     catch (Exception $e) {
       Router::erreur($e);
@@ -223,6 +267,11 @@ class Router {
   public static function isLoggedIn()
   {
     return isset($_SESSION['auth']);
+  }
+
+  public static function isAdmin()
+  {
+    return isset($_SESSION['auth']) && $_SESSION['auth']->admin == 1;
   }
 
   public static function redirect($url = "", $param = [])

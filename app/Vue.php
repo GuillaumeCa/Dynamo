@@ -9,20 +9,29 @@ class Vue
 {
   private $fichier;
   private $page;
+  private $template;
 
   private $css = ['style.css'];
   private $script;
 
-  public function __construct($page, $controller)
+  public function __construct($page, $controller, $template = 'base')
   {
+    $this->template = $template;
     $this->page = $page;
+    if ($template == 'backoffice') {
+      $this->css = ['style.css', 'admin.css'];
+    }
     $this->fichier = "view/". $controller ."/vue" . $page . ".php";
   }
 
-  public function render($parameters=[], $template = 'base')
+  public function render($parameters=[])
   {
     extract($parameters);
-    include "view/template/base.php";
+    if ($this->template == 'base') {
+      include "view/template/base.php";
+    } elseif ($this->template == 'backoffice') {
+      include "view/template/backoffice.php";
+    }
   }
 
   public function emptyPage($msg = [])

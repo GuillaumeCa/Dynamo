@@ -9,18 +9,28 @@
       <div class="column">
         <h1 class="ttl ttl-md">Choisis ton Topic</h1>
         <div class="grid">
-            <div class="sport">
-              <a href="<?php page('topic') ?>">
-                <div class="circle">
-                  <svg>
-                    <use xlink:href="#eiffeltower"></use>
-                  </svg>
-                </div>
-              </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
-              <span>Topic</span>
-            </div>
-            <div class="sport">
+          <?php foreach ($topics as $topic): ?>
+              <div class="sport">
+                <a href="<?php page('topic', ['id' => $topic->id]) ?>">
+                  <div class="circle">
+                    <svg>
+                      <?php if (isset($topic->sport_id)): ?>
+                        <use xlink:href="#typeSport<?php echo $topic->sport_id ?>"></use>
+                      <?php elseif (isset($topic->ville_id)): ?>
+                        <use xlink:href="#eiffeltower"></use>
+                      <?php else: ?>
+                        <use xlink:href="#eiffeltower"></use>
+                      <?php endif; ?>
+                    </svg>
+                  </div>
+                </a>
+                <span>
+                  <?php echo $topic->nom ?>
+                </span>
+              </div>
+          <?php endforeach; ?>
+
+            <!-- <div class="sport">
               <a href="<?php page('topic') ?>">
                 <div class="circle">
                   <svg>
@@ -28,7 +38,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -39,7 +48,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -50,7 +58,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -61,7 +68,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -72,7 +78,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -83,7 +88,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -94,7 +98,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -105,7 +108,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -116,7 +118,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -127,7 +128,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -138,7 +138,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -149,7 +148,6 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
               <span>Topic</span>
             </div>
             <div class="sport">
@@ -160,8 +158,7 @@
                   </svg>
                 </div>
               </a>
-              <!-- <img src="assets/images/logo.png" alt="test" /> -->
-              <span>Topic</span>
+              <span>Topic</span> -->
             </div>
 
       </div>

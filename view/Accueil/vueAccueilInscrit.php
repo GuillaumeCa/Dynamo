@@ -70,17 +70,36 @@
     <section class="auto-width">
       <h2 class="caps-txt green-text"><?php lang('near-you') ?></h2>
       <div class="gallerie">
-        <?php for ($i = 0; $i < 4; $i++): ?>
-          <a href="<?php page('groupe', ['id' => 1]) ?>">
+        <?php foreach ($ny_group as $value): ?>
+          <a href="<?php page('groupe', ['id' => $value->id]) ?>">
             <div class="group">
               <div class="image" style="background-image: url(assets/images/sport2.jpg);"></div>
-              <h3>Groupe 1</h3>
-              <p>Description</p>
+              <h3><?php echo $value->titre ?></h3>
+              <p><?php echo $value->description ?></p>
               <div class="people" title="7 places sur 10 disponibles dans ce groupe">
                 <span>7</span>/10
               </div>
             </div>
           </a>
-        <?php endfor; ?>
+        <?php endforeach; ?>
+      </div>
+    </section>
+    <section class="sec sec-bg-dviolet">
+      <div class="column">
+        <h1 class="ttl ttl-md">Types de sports</h1>
+        <div class="grid">
+          <?php foreach($types_sports as $type): ?>
+            <div class="sport">
+              <a href="<?php page('typeSport', ['id' => $type->id]) ?>">
+                <div class="circle">
+                  <svg>
+                    <use xlink:href='#typeSport<?php echo $type->id ?>'></use>
+                  </svg>
+                </div>
+              </a>
+              <span><?php echo $type->nom ?></span>
+            </div>
+          <?php endforeach; ?>
+        </div>
       </div>
     </section>
