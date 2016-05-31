@@ -66,7 +66,9 @@
     </div>
     <div class="ttl-group-underline-gr">
       <h1 class="ttl ttl-green ttl-inline ttl-sm">Mes sports</h1>
-      <a href="#" class="button btn-sm btn-right btn-wh-inv">modifier</a>
+      <a>
+      <input href="#" class="button btn-sm btn-right btn-wh-inv" type='button' value='modifier' onClick='modif()'>
+    </a>
     </div>
 
     <ul class="liste-smp">
@@ -78,7 +80,9 @@
         </div>
         <h1 class="ttl ttl-sm ttl-inline ttl-purple">Basket</h1>
         <div class="liste-button">
-          <a href="#" class="button btn-sm purple btn-right">supprimer</a>
+          <a>
+          <input href="#" class="button btn-sm purple btn-right" type='button' value='supprimer' onClick='supprimerSport()'>
+        </a>
         </div>
         <div class="liste-niveau">
           <span class="liste-desc">faible</span>
@@ -100,7 +104,9 @@
         </div>
           <h1 class="ttl ttl-sm ttl-inline ttl-purple">Ping Pong</h1>
           <div class="liste-button">
-            <a href="#" class="button btn-sm purple btn-right">supprimer</a>
+            <a>
+            <input href="#" class="button btn-sm purple btn-right" type='button' value='supprimer' onClick='supprimerSport()'>
+          </a>
           </div>
           <div class="liste-niveau">
             <span class="liste-desc">faible</span>
@@ -122,7 +128,9 @@
         </div>
           <h1 class="ttl ttl-sm ttl-inline ttl-purple">Ping Pong</h1>
           <div class="liste-button">
-            <a href="#" class="button btn-sm purple btn-right">supprimer</a>
+            <a>
+            <input href="#" class="button btn-sm purple btn-right" type='button' value='supprimer' onClick='supprimerSport()'>
+          </a>
           </div>
           <div class="liste-niveau">
             <span class="liste-desc">faible</span>
@@ -144,19 +152,32 @@
         </div>
           <h1 class="ttl ttl-sm ttl-inline ttl-purple">Ping Pong</h1>
           <div class="liste-button">
-            <a href="#" class="button btn-sm purple btn-right">supprimer</a>
+            <a>
+            <input class="button btn-sm purple btn-right" type='submit' name="supprimer" value='supprimer'>
+          </a>
           </div>
           <div class="liste-niveau">
             <span class="liste-desc">faible</span>
             <div class="liste-scope">
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle"></span>
-              <span class="rectangle"></span>
+              <input type="hidden" name="niveau" value="0">
+              <span class="rectangle filled" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
             </div>
             <span class="liste-desc">élevé</span>
           </div>
       </li>
     </ul>
   </section>
+
+  <script language='javascript'>
+function supprimerSport()
+{
+if (confirm("êtes-vous sûr de vouloir supprimer ce sport?"))
+{
+formulaire.submit();
+}
+}
+</script>

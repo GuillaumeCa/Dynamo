@@ -1249,6 +1249,7 @@ a.forget:hover {
   border: #9972FA solid 1px;
   margin: 3px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .liste-scope .filled {
