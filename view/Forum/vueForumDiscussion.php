@@ -30,19 +30,20 @@
         <div class="line"></div>
         </br>
         </ul>
-        <div class="boutton-discussion2">
-        <div class="parti-discussion">
-          <div class="miniature" style="background-image:url(/<?php echo $photo->nom ?>)">
+        <form action="" method="post">
+          <div class="boutton-discussion2">
+            <div class="parti-discussion">
+              <div class="miniature" style="background-image:url(/<?php echo $photo->nom ?>)"></div>
+              <h1><b><?php echo $_SESSION['auth']->nom." ".$_SESSION['auth']->prénom ?></b></h1>
+              <p><?php echo $_SESSION['auth']->id_ville ?></p>
+            </div><div class="parti-discussion2">
+              <textarea class="clear-form2" name="commentaire" rows="6" cols="40" placeholder="Pour répondre et commentez cette discussion..."></textarea>
+            </div>
           </div>
-          <h1><b><?php echo $_SESSION['auth']->nom." ".$_SESSION['auth']->prénom ?></b></h1>
-          <p><?php echo $_SESSION['auth']->id_ville ?></p>
-        </div><div class="parti-discussion2">
-          <textarea class="clear-form2" name="post_discussion" rows="6" cols="40" placeholder="Pour répondre et commentez cette discussion..."></textarea>
+        </br>
+        <div style="text-align: center">
+          <input type="submit" value="Commentez" class="button light">
         </div>
-      </div>
-      </br>
-      <div style="text-align: center">
-        <input type="submit" value="Commentez" class="button light">
-      </div>
+      </form>
       <?php endif; ?>
     </section>

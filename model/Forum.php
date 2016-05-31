@@ -18,10 +18,12 @@ class Forum extends Database
 
   public function getDiscussions($topic)
   {
-    $sql = "SELECT discussion.*, utilisateur.nom as nom, utilisateur.prénom as prénom
+    $sql = "SELECT discussion.*, utilisateur.nom as nom, utilisateur.prénom as prénom, COUNT(message.id) as nb_msg
             FROM discussion
             LEFT JOIN utilisateur ON utilisateur.id = discussion.id_utilisateur
-            WHERE discussion.id_topic = ?";
+            LEFT JOIN message ON message.id_discussion = discussion.id
+            WHERE discussion.id_topic = ? GROUP BY discussion.id";
+
     return $this->executerRequete($sql, [$topic]);
   }
 
@@ -64,6 +66,19 @@ class Forum extends Database
         date('Y-m-d H:i:s')
       ]);
       Router::redirect("forumDiscussion", ['id' => $id]);
+    }
+  }
+
+  public function creerCommentaire($disc)
+  {
+    if (!empty($_POST)) {
+      $this->executerRequete("INSERT INTO message (id_utilisateur, id_discussion, texte, date) VALUES (?,?,?,?)", [
+        $_SESSION['auth']->id,
+        $disc,
+        $_POST['commentaire'],
+        date('Y-m-d H:i:s')
+      ]);
+      Router::redirect("forumDiscussion", ['id' => $disc]);
     }
   }
 
