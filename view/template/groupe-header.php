@@ -7,15 +7,6 @@
   </div>
   <div class="sec-overlay sec-over-violet"></div>
   <div class="auto-width group">
-<<<<<<< HEAD
-
-    <h1 class="ttl-md"><?php echo $presentation_groupe->nomGroupe ?></h1>
-    <p class="txt-jdesc"><?php echo $presentation_groupe->description ?> </p>
-    <div class="txt-info">
-      <span><b>Sport</b> <?php echo $presentation_groupe->sport ?></span>
-      <span><b>Club</b> <?php echo $presentation_groupe->club ?></span>
-    </div>
-=======
     <?php if ($isLeader): ?>
       <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier">modifier</a>
     <?php endif; ?>
@@ -57,6 +48,5 @@
         </span>
       </div>
     </form>
->>>>>>> e44d9a97805e876c7daaf5e621fdc54fc695d7f3
   </div>
 </section>
