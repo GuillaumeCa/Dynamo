@@ -21,7 +21,7 @@
                     <p>Créée le <?php echo Vue::date("d/m/Y",$discussion->creation)." à ".Vue::date("H:i:s",$discussion->creation) ?> par <?php echo $discussion->prénom." ".$discussion->nom ?></p>
                   </div>
                   <div class="parti-boutton-2">
-                    <h2>77 messages</h2>
+                    <h2><?php echo $discussion->nb_msg ?> messages</h2>
                   </div>
                 </div>
               </a>

@@ -4,7 +4,7 @@
   "langue" : "langue",
   "aide" : "aide",
   "forum" : "forum",
-  "forumDiscussion" : "forum/topic/{id}/discussion",
+  "forumDiscussion" : "forum/discussion/{id}",
   "forumNewDiscussion" : "forum/topic/{id}/newdiscussion",
   "topic" : "forum/topic/{id}",
   "liste-groupe" : "groupe/liste",

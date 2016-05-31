@@ -238,7 +238,7 @@ class Group extends Database
       $modification['name_grp'],
       $modification['description_grp'],
       $modification['sport'],
-      $modification['club'],
+      $modification['club'] == 0 ? null : $modification['club'],
       $id
     ]);
   }
