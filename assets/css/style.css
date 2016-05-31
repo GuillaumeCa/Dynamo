@@ -869,6 +869,9 @@ footer p {
   margin-bottom: 5px;
 }
 
+.edit {
+  display: none; 
+}
 
 .search-form-lg {
   max-width: 600px;
