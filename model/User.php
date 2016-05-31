@@ -2,6 +2,7 @@
 
 require_once 'app/Database.php';
 require_once 'app/Mail.php';
+require_once 'app/Photo.php';
 
 /**
  *
@@ -133,4 +134,71 @@ class User extends Database
     return $events;
   }
 
+  public function getAllUsers($nb = 0, $page = 0)
+  {
+    $offset = $nb * $page;
+    $limit = ($nb != 0) ? "LIMIT $offset, $nb" : "";
+    return $this->executerRequete("SELECT * FROM utilisateur ".$limit);
+  }
+
+  public function deleteUser($id)
+  {
+    $this->executerRequete("DELETE FROM utilisateur WHERE id = ?", [$id]);
+  }
+
+  public function userPhotoExist($id_user)
+  {
+    $res = $this->executerRequete("SELECT nom FROM photo WHERE id_utilisateur = ?", [$_SESSION['auth']->id]);
+    return $res->rowCount() == 1 ? $res->fetch()->nom : false;
+  }
+
+  public function getProfilePhoto($id)
+  {
+    return $this->executerRequete("SELECT nom FROM photo WHERE id_utilisateur = ?", [$id]);
+  }
+
+
+  public function updateProfilePhoto()
+  {
+    if (isset($_POST['groupe-photo'])) {
+      $photo = new Photo('profil');
+      $replace = $this->userPhotoExist($_SESSION['auth']->id);
+      if ($replace) {
+        if ($photo->store('photo', true, $replace)) {
+          $this->executerRequete("UPDATE photo SET nom = ? WHERE id_utilisateur = ?", [$photo->path, $_SESSION['auth']->id]);
+        }
+      } else {
+        if ($photo->store('photo')) {
+          $this->executerRequete("INSERT INTO photo SET nom = ?, id_utilisateur = ?", [$photo->path, $_SESSION['auth']->id]);
+        }
+      }
+    }
+  }
+
+/*  public function modifprofil($insc)
+  {
+    $token = $this->generateToken();
+    $idVille = $this->executerRequete("SELECT id FROM villes WHERE ville_nom_reel = ?", [$insc['ville']])->fetch()->id;
+    $date = $insc['année']."-".$insc['mois']."-".$insc['jour'];
+    $q = "INSERT INTO utilisateur (nom, prénom, pseudo, sexe, naissance, email, id_ville, code_postal, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $insc['token'] = $token;
+    $sql = "SELECT email FROM utilisateur"
+    $sql = $this->executerRequete("SELECT email FROM utilisateur WHERE  = ?", [$_SESSION['auth']->fetch()->id]);
+    if($sql != $_POST['email']){
+      $mail = new Mail($insc['email'], "Validation compte Dynamo", "activate.php")
+      $mail->render($insc);
+      $mail->send();
+    }
+    $this->executerRequete($q, [
+      $insc['nom'],
+      $insc['prenom'],
+      $insc['pseudo'],
+      $insc['sexe'],
+      $date,
+      $insc['email'],
+      $idVille,
+      $insc['codepostal'],
+      $token
+    ]);
+*/
 }

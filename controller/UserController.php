@@ -140,28 +140,54 @@ class UserController
 
   public function profile()
   {
+    $this->user->updateProfilePhoto();
+    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch()->nom;
+
     $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("Profile", "User");
     $vue->setScript('formulaire.js');
-    $vue->render(['infos' => $infos]);
+    $vue->setScript('form.js');
+    $vue->render([
+      'infos' => $infos,
+      'photoProfile' => $photoProfile
+    ]);
   }
 
   public function profilePlanning()
   {
+    $this->user->updateProfilePhoto();
+    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch()->nom;
+
     $events = $this->user->getEventsFromUser();
     $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("ProfilePlanning", "User");
     $vue->setScript('cal.js');
     $vue->setCss('planning.css');
-    $vue->render(['events' => $events, 'infos' => $infos]);
+    $vue->render([
+      'events' => $events,
+      'infos' => $infos,
+      'photoProfile' => $photoProfile
+    ]);
   }
 
   public function profileReglage()
   {
+    $this->user->updateProfilePhoto();
+    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch()->nom;
+
     $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("ProfileReglage", "User");
-    $vue->render(['infos' => $infos]);
+    $vue->render([
+      'infos' => $infos,
+      'photoProfile' => $photoProfile
+    ]);
   }
 
+  public function modifprofil($token)
+  {
+    $tok = $this->user->getUserFromToken($token);
+    $vue = new Vue("Profile", "User");
+    $vue->render(['token' => $tok]);
+  }
 
 }

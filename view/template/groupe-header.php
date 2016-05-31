@@ -7,8 +7,7 @@
   </div>
   <div class="sec-overlay sec-over-violet"></div>
   <div class="auto-width group">
-
-    <a href="<?php page('Groupe') ?>" class="button margin-top btn-right">S'inscrire</a>
+<<<<<<< HEAD
 
     <h1 class="ttl-md"><?php echo $presentation_groupe->nomGroupe ?></h1>
     <p class="txt-jdesc"><?php echo $presentation_groupe->description ?> </p>
@@ -16,5 +15,48 @@
       <span><b>Sport</b> <?php echo $presentation_groupe->sport ?></span>
       <span><b>Club</b> <?php echo $presentation_groupe->club ?></span>
     </div>
+=======
+    <?php if ($isLeader): ?>
+      <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier">modifier</a>
+    <?php endif; ?>
+    <form class="modifierinfo" action="" method="post">
+      <h1 class="ttl-md">
+        <span class="header_groupe"><?php echo $presentation_groupe->nomGroupe ?></span>
+        <input class="modif-form" type="text" name="name_grp" value="<?php echo $presentation_groupe->nomGroupe ?>">
+      </h1>
+      <p class="txt-jdesc">
+        <span class="header_groupe"><?php echo $presentation_groupe->description ?></span>
+        <input class="modif-form" type="text" name="description_grp" value="<?php echo $presentation_groupe->description ?>">
+      </p>
+      <div class="txt-info">
+        <span>
+          <b>Sport</b>
+          <span class="header_groupe"><?php echo $presentation_groupe->sport ?> </span>
+          <select class="modif-form" name="sport">
+            <?php foreach ($ListeSports as $type => $sports): ?>
+              <optgroup label="<?php echo $type ?>">
+                <?php foreach ($sports as $sport): ?>
+                  <?php $sel = ($presentation_groupe->sport == $sport[1] ? 'selected' : '') ?>
+                  <option value="<?php echo $sport[0] ?>" <?php echo $sel ?>><?php echo $sport[1] ?></option>
+                <?php endforeach; ?>
+              </optgroup>
+            <?php endforeach; ?>
+          </select>
+          <!-- <input class="modif-form" type="text" name="sport" value="<?php echo $presentation_groupe->sport ?>"> -->
+        </span>
+        <span>
+          <b>Club</b>
+          <span class="header_groupe"> <?php echo $presentation_groupe->club ?></span>
+          <select class="modif-form" name="club">
+            <option value="0" selected>Pas de Club</option>
+            <?php foreach ($ListeClub as $type => $club): ?>
+              <option value="<?php echo $club->id ?>"><?php echo $club->nom ?></option>
+            <?php endforeach; ?>
+          </select>
+          <!-- <input class="modif-form" type="text" name="lieu" value="<?php echo $presentation_groupe->club ?>"> -->
+        </span>
+      </div>
+    </form>
+>>>>>>> e44d9a97805e876c7daaf5e621fdc54fc695d7f3
   </div>
 </section>

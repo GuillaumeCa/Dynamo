@@ -29,73 +29,112 @@ class GroupController
     if (isset($_POST['Refuse'])) {
       $this->group->refuserUtilisateur();
     }
-    $liste_groupe = $this->group->listGroupFromUser()->fetchAll();
-    $nbuser = $this->group->nbUserFromGroupByUser();
-    $liste = [];
-    foreach ($liste_groupe as $key => $value) {
-      $liste[$value->nomGroupe]['data'] = $value;
-      $liste[$value->nomGroupe]['nb'] = 0;
-    }
-    foreach ($nbuser as $key => $value) {
-      $liste[$value->groupe]['nb'] = $value->nb_user;
-    }
+    $liste_groupe = $this->group->listGroupFromUser();
+    // foreach ($liste_groupe as $key => $value) {
+    //   $liste[$value->nomGroupe]['data'] = $value;
+    //   $liste[$value->nomGroupe]['nb'] = 0;
+    // }
+    // foreach ($nbuser as $key => $value) {
+    //   $liste[$value->groupe]['nb'] = $value->nb_user;
+    // }
     $vue = new Vue("ListeGroupes","Groupe");
     $vue->setTitle('Groupes');
-    $vue->render(['liste' => $liste]);
+    $vue->render(['liste' => $liste_groupe]);
   }
 
   public function informations($id)
   {
+    $this->group->addPhoto($id);
+    $photos = $this->group->getPhotosFromGroup($id)->fetchAll();
+
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $ListeClub = $this->group->listClub();
+    $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("Groupe","Groupe");
+    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
+    $vue->setScript('form.js');
     $vue->render([
+      "photos" => $photos,
       'presentation_groupe' => $presentation_groupe,
+      'isLeader' => $isLeader,
+      'ListeSports' => $ListeSports,
+      'ListeClub' => $ListeClub,
     ]);
   }
 
   public function membres($id)
   {
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $ListeClub = $this->group->listClub();
+    $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
     $vue = new Vue("GroupeMembre","Groupe");
+    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
       'membreGroupe' => $membreGroupe,
+      'isLeader' => $isLeader,
+      'ListeSports' => $ListeSports,
+      'ListeClub' => $ListeClub,
     ]);
   }
 
   public function planning($id)
   {
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $ListeClub = $this->group->listClub();
+    $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $events = $this->group->getEventsFromGroupe();
     $vue = new Vue("GroupePlanning","Groupe");
+    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('cal.js');
     $vue->setScript('diapo.js');
     $vue->setCss('planning.css');
     $vue->render(['events' => $events,
-      'presentation_groupe' => $presentation_groupe,]);
+      'presentation_groupe' => $presentation_groupe,
+      'isLeader' => $isLeader,
+      'ListeSports' => $ListeSports,
+      'ListeClub' => $ListeClub,
+    ]);
   }
 
   public function discussion($id)
   {
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $ListeClub = $this->group->listClub();
+    $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeDiscussion","Groupe");
+    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
+      'isLeader' => $isLeader,
+      'ListeSports' => $ListeSports,
+      'ListeClub' => $ListeClub,
     ]);
   }
 
   public function reglage($id)
   {
+    $ListeSports = $this->sport->getSportsSortedByType();
+    $ListeClub = $this->group->listClub();
+    $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeReglage","Groupe");
+    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
     $vue->setTitle('Réglages');
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
+      'isLeader' => $isLeader,
+      'ListeSports' => $ListeSports,
+      'ListeClub' => $ListeClub,
     ]);
   }
 
@@ -132,6 +171,21 @@ class GroupController
       'ListeSports' => $ListeSports,
       'ListeClub' => $ListeClub
     ]);
+    }
+  }
+
+  public function modificationEnTete($id)
+  {
+    if (!empty($_POST)) {
+      $validate = new Validate($_POST);
+      $validate->notEmpty('name_grp', "Veuiller rentrer un nom de groupe");
+      // $validate->notEmpty('sport', "Vous n'avez pas ajouté de sport à votre groupe");
+      // $validate->isVille('lieu', "Votre localisation n'est pas valide");
+      // $validate->notEmpty('description_grp',"Ajoutez une description à votre groupe");
+      if ($validate->isValid()) {
+        $this->group->updateEnTete($_POST, $id);
+        Router::redirect("groupe", ['id' => $id]);
+      }
     }
   }
 }

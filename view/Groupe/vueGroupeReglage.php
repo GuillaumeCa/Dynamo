@@ -13,18 +13,29 @@
               </svg>
             </a>
           </li>
+          <li class="right social">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={http://dynamo.com/fr/groupe/38/info}"><img src="/assets/images/facebook.png" alt="facebook" width="20"/></a>
+            <a href="https://twitter.com/intent/tweet/?url={http://dynamo.com/fr/groupe/38/info}&text={J'ai rejoins un groupe de sport sur Dynamo !}"><img src="/assets/images/twitter.png" alt="twitter" width="20"/></a>
+            <a href="https://plus.google.com/share?url={http://dynamo.com/fr/groupe/38/info}"><img src="/assets/images/google-plus.png" alt="Google Plus" width="20"/></a>
+          </li>
         </ul>
       </nav>
     </div>
     <div class="reglage">
-      <p>Recevoir des notifications par mail lorsqu'une nouvelle activité est ajoutée</p>
-      <a href="#" class="button light">Désactiver</a>
-    </div>
-    <div class="reglage">
-      <p>Recevoir des notifications par mail lorsque quelqu'un répond à ma discussion</p>
-      <a href="#" class="button light">Désactiver</a>
-    </div>
-    <div class="reglage">
-      <p>Supprimer le groupe</p>
-      <a href="#" class="button light button-danger">Supprimer</a>
+      <div class="reglage-item">
+        <p>Recevoir des notifications par mail lorsqu'une nouvelle activité est ajoutée</p>
+        <a href="#" class="button light">Désactiver</a>
+      </div>
+      <div class="reglage-item">
+        <p>Recevoir des notifications par mail lorsque quelqu'un répond à ma discussion</p>
+        <a href="#" class="button light">Désactiver</a>
+      </div>
+      <div class="reglage-item">
+        <p>Quitter le groupe</p>
+        <a href="#" class="button light button-danger">Quitter</a>
+      </div>
+      <div class="reglage-item">
+        <p>Supprimer le groupe</p>
+        <a href="#" class="button light button-danger">Supprimer</a>
+      </div>
     </div>

@@ -38,6 +38,9 @@
 
 input {
   outline: none;
+}
+
+.login input {
   background-color: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -333,7 +336,7 @@ footer p {
   3.1 section
 *----------------------*/
 
-.sec { padding: 10px; overflow: hidden;}
+.sec { padding: 10px; overflow: hidden; }
 .column {
   max-width: 900px;
   margin: 0 auto;
@@ -462,7 +465,7 @@ footer p {
   color: white;
   margin: 10px 0;
  }
-.txt-info span {
+.txt-info > span {
   margin-right: 20px;
   font-size: 1.4em;
   font-weight: lighter;
@@ -668,7 +671,6 @@ footer p {
   cursor: pointer;
   position: relative;
   background: transparent;
-  /*transform: translate3d(0,0,0);*/
 }
 
 .upload {
@@ -685,6 +687,7 @@ footer p {
 
 .upload:hover .upload-item {
   opacity: 1;
+  transform: scale(1);
 }
 
 .upload-item {
@@ -696,7 +699,8 @@ footer p {
   width: 100%;
   display: inline-block;
   opacity: 0;
-  transition: opacity .5s ease;
+  transform: scale(2);
+  transition: all .5s ease;
 }
 
 .profile-photo img {
@@ -855,9 +859,16 @@ footer p {
   width: 100%;
 }
 
-.membres {
-  margin-bottom:
+.modif-form {
+  display: none;
+  min-width:200px;
+  border: solid rgba(153, 114, 250, .4) 1px;
+  font-size: 16px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 5px;
 }
+
 
 .search-form-lg {
   max-width: 600px;
@@ -891,7 +902,7 @@ form > label, form > input[type=checkbox] {
   display: inline-block;
 }
 
-input[type=checkbox] {
+.login input[type=checkbox] {
   width: 1em;
   height: 1em;
   border: white solid 1px;
@@ -902,11 +913,11 @@ input[type=checkbox] {
   transition: opacity .3s ease;
 }
 
-input[type=checkbox]:active {
+.login input[type=checkbox]:active {
   opacity: 0.5;
 }
 
-input[type=checkbox]:checked::after {
+.login input[type=checkbox]:checked::after {
   position: absolute;
   content: '';
   left: 15%;
@@ -1168,6 +1179,15 @@ a.forget:hover {
   list-style: circle;
 }
 
+.form-hidden {
+  display: none;
+}
+
+.upload-btn {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 
 /*----------------------*
   5.4 Liste simple
@@ -1399,42 +1419,61 @@ a.forget:hover {
   font-size: 1.2em;
 }
 
-.membre {
+.membres {
   max-width: 900px;
-  margin: 40px auto;
+  margin: 30px auto;
+  margin-bottom: 60px;
 }
 
-.membre span {
+.membres-item {
+  margin: 20px 0;
+  height: 60px;
+  padding: 15px;
+  vertical-align: top;
+}
+
+.membres-item span {
   color: #53FFC0;
   border: #53FFC0 solid 1px;
   border-radius: 50%;
-  font-size: 2.5em;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
   font-weight: bold;
-  padding: 6px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.membre h1 {
+.membres-item h1 {
   color: #53FFC0;
   font-weight: lighter;
   display: inline-block;
   margin-left: 20px;
+  line-height: 60px;
 }
 
-.membre h3 {
+.membres-item h3 {
   color: rgb(167, 178, 184);
   display:inline-block;
   float:right;
   font-weight: lighter;
+  line-height: 60px;
 }
 
 .reglage {
   max-width: 900px;
   margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.reglage-item {
   border-bottom: #9972FA solid 1px;
   padding: 40px 0;
 }
 
-.reglage p {
+.reglage-item p {
   color: #9972FA;
   display: inline-block;
   font-size: 1.5em;
@@ -1443,7 +1482,7 @@ a.forget:hover {
   max-width: 550px;
 }
 
-.reglage a {
+.reglage-item a {
   display: inline-block;
   float: right;
 }
@@ -1477,6 +1516,7 @@ a.forget:hover {
 .discussion{
   max-width: 900px;
   margin: 0 auto;
+  margin-bottom: 60px;
 }
 
 .creer-discussion {
@@ -1825,6 +1865,17 @@ margin-bottom: auto;
   font-size: 2em;
 }
 
+.gallerie-image {
+  padding-top: 10px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.gallerie-image img{
+  display: inline-block;
+  height: 150px;
+  margin: 10px;
+}
 section .text-left {
     text-align: left;
 }
@@ -2017,12 +2068,13 @@ section .text-left {
 .miniature {
   width: 80px;
   height: 80px;
+  border-radius: 50%;
   background-size: auto 80px;
   background-position: center-top;
 }
 
 .parti-discussion {
-  border-right: solid 1px #49E0A9;
+  border-right: solid 1px #53FFC0;
   width: 180px;
   display: inline-block;
 }
@@ -2034,7 +2086,7 @@ section .text-left {
 }
 
 .liste-discussion .comment {
-    padding: 10px;
+  padding: 10px;
 }
 
 .post {
@@ -2052,4 +2104,43 @@ section .text-left {
 .diapo-images .visible {
   visibility: visible;
   opacity: 1;
+}
+
+.social{
+  display: inline-block;
+  padding-right: 20px;
+}
+
+.social a:hover, .social a{
+  border: 0;
+  padding: 3px;
+  margin-right: 5px;
+}
+
+.line{
+  border-bottom: solid 1px #53FFC0;
+  width: 400px;
+  margin-left: 240px;
+}
+
+.boutton-discussion2{
+  margin-top: 20px;
+  padding: 10px;
+  color: #9972FA;
+  border: #9972FA solid 1px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.clear-form2 {
+  padding: 10px;
+  display: inline-block;
+  width: calc(100%);
+  vertical-align: top;
+}
+
+.clear-form2::-webkit-input-placeholder {
+  color: rgba(153, 114, 250, 0.8);
+  font-size: 15px;
+  display: inline-block;
 }

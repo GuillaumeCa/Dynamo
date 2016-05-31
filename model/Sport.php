@@ -40,4 +40,24 @@ class Sport extends Database
     return $result;
   }
 
+  public function getAllSport()
+  {
+    $types = $this->getSportList();
+    $sports = $this->executerRequete("SELECT id_type, nom as sport FROM sport")->fetchAll();
+    foreach ($types as $type) {
+      foreach ($sports as $sport) {
+        if ($sport->id_type == $type->id) {
+          $list[$type->nom][] = $sport;
+        }
+      }
+    }
+    return $list;
+  }
+
+  public function getClubsFromSport($id)
+  {
+    $res =  $this->executerRequete("SELECT club.* FROM club JOIN club_sport ON club_sport.id_club = club.id WHERE club_sport.id_sport = ?", [$id]);
+    return $res;
+  }
+
 }

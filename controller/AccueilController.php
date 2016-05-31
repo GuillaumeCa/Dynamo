@@ -28,13 +28,18 @@ class AccueilController
   public function accueil_logged()
   {
     $head_infos = $this->group->getNextEventsForUser();
+    $sel_group = $this->group->selectionGroup($_SESSION['auth']->id)->fetchAll();
+    $near_group = $this->group->nearGroup()->fetchAll();
+    $types_sports = $this->sport->getSportList();
+
     $vue = new Vue("AccueilInscrit", "Accueil");
     $vue->setTitle('Accueil');
     $vue->render([
       'today_group' => $head_infos[0],
       'tmw_group' => $head_infos[1],
-      'fy_group' => '',
-      'ny_group' => ''
+      'fy_group' => $sel_group,
+      'ny_group' => $near_group,
+      'types_sports' => $types_sports
     ]);
   }
   public function accueil()

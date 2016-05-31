@@ -1,113 +1,46 @@
     <section class="sec sec-bg-violet">
       <div class="column">
-        <h1 class="ttl ttl-md ttl-green">Discussion #1</h1>
-        <h2 class="ttl ttl-md ttl-green">Topic #1</h2>
+        <h1 class="ttl ttl-md ttl-green"><?php echo $discName ?></h1>
+        <h2 class="ttl ttl-md ttl-green"><?php echo $topicName ?></h2>
       </div>
     </section>
     <section class="auto-width">
       <ul class="liste-discussion">
-        <li>
-            <div class="boutton-discussion ">
-              <div class="parti-discussion">
-                <div class="miniature" style="background-image:url(http://www.mrsc.vic.gov.au/files/content/public/arts_sport_leisure/sport_fitness/sport-fitness.jpg?w=535&h=360)">
-                </div>
-                <h1><b>Nom et Prénom</b></h1>
-                <p>Paris, France</p>
-              </div><div class="parti-discussion2">
-                <div class="comment">
-                  Lorem ipsum dolor sit amet, consectetur adipisic
-                </div>
-                <div class="post">
-                  <p><b>Posté le 10/05/2016</b></p>
-                </div>
-              </div>
-            </div>
-        </li>
-        <li>
-            <div class="boutton-discussion ">
-              <div class="parti-discussion">
-                <div class="miniature" style="background-image:url(http://www.mrsc.vic.gov.au/files/content/public/arts_sport_leisure/sport_fitness/sport-fitness.jpg?w=535&h=360)">
-                </div>
-                <h1><b>Nom et Prénom</b></h1>
-                <p>Paris, France</p>
-              </div><div class="parti-discussion2">
-                <div class="comment">
-                  Lorem ipsum dolor sit amet, consectetur adipisic
-                </div>
-                <div class="post">
-                  <p><b>Posté le 10/05/2016</b></p>
+        <?php foreach ($discussions as $message): ?>
+          <li>
+              <div class="boutton-discussion">
+                <div class="parti-discussion">
+                  <div class="miniature" style="background-image:url(/<?php echo $message->url ?>)">
+                  </div>
+                  <h1><b><?php echo $message->nom." ".$message->prénom ?></b></h1>
+                  <p>Paris, France</p>
+                </div><div class="parti-discussion2">
+                  <div class="comment">
+                    <?php echo $message->texte ?>
+                  </div>
+                  <div class="post">
+                    <p><b>Posté le <?php echo Vue::date("d/m/Y à H:i:s", $message->date) ?></b></p>
+                  </div>
                 </div>
               </div>
-            </div>
-        </li>
-        <li>
-            <div class="boutton-discussion ">
-              <div class="parti-discussion">
-                <div class="miniature" style="background-image:url(http://www.mrsc.vic.gov.au/files/content/public/arts_sport_leisure/sport_fitness/sport-fitness.jpg?w=535&h=360)">
-                </div>
-                <h1><b>Nom et Prénom</b></h1>
-                <p>Paris, France</p>
-              </div><div class="parti-discussion2">
-                <div class="comment">
-                  Lorem ipsum dolor sit amet, consectetur adipisic
-                </div>
-                <div class="post">
-                  <p><b>Posté le 10/05/2016</b></p>
-                </div>
-              </div>
-            </div>
-        </li>
-        <li>
-            <div class="boutton-discussion ">
-              <div class="parti-discussion">
-                <div class="miniature" style="background-image:url(http://www.mrsc.vic.gov.au/files/content/public/arts_sport_leisure/sport_fitness/sport-fitness.jpg?w=535&h=360)">
-                </div>
-                <h1><b>Nom et Prénom</b></h1>
-                <p>Paris, France</p>
-              </div><div class="parti-discussion2">
-                <div class="comment">
-                  Lorem ipsum dolor sit amet, consectetur adipisic
-                </div>
-                <div class="post">
-                  <p><b>Posté le 10/05/2016</b></p>
-                </div>
-              </div>
-            </div>
-        </li>
-        <li>
-            <div class="boutton-discussion ">
-              <div class="parti-discussion">
-                <div class="miniature" style="background-image:url(http://www.mrsc.vic.gov.au/files/content/public/arts_sport_leisure/sport_fitness/sport-fitness.jpg?w=535&h=360)">
-                </div>
-                <h1><b>Nom et Prénom</b></h1>
-                <p>Paris, France</p>
-              </div><div class="parti-discussion2">
-                <div class="comment">
-                  Lorem ipsum dolor sit amet, consectetur adipisic
-                </div>
-                <div class="post">
-                  <p><b>Posté le 10/05/2016</b></p>
-                </div>
-              </div>
-            </div>
-        </li>
-        <li>
-            <div class="boutton-discussion ">
-              <div class="parti-discussion">
-                <div class="miniature" style="background-image:url(http://www.mrsc.vic.gov.au/files/content/public/arts_sport_leisure/sport_fitness/sport-fitness.jpg?w=535&h=360)">
-                </div>
-                <h1><b>Nom et Prénom</b></h1>
-                <p>Paris, France</p>
-              </div><div class="parti-discussion2">
-                <div class="comment">
-                  Lorem ipsum dolor sit amet, consectetur adipisic
-                </div>
-                <div class="post">
-                  <p><b>Posté le 10/05/2016</b></p>
-                </div>
-              </div>
-            </div>
-        </li>
-
+          </li>
+        <?php endforeach; ?>
+      </br></br>
+      <div class="line"></div>
+      </br>
       </ul>
+      <div class="boutton-discussion2">
+        <div class="parti-discussion">
+          <div class="miniature" style="background-image:url(/<?php echo $photo->nom ?>)">
+          </div>
+          <h1><b><?php echo $_SESSION['auth']->nom." ".$_SESSION['auth']->prénom ?></b></h1>
+          <p><?php echo $_SESSION['auth']->id_ville ?></p>
+        </div><div class="parti-discussion2">
+          <textarea class="clear-form2" name="post_discussion" rows="6" cols="40" placeholder="Pour répondre et commentez cette discussion..."></textarea>
+        </div>
+      </div>
+      </br>
+      <div style="text-align: center">
+        <input type="submit" value="Commentez" class="button light">
+      </div>
     </section>

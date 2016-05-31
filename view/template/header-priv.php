@@ -1,10 +1,10 @@
 <header>
   <div class="logo">
-    <a href="<?php page() ?>">
+    <a href="<?php page() ?>" title="Accueil">
     <img src="/assets/images/logo.png" alt="logo" />
     </a>
   </div>
-  <div class="search">
+  <div class="search" title="Recherchez un groupe, un sport ou un utilisateur">
     <div class="search-field">
       <form class="" action="<?php page('recherche') ?>" method="get">
         <input type="text" name="search" placeholder="rechercher" autocomplete="off">
@@ -87,8 +87,8 @@
   ?>
   <nav>
     <ul class="nav-menu">
-      <?php if ($_SESSION['auth']->admin == '1'): ?>
-        <li><a href="<?php page('backoffice') ?>">Admin</a></li>
+      <?php if (Router::isAdmin()): ?>
+        <li><a href="<?php page('backoffice-user') ?>">Admin</a></li>
       <?php endif; ?>
       <li><a href="<?php page('liste-groupe') ?>"><?php lang('Groupes') ?>
         <?php $nb = $group->nbInvitUser(); ?>
