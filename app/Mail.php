@@ -37,5 +37,4 @@ class Mail
     $this->sujet = mb_encode_mimeheader($this->sujet);
     return mail($this->destinataire, $this->sujet, $this->content, $headers);
   }
-
 }

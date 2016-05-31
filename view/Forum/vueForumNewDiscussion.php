@@ -37,10 +37,10 @@
             </div>
           <?php endif; ?>
           <h2 class="form-label pink-text">Nom de votre discussion</h2>
-          <input class="clear-form" type="text" name="name_grp" placeholder="">
+          <input class="clear-form" type="text" name="titre_disc" placeholder="">
 
           <h2 class="form-label pink-text">Votre commentaire</h2>
-          <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder="Posez votre question pour commencer cette discussion..."></textarea>
+          <textarea class="clear-form" name="commentaire" rows="6" cols="40" placeholder="Posez votre question pour commencer cette discussion..."></textarea>
 
           <input type="submit" value="Poster cette question" class="button light">
           <!-- <div class="post-comment">

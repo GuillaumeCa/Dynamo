@@ -2140,10 +2140,10 @@ section .text-left {
   display: inline-block;
   width: calc(100%);
   vertical-align: top;
+  font-size: 15px;
 }
 
 .clear-form2::-webkit-input-placeholder {
   color: rgba(153, 114, 250, 0.8);
-  font-size: 15px;
   display: inline-block;
 }

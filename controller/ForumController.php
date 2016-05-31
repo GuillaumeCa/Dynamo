@@ -33,8 +33,9 @@ class ForumController
   {
     $disc = $this->forum->getDisc($disc);
     $topic = $this->forum->getTopicName($disc->id_topic);
-    $discussions = $this->forum->getMessages($disc->id_topic)->fetchAll();
+    $discussions = $this->forum->getMessages($disc->id)->fetchAll();
     $photo = $this->user->getProfilePhoto();
+    $this->forum->creerCommentaire($disc->id);
 
     $vue = new Vue("ForumDiscussion", "Forum");
     $vue->setTitle('ForumDiscussion');
@@ -49,7 +50,7 @@ class ForumController
   public function forumNewDiscussion($topic)
   {
     $topicName = $this->forum->getTopicName($topic);
-
+    $this->forum->creerDiscussion($topic);
     $vue = new Vue("ForumNewDiscussion", "Forum");
     $vue->setTitle('ForumNewDiscussion');
     $vue->render([
