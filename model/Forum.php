@@ -47,4 +47,24 @@ class Forum extends Database
     return $this->executerRequete($sql, [$disc]);
   }
 
+  public function creerDiscussion($topic)
+  {
+    if (!empty($_POST)) {
+      $this->executerRequete("INSERT INTO discussion (id_utilisateur, id_topic, titre, creation) VALUES (?,?,?,?)", [
+        $_SESSION['auth']->id,
+        $topic,
+        $_POST["titre_disc"],
+        date('Y-m-d H:i:s')
+      ]);
+      $id = $this->getBdd()->lastInsertId();
+      $this->executerRequete("INSERT INTO message (id_utilisateur, id_discussion, texte, date) VALUES (?,?,?,?)", [
+        $_SESSION['auth']->id,
+        $id,
+        $_POST['commentaire'],
+        date('Y-m-d H:i:s')
+      ]);
+      Router::redirect("forumDiscussion", ['id' => $id]);
+    }
+  }
+
 }

@@ -1,7 +1,7 @@
     <section class="sec sec-bg-violet">
       <div class="column">
         <h1 class="ttl ttl-md ttl-green"><?php echo $discName ?></h1>
-        <h2 class="ttl ttl-md ttl-green"><?php echo $topicName ?></h2>
+        <h2 class="ttl ttl-md ttl-green" style="font-size: 30px"><?php echo $topicName ?></h2>
       </div>
     </section>
     <section class="auto-width">
@@ -25,11 +25,12 @@
               </div>
           </li>
         <?php endforeach; ?>
-      </br></br>
-      <div class="line"></div>
-      </br>
-      </ul>
-      <div class="boutton-discussion2">
+        <?php if (Router::isLoggedIn()): ?>
+        </br></br>
+        <div class="line"></div>
+        </br>
+        </ul>
+        <div class="boutton-discussion2">
         <div class="parti-discussion">
           <div class="miniature" style="background-image:url(/<?php echo $photo->nom ?>)">
           </div>
@@ -43,4 +44,5 @@
       <div style="text-align: center">
         <input type="submit" value="Commentez" class="button light">
       </div>
+      <?php endif; ?>
     </section>
