@@ -160,7 +160,7 @@ class User extends Database
 
   public function updateProfilePhoto()
   {
-    if (isset($_POST['groupe-photo'])) {
+    if (isset($_POST['profile-photo'])) {
       $photo = new Photo('profil');
       $replace = $this->userPhotoExist($_SESSION['auth']->id);
       if ($replace) {

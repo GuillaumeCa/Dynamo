@@ -67,6 +67,7 @@ class GroupController
 
   public function membres($id)
   {
+    $photos = $this->group->getPhotosFromGroup($id)->fetchAll();
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
@@ -81,16 +82,19 @@ class GroupController
       'isLeader' => $isLeader,
       'ListeSports' => $ListeSports,
       'ListeClub' => $ListeClub,
+      'photos' => $photos
     ]);
   }
 
   public function planning($id)
   {
+    $photos = $this->group->getPhotosFromGroup($id)->fetchAll();
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $events = $this->group->getEventsFromGroupe();
+
     $vue = new Vue("GroupePlanning","Groupe");
     $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('cal.js');
@@ -101,15 +105,18 @@ class GroupController
       'isLeader' => $isLeader,
       'ListeSports' => $ListeSports,
       'ListeClub' => $ListeClub,
+      'photos' => $photos
     ]);
   }
 
   public function discussion($id)
   {
+    $photos = $this->group->getPhotosFromGroup($id)->fetchAll();
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
+
     $vue = new Vue("GroupeDiscussion","Groupe");
     $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
@@ -118,15 +125,18 @@ class GroupController
       'isLeader' => $isLeader,
       'ListeSports' => $ListeSports,
       'ListeClub' => $ListeClub,
+      'photos' => $photos
     ]);
   }
 
   public function reglage($id)
   {
+    $photos = $this->group->getPhotosFromGroup($id)->fetchAll();
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
+    
     $vue = new Vue("GroupeReglage","Groupe");
     $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
@@ -136,6 +146,7 @@ class GroupController
       'isLeader' => $isLeader,
       'ListeSports' => $ListeSports,
       'ListeClub' => $ListeClub,
+      'photos' => $photos
     ]);
   }
 

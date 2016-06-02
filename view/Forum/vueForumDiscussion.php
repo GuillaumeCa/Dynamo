@@ -1,7 +1,7 @@
     <section class="sec sec-bg-violet">
       <div class="column">
         <h1 class="ttl ttl-md ttl-green"><?php echo $discName ?></h1>
-        <h2 class="ttl ttl-md ttl-green" style="font-size: 30px"><?php echo $topicName ?></h2>
+        <h2 class="ttl ttl-sm"><?php echo $topicName ?></h2>
       </div>
     </section>
     <section class="auto-width">

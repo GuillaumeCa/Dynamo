@@ -34,7 +34,7 @@ class ForumController
     $disc = $this->forum->getDisc($disc);
     $topic = $this->forum->getTopicName($disc->id_topic);
     $discussions = $this->forum->getMessages($disc->id)->fetchAll();
-    $photo = $this->user->getProfilePhoto();
+    $photo = $this->user->getProfilePhoto($_SESSION['auth']->id);
     $this->forum->creerCommentaire($disc->id);
 
     $vue = new Vue("ForumDiscussion", "Forum");

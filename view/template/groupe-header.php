@@ -1,7 +1,10 @@
 <section class="sec sec-bg-overlay">
 
   <div id="diaporama" class="sec-overlay diapo-images">
-    <div class="image sec-overlay sec-bg-img visible" style="background-image: url(/assets/images/sport1.png);"></div>
+    <?php foreach ($photos as $key => $photo): ?>
+      <?php $visi = ($key == 0) ? 'visible' : null ?>
+      <div class="image sec-overlay sec-bg-img <?php echo $visi ?>" style="background-image: url(/<?php echo $photo->nom ?>);"></div>
+    <?php endforeach; ?>
     <div class="image sec-overlay sec-bg-img" style="background-image: url(/assets/images/sport2.jpg);"></div>
     <div class="image sec-overlay sec-bg-img" style="background-image: url(/assets/images/sport3.jpg);"></div>
   </div>
