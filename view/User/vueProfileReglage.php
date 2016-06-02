@@ -31,8 +31,22 @@
           <a href="#" class="button light">Désactiver</a>
         </div>
         <div class="reglage-item">
+          <p>Supprimer la photo de profile</p>
+          <form action="" class="form-inline" method="post">
+            <button type="submit" name="delete-photo" class="button light button-danger">Supprimer</button>
+          </form>
+        </div>
+        <div class="reglage-item">
           <p>Supprimer mon compte</p>
-          <a href="#" class="button light button-danger">Supprimer</a>
+          <a href="#" onclick="togglemodal('del_acc')" class="button light button-danger">Supprimer</a>
         </div>
       </div>
     </section>
+    <div class="modal" id="del_acc">
+      <div class="window">
+        <h1>Voulez vous supprimer votre compte ?</h1>
+        <form action="" method="post">
+          <button type="submit" name="del-acc" class="button light button-danger">Supprimer</button>
+        </form>
+      </div>
+    </div>

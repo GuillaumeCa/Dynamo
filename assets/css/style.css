@@ -869,6 +869,10 @@ footer p {
   margin-bottom: 5px;
 }
 
+.form-inline {
+  display: inline;
+}
+
 .edit {
   display: none;
 }
@@ -1486,7 +1490,7 @@ a.forget:hover {
   max-width: 550px;
 }
 
-.reglage-item a {
+.reglage-item button, .reglage-item a {
   display: inline-block;
   float: right;
 }
@@ -2147,4 +2151,34 @@ section .text-left {
 .clear-form2::-webkit-input-placeholder {
   color: rgba(153, 114, 250, 0.8);
   display: inline-block;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s ease;
+  background: rgba(0, 0, 0, 0.82)
+}
+
+.modal.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal .window {
+  width: 500px;
+  position: relative;
+  margin: 10% auto;
+  padding: 20px;
+  background: #fff;
+  text-align: center;
+}
+.modal h1 {
+  margin-bottom: 20px;
 }
