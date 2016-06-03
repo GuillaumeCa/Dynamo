@@ -91,9 +91,7 @@
         <input href="#" class="button btn-sm btn-right btn-wh-inv" type='button' value='modifier' onClick='modif()'>
       </a>
 
-      <a class="modaj">
-        <input href="#" class="button btn-sm btn-right btn-wh-inv" name="ajout" type='button' value='ajouter' onClick='ajouter()'>
-      </a>
+        <a href="#" class="button btn-sm btn-right btn-wh-inv" onclick="togglemodal('add_sport')">ajouter</a>
 
   </div>
 
@@ -182,9 +180,9 @@
             <input class="button btn-sm purple btn-right" type='submit' name="supprimer" value='supprimer'>
           </a>
           </div>
-          <?php foreach ($variable as $key => $value) {
-            # code...
-          } ?>
+          <!-- <?php foreach ($variable as $key => $value) {
+          
+          } ?> -->
           <div class="liste-niveau">
             <span class="liste-desc">faible</span>
             <div class="liste-scope">
@@ -200,7 +198,15 @@
       </li>
     </ul>
   </section>
-
+  <div class="modal" id="add_sport" >
+    <div class="back"  onclick="togglemodal('add_sport')"></div>
+    <div class="window">
+      <h1 class="ttl ttl-sm ttl-green">Voulez vous supprimer votre compte ?</h1>
+      <form action="" method="post">
+        <button type="submit" name="add-sport" class="button light ">Ajouter</button>
+      </form>
+    </div>
+  </div>
   <script language='javascript'>
 
 function supprimerSport()

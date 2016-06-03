@@ -192,12 +192,12 @@ class UserController
     $vue = new Vue("Profile", "User");
     $vue->render(['token' => $tok]);
   }
-  public function AjoutSport($token)
-  {
-    if(isset($_POST['ajout']) AND $_POST['ajout']=='ajouter')
-    {
-      $Ajout = Ajoutsport()->fetchAll();
-      include 'view/vueProfile.php';
-    }
-  }
+  // public function AjoutSport($token)
+  // {
+  //   if(isset($_POST['ajout']) AND $_POST['ajout']=='ajouter')
+  //   {
+  //     $Ajout = Ajoutsport()->fetchAll();
+  //     include 'view/vueProfile.php';
+  //   }
+  // }
  }
