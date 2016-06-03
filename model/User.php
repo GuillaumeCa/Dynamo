@@ -202,4 +202,11 @@ class User extends Database
     //   $token
     // ]);
   }
+
+  function Ajoutsport()
+{
+  $ajout = "SELECT nom FROM sport";
+    return dynamo()->query($ajout);
+}
+
 }
