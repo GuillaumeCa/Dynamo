@@ -175,6 +175,26 @@ class User extends Database
     }
   }
 
+  public function deleteProfilePhoto()
+  {
+    if (isset($_POST['delete-photo'])) {
+      $replace = $this->userPhotoExist($_SESSION['auth']->id);
+      if ($replace) {
+        $this->executerRequete("DELETE FROM photo WHERE id_utilisateur = ?", [$_SESSION['auth']->id]);
+        unlink($replace);
+      }
+    }
+  }
+
+  public function deleteUserProfile()
+  {
+    if (isset($_POST['del-acc'])) {
+      $this->deleteUser($_SESSION['auth']->id);
+      session_unset($_SESSION['auth']);
+      Router::redirect('accueil');
+    }
+  }
+
   public function modifprofil($insc)
   {
     $token = $this->generateToken();
