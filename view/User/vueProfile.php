@@ -84,12 +84,18 @@
       </table>
     </form>
     </div>
-    <div class="ttl-group-underline-gr">
+  <div class="ttl-group-underline-gr">
       <h1 class="ttl ttl-green ttl-inline ttl-sm">Mes sports</h1>
-      <a>
-      <input href="#" class="button btn-sm btn-right btn-wh-inv" type='button' value='modifier' onClick='modif()'>
-    </a>
-    </div>
+
+      <a >
+        <input href="#" class="button btn-sm btn-right btn-wh-inv" type='button' value='modifier' onClick='modif()'>
+      </a>
+
+      <a class="modaj">
+        <input href="#" class="button btn-sm btn-right btn-wh-inv" name="ajout" type='button' value='ajouter' onClick='ajouter()'>
+      </a>
+
+  </div>
 
     <ul class="liste-smp">
       <li>
@@ -107,11 +113,11 @@
         <div class="liste-niveau">
           <span class="liste-desc">faible</span>
           <div class="liste-scope">
-            <span class="rectangle filled"></span>
-            <span class="rectangle filled"></span>
-            <span class="rectangle filled"></span>
-            <span class="rectangle"></span>
-            <span class="rectangle"></span>
+            <span class="rectangle" onclick="modifniveau(this)"></span>
+            <span class="rectangle" onclick="modifniveau(this)"></span>
+            <span class="rectangle" onclick="modifniveau(this)"></span>
+            <span class="rectangle" onclick="modifniveau(this)"></span>
+            <span class="rectangle" onclick="modifniveau(this)"></span>
           </div>
           <span class="liste-desc">élevé</span>
         </div>
@@ -131,11 +137,11 @@
           <div class="liste-niveau">
             <span class="liste-desc">faible</span>
             <div class="liste-scope">
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle"></span>
-              <span class="rectangle"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
             </div>
             <span class="liste-desc">élevé</span>
           </div>
@@ -155,11 +161,11 @@
           <div class="liste-niveau">
             <span class="liste-desc">faible</span>
             <div class="liste-scope">
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle"></span>
-              <span class="rectangle"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
             </div>
             <span class="liste-desc">élevé</span>
           </div>
@@ -176,15 +182,18 @@
             <input class="button btn-sm purple btn-right" type='submit' name="supprimer" value='supprimer'>
           </a>
           </div>
+          <?php foreach ($variable as $key => $value) {
+            # code...
+          } ?>
           <div class="liste-niveau">
             <span class="liste-desc">faible</span>
             <div class="liste-scope">
               <input type="hidden" name="niveau" value="0">
-              <span class="rectangle filled" onclick="modifniveau(this)"></span>
-              <span class="rectangle" onclick="modifniveau(this)"></span>
-              <span class="rectangle" onclick="modifniveau(this)"></span>
-              <span class="rectangle" onclick="modifniveau(this)"></span>
-              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" name="1" onclick="modifniveau(this)"></span>
+              <span class="rectangle" name="2" onclick="modifniveau(this)"></span>
+              <span class="rectangle" name="3" onclick="modifniveau(this)"></span>
+              <span class="rectangle" name="4" onclick="modifniveau(this)"></span>
+              <span class="rectangle" name="5" onclick="modifniveau(this)"></span>
             </div>
             <span class="liste-desc">élevé</span>
           </div>
@@ -193,6 +202,7 @@
   </section>
 
   <script language='javascript'>
+
 function supprimerSport()
 {
 if (confirm("êtes-vous sûr de vouloir supprimer ce sport?"))

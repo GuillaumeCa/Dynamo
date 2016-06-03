@@ -7,7 +7,6 @@ function modifniveau (e) {
   var checkbox = list.querySelectorAll('.rectangle');
   var input = list.querySelector('input');
   var index = Array.prototype.indexOf.call(checkbox, e);
-
   for (var i = 0; i < checkbox.length; i++) {
     if (i <= index) {
       checkbox[i].classList.add('filled');
@@ -16,7 +15,7 @@ function modifniveau (e) {
       checkbox[i].classList.remove('filled');
     }
   }
-  console.log(input.value);
+  console.log(input, input.value);
 }
 
 function togglemodal(e) {
