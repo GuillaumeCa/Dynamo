@@ -18,3 +18,8 @@ function modifniveau (e) {
   }
   console.log(input.value);
 }
+
+function togglemodal(e) {
+  event.preventDefault();
+  document.querySelector('#'+e).classList.toggle('visible');
+}

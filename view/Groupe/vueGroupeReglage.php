@@ -32,10 +32,32 @@
       </div>
       <div class="reglage-item">
         <p>Quitter le groupe</p>
-        <a href="#" class="button light button-danger">Quitter</a>
+        <a href="#" class="button light button-danger" onclick="togglemodal('quit_grp')">Quitter</a>
       </div>
-      <div class="reglage-item">
-        <p>Supprimer le groupe</p>
-        <a href="#" class="button light button-danger">Supprimer</a>
+      <?php if ($isLeader): ?>
+        <div class="reglage-item">
+          <p>Supprimer le groupe</p>
+          <a href="#" class="button light button-danger" onclick="togglemodal('quit_grp')">Supprimer</a>
+        </div>
+      <?php endif; ?>
+    </div>
+    <div class="modal" id="quit_grp">
+      <div class="back"  onclick="togglemodal('quit_grp')"></div>
+      <div class="window">
+        <h1 class="ttl ttl-sm ttl-green">Voulez vous quitter le groupe ?</h1>
+        <form action="" method="post">
+          <button type="submit" name="quit-grp" class="button light button-danger">Quitter</button>
+        </form>
       </div>
     </div>
+    <?php if ($isLeader): ?>
+      <div class="modal" id="del_grp">
+        <div class="back"  onclick="togglemodal('quit_grp')"></div>
+        <div class="window">
+          <h1 class="ttl ttl-sm ttl-green">Voulez vous supprimer le groupe ?</h1>
+          <form action="" method="post">
+            <button type="submit" name="del-grp" class="button light button-danger">Supprimer</button>
+          </form>
+        </div>
+      </div>
+    <?php endif; ?>

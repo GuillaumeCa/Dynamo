@@ -859,14 +859,8 @@ footer p {
   width: 100%;
 }
 
-.modif-form {
-  display: none;
-  min-width:200px;
-  border: solid rgba(153, 114, 250, .4) 1px;
-  font-size: 16px;
-  padding: 3px 10px;
-  border-radius: 2px;
-  margin-bottom: 5px;
+.form-inline {
+  display: inline;
 }
 
 .edit {
@@ -1480,13 +1474,13 @@ a.forget:hover {
 .reglage-item p {
   color: #9972FA;
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-weight: lighter;
   padding: 0 10px;
   max-width: 550px;
 }
 
-.reglage-item a {
+.reglage-item button, .reglage-item a {
   display: inline-block;
   float: right;
 }
@@ -2147,4 +2141,60 @@ section .text-left {
 .clear-form2::-webkit-input-placeholder {
   color: rgba(153, 114, 250, 0.8);
   display: inline-block;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s ease;
+}
+
+.modal .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal .window {
+  width: 500px;
+  position: relative;
+  margin: 20% auto;
+  padding: 20px;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 5;
+}
+.modal h1 {
+  margin-bottom: 20px;
+}
+
+.modif-form {
+  display: none;
+  min-width:300px;
+  border: solid rgba(153, 114, 250, .4) 1px;
+  font-size: 16px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.modif-form.dropdown {
+  min-width: auto;
+  float: left;
+  padding-right: 30px;
 }
