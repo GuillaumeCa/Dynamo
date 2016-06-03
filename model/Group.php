@@ -257,7 +257,7 @@ class Group extends Database
       $modification['name_grp'],
       $modification['description_grp'],
       $modification['sport'],
-      $modification['club'],
+      $modification['club'] == 0 ? null : $modification['club'],
       $id
     ]);
   }
@@ -321,7 +321,11 @@ class Group extends Database
   }
 
   public function deletePhoto($id){
-    unlink();
     return $this->executerRequete("DELETE FROM photo WHERE id_groupe = ?", [$id]);
+  }
+
+  public function quitGroup($id_user, $id_grp)
+  {
+    $this->executerRequete('DELETE FROM utilisateur_groupe WHERE id_utilisateur = ? AND id_groupe = ?', [$id_user, $id_grp]);
   }
 }
