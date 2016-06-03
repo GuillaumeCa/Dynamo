@@ -50,6 +50,7 @@ class GroupController
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
+    $isInGroup = $this->group->isInGroup($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("Groupe","Groupe");
     $vue->setScript('formulaire-headergroupe.js');
@@ -59,6 +60,7 @@ class GroupController
       "photos" => $photos,
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
+      'isInGroup' => $isInGroup,
       'ListeSports' => $ListeSports,
       'ListeClub' => $ListeClub,
     ]);
@@ -69,6 +71,7 @@ class GroupController
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
+    $isInGroup = $this->group->isInGroup($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
     $vue = new Vue("GroupeMembre","Groupe");
@@ -78,6 +81,7 @@ class GroupController
       'presentation_groupe' => $presentation_groupe,
       'membreGroupe' => $membreGroupe,
       'isLeader' => $isLeader,
+      'isInGroup' => $isInGroup,
       'ListeSports' => $ListeSports,
       'ListeClub' => $ListeClub,
     ]);
@@ -88,6 +92,7 @@ class GroupController
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
+    $isInGroup = $this->group->isInGroup($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $events = $this->group->getEventsFromGroupe();
     $vue = new Vue("GroupePlanning","Groupe");
@@ -98,6 +103,7 @@ class GroupController
     $vue->render(['events' => $events,
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
+      'isInGroup' => $isInGroup,
       'ListeSports' => $ListeSports,
       'ListeClub' => $ListeClub,
     ]);
@@ -108,6 +114,7 @@ class GroupController
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
+    $isInGroup = $this->group->isInGroup($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeDiscussion","Groupe");
     $vue->setScript('formulaire-headergroupe.js');
@@ -115,6 +122,7 @@ class GroupController
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
+      'isInGroup' => $isInGroup,
       'ListeSports' => $ListeSports,
       'ListeClub' => $ListeClub,
     ]);
@@ -125,6 +133,7 @@ class GroupController
     $ListeSports = $this->sport->getSportsSortedByType();
     $ListeClub = $this->group->listClub();
     $isLeader = $this->group->isleader($id);
+    $isInGroup = $this->group->isInGroup($id);
     $presentation_groupe = $this->group->getGroupeById($id)->fetch();
     $vue = new Vue("GroupeReglage","Groupe");
     $vue->setScript('formulaire-headergroupe.js');
@@ -133,6 +142,7 @@ class GroupController
     $vue->render([
       'presentation_groupe' => $presentation_groupe,
       'isLeader' => $isLeader,
+      'isInGroup' => $isInGroup,
       'ListeSports' => $ListeSports,
       'ListeClub' => $ListeClub,
     ]);
