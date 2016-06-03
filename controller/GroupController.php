@@ -56,12 +56,14 @@ class GroupController
       'isLeader' => $head['isLeader'],
       'ListeSports' => $head['ListeSports'],
       'ListeClub' => $head['ListeClub'],
-      'photos' => $head['photos']
+      'photos' => $head['photos'],
+      'isInGroup' => $head['isInGroup'],
     ]);
   }
 
   public function membres($id)
   {
+
     // Header
     $head = $this->header($id);
 
@@ -77,12 +79,14 @@ class GroupController
       'isLeader' => $head['isLeader'],
       'ListeSports' => $head['ListeSports'],
       'ListeClub' => $head['ListeClub'],
-      'photos' => $head['photos']
+      'photos' => $head['photos'],
+      'isInGroup' => $head['isInGroup'],
     ]);
   }
 
   public function planning($id)
   {
+
     // Header
     $head = $this->header($id);
 
@@ -99,7 +103,8 @@ class GroupController
       'isLeader' => $head['isLeader'],
       'ListeSports' => $head['ListeSports'],
       'ListeClub' => $head['ListeClub'],
-      'photos' => $head['photos']
+      'photos' => $head['photos'],
+      'isInGroup' => $head['isInGroup'],
     ]);
   }
 
@@ -112,11 +117,13 @@ class GroupController
     $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
     $vue->render([
+
       'presentation_groupe' => $head['presentation_groupe'],
       'isLeader' => $head['isLeader'],
       'ListeSports' => $head['ListeSports'],
       'ListeClub' => $head['ListeClub'],
-      'photos' => $head['photos']
+      'photos' => $head['photos'],
+      'isInGroup' => $head['isInGroup'],
     ]);
   }
 
@@ -148,6 +155,7 @@ class GroupController
       'ListeSports' => $head['ListeSports'],
       'ListeClub' => $head['ListeClub'],
       'photos' => $head['photos'],
+      'isInGroup' => $head['isInGroup'],
     ]);
   }
 
@@ -210,7 +218,8 @@ class GroupController
       'ListeSports' => $this->sport->getSportsSortedByType(),
       'ListeClub' => $this->group->listClub(),
       'isLeader' => $this->group->isleader($id),
-      'presentation_groupe' => $this->group->getGroupeById($id)->fetch()
+      'presentation_groupe' => $this->group->getGroupeById($id)->fetch(),
+      'isInGroup' =>  $this->group->isInGroup($id),
     ];
   }
 

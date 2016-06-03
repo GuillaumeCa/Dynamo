@@ -8,6 +8,22 @@ require_once 'app/Database.php';
 class Group extends Database
 {
 
+  public function autoInvitation()
+  {
+    $sql = "UPDATE utilisateur_groupe SET autoinvite = 1 WHERE id_groupe = ? AND id_utilisateur = ?";
+    $this->executerRequete($sql);
+    $mail = new Mail($insc['email'], "Inscription groupe", "autoinvit.php");
+    $mail->render($insc);
+    $mail->send();
+  }
+
+  public function isInGroup($id)
+  {
+    $sql="SELECT id_utilisateur FROM utilisateur_groupe WHERE id_utilisateur = ? AND id_groupe = ?";
+    $utilisateur =$this->executerRequete($sql, [$_SESSION['auth']->id, $id]);
+    return $utilisateur->rowCount();
+  }
+
   public function listGroupFromUser()
   {
     $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type, groupe.nbmaxutil
@@ -15,15 +31,18 @@ class Group extends Database
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
     LEFT JOIN club ON groupe.id_club=club.id
-    WHERE id_utilisateur = ?";
+    WHERE id_utilisateur = ? AND autoinvite = 0" ;
     $listGroup = $this->executerRequete($sql, [intval($_SESSION['auth']->id)]);
-    foreach ($listGroup->fetchAll() as $key => $value) {
-      $liste[] = [
-        'data' => $value,
-        'nb' => $this->nbUserFromGroup($value->id)
-      ];
+    if ($listGroup->rowCount() > 0) {
+      foreach ($listGroup->fetchAll() as $key => $value) {
+        $liste[] = [
+          'data' => $value,
+          'nb' => $this->nbUserFromGroup($value->id)
+        ];
+      }
+      return $liste;
     }
-    return $liste;
+    return false;
   }
 
   public function listGroupFromSport($id_sport)

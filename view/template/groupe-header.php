@@ -13,6 +13,9 @@
     <?php if ($isLeader): ?>
       <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier">modifier</a>
     <?php endif; ?>
+    <?php if ($isInGroup==0): ?>
+      <a href="#" class="button btn-sm btn-right btn-wh-inv" id="">S'inscrire</a>
+    <?php endif; ?>
     <form class="modifierinfo" action="" method="post">
       <h1 class="ttl-md">
         <span class="header_groupe"><?php echo $presentation_groupe->nomGroupe ?></span>
