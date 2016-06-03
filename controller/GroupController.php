@@ -67,6 +67,11 @@ class GroupController
     // Header
     $head = $this->header($id);
 
+    // Invit
+    if (isset($_POST['invit'])) {
+      $this->group->invitUserInGroup($id, $_POST['email']);
+    }
+
     $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
 
     $vue = new Vue("GroupeMembre","Groupe");
