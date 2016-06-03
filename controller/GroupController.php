@@ -78,7 +78,7 @@ class GroupController
       'isLeader' => $head['isLeader'],
       'ListeSports' => $head['ListeSports'],
       'ListeClub' => $head['ListeClub'],
-      'photos' => $head['photos']
+      'photos' => $head['photos'],
       'isInGroup' => $head['isInGroup'],
     ]);
   }
@@ -102,7 +102,7 @@ class GroupController
       'isLeader' => $head['isLeader'],
       'ListeSports' => $head['ListeSports'],
       'ListeClub' => $head['ListeClub'],
-      'photos' => $head['photos']
+      'photos' => $head['photos'],
       'isInGroup' => $head['isInGroup'],
     ]);
   }
