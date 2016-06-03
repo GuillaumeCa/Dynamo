@@ -37,7 +37,7 @@
         <tr>
           <th>Sexe</th>
           <td><span><?php echo $infos->sexe ?></span>
-            <select class="modif-form" name ="sexe">
+            <select class="dropdown modif-form " name ="sexe">
               <option value="F">Femme </option>
               <option value="H">Homme</option>
             </select>
@@ -45,8 +45,28 @@
         </tr>
         <tr>
           <th>Date de naissance</th>
-          <td><span><?php echo Vue::date('d - m - Y',$infos->naissance) ?></span>
-            <input class="modif-form" type="date" name="name" value="<?php echo $infos->naissance ?>">
+          <td><span><?php echo Vue::date('d/m/Y',$infos->naissance) ?></span>
+            <input class="modif-form" type="date" name="name" value="<?php echo Vue::date('d/m/Y',$infos->naissance) ?>">
+            <select class="modif-form dropdown" name="jour">
+              <option value="option" disabled selected>jour</option>
+              <?php for ($i = 0; $i < 31; $i++): ?>
+                <option value="<?php echo $i+1 ?>"><?php echo $i+1; ?></option>
+              <?php endfor; ?>
+            </select>
+            <select class="modif-form dropdown" name="mois">
+              <option value="option" disabled selected>mois</option>
+              <?php $mois=["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"] ?>
+              <?php for ($i = 0; $i < 12; $i++): ?>
+                <option value="<?php echo $i+1 ?>"><?php echo $mois[$i]; ?></option>
+              <?php endfor; ?>
+            </select>
+            <select class="modif-form dropdown" name="année">
+              <option value="option" disabled selected>année</option>
+              <?php $date = intval(date('Y')); ?>
+              <?php for ($i = 14; $i < 99; $i++): ?>
+                <option value="<?php echo $date-$i ?>"><?php echo $date-$i; ?></option>
+              <?php endfor; ?>
+            </select>
           </td>
         </tr>
         <tr>

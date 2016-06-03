@@ -302,7 +302,11 @@ class Group extends Database
   }
 
   public function deletePhoto($id){
-    unlink();
     return $this->executerRequete("DELETE FROM photo WHERE id_groupe = ?", [$id]);
+  }
+
+  public function quitGroup($id_user, $id_grp)
+  {
+    $this->executerRequete('DELETE FROM utilisateur_groupe WHERE id_utilisateur = ? AND id_groupe = ?', [$id_user, $id_grp]);
   }
 }

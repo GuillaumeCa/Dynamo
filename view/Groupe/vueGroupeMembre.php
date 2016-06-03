@@ -22,7 +22,9 @@
       </nav>
     </div>
     <div class="membres">
-      <a href="#" class="button light">Inviter utilisateur</a>
+      <?php if ($isLeader): ?>
+        <a href="#" class="button light" onclick="togglemodal('invit')">Inviter utilisateur</a>
+      <?php endif; ?>
     <?php foreach ($membreGroupe as $membre): ?>
       <a href="#">
         <div class="membres-item">

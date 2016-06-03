@@ -42,7 +42,8 @@
         </div>
       </div>
     </section>
-    <div class="modal" id="del_acc">
+    <div class="modal" id="del_acc" >
+      <div class="back"  onclick="togglemodal('del_acc')"></div>
       <div class="window">
         <h1>Voulez vous supprimer votre compte ?</h1>
         <form action="" method="post">
