@@ -45,7 +45,7 @@
           <form class="groupe_crea" action="" method="post">
             <h2 class="form-label pink-text">Email utilisateur</h2>
             <input class="clear-form" type="email" name="email" placeholder="Email">
-            <button type="submit" name="del-grp" class="button purple">Inviter</button>
+            <button type="submit" name="invit" class="button purple">Inviter</button>
           </form>
         </div>
       </div>

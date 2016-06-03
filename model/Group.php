@@ -183,11 +183,7 @@ class Group extends Database
     ]);
     foreach ($crea['membre'] as $membre) {
       if ($membre != '') {
-        $id_membre = $this->executerRequete("SELECT id FROM utilisateur WHERE email = ?", [$membre])->fetch()->id;
-        $this->executerRequete("INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, leader, invite, invite_date) VALUES (?, ?, 0, 1, ?)", [ $id, $id_membre, date('Y-m-d H:i:s')]);
-        $mail = new Mail($membre, "Vous avez été invité dans un groupe !", "invit.php");
-        $mail->render();
-        $mail->send();
+        $this->invitUserInGroup($id, $membre);
       }
     }
     return $id;
@@ -328,16 +324,16 @@ class Group extends Database
     $this->executerRequete('DELETE FROM utilisateur_groupe WHERE id_utilisateur = ? AND id_groupe = ?', [$id_user, $id_grp]);
   }
 
-  public function invitUserInGroup($id_grp)
+  public function invitUserInGroup($id_grp, $email)
   {
     // récup id de l'utilisateur invité
-    $id_membre = $this->executerRequete("SELECT id FROM utilisateur WHERE email = ?", [$membre])->fetch()->id;
+    $id_membre = $this->executerRequete("SELECT id FROM utilisateur WHERE email = ?", [$email])->fetch()->id;
 
     // Inviter utilisateur dans la bdd
     $this->executerRequete("INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, leader, invite, invite_date) VALUES (?, ?, 0, 1, ?)", [ $id_grp, $id_membre, date('Y-m-d H:i:s')]);
 
     // Envoyer un mail
-    $mail = new Mail($membre, "Vous avez été invité dans un groupe !", "invit.php");
+    $mail = new Mail($email, "Vous avez été invité dans un groupe !", "invit.php");
     $mail->render();
     $mail->send();
   }
