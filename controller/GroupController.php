@@ -70,6 +70,7 @@ class GroupController
     $vue = new Vue("GroupeMembre","Groupe");
     $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
+    $vue->setScript('form.js');
     $vue->render([
       'membreGroupe' => $membreGroupe,
       'presentation_groupe' => $head['presentation_groupe'],

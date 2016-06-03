@@ -44,7 +44,7 @@
     <div class="modal" id="quit_grp">
       <div class="back"  onclick="togglemodal('quit_grp')"></div>
       <div class="window">
-        <h1>Voulez vous quitter le groupe ?</h1>
+        <h1 class="ttl ttl-sm ttl-green">Voulez vous quitter le groupe ?</h1>
         <form action="" method="post">
           <button type="submit" name="quit-grp" class="button light button-danger">Quitter</button>
         </form>
@@ -54,7 +54,7 @@
       <div class="modal" id="del_grp">
         <div class="back"  onclick="togglemodal('quit_grp')"></div>
         <div class="window">
-          <h1>Voulez vous supprimer le groupe ?</h1>
+          <h1 class="ttl ttl-sm ttl-green">Voulez vous supprimer le groupe ?</h1>
           <form action="" method="post">
             <button type="submit" name="del-grp" class="button light button-danger">Supprimer</button>
           </form>
