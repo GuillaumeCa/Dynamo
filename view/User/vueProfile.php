@@ -4,7 +4,6 @@
         <ul>
           <li><a href="<?php page('profile') ?>" class="active">informations</a></li>
           <li><a href="<?php page('profile-planning') ?>">planning</a></li>
-          <li><a href="<?php  ?>">historique</a></li>
           <li class="right">
             <a href="<?php page('profile-reglage') ?>" class="settings">
               <svg>
@@ -24,15 +23,15 @@
       <table class="info-table">
         <tr>
           <th>Nom</th>
-          <td><span><?php echo $infos->nom ?></span> <input class="modif-form" type="text" name="name" value="<?php echo $infos->nom ?>"></td>
+          <td><span><?php echo $infos->nom ?></span> <input class="modif-form" type="text" name="nom" value="<?php echo $infos->nom ?>"></td>
         </tr>
         <tr>
           <th>Prénom</th>
-          <td><span><?php echo $infos->prénom ?></span> <input class="modif-form" type="text" name="name" value="<?php echo $infos->prénom ?>"></td>
+          <td><span><?php echo $infos->prénom ?></span> <input class="modif-form" type="text" name="prenom" value="<?php echo $infos->prénom ?>"></td>
         </tr>
         <tr>
           <th>Pseudo</th>
-          <td><span><?php echo $infos->pseudo ?></span> <input class="modif-form" type="text" name="name" value="<?php echo $infos->pseudo ?>"></td>
+          <td><span><?php echo $infos->pseudo ?></span> <input class="modif-form" type="text" name="pseudo" value="<?php echo $infos->pseudo ?>"></td>
         </tr>
         <tr>
           <th>Sexe</th>
@@ -46,7 +45,7 @@
         <tr>
           <th>Date de naissance</th>
           <td><span><?php echo Vue::date('d/m/Y',$infos->naissance) ?></span>
-            <input class="modif-form" type="date" name="name" value="<?php echo Vue::date('d/m/Y',$infos->naissance) ?>">
+            <input class="modif-form" type="date" name="naissance" value="<?php echo Vue::date('d/m/Y',$infos->naissance) ?>">
             <select class="modif-form dropdown" name="jour">
               <option value="option" disabled selected>jour</option>
               <?php for ($i = 0; $i < 31; $i++): ?>
@@ -73,13 +72,13 @@
           <th>Adresse</th>
           <td>
             <span><?php echo $infos->ville_nom_reel ?><br><?php echo $infos->code_postal ?></span>
-            <input class="modif-form" type="text" name="name" value="<?php echo $infos->ville_nom_reel ?>">
-            <input class="modif-form" type="number" name="name" value="<?php echo $infos->code_postal ?>">
+            <input class="modif-form" type="text" name="ville" value="<?php echo $infos->ville_nom_reel ?>">
+            <input class="modif-form" type="number" name="code_postal" value="<?php echo $infos->code_postal ?>">
           </td>
         </tr>
         <tr>
           <th>Email</th>
-          <td><span><?php echo $infos->email ?></span><input class="modif-form" type="email" name="name" value="<?php echo $infos->email ?>"></td>
+          <td><span><?php echo $infos->email ?></span><input class="modif-form" type="email" name="mail" value="<?php echo $infos->email ?>"></td>
         </tr>
       </table>
     </form>
@@ -181,7 +180,7 @@
           </a>
           </div>
           <!-- <?php foreach ($variable as $key => $value) {
-          
+
           } ?> -->
           <div class="liste-niveau">
             <span class="liste-desc">faible</span>
@@ -201,8 +200,16 @@
   <div class="modal" id="add_sport" >
     <div class="back"  onclick="togglemodal('add_sport')"></div>
     <div class="window">
-      <h1 class="ttl ttl-sm ttl-green">Voulez vous supprimer votre compte ?</h1>
+      <h1 class="ttl ttl-sm ttl-green">quel sport souhaitez-vous ajouter?</h1>
       <form action="" method="post">
+        <label>Type de permis: </label>
+        <select name="sports">
+          <option value="">---</option>
+          <option value="">Football</option>
+          <option value="">Bascketball</option>
+          <option value="">Marathon</option>
+
+        </select>
         <button type="submit" name="add-sport" class="button light ">Ajouter</button>
       </form>
     </div>
