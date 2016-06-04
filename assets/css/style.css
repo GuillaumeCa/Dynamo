@@ -86,6 +86,11 @@ header .logo {
   margin: 0 10px;
 }
 
+header .logo:hover {
+  transition: all .3s ease;
+  animation: wiggle .5s;
+}
+
 .logo img {
   width: 100%;
 }
@@ -392,7 +397,7 @@ footer p {
 }
 
 .sec-over-dark {
-  background:  rgba(44, 33, 71, 0.5);
+  background:  rgba(44, 33, 71, 0.8);
 }
 
 /*----------------------*
@@ -740,7 +745,7 @@ footer p {
   position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.4;
+  opacity: 0.2;
 }
 
 .liste-svg {
@@ -1299,6 +1304,18 @@ a.forget:hover {
   }
 }
 
+@keyframes wiggle {
+  33% {
+    transform: rotate(30deg);
+  }
+  66% {
+    transform: rotate(-30deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
 /*----------------------*
   7. MEDIA QUERY
 *----------------------*/
@@ -1623,96 +1640,6 @@ a.forget:hover {
   border:1px solid #9972FA;
 }
 
-.coleurRect1{
-  display: inline-block;
-}
-
-.coleurRect1:hover{
-  display: inline-block;
-  background-color: #9972FA;
-}
-
-.coleurRect2{
-  display: inline-block;
-}
-
-.coleurRect2:hover{
-  display: inline-block;
-  background-color: #9972FA;
-}
-
-.coleurRect3{
-  display: inline-block;
-}
-
-.coleurRect3:hover{
-  display: inline-block;
-  background-color: #9972FA;
-}
-
-.coleurRect4{
-  display: inline-block;
-}
-
-.coleurRect4:hover{
-  display: inline-block;
-  background-color: #9972FA;
-}
-
-.coleurRect5{
-  display: inline-block;
-}
-
-.coleurRect5:hover{
-  display: inline-block;
-  background-color: #9972FA;
-}
-
-.coleurRect6{
-  display: inline-block;
-}
-
-.coleurRect6:hover{
-  display: inline-block;
-  background-color: #9972FA;
-}
-
-.coleurRect7{
-  display: inline-block;
-}
-
-.coleurRect7:hover{
-  display: inline-block;
-  background-color: #9972FA;
-}
-
-.coleurRect8{
-  display: inline-block;
-}
-
-.coleurRect8:hover{
-  display: inline-block;
-  background-color: #9972FA;
-}
-
-.coleurRect9{
-  display: inline-block;
-}
-
-.coleurRect9:hover{
-  display: inline-block;
-  background-color: #9972FA;
-}
-
-.coleurRect10{
-  display: inline-block;
-}
-
-.coleurRect10:hover{
-  display: inline-block;
-  background-color: #9972FA;
-}
-
 .middle-text h1{
   margin-right: 100px;
 }
@@ -1814,7 +1741,10 @@ margin-bottom: auto;
 .hud-padding th {
   padding-right: 10px;
   text-align: right;
-  font-weight: lighter;
+  font-weight: 400;
+}
+.hud-padding tr {
+  font-weight: 600;
 }
 
 .gallerie .group {
@@ -2143,6 +2073,10 @@ section .text-left {
   display: inline-block;
 }
 
+/*
+  Modal
+ */
+
 .modal {
   position: fixed;
   top: 0;
@@ -2169,10 +2103,18 @@ section .text-left {
   opacity: 1;
 }
 
+.modal .window form.groupe_crea {
+  max-width: 100%;
+  padding: 20px;
+}
+
 .modal .window {
-  width: 500px;
+  width: 550px;
   position: relative;
-  margin: 20% auto;
+  margin: 0 auto;
+  margin-top: 50px;
+  max-height: 100%;
+  overflow: auto;
   padding: 20px;
   background: #fff;
   text-align: center;
@@ -2197,4 +2139,50 @@ section .text-left {
   min-width: auto;
   float: left;
   padding-right: 30px;
+}
+
+/*
+  Creation event
+ */
+
+.date .jour {
+  display: inline-block;
+  margin-right: 10px;
+}
+.date .heure {
+  display: inline-block;
+}
+
+/*
+  Edit header group
+ */
+
+.edit-content, .edit-form {
+  display: none;
+}
+
+.editing {
+  display: block;
+}
+
+.edit-grptitle, .edit-grpdesc {
+  display: block;
+  font-size: 1em;
+  margin-bottom: 10px;
+  padding: 5px 13px;
+  border: 1px white solid;
+  border-radius: 5px;
+}
+
+.edit-grptitle {
+  font-size: 4em;
+}
+
+.edit-select {
+  font-size: 1.2em;
+  border: 1px solid white;
+  padding: 5px 13px;
+  background: transparent;
+  color: white;
+  outline: none;
 }

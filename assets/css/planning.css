@@ -159,7 +159,7 @@ span.event.hidden {
   background: lightgrey;
 }
 
-td .modal {
+td .modal-cal {
   position: absolute;
   width: 270px;
   background: white;
@@ -174,31 +174,31 @@ td .modal {
   border-radius: 3px;
 }
 
-.modal .head {
+.modal-cal .head {
   padding: 10px;
   border-radius: 3px 3px 0 0;
 }
 
-.modal h2 {
+.modal-cal .title {
   font-size: 2em;
   color: white;
   font-weight: 200;
 }
 
-.modal .subtitle {
+.modal-cal .subtitle {
   font-size: .8em;
   color: white;
   font-weight: bold;
 }
 
-.modal p {
+.modal-cal p {
   padding: 0 10px;
   color: grey;
   margin-bottom: 20px;
   margin-top: 10px;
 }
 
-td div.modal.show {
+td div.modal-cal.show {
   display: block;
 }
 
@@ -207,14 +207,14 @@ button {
   border: none;
 }
 
-.modal button {
+.modal-cal button {
   margin: .5em;
   color: white;
   float: right;
   font-size: 1em;
   cursor: pointer;
 }
-.modal button:hover {
+.modal-cal button:hover {
   color: white;
 }
 

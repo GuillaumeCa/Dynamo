@@ -88,23 +88,23 @@
 
       <?php foreach ($groupe as $value): ?>
 
-        <a href="<?php page('groupe', ['id' => $value['data']->id]) ?>" filter-sporttype="<?php echo $value['data']->sport_type ?>" filter-dept="<?php echo $value['data']->dept ?>">
+        <a href="<?php page('groupe', ['id' => $value->id]) ?>" filter-sporttype="<?php echo $value->sport_type ?>" filter-dept="<?php echo $value->dept ?>">
           <li>
             <div class="liste-licon">
               <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
               </div>
               <div class="liste-svg">
                   <svg>
-                    <use xlink:href="#typeSport<?php echo $value['data']->sport_type ?>"></use>
+                    <use xlink:href="#typeSport<?php echo $value->sport_type ?>"></use>
                   </svg>
               </div>
             </div>
             <div class="liste-mid-txt">
-              <h1 class="liste-ttl"><?php echo $value['data']->titre ?></h1>
-              <span class="liste-ttl-sub"><b>Sport</b> <?php echo $value['data']->sport ?></span>
-              <span class="liste-ttl-sub"><b>Club</b> <?php echo $value['data']->club ?></span>
+              <h1 class="liste-ttl"><?php echo $value->titre ?></h1>
+              <span class="liste-ttl-sub"><b>Sport</b> <?php echo $value->sport ?></span>
+              <span class="liste-ttl-sub"><b>Club</b> <?php echo $value->club ?></span>
             </div>
-            <span class="liste-note"><span><?php echo $value['nb'] ?></span>/<?php echo $value['data']->nbmaxutil ?></span>
+            <span class="liste-note"><span><?php echo $value->nb_user ?></span>/<?php echo $value->nbmaxutil ?></span>
           </li>
         </a>
 
@@ -150,23 +150,23 @@
     <ul class="liste-lg search-result">
       <?php foreach ($groupe as $value): ?>
 
-        <a href="<?php page('groupe', ['id' => $value['data']->id]) ?>" filter-sporttype="<?php echo $value['data']->sport_type ?>" filter-dept="<?php echo $value['data']->dept ?>">
+        <a href="<?php page('groupe', ['id' => $value->id]) ?>" filter-sporttype="<?php echo $value->sport_type ?>" filter-dept="<?php echo $value->dept ?>">
           <li>
             <div class="liste-licon">
               <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
               </div>
               <div class="liste-svg">
                   <svg>
-                    <use xlink:href="#typeSport<?php echo $value['data']->sport_type ?>"></use>
+                    <use xlink:href="#typeSport<?php echo $value->sport_type ?>"></use>
                   </svg>
               </div>
             </div>
             <div class="liste-mid-txt">
-              <h1 class="liste-ttl"><?php echo $value['data']->titre ?></h1>
-              <span class="liste-ttl-sub"><b>Sport</b> <?php echo $value['data']->sport ?></span>
-              <span class="liste-ttl-sub"><b>Club</b> <?php echo $value['data']->club ?></span>
+              <h1 class="liste-ttl"><?php echo $value->titre ?></h1>
+              <span class="liste-ttl-sub"><b>Sport</b> <?php echo $value->sport ?></span>
+              <span class="liste-ttl-sub"><b>Club</b> <?php echo $value->club ?></span>
             </div>
-            <span class="liste-note"><span><?php echo $value['nb'] ?></span>/<?php echo $value['data']->nbmaxutil ?></span>
+            <span class="liste-note"><span><?php echo $value->nb_user ?></span>/<?php echo $value->nbmaxutil ?></span>
           </li>
         </a>
 

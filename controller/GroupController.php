@@ -48,7 +48,6 @@ class GroupController
     $head = $this->header($id);
 
     $vue = new Vue("Groupe","Groupe");
-    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
     $vue->setScript('form.js');
     $vue->render([
@@ -75,7 +74,7 @@ class GroupController
     $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
 
     $vue = new Vue("GroupeMembre","Groupe");
-    $vue->setScript('formulaire-headergroupe.js');
+    $vue->setScript('form.js');
     $vue->setScript('diapo.js');
     $vue->setScript('form.js');
     $vue->render([
@@ -95,12 +94,17 @@ class GroupController
     // Header
     $head = $this->header($id);
 
-    $events = $this->group->getEventsFromGroupe();
+    // Ajout evenement
+    if (isset($_POST['event'])) {
+      $this->group->addEvent($id);
+    }
+
+    $events = $this->group->getEventsFromGroupe($id);
 
     $vue = new Vue("GroupePlanning","Groupe");
-    $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('cal.js');
     $vue->setScript('diapo.js');
+    $vue->setScript('form.js');
     $vue->setCss('planning.css');
     $vue->render([
       'events' => $events,
@@ -119,7 +123,7 @@ class GroupController
     $head = $this->header($id);
 
     $vue = new Vue("GroupeDiscussion","Groupe");
-    $vue->setScript('formulaire-headergroupe.js');
+    $vue->setScript('form.js');
     $vue->setScript('diapo.js');
     $vue->render([
 

@@ -19,7 +19,7 @@
                 <a href="<?php page('groupe', ['id' => $groupe['data']->id]) ?>">
                   <li>
                     <div class="liste-licon">
-                      <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
+                      <div class="liste-bg-img" style="background-image: url(<?php echo !is_null($groupe['data']->url) ? '/'.$groupe['data']->url : '/assets/images/yoga.png' ?>);">
                       </div>
                       <div class="liste-svg">
                           <svg>

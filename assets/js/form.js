@@ -20,5 +20,23 @@ function modifniveau (e) {
 
 function togglemodal(e) {
   event.preventDefault();
+  if (document.body.style.overflow != 'hidden') {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
+  }
+
   document.querySelector('#'+e).classList.toggle('visible');
+}
+
+function editInfo(info, form) {
+  var info = document.querySelector(info),
+      form = document.querySelector(form);
+    info.classList.toggle('editing');
+    form.classList.toggle('editing');
+    if (info.classList.contains('editing')) {
+      form.children[0].submit();
+    } else {
+      this.innerHTML = 'Valider';
+    }
 }

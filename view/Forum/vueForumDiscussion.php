@@ -30,7 +30,7 @@
         <div class="line"></div>
         </br>
         </ul>
-        <form action="" method="post">
+        <form action="#disc" method="post" id="disc">
           <div class="boutton-discussion2">
             <div class="parti-discussion">
               <div class="miniature" style="background-image:url(/<?php echo $photo->nom ?>)"></div>

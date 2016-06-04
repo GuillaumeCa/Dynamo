@@ -26,12 +26,13 @@ class Group extends Database
 
   public function listGroupFromUser()
   {
-    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type, groupe.nbmaxutil
+    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type, groupe.nbmaxutil, photo.nom as url
     FROM utilisateur_groupe
+    LEFT JOIN photo ON photo.id_groupe = utilisateur_groupe.id_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
     LEFT JOIN club ON groupe.id_club=club.id
-    WHERE id_utilisateur = ? AND autoinvite = 0" ;
+    WHERE utilisateur_groupe.id_utilisateur = ? AND autoinvite = 0" ;
     $listGroup = $this->executerRequete($sql, [intval($_SESSION['auth']->id)]);
     if ($listGroup->rowCount() > 0) {
       foreach ($listGroup->fetchAll() as $key => $value) {
@@ -47,8 +48,9 @@ class Group extends Database
 
   public function listGroupFromSport($id_sport)
   {
-    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, sport.id_type, groupe.nbmaxutil
+    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, sport.id_type, groupe.nbmaxutil, photo.nom as url
     FROM utilisateur_groupe
+    LEFT JOIN photo ON photo.id_groupe = utilisateur_groupe.id_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
     LEFT JOIN club ON groupe.id_club=club.id
@@ -86,30 +88,16 @@ class Group extends Database
                   club.nom as club,
                   groupe.nbmaxutil,
                   sport_type.id as sport_type,
-                  groupe.dept
+                  groupe.dept,
+                  COUNT(utilisateur_groupe.id_utilisateur) as nb_user
             FROM groupe
             LEFT JOIN club ON club.id = groupe.id_club
+            LEFT JOIN utilisateur_groupe ON utilisateur_groupe.id_groupe = groupe.id
             JOIN sport ON sport.id = groupe.id_sport
             JOIN sport_type ON sport_type.id = sport.id_type
-            WHERE titre LIKE ? AND visibilité=1";
+            WHERE titre LIKE ? AND visibilité = 1 GROUP BY groupe.id";
     $groupe = $this->executerRequete($sql, ["%".$name."%"])->fetchAll();
-
-    // Récupère le nombre d'utilisateur par groupe recherché
-    $nbusers = $this->executerRequete(
-              "SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM utilisateur_groupe
-              JOIN groupe ON utilisateur_groupe.id_groupe = groupe.id
-              JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_utilisateur
-              WHERE titre LIKE ? AND visibilité=1 GROUP BY groupe.titre", ["%".$name."%"])->fetchAll();
-
-    $newgroupe = [];
-    foreach ($groupe as $value) {
-      $newgroupe[$value->titre]['data'] = $value;
-      $newgroupe[$value->titre]['nb'] = 0;
-    }
-    foreach ($nbusers as $value) {
-      $newgroupe[$value->groupe]['nb'] = $value->nb_user;
-    }
-    return $newgroupe;
+    return $groupe;
   }
 
   public function nbUserFromGroup($id)
@@ -195,10 +183,10 @@ class Group extends Database
     return $nb->fetch()->nb;
   }
 
-  public function getEventsFromGroupe()
+  public function getEventsFromGroupe($id)
   {
-    $sql = "SELECT groupe.titre, planning.date, planning.activité, planning.description AS description, dstart, dend FROM planning JOIN groupe ON groupe.id = planning.id_groupe WHERE groupe.id = 3";
-    $res = $this->executerRequete($sql)->fetchAll();
+    $sql = "SELECT groupe.titre, planning.date, planning.activité, planning.description AS description, dstart, dend FROM planning JOIN groupe ON groupe.id = planning.id_groupe WHERE groupe.id = ?";
+    $res = $this->executerRequete($sql, [$id])->fetchAll();
     $events = [];
     foreach ($res as $r) {
       $events[$r->titre][] = [$r->date, $r->activité, $r->description, $r->dstart, $r->dend];
@@ -208,14 +196,22 @@ class Group extends Database
 
   public function getNextEventsForUser()
   {
-    $today = "SELECT groupe.titre, planning.activité, planning.dstart, planning.dend
+    $today = "SELECT groupe.id,
+                      groupe.titre,
+                      planning.activité,
+                      planning.dstart,
+                      planning.dend
               FROM groupe
               JOIN planning
               ON groupe.id = planning.id_groupe
               JOIN utilisateur_groupe
               ON groupe.id = utilisateur_groupe.id_groupe
               WHERE utilisateur_groupe.id_utilisateur = ? AND planning.date = CURDATE()";
-    $tmw = "SELECT groupe.titre, planning.activité, planning.dstart, planning.dend
+    $tmw = "SELECT groupe.id,
+                  groupe.titre,
+                  planning.activité,
+                  planning.dstart,
+                  planning.dend
             FROM groupe
             JOIN planning
             ON groupe.id = planning.id_groupe
@@ -225,19 +221,22 @@ class Group extends Database
     $res = $this->executerRequete($today, [$_SESSION['auth']->id])->fetchAll();
     $todayEvents = [];
     foreach ($res as $row) {
-      $todayEvents[$row->titre][] = [$row->activité, $row->dstart, $row->dend];
+      $todayEvents[$row->id]['name'] = $row->titre;
+      $todayEvents[$row->id]['cal'][] = [$row->activité, $row->dstart, $row->dend];
     }
     $res = $this->executerRequete($tmw, [$_SESSION['auth']->id])->fetchAll();
     $tmwEvents = [];
     foreach ($res as $row) {
-      $tmwEvents[$row->titre][] = [$row->activité, $row->dstart, $row->dend];
+      $tmwEvents[$row->id]['name'] = $row->titre;
+      $tmwEvents[$row->titre]['cal'][] = [$row->activité, $row->dstart, $row->dend, $row->id];
     }
     return [$todayEvents, $tmwEvents];
   }
 
   public function selectionGroup($id_user)
   {
-    $q = "SELECT * FROM groupe
+    $q = "SELECT groupe.*, photo.nom as url FROM groupe
+          LEFT JOIN photo ON photo.id_groupe = groupe.id
           LEFT JOIN utilisateur_sport AS us ON us.id_sport = groupe.id_sport
           JOIN utilisateur AS user ON user.id = us.id_utilisateur
           WHERE us.niveau_util = groupe.niveau AND user.id = ?";
@@ -259,7 +258,7 @@ class Group extends Database
 
   public function nearGroup()
   {
-    $q = "SELECT * FROM groupe WHERE dept = ? LIMIT 4";
+    $q = "SELECT groupe.*, photo.nom as url FROM groupe LEFT JOIN photo ON photo.id_groupe = groupe.id WHERE dept = ? LIMIT 4";
     $res = $this->executerRequete($q, [substr($_SESSION['auth']->code_postal, 0, 2)]);
     return $res;
   }
@@ -336,6 +335,23 @@ class Group extends Database
     $mail = new Mail($email, "Vous avez été invité dans un groupe !", "invit.php");
     $mail->render();
     $mail->send();
+  }
+
+  public function addEvent($id)
+  {
+    $dstart = "{$_POST['dannée']}-{$_POST['dmois']}-{$_POST['djour']} {$_POST['dheure']}:{$_POST['dmin']}:00";
+    $dend = "{$_POST['fannée']}-{$_POST['fmois']}-{$_POST['fjour']} {$_POST['fheure']}:{$_POST['fmin']}:00";
+
+    $q = "INSERT INTO planning (id_groupe, activité, description, date, dstart, dend)
+          VALUES (?,?,?,?,?,?)";
+    $this->executerRequete($q, [
+      $id,
+      $_POST['titre'],
+      $_POST['desc'],
+      Vue::date('Y-m-d', $dstart),
+      $dstart,
+      $dend,
+    ]);
   }
 
 }
