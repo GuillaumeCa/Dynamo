@@ -2,10 +2,10 @@
     <div class="nav-bbar">
       <nav class="tab-menu">
         <ul>
-          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>">informations</a></li>
-          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>">membres</a></li>
+          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('informations'); ?></a></li>
+          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('membres'); ?></a></li>
           <li><a href="<?php page('planning-groupe', ['id' => $presentation_groupe->id]) ?>">planning</a></li>
-          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>" class="active">discussions</a></li>
+          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>" class="active"><?php lang('discussions'); ?></a></li>
           <li class="right">
             <a href="<?php page('reglage-groupe', ['id' => $presentation_groupe->id]) ?>" class="settings">
               <svg>
@@ -23,7 +23,7 @@
     </div>
     <div class="discussion">
       <div class="creer-discussion">
-        <a href="#" class="button light">Créer une discussion</a>
+        <a href="#" class="button light"><?php lang('Créer une discussion'); ?></a>
       </div>
         <ul>
           <li>
@@ -31,10 +31,10 @@
               <div class="boutton-discussion">
                 <div class="parti-boutton">
                   <h1>Discussion #1</h1>
-                  <p>Créée le 08/03/2016 par Alizée Faytre</p>
+                  <p><?php lang('Créée le '); ?>08/03/16 <?php lang('par '); ?>Alizée Faytre</p>
                 </div>
                 <div class="parti-boutton-2">
-                  <h2>77 messages</h2>
+                  <h2>77 <?php lang('messages'); ?></h2>
                 </div>
               </div>
             </a>
@@ -44,10 +44,10 @@
               <div class="boutton-discussion">
                 <div class="parti-boutton">
                   <h1>Discussion #1</h1>
-                  <p>Créée le 08/03/2016 par Alizée Faytre</p>
+                  <p><?php lang('Créée le '); ?>08/03/16 <?php lang('par '); ?>Alizée Faytre</p>
                 </div>
                 <div class="parti-boutton-2">
-                  <h2>77 messages</h2>
+                  <h2>77 <?php lang('messages'); ?></h2>
                 </div>
               </div>
             </a>

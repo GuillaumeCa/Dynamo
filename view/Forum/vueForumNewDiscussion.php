@@ -1,6 +1,6 @@
     <section class="sec sec-bg-violet">
       <div class="column">
-        <h1 class="ttl ttl-md ttl-green">Créer votre discussion</h1>
+        <h1 class="ttl ttl-md ttl-green"><?php lang('Créer votre discussion'); ?></h1>
         <a href="<?php page('topic', ["id" => $topic]) ?>">
           <h2 class="ttl-sm ttl-green"><?php echo $topicName ?></h2>
         </a>
@@ -36,13 +36,13 @@
               </div>
             </div>
           <?php endif; ?>
-          <h2 class="form-label pink-text">Nom de votre discussion</h2>
+          <h2 class="form-label pink-text"><?php lang('Nom de votre discussion'); ?></h2>
           <input class="clear-form" type="text" name="titre_disc" placeholder="">
 
-          <h2 class="form-label pink-text">Votre commentaire</h2>
-          <textarea class="clear-form" name="commentaire" rows="6" cols="40" placeholder="Posez votre question pour commencer cette discussion..."></textarea>
+          <h2 class="form-label pink-text"><?php lang('Votre commentaire'); ?></h2>
+          <textarea class="clear-form" name="commentaire" rows="6" cols="40" placeholder=<?php lang('Posez votre question pour commencer cette discussion...'); ?>></textarea>
 
-          <input type="submit" value="Poster cette question" class="button light">
+          <input type="submit" value=<?php lang('Poster cette question'); ?> class="button light">
           <!-- <div class="post-comment">
             <a href="<?php page('forumDiscussion')?>" class="button light">Poster le commentaire</a>
           </div> -->

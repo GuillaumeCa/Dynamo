@@ -13,29 +13,29 @@
     </div>
     <div class="result">
       <div class="info">
-        Recherchez un groupe, un sport ou un utilisateur
+        <?php lang('Recherchez un groupe, un sport ou un utilisateur'); ?>
       </div>
       <div class="cat">
         <div class="head">
-          <span class="title">GROUPES</span>
-          <a href="groupe.php">VOIR</a>
+          <span class="title"><?php lang('GROUPES'); ?></span>
+          <a href="groupe.php"><?php lang('VOIR'); ?></a>
         </div>
         <ul>
           <li>
             <div class="image" style="background-image: url(/assets/images/sport1.png)"></div>
             <div class="text">
-              <h2>Nom groupe</h2>
+              <h2><?php lang('Nom groupe'); ?></h2>
               <h3><b>Sport</b> basketball</h3>
-              <h3><b>Lieu</b> Paris</h3>
+              <h3><b><?php lang('Lieu'); ?></b> Paris</h3>
             </div>
             <span>2<span class="small">/7</span></span>
           </li>
           <li>
             <div class="image" style="background-image: url(/assets/images/sport1.png)"></div>
             <div class="text">
-              <h2>Nom groupe</h2>
+              <h2><?php lang('Nom groupe'); ?></h2>
               <h3><b>Sport</b> basketball</h3>
-              <h3><b>Lieu</b> Paris</h3>
+              <h3><b><?php lang('Lieu'); ?></b> Paris</h3>
             </div>
             <span>1<span class="small">/7</span></span>
           </li>
@@ -43,16 +43,16 @@
       </div>
       <div class="cat">
         <div class="head">
-          <span class="title">SPORTS</span>
-          <a href="groupe.php">VOIR</a>
+          <span class="title"><?php lang('SPORTS'); ?></span>
+          <a href="groupe.php"><?php lang('VOIR'); ?></a>
         </div>
         <ul>
           <li>
             <div class="image" style="background-image: url(/assets/images/sport1.png)"></div>
             <div class="text">
-              <h2>Nom groupe</h2>
+              <h2><?php lang('Nom groupe'); ?></h2>
               <h3><b>Sport</b> basketball</h3>
-              <h3><b>Lieu</b> Paris</h3>
+              <h3><b><?php lang('Lieu'); ?></b> Paris</h3>
             </div>
             <span>2<span class="small">/7</span></span>
           </li>
@@ -60,16 +60,16 @@
       </div>
       <div class="cat">
         <div class="head">
-          <span class="title">UTILISATEURS</span>
-          <a href="groupe.php">VOIR</a>
+          <span class="title"><?php lang('UTILISATEURS'); ?></span>
+          <a href="groupe.php"><?php lang('VOIR'); ?></a>
         </div>
         <ul>
           <li>
             <div class="image" style="background-image: url(/assets/images/sport1.png)"></div>
             <div class="text">
-              <h2>Nom groupe</h2>
+              <h2><?php lang('Nom groupe'); ?></h2>
               <h3><b>Sport</b> basketball</h3>
-              <h3><b>Lieu</b> Paris</h3>
+              <h3><b><?php lang('Lieu'); ?></b> Paris</h3>
             </div>
             <span>2<span class="small">/7</span></span>
           </li>

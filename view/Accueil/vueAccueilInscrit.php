@@ -21,7 +21,7 @@
             <?php endforeach; ?>
           <?php else: ?>
             <div class="label-box">
-              <span>Aucun évènement aujourd'hui</span>
+              <span><?php lang("Aucun évènement aujourd'hui"); ?></span>
             </div>
           <?php endif; ?>
         </div><div class="column-2">
@@ -44,7 +44,7 @@
             <?php endforeach; ?>
           <?php else: ?>
             <div class="label-box">
-              <span>Aucun évènement demain</span>
+              <span><?php lang("Aucun évènement aujourd'hui"); ?></span>
             </div>
           <?php endif; ?>
         </div>
@@ -86,7 +86,7 @@
     </section>
     <section class="sec sec-bg-dviolet">
       <div class="column">
-        <h1 class="ttl ttl-md">Types de sports</h1>
+        <h1 class="ttl ttl-md"><?php lang('Types de sports'); ?></h1>
         <div class="grid">
           <?php foreach($types_sports as $type): ?>
             <div class="sport">

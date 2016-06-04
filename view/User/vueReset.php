@@ -1,6 +1,6 @@
   <section class="sec sec-bg-violet">
     <div class="column success-section">
-      <h1 class="ttl ttl-md">Réinitialiser le Mot de passe</h1>
+      <h1 class="ttl ttl-md"><?php lang('Réinitialiser le mot de passe'); ?></h1>
       <form action="" method="post">
         <div class="login">
           <?php if (isset($errors)): ?>

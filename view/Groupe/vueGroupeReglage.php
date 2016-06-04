@@ -2,10 +2,10 @@
     <div class="nav-bbar">
       <nav class="tab-menu">
         <ul>
-          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>">informations</a></li>
-          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>">membres</a></li>
+          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('informations'); ?></a></li>
+          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('membres'); ?></a></li>
           <li><a href="<?php page('planning-groupe', ['id' => $presentation_groupe->id]) ?>">planning</a></li>
-          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>">discussions</a></li>
+          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('discussions'); ?></a></li>
           <li class="right">
             <a href="<?php page('reglage-groupe', ['id' => $presentation_groupe->id]) ?>" class="settings active">
               <svg>
@@ -23,19 +23,19 @@
     </div>
     <div class="reglage">
       <div class="reglage-item">
-        <p>Recevoir des notifications par mail lorsqu'une nouvelle activité est ajoutée</p>
-        <a href="#" class="button light">Désactiver</a>
+        <p><?php lang("Recevoir des notifications par mail lorsqu'une nouvelle activité est ajoutée"); ?></p>
+        <a href="#" class="button light"><?php lang('Désactiver'); ?></a>
       </div>
       <div class="reglage-item">
-        <p>Recevoir des notifications par mail lorsque quelqu'un répond à ma discussion</p>
-        <a href="#" class="button light">Désactiver</a>
+        <p><?php lang("Recevoir des notifications par mail lorsque quelqu'un répond à ma discussion"); ?></p>
+        <a href="#" class="button light"><?php lang('Désactiver'); ?></a>
       </div>
       <div class="reglage-item">
-        <p>Quitter le groupe</p>
-        <a href="#" class="button light button-danger">Quitter</a>
+        <p><?php lang('Quitter le groupe'); ?></p>
+        <a href="#" class="button light button-danger"><?php lang('Quitter'); ?></a>
       </div>
       <div class="reglage-item">
-        <p>Supprimer le groupe</p>
-        <a href="#" class="button light button-danger">Supprimer</a>
+        <p><?php lang('Supprimer le groupe'); ?></p>
+        <a href="#" class="button light button-danger"><?php lang('Supprimer'); ?></a>
       </div>
     </div>

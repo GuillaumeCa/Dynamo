@@ -21,7 +21,6 @@ class ForumController
   public function forum()
   {
     $topics = $this->forum->getTopics()->fetchAll();
-
     $vue = new Vue("Forum", "Forum");
     $vue->setTitle('Forum');
     $vue->render([

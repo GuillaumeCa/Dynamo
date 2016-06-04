@@ -63,13 +63,13 @@ function generateCalendar($range, $events, $class)
       <table>
         <thead>
           <tr>
-            <td>Lundi</td>
-            <td>Mardi</td>
-            <td>Mercredi</td>
-            <td>Jeudi</td>
-            <td>Vendredi</td>
-            <td>Samedi</td>
-            <td>Dimanche</td>
+            <td><?php lang('Lundi'); ?></td>
+            <td><?php lang('Mardi'); ?></td>
+            <td><?php lang('Mercredi'); ?></td>
+            <td><?php lang('Jeudi'); ?></td>
+            <td><?php lang('Vendredi'); ?></td>
+            <td><?php lang('Samedi'); ?></td>
+            <td><?php lang('Dimanche'); ?></td>
           </tr>
         </thead>
         <tr>

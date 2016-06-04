@@ -8,7 +8,7 @@
   <div class="sec-overlay sec-over-violet"></div>
   <div class="auto-width group">
     <?php if ($isLeader): ?>
-      <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier">modifier</a>
+      <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier"><?php lang('modifier'); ?></a>
     <?php endif; ?>
     <form class="modifierinfo" action="" method="post">
       <h1 class="ttl-md">
@@ -39,7 +39,7 @@
           <b>Club</b>
           <span class="header_groupe"> <?php echo $presentation_groupe->club ?></span>
           <select class="modif-form" name="club">
-            <option value="0" selected>Pas de Club</option>
+            <option value="0" selected><?php lang('Pas de Club'); ?></option>
             <?php foreach ($ListeClub as $type => $club): ?>
               <option value="<?php echo $club->id ?>"><?php echo $club->nom ?></option>
             <?php endforeach; ?>

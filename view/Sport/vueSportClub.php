@@ -7,7 +7,7 @@
     <div class="nav-bbar">
       <nav class="tab-menu tab-menu-center">
         <ul>
-          <li><a href="<?php page('SportGroupe', ['id' => $id]) ?>">Groupes</a></li>
+          <li><a href="<?php page('SportGroupe', ['id' => $id]) ?>"><?php lang('Groupes'); ?></a></li>
           <li><a href="<?php page('SportClub', ['id' => $id]) ?>" class="active">Clubs</a></li>
         </ul>
       </nav>

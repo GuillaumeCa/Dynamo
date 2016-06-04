@@ -19,7 +19,7 @@
                     <?php echo $message->texte ?>
                   </div>
                   <div class="post">
-                    <p><b>Posté le <?php echo Vue::date("d/m/Y à H:i:s", $message->date) ?></b></p>
+                    <p><b><?php lang('Posté le '); ?><?php echo Vue::date("d/m/Y à H:i:s", $message->date) ?></b></p>
                   </div>
                 </div>
               </div>
@@ -37,12 +37,12 @@
               <h1><b><?php echo $_SESSION['auth']->nom." ".$_SESSION['auth']->prénom ?></b></h1>
               <p><?php echo $_SESSION['auth']->id_ville ?></p>
             </div><div class="parti-discussion2">
-              <textarea class="clear-form2" name="commentaire" rows="6" cols="40" placeholder="Pour répondre et commentez cette discussion..."></textarea>
+              <textarea class="clear-form2" name="commentaire" rows="6" cols="40" placeholder=<?php lang('Pour répondre et commentez cette discussion'); ?>></textarea>
             </div>
           </div>
         </br>
         <div style="text-align: center">
-          <input type="submit" value="Commentez" class="button light">
+          <input type="submit" value=<?php lang('Commentez'); ?> class="button light">
         </div>
       </form>
       <?php endif; ?>
