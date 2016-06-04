@@ -223,10 +223,14 @@ class User extends Database
     // ]);
   }
 //
-//   function Ajoutsport()
-// {
-//   $ajout = "SELECT nom FROM sport";
-//     return dynamo()->query($ajout);
-// }
-
+  function Ajoutsport()
+{
+  $Ajout = "SELECT nom FROM sport WHERE id =?";
+    return $this->executerRequete("SELECT nom FROM sport WHERE id = ?", [$donnees['nom']])->fetch()->nom;
+}
+function envoie($val)
+{
+ $_POST['pseudo']= executerRequete()->prepare("INSERT INTO utilisateur(pseudo) VALUES (?)");
+  return $_POST['pseudo']->execute([$pseudo]);
+}
 }
