@@ -1,0 +1,7 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteRule ^$ /fr [R]
+RewriteRule ^(fr|en)/assets/(.*)$ /assets/$2 [L]
+RewriteRule ^(fr|en)$ index.php?lang=$1 [L,QSA]
+RewriteRule ^(fr|en)/(.*)$ index.php?lang=$1&p=$2 [L,QSA]

@@ -1,17 +1,19 @@
-{"id": "inscris-moi", "str": "Inscris - toi !"}
-{"id": "Connexion", "str": "Connexion"}
-{"id": "Groupes", "str": "Groupes"}
-{"id": "Forum", "str": "Forum"}
-{"id": "Aide", "str": "Aide"}
-{"id": "lang", "str": "langue"}
-{"id": "rester-connecté", "str": "Rester connecté"}
-{"id": "mdp-oublie", "str": "Mot de passe oublié ?"}
-{"id": "motdepasse", "str": "Mot de passe"}
-{"id": "adresse-email", "str": "Adresse email"}
-{"id": "valider", "str": "valider"}
-{"id": "inscrit-title", "str": "Pas encore inscrit ?"}
-{"id": "inscription", "str": "Inscription"}
-{"id": "auj-caps", "str": "AUJOURD'HUI"}
-{"id": "demain-caps", "str": "DEMAIN"}
-{"id": "select", "str": "SELECTIONNÉ POUR VOUS"}
-{"id": "near-you", "str": "PRÈS DE CHEZ VOUS"}
+{
+  "inscris-moi" : "Inscris - toi !",
+  "Connexion" : "Connexion",
+  "Groupes" : "Groupes",
+  "Forum" : "Forum",
+  "Aide" : "Aide",
+  "lang" : "langue",
+  "rester-connecté" : "Rester connecté",
+  "mdp-oublie" : "Mot de passe oublié ?",
+  "motdepasse" : "Mot de passe",
+  "adresse-email" : "Adresse email",
+  "valider" : "valider",
+  "inscrit-title" : "Pas encore inscrit ?",
+  "inscription" : "Inscription",
+  "auj-caps" : "AUJOURD'HUI",
+  "demain-caps" : "DEMAIN",
+  "select" : "SELECTIONNÉ POUR VOUS",
+  "near-you" : "PRÈS DE CHEZ VOUS"
+}

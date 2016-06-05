@@ -34,7 +34,7 @@ function showModal(e) {
   var day = e.getAttribute('day');
   var calendar = e.getAttribute('calendrier');
   var id = e.getAttribute('num');
-  var modals = document.getElementsByClassName("modal");
+  var modals = document.getElementsByClassName("modal-cal");
   for (var i = 0; i < modals.length; i++) {
     if (modals[i].getAttribute('day') == day && modals[i].getAttribute('calendrier') == calendar && modals[i].getAttribute('num') == id) {
       modals[i].classList.toggle('show');
