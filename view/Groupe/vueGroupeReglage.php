@@ -30,6 +30,14 @@
         <p>Recevoir des notifications par mail lorsque quelqu'un répond à ma discussion</p>
         <a href="#" class="button light">Désactiver</a>
       </div>
+      <?php if ($isLeader): ?>
+        <div class="reglage-item">
+          <p>Modifier la visibilité du groupe</p>
+          <form action="" class="form-inline" method="post">
+            <button type="submit" name="visibility" class="button light"><?php echo $visistat == 1 ? 'Public' : 'Privé' ?></button>
+          </form>
+        </div>
+      <?php endif; ?>
       <div class="reglage-item">
         <p>Quitter le groupe</p>
         <a href="#" class="button light button-danger" onclick="togglemodal('quit_grp')">Quitter</a>

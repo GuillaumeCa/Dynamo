@@ -31,3 +31,9 @@ function lang($id)
     echo Translate::$translations[$id];
   }
 }
+function langp($id)
+{
+  if (isset($_GET['lang'])) {
+    return Translate::$translations[$id];
+  }
+}

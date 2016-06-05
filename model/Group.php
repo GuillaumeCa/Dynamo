@@ -89,13 +89,17 @@ class Group extends Database
                   groupe.nbmaxutil,
                   sport_type.id as sport_type,
                   groupe.dept,
+                  photo.nom as url,
                   COUNT(utilisateur_groupe.id_utilisateur) as nb_user
             FROM groupe
             LEFT JOIN club ON club.id = groupe.id_club
+            LEFT JOIN photo ON photo.id_groupe = groupe.id
             LEFT JOIN utilisateur_groupe ON utilisateur_groupe.id_groupe = groupe.id
             JOIN sport ON sport.id = groupe.id_sport
             JOIN sport_type ON sport_type.id = sport.id_type
-            WHERE titre LIKE ? AND visibilité = 1 GROUP BY groupe.id";
+            WHERE titre LIKE ? AND visibilité = 1
+            GROUP BY groupe.id
+            ORDER BY groupe.titre ASC";
     $groupe = $this->executerRequete($sql, ["%".$name."%"])->fetchAll();
     return $groupe;
   }
@@ -352,6 +356,15 @@ class Group extends Database
       $dstart,
       $dend,
     ]);
+  }
+
+  public function modVisi($id)
+  {
+    $this->executerRequete('UPDATE groupe SET visibilité = NOT(visibilité) WHERE id = ?', [$id]);
+  }
+  public function getVisi($id)
+  {
+    return $this->executerRequete('SELECT visibilité FROM groupe WHERE id = ?', [$id])->fetch()->visibilité;
   }
 
 }

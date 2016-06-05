@@ -118,7 +118,7 @@
             </div>
             <h2 class="form-label pink-text">Description</h2>
             <textarea name="desc" rows="8" cols="40" class="clear-form" placeholder="Description..."></textarea>
-            <button type="submit" name="event" class="button purple">Inviter</button>
+            <button type="submit" name="event" class="button purple">Ajouter évènement</button>
           </form>
         </div>
       </div>

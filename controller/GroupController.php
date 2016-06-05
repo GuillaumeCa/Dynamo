@@ -90,6 +90,11 @@ class GroupController
 
   public function planning($id)
   {
+    $vue = new Vue("GroupePlanning","Groupe");
+    $vue->setScript('cal.js');
+    $vue->setScript('diapo.js');
+    $vue->setScript('form.js');
+    $vue->setCss('planning.css');
 
     // Header
     $head = $this->header($id);
@@ -97,15 +102,11 @@ class GroupController
     // Ajout evenement
     if (isset($_POST['event'])) {
       $this->group->addEvent($id);
+      $vue->setInstant('Evènement ajouté !', 'Votre évènement a été ajouté avec succès !');
     }
 
     $events = $this->group->getEventsFromGroupe($id);
 
-    $vue = new Vue("GroupePlanning","Groupe");
-    $vue->setScript('cal.js');
-    $vue->setScript('diapo.js');
-    $vue->setScript('form.js');
-    $vue->setCss('planning.css');
     $vue->render([
       'events' => $events,
       'presentation_groupe' => $head['presentation_groupe'],
@@ -141,6 +142,11 @@ class GroupController
     // Header
     $head = $this->header($id);
 
+    // Modifier visibilité
+    if (isset($_POST['visibility']))
+      $this->group->modVisi($id);
+    $visistat = $this->group->getVisi($id);
+
     // Quitter groupe
     if (isset($_POST['quit-grp'])) {
       $this->group->quitGroup($_SESSION['auth']->id ,$id);
@@ -165,6 +171,7 @@ class GroupController
       'ListeClub' => $head['ListeClub'],
       'photos' => $head['photos'],
       'isInGroup' => $head['isInGroup'],
+      'visistat' => $visistat
     ]);
   }
 

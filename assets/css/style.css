@@ -475,6 +475,17 @@ footer p {
   font-size: 1.4em;
   font-weight: lighter;
 }
+.txt-info > span b {
+  margin-right: 10px;
+}
+.group #InfoModifier {
+  visibility: hidden;
+}
+
+.group:hover #InfoModifier {
+  visibility: visible;
+}
+
 /*----------------------*
   3.4 menu
 *----------------------*/
@@ -624,6 +635,7 @@ footer p {
 
 .btn-right {
   float: right;
+  margin-left: 10px;
 }
 
 .btn-band {
@@ -1071,7 +1083,8 @@ a.forget:hover {
   margin: 0 auto;
   padding: 7px;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .form-desc {
@@ -1298,12 +1311,54 @@ a.forget:hover {
 }
 
 /*----------------------*
+  Instant message
+*----------------------*/
+
+.inst-b {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+.inst {
+  position: relative;
+  margin: 30px auto;
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #9972FA;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.exit {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 20px;
+}
+
+.inst h1 {
+  font-size: 1em;
+}
+
+.inst p {
+  max-width: 80%;
+}
+
+
+/*----------------------*
   6. ANIMATION
 *----------------------*/
 
 .hide-fade {
   transition: opacity 1s ease;
   animation: fadeAndHide 1s;
+}
+
+.hide {
+  transition: all 1s ease;
+  visibility: hidden;
+  opacity: 0;
 }
 
 @keyframes fadeAndHide {
