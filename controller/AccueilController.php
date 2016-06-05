@@ -70,11 +70,30 @@ class AccueilController
       $sports = $this->acc->getSportsByName($name);
       $users = $this->acc->getUsersByName($name);
 
-      $num = count($groups) + count($sports);
+      $global = array_merge($groups, $sports, $users);
+
+      foreach ($global as $key => $value) {
+        $key = (isset($value->nom) && isset($value->prénom)) ? $value->nom."-".$value->prénom
+        : (isset($value->nom) ? $value->nom
+        : $value->titre);
+        $type = (isset($value->nom) && isset($value->prénom)) ? 'user'
+        : (isset($value->nom) ? 'sport'
+        : 'groupe');
+        $value->{'type'} = $type;
+        $sort[$key] = $value;
+      }
+      if (isset($sort)) {
+        ksort($sort);
+      } else {
+        $sort = [];
+      }
+
+      $num = count($sort);
       $vue->render([
         "groupe" => $groups,
         "sports" => $sports,
         "users" => $users,
+        "global" => $sort,
         "listsports" => $sportlist,
         "num" => $num,
         "deptlist" => $deptlist

@@ -81,6 +81,68 @@
       <?php endif; ?>
     <?php endif; ?>
 
+    <?php foreach ($global as $value): ?>
+      <ul class="liste-lg search-result">
+      <?php if ($value->type == 'groupe'): ?>
+
+        <a href="<?php page('groupe', ['id' => $value->id]) ?>" filter-sporttype="<?php echo $value->sport_type ?>" filter-dept="<?php echo $value->dept ?>">
+          <li>
+            <div class="liste-licon">
+              <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
+              </div>
+              <div class="liste-svg">
+                  <svg>
+                    <use xlink:href="#typeSport<?php echo $value->sport_type ?>"></use>
+                  </svg>
+              </div>
+            </div>
+            <div class="liste-mid-txt">
+              <h1 class="liste-ttl"><?php echo $value->titre ?></h1>
+              <span class="liste-ttl-sub"><b>Sport</b> <?php echo $value->sport ?></span>
+              <span class="liste-ttl-sub"><b>Club</b> <?php echo $value->club ?></span>
+            </div>
+            <span class="liste-note"><span><?php echo $value->nb_user ?></span>/<?php echo $value->nbmaxutil ?></span>
+          </li>
+        </a>
+
+      <?php endif; ?>
+
+      <?php if ($value->type == 'sport'): ?>
+
+        <a href="<?php page('SportGroupe', ['id' => $value->id]) ?>" filter-sporttype="<?php echo $value->id_type ?>">
+          <li>
+            <div class="liste-licon">
+              <div class="liste-svg">
+                  <svg>
+                    <use xlink:href="#typeSport<?php echo $value->id_type ?>"></use>
+                  </svg>
+              </div>
+            </div>
+            <div class="liste-mid-txt">
+              <h1 class="liste-ttl"><?php echo $value->nom ?></h1>
+              <p class="liste-ttl-desc">
+                <?php echo $value->description ?>
+              </p>
+            </div>
+          </li>
+        </a>
+
+      <?php endif; ?>
+
+      <?php if ($value->type == 'user'): ?>
+
+        <a href="#">
+            <li class="membres-item">
+                <span><?php echo substr(ucfirst($value->prénom), 0, 1) ?></span>
+                <h1><?php echo $value->prénom." ".$value->nom ?></h1>
+            </li>
+        </a>
+
+      <?php endif; ?>
+
+      </ul>
+    <?php endforeach; ?>
+<!--
     <?php if (!empty($groupe)): ?>
 
       <h1 class="ttl ttl-green ttl-cps">Groupes</h1>
@@ -141,8 +203,8 @@
       <?php endforeach; ?>
     </ul>
 
-  <?php endif; ?>
-
+    <?php endif; ?>
+-->
   </div>
 
   <div class="auto-width search-list">
@@ -225,12 +287,9 @@
       <?php foreach ($users as $value): ?>
         <a href="#">
           <li>
-            <div class="membre">
-              <a href="#">
-                <span><?php echo substr(ucfirst($value->prénom), 0, 1).substr(ucfirst($value->nom), 0, 1) ?></span>
+            <div class="membres-item">
+                <span><?php echo substr(ucfirst($value->prénom), 0, 1) ?></span>
                 <h1><?php echo $value->prénom." ".$value->nom ?></h1>
-              </a>
-              <h3>LEADER</h3>
             </div>
           </li>
         </a>

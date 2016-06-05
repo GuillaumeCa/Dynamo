@@ -151,9 +151,9 @@ class UserController
       'infos' => $infos,
       'photoProfile' => $photoProfile
     ]);
-    echo $_POST['mail'];
-    $vue = new vue ("profile");
-    $vue->render(['mail' => $mail]);
+    // echo $_POST['mail'];
+    // $vue = new vue ("profile");
+    // $vue->render(['mail' => $mail]);
   }
 
   public function profilePlanning()

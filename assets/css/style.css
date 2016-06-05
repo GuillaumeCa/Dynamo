@@ -732,6 +732,17 @@ footer p {
   position: relative;
   background: rgba(153, 114, 250, 0.2);
 }
+
+.liste-lg li.membres-item {
+  margin: 20px 0;
+  border: none;
+  display: block;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+}
+
 .liste-licon {
   width: 150px;
   height: 100px;
