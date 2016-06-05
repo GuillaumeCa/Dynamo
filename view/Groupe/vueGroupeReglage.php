@@ -45,7 +45,7 @@
       <?php if ($isLeader): ?>
         <div class="reglage-item">
           <p>Supprimer le groupe</p>
-          <a href="#" class="button light button-danger" onclick="togglemodal('quit_grp')">Supprimer</a>
+          <a href="#" class="button light button-danger" onclick="togglemodal('del_grp')">Supprimer</a>
         </div>
       <?php endif; ?>
     </div>
@@ -53,14 +53,27 @@
       <div class="back"  onclick="togglemodal('quit_grp')"></div>
       <div class="window">
         <h1 class="ttl ttl-sm ttl-green">Voulez vous quitter le groupe ?</h1>
-        <form action="" method="post">
+        <form class="groupe_crea" action="" method="post">
+          <?php if ($isLeader): ?>
+            <h2 class="form-label pink-text">Sélectionnez un leader remplaçant</h2>
+            <div class="">
+              <select class="clear-form dropdown" name="utilisateurs">
+                <?php foreach ($membres as $value): ?>
+                  <option disabled selected>Leader remplaçant</option>
+                  <?php if ($value->leader == 0): ?>
+                    <option value="<?php echo $value->id ?>"><?php echo $value->prenom." ".$value->nom ?></option>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </select>
+            </div>
+          <?php endif; ?>
           <button type="submit" name="quit-grp" class="button light button-danger">Quitter</button>
         </form>
       </div>
     </div>
     <?php if ($isLeader): ?>
       <div class="modal" id="del_grp">
-        <div class="back"  onclick="togglemodal('quit_grp')"></div>
+        <div class="back"  onclick="togglemodal('del_grp')"></div>
         <div class="window">
           <h1 class="ttl ttl-sm ttl-green">Voulez vous supprimer le groupe ?</h1>
           <form action="" method="post">

@@ -23,6 +23,31 @@
     </div>
     <section class="auto-width">
       <div class="ttl-group-underline-gr">
+        <h1 class="ttl ttl-green ttl-inline ttl-sm">Infos</h1>
+      </div>
+      <table class="info-table">
+        <tr>
+          <th>Lieu</th>
+          <td>
+            Paris
+          </td>
+        </tr>
+        <tr>
+          <th>Niveau</th>
+          <td>
+            Faible
+          </td>
+        </tr>
+        <tr>
+          <th>Niveau</th>
+          <td>
+            Faible
+          </td>
+        </tr>
+      </table>
+
+
+      <div class="ttl-group-underline-gr">
         <h1 class="ttl ttl-green ttl-inline ttl-sm">Demain</h1>
       </div>
       <div class="info-planning-grp">

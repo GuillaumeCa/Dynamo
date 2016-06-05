@@ -21,6 +21,7 @@
         </ul>
       </nav>
     </div>
+    <section class="auto-width">
     <div class="membres">
       <?php if ($isLeader): ?>
         <a href="#" class="button light" onclick="togglemodal('invit')">Inviter utilisateur</a>
@@ -37,6 +38,37 @@
       </a>
     <?php endforeach; ?>
     </div>
+
+    <?php if ($isLeader): ?>
+      <div class="ttl-group-underline-gr">
+        <h1 class="ttl ttl-green ttl-inline ttl-sm">Demandes d'invitation</h1>
+      </div>
+      <?php if ($autoinvite): ?>
+
+      <div class="membres">
+        <?php foreach ($autoinvite as $membre): ?>
+          <a href="#">
+            <div class="membres-item">
+              <span><?php echo substr($membre->prénom,0,1).substr($membre->nom,0,1) ?></span>
+              <h1><?php echo $membre->prénom." ".$membre->nom ?></h1>
+              <form class="" action="" method="post">
+                <input type="hidden" name="value" value="<?php echo $membre->id_utilisateur ?>">
+                <button type="submit" name="ok" class="button light btn-right">Accepter</button>
+                <button type="submit" name="ko" class="button light btn-right">Refuser</button>
+              </form>
+              <h3>Demande faite le <?php echo Vue::date('d/m/Y  à H:i:s',$membre->autoinvite_date) ?></h3>
+            </div>
+          </a>
+        <?php endforeach; ?>
+      </div>
+    <?php else: ?>
+      <p class="txt-center-warn">
+        Aucune demande
+      </p>
+    <?php endif; ?>
+  <?php endif; ?>
+    </section>
+
     <?php if ($isLeader): ?>
       <div class="modal" id="invit">
         <div class="back"  onclick="togglemodal('invit')"></div>

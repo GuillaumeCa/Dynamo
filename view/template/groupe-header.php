@@ -17,7 +17,9 @@
     <?php endif; ?>
 
     <?php if ($isInGroup==0): ?>
-      <a href="#" class="button btn-sm btn-right">S'inscrire</a>
+      <form action="" method="post">
+        <button type="submit" class="button btn-sm btn-right" name="autoinv">S'inscrire</button>
+      </form>
     <?php endif; ?>
 
       <div class="edit-content editing">

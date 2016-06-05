@@ -14,6 +14,7 @@
     </div>
     <section class="sec">
       <div class="auto-width">
+        <?php if ($groupes): ?>
           <ul class="liste-lg">
             <?php foreach ($groupes as $groupe): ?>
                 <a href="<?php page('groupe', ['id' => $groupe['data']->id]) ?>">
@@ -37,4 +38,10 @@
                 </a>
             <?php endforeach; ?>
           </ul>
+        <?php else: ?>
+          <p class="txt-center-warn">
+            Aucun groupe de ce sport
+          </p>
+        <?php endif; ?>
+
         </section>

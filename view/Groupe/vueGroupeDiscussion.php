@@ -23,34 +23,42 @@
     </div>
     <div class="discussion">
       <div class="creer-discussion">
-        <a href="#" class="button light">Créer une discussion</a>
+        <a href="#" class="button light" onclick="togglemodal('disc')">Créer une discussion</a>
       </div>
+      <?php if ($discussions): ?>
         <ul>
-          <li>
-            <a href="#">
-              <div class="boutton-discussion">
-                <div class="parti-boutton">
-                  <h1>Discussion #1</h1>
-                  <p>Créée le 08/03/2016 par Alizée Faytre</p>
+          <?php foreach ($discussions as $disc): ?>
+            <a href="<?php page('groupe-message', ['id'=>$presentation_groupe->id, 'id_disc'=>$disc->id_discussion]) ?>">
+              <li>
+                <div class="boutton-discussion">
+                  <div class="parti-boutton">
+                    <h1><?php echo $disc->titre ?></h1>
+                    <p>Créée le <?php echo Vue::date('d/m/Y', $disc->creation) ?> par <?php echo $disc->prénom." ".$disc->nom ?></p>
+                  </div>
+                  <div class="parti-boutton-2">
+                    <h2><?php echo $disc->nb ?> messages</h2>
+                  </div>
                 </div>
-                <div class="parti-boutton-2">
-                  <h2>77 messages</h2>
-                </div>
-              </div>
+              </li>
             </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="boutton-discussion">
-                <div class="parti-boutton">
-                  <h1>Discussion #1</h1>
-                  <p>Créée le 08/03/2016 par Alizée Faytre</p>
-                </div>
-                <div class="parti-boutton-2">
-                  <h2>77 messages</h2>
-                </div>
-              </div>
-            </a>
-          </li>
+          <?php endforeach; ?>
         </ul>
+      <?php else: ?>
+        <p class="txt-center-warn">
+          Aucune discussion
+        </p>
+      <?php endif; ?>
+    </div>
+    <div class="modal" id="disc">
+      <div class="back"  onclick="togglemodal('disc')"></div>
+      <div class="window">
+        <h1 class="ttl ttl-sm ttl-green">Créer une nouvelle discussion</h1>
+        <form class="groupe_crea" action="" method="post">
+          <h2 class="form-label pink-text">Nom discussion</h2>
+          <input class="clear-form" type="text" name="titre" placeholder="Nom">
+          <h2 class="form-label pink-text">Commentaire</h2>
+          <textarea class="clear-form" name="comment" rows="8" cols="40" placeholder="Tappez votre commentaire ici..."></textarea>
+          <button type="submit" name="new-disc" class="button purple">Créer</button>
+        </form>
+      </div>
     </div>

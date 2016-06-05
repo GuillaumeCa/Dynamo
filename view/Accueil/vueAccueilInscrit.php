@@ -52,6 +52,7 @@
     </section>
     <section class="sec auto-width">
       <h2 class="green-text"><?php lang('select') ?></h2>
+      <?php if (!empty($fy_group)): ?>
       <div class="gallerie">
         <?php foreach ($fy_group as $value): ?>
           <a href="<?php page('groupe', ['id' => $value->id]) ?>">
@@ -66,9 +67,15 @@
           </a>
         <?php endforeach; ?>
       </div>
+    <?php else: ?>
+      <p class="txt-center-warn">
+        Aucun groupe ne correspond à vos critères
+      </p>
+    <?php endif; ?>
     </section>
     <section class="auto-width">
       <h2 class="caps-txt green-text"><?php lang('near-you') ?></h2>
+      <?php if (!empty($ny_group)): ?>
       <div class="gallerie">
         <?php foreach ($ny_group as $value): ?>
           <a href="<?php page('groupe', ['id' => $value->id]) ?>">
@@ -83,6 +90,11 @@
           </a>
         <?php endforeach; ?>
       </div>
+    <?php else: ?>
+      <p class="txt-center-warn">
+        Aucun groupe se situe proche de chez vous
+      </p>
+    <?php endif; ?>
     </section>
     <section class="sec sec-bg-dviolet">
       <div class="column">

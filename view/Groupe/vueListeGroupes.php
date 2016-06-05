@@ -6,9 +6,9 @@
     </section>
     <section class="sec">
       <div class="auto-width">
+        <?php $i = 0 ?>
+        <?php if ($liste): ?>
           <ul class="liste-lg">
-            <?php $i = 0 ?>
-            <?php if ($liste): ?>
               <?php foreach ($liste as $groupe): ?>
                 <?php if ($groupe['data']->invite == 0): ?>
                   <a href="<?php page('groupe', ['id' => $groupe['data']->id]) ?>">
@@ -36,8 +36,12 @@
                 <?php endif; ?>
               <?php endforeach; ?>
 
-            <?php endif; ?>
           </ul>
+        <?php else: ?>
+          <p class="txt-center-warn">
+            Vous pouvez trouver des groupes en utilisant la barre de recherche, ou en vous rendant sur la page d'accueil où des groupes sélectionnés pour vous vous attendent !
+          </p>
+        <?php endif; ?>
         </section>
         <?php if ($i != 0): ?>
           <section class="sec">

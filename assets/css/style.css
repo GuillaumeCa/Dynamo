@@ -1529,7 +1529,7 @@ a.forget:hover {
 
 .membres-item h1 {
   color: #53FFC0;
-  font-weight: lighter;
+  font-weight: 400;
   display: inline-block;
   margin-left: 20px;
   line-height: 60px;
@@ -1539,7 +1539,7 @@ a.forget:hover {
   color: rgb(167, 178, 184);
   display:inline-block;
   float:right;
-  font-weight: lighter;
+  font-weight: 400;
   line-height: 60px;
 }
 
@@ -1819,7 +1819,7 @@ margin-bottom: auto;
   box-shadow: 0 5px 12px rgb(215, 215, 215);
   /*border: #9972FA solid 1px;*/
   border-radius: 7px;
-  margin: 10px;
+  margin: 30px 10px;
   display: inline-block;
   color: #53FFC0;
   overflow: hidden;
@@ -2068,7 +2068,6 @@ section .text-left {
 }
 
 .parti-discussion {
-  border-right: solid 1px #53FFC0;
   width: 180px;
   display: inline-block;
 }
@@ -2076,7 +2075,23 @@ section .text-left {
 .parti-discussion2 {
   display: inline-block;
   width: calc(100% - 180px);
+  border-left: solid 1px #53FFC0;
   vertical-align: top;
+}
+
+.club-note {
+  padding: 10px;
+  border-bottom: 1px solid #53FFC0;
+}
+
+.star-note {
+  -webkit-mask: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDEyNi43MjkgMTI2LjczIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMjYuNzI5IDEyNi43MzsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxwYXRoIGQ9Ik0xMjEuMjE1LDQ0LjIxMmwtMzQuODk5LTMuM2MtMi4yLTAuMi00LjEwMS0xLjYtNS0zLjdsLTEyLjUtMzAuM2MtMi01LTkuMTAxLTUtMTEuMTAxLDBsLTEyLjQsMzAuMyAgIGMtMC44LDIuMS0yLjgsMy41LTUsMy43bC0zNC45LDMuM2MtNS4yLDAuNS03LjMsNy0zLjQsMTAuNWwyNi4zLDIzLjFjMS43LDEuNSwyLjQsMy43LDEuOSw1LjlsLTcuOSwzMi4zOTkgICBjLTEuMiw1LjEwMSw0LjMsOS4zLDguOSw2LjYwMWwyOS4xLTE3LjEwMWMxLjktMS4xLDQuMi0xLjEsNi4xLDBsMjkuMTAxLDE3LjEwMWM0LjYsMi42OTksMTAuMS0xLjQsOC44OTktNi42MDFsLTcuOC0zMi4zOTkgICBjLTAuNS0yLjIsMC4yLTQuNCwxLjktNS45bDI2LjMtMjMuMUMxMjguNjE1LDUxLjIxMiwxMjYuNDE1LDQ0LjcxMiwxMjEuMjE1LDQ0LjIxMnoiIGZpbGw9IiMwMDAwMDAiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K") no-repeat 100%;
+  -webkit-mask-size: 20px;
+  background: rgb(252, 240, 72);
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 .liste-discussion .comment {
@@ -2235,8 +2250,8 @@ section .text-left {
   display: block;
   font-size: 1em;
   margin-bottom: 10px;
-  padding: 5px 13px;
-  border: 1px white solid;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
 }
 
@@ -2246,9 +2261,7 @@ section .text-left {
 
 .edit-select {
   font-size: 1.2em;
-  border: 1px solid white;
   padding: 5px 13px;
-  background: transparent;
   color: white;
   outline: none;
 }

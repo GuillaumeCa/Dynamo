@@ -59,4 +59,13 @@ class SportController
     $vue->setTitle('TypeSport');
     $vue->render(['nom_type' => $nom_type , 'liste_sport' => $liste_sport, 'id' => $id]);
   }
+
+  public function club($id)
+  {
+    $vue = new Vue("Club", "Sport");
+    $vue->setTitle('Club');
+    $vue->render([
+      'id' => $id
+    ]);
+  }
 }

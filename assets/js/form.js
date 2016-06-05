@@ -12,7 +12,7 @@ function modifniveau (e) {
     for (var i = 0; i < checkbox.length; i++) {
       if (i <= index) {
         checkbox[i].classList.add('filled');
-        input.value = i+1;
+        input.value = i;
       } else {
         checkbox[i].classList.remove('filled');
       }
@@ -26,7 +26,7 @@ function showNiveau(e) {
     for (var i = 0; i < inputs.length; i++) {
       niv = inputs[i].value;
       rec = inputs[i].parentElement.querySelectorAll('.rectangle');
-      for (var j = 0; j < niv; j++) {
+      for (var j = 0; j <= niv; j++) {
         rec[j].classList.add('filled');
       }
     }

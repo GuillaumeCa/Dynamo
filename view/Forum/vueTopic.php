@@ -11,6 +11,8 @@
           <a href="<?php page('forumNewDiscussion', ['id' => $topic])?>" class="button light">Créer une discussion</a>
         </div>
       <?php endif; ?>
+      <?php if ($discussions): ?>
+
         <ul>
           <?php foreach ($discussions as $discussion): ?>
             <li>
@@ -27,32 +29,10 @@
               </a>
             </li>
           <?php endforeach; ?>
-
-          <!-- <li>
-            <a href="<?php page('forumDiscussion')?>">
-              <div class="boutton-discussion">
-                <div class="parti-boutton">
-                  <h1>Discussion #2</h1>
-                  <p>Créée le 14/03/2016 par Celeste Bégassat</p>
-                </div>
-                <div class="parti-boutton-2">
-                  <h2>77 messages</h2>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="<?php page('forumDiscussion')?>">
-              <div class="boutton-discussion">
-                <div class="parti-boutton">
-                  <h1>Discussion #1</h1>
-                  <p>Créée le 13/03/2016 par Celeste Bégassat</p>
-                </div>
-                <div class="parti-boutton-2">
-                  <h2>77 messages</h2>
-                </div>
-              </div>
-            </a>
-          </li> -->
         </ul>
+      <?php else: ?>
+        <p class="txt-center-warn">
+          Aucune discussion
+        </p>
+      <?php endif; ?>
     </div>

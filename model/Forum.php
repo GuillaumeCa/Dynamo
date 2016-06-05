@@ -52,18 +52,16 @@ class Forum extends Database
   public function creerDiscussion($topic)
   {
     if (!empty($_POST)) {
-      $this->executerRequete("INSERT INTO discussion (id_utilisateur, id_topic, titre, creation) VALUES (?,?,?,?)", [
+      $this->executerRequete("INSERT INTO discussion (id_utilisateur, id_topic, titre, creation) VALUES (?,?,?,NOW())", [
         $_SESSION['auth']->id,
         $topic,
-        $_POST["titre_disc"],
-        date('Y-m-d H:i:s')
+        $_POST["titre_disc"]
       ]);
       $id = $this->getBdd()->lastInsertId();
-      $this->executerRequete("INSERT INTO message (id_utilisateur, id_discussion, texte, date) VALUES (?,?,?,?)", [
+      $this->executerRequete("INSERT INTO message (id_utilisateur, id_discussion, texte, date) VALUES (?,?,?,NOW())", [
         $_SESSION['auth']->id,
         $id,
-        $_POST['commentaire'],
-        date('Y-m-d H:i:s')
+        $_POST['commentaire']
       ]);
       Router::redirect("forumDiscussion", ['id' => $id]);
     }
@@ -72,11 +70,10 @@ class Forum extends Database
   public function creerCommentaire($disc)
   {
     if (!empty($_POST)) {
-      $this->executerRequete("INSERT INTO message (id_utilisateur, id_discussion, texte, date) VALUES (?,?,?,?)", [
+      $this->executerRequete("INSERT INTO message (id_utilisateur, id_discussion, texte, date) VALUES (?,?,?,NOW())", [
         $_SESSION['auth']->id,
         $disc,
-        $_POST['commentaire'],
-        date('Y-m-d H:i:s')
+        $_POST['commentaire']
       ]);
       Router::redirect("forumDiscussion", ['id' => $disc]);
     }
