@@ -7,9 +7,9 @@
   </head>
   <body>
     <div class="container-404">
-      <h1 class="title-404">Euuuh .... la page est introuvable !</h1>
-      <a href="<?php page() ?>" class="button">rejoindre la page d'accueil</a>
-      <pre class="debug-404">
+      <h1 class="title-404"><?php lang('Euh'); ?></h1>
+      <a href="<?php page() ?>" class="button"><?php lang('home-page'); ?></a>
+      <pre>
         <?php print_r($msg) ?>
       </pre>
     </div>

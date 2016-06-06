@@ -1,6 +1,6 @@
     <section class="sec sec-bg-violet">
       <div class="column">
-        <h1 class="ttl ttl-md">Créer votre groupe</h1>
+        <h1 class="ttl ttl-md"><?php lang('create-gr'); ?></h1>
       </div>
     </section>
     <section class="sec">
@@ -33,22 +33,22 @@
               </div>
             </div>
           <?php endif; ?>
-          <h2 class="form-label pink-text">Nom de groupe</h2>
+          <h2 class="form-label pink-text"><?php lang('name-gr'); ?></h2>
           <input class="clear-form" type="text" name="name_grp" placeholder="">
 
-          <h2 class="form-label pink-text">Ajouter vos amis</h2>
+          <h2 class="form-label pink-text"><?php lang('add-fr'); ?></h2>
           <div class='liste-membres'>
-            <input class="clear-form membres" type="text" name="membre[]" placeholder="pseudos ou e-mails">
-            <input class="clear-form membres" type="text" name="membre[]" placeholder="ajouter..." style="opacity: 0.4;" disabled>
+            <input class="clear-form membres" type="text" name="membre[]" placeholder=<?php lang('ps-mail'); ?>>
+            <input class="clear-form membres" type="text" name="membre[]" placeholder=<?php lang('add'); ?> style="opacity: 0.4;" disabled>
           </div>
 
           <p class="form-info">
-            Une invitation par email sera envoyé aux membres afin qu'ils puissent rejoindre le groupe
+            <?php lang("info-invit"); ?>
           </p>
 
-          <h2 class="form-label pink-text">Votre sport</h2>
+          <h2 class="form-label pink-text"><?php lang('Votre-sport'); ?></h2>
           <select class="clear-form dropdown dropdown-lg" name="sport">
-            <option value="option" disabled selected>Football, Athlétisme, Rugby ...</option>
+            <option value="option" disabled selected><?php lang('ex-sport'); ?></option>
             <?php foreach ($ListeSports as $type => $sports): ?>
               <optgroup label="<?php echo $type ?>">
                 <?php foreach ($sports as $sport): ?>
@@ -60,44 +60,44 @@
 
           <h2 class="form-label pink-text">Club</h2>
           <select class="clear-form dropdown dropdown-lg" name="club">
-            <option value="0" selected>Pas de Club</option>
+            <option value="0" selected><?php lang('no-club'); ?></option>
             <?php foreach ($ListeClub as $type => $club): ?>
               <option value="<?php echo $club->id ?>"><?php echo $club->nom ?></option>
             <?php endforeach; ?>
           </select>
 
-          <h2 class="form-label pink-text">Lieu</h2>
+          <h2 class="form-label pink-text"><?php lang('Lieu'); ?></h2>
           <input class="clear-form" type="text" name="lieu" placeholder="Paris, 75015, Essonne ...">
 
-          <h2 class="form-label pink-text">Nombre de membres maximum</h2>
+          <h2 class="form-label pink-text"><?php lang('nb-max'); ?></h2>
           <select class="clear-form dropdown dropdown-lg" name="nbr_membre">
-            <option value="option" disabled selected>Nombre</option>
-            <option value="0">illimité</option>
+            <option value="option" disabled selected><?php lang('Nombre'); ?></option>
+            <option value="0"><?php lang('illimité'); ?></option>
             <?php for ($i = 0; $i < 12; $i++): ?>
               <option value="<?php echo $i+1 ?>"><?php echo $i+1; ?></option>
             <?php endfor; ?>
           </select>
 
 
-          <h2 class="form-label pink-text">Visibilité du groupe</h2>
+          <h2 class="form-label pink-text"><?php lang('view-gr'); ?></h2>
           <div class="label label-center">
             <div class="radio">
               <label><input type="radio" class="radio-button" name="visibilite" value="1" checked="checked">
               <span class="radio-inner"></span>
-              Publique</label>
+              <?php lang('Publique'); ?></label>
             </div>
             <div class="radio">
               <label><input type="radio" class="radio-button" name="visibilite" value="0">
               <span class="radio-inner"></span>
-              Privé</label>
+              <?php lang('Privé'); ?></label>
             </div>
           </div>
           <p class="form-info">
-            Toutes les personnes inscrites sur le site peuvent demander à rejoindre un groupe publique alors qu'un groupe privé n'est accessible que par invitations
+            <?php lang("info-view-gr"); ?>
           </p>
 
-          <h2 class="form-label pink-text">Description du groupe</h2>
-          <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder="Décrivez votre groupe en quelques lignes ..."></textarea>
+          <h2 class="form-label pink-text"><?php lang('descrip-gr'); ?></h2>
+          <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder=<?php lang('info-gr'); ?>></textarea>
 
           <input type="submit" value="Ajouter" class="button purple">
         </form>

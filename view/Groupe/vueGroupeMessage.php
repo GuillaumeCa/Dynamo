@@ -3,7 +3,7 @@
   <nav class="tab-menu">
     <ul>
       <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>">informations</a></li>
-      <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>">membres</a></li>
+      <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('membres'); ?></a></li>
       <li><a href="<?php page('planning-groupe', ['id' => $presentation_groupe->id]) ?>">planning</a></li>
       <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>" class="active">discussions</a></li>
       <li class="right">
@@ -39,7 +39,7 @@
                     <?php echo $message->texte ?>
                   </div>
                   <div class="post">
-                    <p><b>Posté le <?php echo Vue::date("d/m/Y à H:i:s", $message->date) ?></b></p>
+                    <p><b><?php lang('posted'); ?><?php echo Vue::date("d/m/Y à H:i:s", $message->date) ?></b></p>
                   </div>
                 </div>
               </div>
@@ -58,12 +58,12 @@
               <h1><b><?php echo $_SESSION['auth']->nom." ".$_SESSION['auth']->prénom ?></b></h1>
               <p><?php echo $_SESSION['auth']->id_ville ?></p>
             </div><div class="parti-discussion2">
-              <textarea class="clear-form2" name="commentaire" rows="6" cols="40" placeholder="Pour répondre et commentez cette discussion..."></textarea>
+              <textarea class="clear-form2" name="commentaire" rows="6" cols="40" placeholder='<?php lang('answer-disc'); ?>'></textarea>
             </div>
           </div>
         </br>
         <div style="text-align: center">
-          <input type="submit" name="com" value="Commentez" class="button light">
+          <input type="submit" name="com" value='<?php lang('comment'); ?>' class="button light">
         </div>
       </form>
       <?php endif; ?>

@@ -1,6 +1,6 @@
 <section class="sec sec-bg-violet">
   <div class="column">
-    <h1 class="ttl ttl-md">Changer de langue</h1>
+    <h1 class="ttl ttl-md"><?php lang('langue'); ?></h1>
   </div>
 </section>
 <section class="sec sec-bg-dviolet">
@@ -14,7 +14,7 @@
               </svg>
             </div>
           </a>
-          <span>Français</span>
+          <span><?php lang('Français'); ?></span>
         </div>
         <div class="sport">
           <a href="/en">
@@ -24,17 +24,7 @@
               </svg>
             </div>
           </a>
-          <span>Anglais</span>
-        </div>
-        <div class="sport">
-          <a href="<?php page('type-sport') ?>">
-            <div class="circle">
-              <svg>
-                <use xlink:href="#ball"></use>
-              </svg>
-            </div>
-          </a>
-          <span>Espagnol</span>
+          <span><?php lang('Anglais'); ?></span>
         </div>
     </div>
   </div>

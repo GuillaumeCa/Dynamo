@@ -2,13 +2,13 @@
   <div class="sec-overlay sec-over-violet"></div>
   <div class="column">
     <h1 class="ttl ttl-lg ttl-green green-text">Dynamo</h1>
-    <p class="txt-desc">Dynamo vous permet de trouver et gérer des groupes de sport selon votre position géographique, votre niveau de sport et vos sports favoris.</p>
+    <p class="txt-desc"><?php lang('presentation-accueil'); ?></p>
     <a href="<?php page('inscription') ?>" class="button"><?php lang('inscris-moi'); ?></a>
   </div>
 </section>
 <section class="sec sec-bg-dviolet">
   <div class="column">
-    <h1 class="ttl ttl-md">Types de sports</h1>
+    <h1 class="ttl ttl-md"><?php lang('Types de sports'); ?></h1>
     <div class="grid">
       <?php foreach($types_sports as $type): ?>
         <div class="sport">

@@ -1,7 +1,7 @@
     <section class="sec sec-bg-violet">
       <div class="column">
-        <h1 class="ttl ttl-md">Mes Groupes</h1>
-        <a href="<?php page('creation-groupe') ?>" class="button margin-top">Créer un groupe</a>
+        <h1 class="ttl ttl-md"><?php lang('Mes-Groupes'); ?></h1>
+        <a href="<?php page('creation-groupe') ?>" class="button margin-top"><?php lang('create-gr'); ?></a>
       </div>
     </section>
     <section class="sec">
@@ -27,26 +27,31 @@
                         <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe['data']->sport ?></span>
                         <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe['data']->club ?></span>
                       </div>
-                      <span class="liste-note"><span><?php echo $groupe['nb'] ?></span>/<?php echo $groupe['data']->nbmaxutil ?></span>
-                      <span class="liste-leader"><?php echo ($groupe['data']->leader == 1) ? "LEADER" : Null ?></span>
-                    </li>
-                  </a>
-                <?php else: ?>
-                  <?php $i += 1 ?>
-                <?php endif; ?>
-              <?php endforeach; ?>
+                    <div class="liste-mid-txt">
+                      <h1 class="liste-ttl"><?php echo $groupe['data']->nomGroupe ?></h1>
+                      <span class="liste-ttl-sub"><b><?php lang('Sport'); ?></b> <?php echo $groupe['data']->sport ?></span>
+                      <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe['data']->club ?></span>
+                    </div>
+                    <span class="liste-note"><span><?php echo $groupe['nb'] ?></span>/<?php echo $groupe['data']->nbmaxutil ?></span>
+                    <span class="liste-leader"><?php echo ($groupe['data']->leader == 1) ? "LEADER" : Null ?></span>
+                  </li>
+                </a>
+              <?php else: ?>
+                <?php $i += 1 ?>
+              <?php endif; ?>
+            <?php endforeach; ?>
 
           </ul>
         <?php else: ?>
           <p class="txt-center-warn">
-            Vous pouvez trouver des groupes en utilisant la barre de recherche, ou en vous rendant sur la page d'accueil où des groupes sélectionnés pour vous vous attendent !
+            <?php lang('info-list-gr'); ?>
           </p>
         <?php endif; ?>
         </section>
         <?php if ($i != 0): ?>
           <section class="sec">
             <div class="auto-width">
-              <div class="liste-separator" id="invitation"><b>INVITATIONS</b></div>
+              <div class="liste-separator" id="invitation"><b><?php lang('INVITATIONS'); ?></b></div>
               <ul class="liste-lg">
                 <?php foreach ($liste as $groupe): ?>
                   <?php if ($groupe['data']->invite == 1): ?>
@@ -63,21 +68,21 @@
                       </div>
                       <div class="liste-mid-txt">
                         <h1 class="liste-ttl"><?php echo $groupe['data']->nomGroupe ?></h1>
-                        <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe['data']->sport ?></span>
+                        <span class="liste-ttl-sub"><b><?php lang('Sport'); ?></b> <?php echo $groupe['data']->sport ?></span>
                         <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe['data']->club ?></span>
                       </div>
                       <div class="liste-btn">
                         <div>
                           <form class="" action="" method="post">
                             <input type="hidden" name="id" value="<?php echo $groupe['data']->id ?>">
-                            <button type="submit" name="Accept" class="button purple">Accepter</button>
+                            <button type="submit" name="Accept" class="button purple"><?php lang('Accepter'); ?></button>
                           </form>
                         </div>
                       </br>
                       <div>
                         <form class="" action="" method="post">
                           <input type="hidden" name="id" value="<?php echo $groupe['data']->id ?>">
-                          <button type="submit" name="Refuse" class="button purple">Refuser</button>
+                          <button type="submit" name="Refuse" class="button purple"><?php lang('Refuser'); ?></button>
                         </form>
                       </div>
                     </div>
