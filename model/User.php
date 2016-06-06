@@ -190,43 +190,73 @@ class User extends Database
   {
     if (isset($_POST['del-acc'])) {
       $this->deleteUser($_SESSION['auth']->id);
-      session_unset($_SESSION['auth']);
+      unset($_SESSION['auth']);
       Router::redirect('accueil');
     }
   }
 
-  public function modifprofil($insc)
+  public function modifProfil($insc)
   {
-    $token = $this->generateToken();
+    // Recup id ville
     $idVille = $this->executerRequete("SELECT id FROM villes WHERE ville_nom_reel = ?", [$insc['ville']])->fetch()->id;
-    $date = $insc['année']."-".$insc['mois']."-".$insc['jour'];
-    $q = "INSERT INTO utilisateur (nom, prénom, pseudo, sexe, naissance, email, id_ville, code_postal, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    $insc['token'] = $token;
-    $sql = "SELECT email FROM utilisateur";
-    // $sql = $this->executerRequete("SELECT email FROM utilisateur WHERE  = ?", [$_SESSION['auth']->id])->fetch()->email;
-    // if($sql != $_POST['email']){
-    //   $q= "DELETE FROM utilisateur WHERE = email" ;
-    //   $mail = new Mail($insc['email'], "Validation compte Dynamo", "activate.php")
-    //   $mail->render($insc);
-    //   $mail->send();
-    // }
-    // $this->executerRequete($q, [
-    //   $insc['nom'],
-    //   $insc['prenom'],
-    //   $insc['pseudo'],
-    //   $insc['sexe'],
-    //   $date,
-    //   $insc['email'],
-    //   $idVille,
-    //   $insc['codepostal'],
-    //   $token
-    // ]);
-  }
-//
-//   function Ajoutsport()
-// {
-//   $ajout = "SELECT nom FROM sport";
-//     return dynamo()->query($ajout);
-// }
 
+    // Creation date
+    $date = $insc['année']."-".$insc['mois']."-".$insc['jour'];
+
+
+    $token = null;
+
+    $emaildiff = $this->executerRequete("SELECT email FROM utilisateur WHERE email = ? AND id = ?", [$insc['email'], $_SESSION['auth']->id])->rowCount() == 0;
+
+    if($emaildiff){
+      $token = $this->generateToken();
+      $insc['token'] = $token;
+      $mail = new Mail($insc['email'], "Modification de profil Dynamo", "activate.php");
+      $mail->render($insc);
+      $mail->send();
+    }
+
+    $q = "UPDATE utilisateur SET nom = ?, prénom = ?, pseudo = ?, sexe = ?, naissance = ?, email = ?, id_ville = ?, code_postal = ?, token = ? WHERE id = ?";
+    $this->executerRequete($q, [
+      $insc['nom'],
+      $insc['prenom'],
+      $insc['pseudo'],
+      $insc['sexe'],
+      $date,
+      $insc['email'],
+      $idVille,
+      $insc['code_postal'],
+      $token,
+      $_SESSION['auth']->id
+    ]);
+  }
+
+  public function getSportFromUser($id)
+  {
+    $q = "SELECT
+            sport.id_type as type_sport,
+            sport.nom as sport,
+            sport.id as id,
+            utilisateur_sport.niveau_util as niveau
+          FROM utilisateur_sport
+          JOIN sport ON utilisateur_sport.id_sport = sport.id
+          WHERE utilisateur_sport.id_utilisateur = ?";
+    return $this->executerRequete($q, [$id])->fetchAll();
+  }
+
+  public function delSportUser($id, $sport)
+  {
+    $this->executerRequete("DELETE FROM utilisateur_sport WHERE id_utilisateur = ? AND id_sport = ?", [$id, $sport]);
+  }
+
+  public function addSport()
+  {
+    $this->executerRequete("INSERT INTO utilisateur_sport (id_utilisateur, id_sport, niveau_util) VALUES (?,?,?)", [$_SESSION['auth']->id, $_POST['sport'], $_POST['niveau_util']]);
+  }
+
+  public function modNiveauSportUser($id, $sport, $niv)
+  {
+    $q = "UPDATE utilisateur_sport SET niveau_util = ? WHERE id_utilisateur = ? AND id_sport = ?";
+    $this->executerRequete($q, [$niv, $id, $sport]);
+  }
 }

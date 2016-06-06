@@ -8,13 +8,42 @@ require_once 'app/Database.php';
 class Group extends Database
 {
 
-  public function autoInvitation()
+  public function autoInvitation($id)
   {
-    $sql = "UPDATE utilisateur_groupe SET autoinvite = 1 WHERE id_groupe = ? AND id_utilisateur = ?";
-    $this->executerRequete($sql);
-    $mail = new Mail($insc['email'], "Inscription groupe", "autoinvit.php");
-    $mail->render($insc);
+    $q = "SELECT * FROM utilisateur
+          JOIN utilisateur_groupe ON utilisateur_groupe.id_utilisateur = utilisateur.id
+          WHERE utilisateur_groupe.leader = 1 AND utilisateur_groupe.id_groupe = ?";
+    $email = $this->executerRequete($q, [$id])->fetch()->email;
+
+    $sql = "INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, autoinvite, autoinvite_date) VALUES (?,?,1,NOW())";
+    $this->executerRequete($sql, [$id, $_SESSION['auth']->id]);
+    $mail = new Mail($email, "Inscription groupe", "autoinvit.php");
+    $mail->render();
     $mail->send();
+  }
+
+  public function modAutoInv($id, $acc, $groupe)
+  {
+    $email = $this->executerRequete("SELECT * FROM utilisateur WHERE id = ?", [$_POST['value']])->fetch()->email;
+    if ($acc) {
+      $q = "UPDATE utilisateur_groupe SET autoinvite = 0 WHERE id_groupe = ? AND id_utilisateur = ?";
+      $this->executerRequete($q, [$id, $_POST['value']]);
+      $mail = new Mail($email, "Demande accepté", "info.php");
+      $mail->render([
+        'titre' => "Demande d'invitation au groupe {$groupe->nomGroupe} accepté",
+        'message' => "Votre demande d'invitation au groupe {$groupe->nomGroupe} a été acceptée."
+      ]);
+      $mail->send();
+    } else {
+      $q = "DELETE FROM utilisateur_groupe WHERE id_groupe = ? AND id_utilisateur = ?";
+      $this->executerRequete($q, [$id, $_POST['value']]);
+      $mail = new Mail($email, "Demande refusé", "info.php");
+      $mail->render([
+        'titre' => "Demande d'invitation au groupe {$groupe->nomGroupe} refusé",
+        'message' => "Votre demande d'invitation au groupe {$groupe->nomGroupe} a été refusée."
+      ]);
+      $mail->send();
+    }
   }
 
   public function isInGroup($id)
@@ -26,12 +55,13 @@ class Group extends Database
 
   public function listGroupFromUser()
   {
-    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type, groupe.nbmaxutil
+    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type, groupe.nbmaxutil, photo.nom as url
     FROM utilisateur_groupe
+    LEFT JOIN photo ON photo.id_groupe = utilisateur_groupe.id_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
     LEFT JOIN club ON groupe.id_club=club.id
-    WHERE id_utilisateur = ? AND autoinvite = 0" ;
+    WHERE utilisateur_groupe.id_utilisateur = ? AND autoinvite = 0" ;
     $listGroup = $this->executerRequete($sql, [intval($_SESSION['auth']->id)]);
     if ($listGroup->rowCount() > 0) {
       foreach ($listGroup->fetchAll() as $key => $value) {
@@ -47,8 +77,9 @@ class Group extends Database
 
   public function listGroupFromSport($id_sport)
   {
-    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, sport.id_type, groupe.nbmaxutil
+    $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, sport.id_type, groupe.nbmaxutil, photo.nom as url
     FROM utilisateur_groupe
+    LEFT JOIN photo ON photo.id_groupe = utilisateur_groupe.id_groupe
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
     LEFT JOIN club ON groupe.id_club=club.id
@@ -86,30 +117,20 @@ class Group extends Database
                   club.nom as club,
                   groupe.nbmaxutil,
                   sport_type.id as sport_type,
-                  groupe.dept
+                  groupe.dept,
+                  photo.nom as url,
+                  COUNT(utilisateur_groupe.id_utilisateur) as nb_user
             FROM groupe
             LEFT JOIN club ON club.id = groupe.id_club
+            LEFT JOIN photo ON photo.id_groupe = groupe.id
+            LEFT JOIN utilisateur_groupe ON utilisateur_groupe.id_groupe = groupe.id
             JOIN sport ON sport.id = groupe.id_sport
             JOIN sport_type ON sport_type.id = sport.id_type
-            WHERE titre LIKE ? AND visibilité=1";
+            WHERE titre LIKE ? AND visibilité = 1
+            GROUP BY groupe.id
+            ORDER BY groupe.titre ASC";
     $groupe = $this->executerRequete($sql, ["%".$name."%"])->fetchAll();
-
-    // Récupère le nombre d'utilisateur par groupe recherché
-    $nbusers = $this->executerRequete(
-              "SELECT groupe.titre AS groupe, COUNT(utilisateur.nom) AS nb_user FROM utilisateur_groupe
-              JOIN groupe ON utilisateur_groupe.id_groupe = groupe.id
-              JOIN utilisateur ON utilisateur.id = utilisateur_groupe.id_utilisateur
-              WHERE titre LIKE ? AND visibilité=1 GROUP BY groupe.titre", ["%".$name."%"])->fetchAll();
-
-    $newgroupe = [];
-    foreach ($groupe as $value) {
-      $newgroupe[$value->titre]['data'] = $value;
-      $newgroupe[$value->titre]['nb'] = 0;
-    }
-    foreach ($nbusers as $value) {
-      $newgroupe[$value->groupe]['nb'] = $value->nb_user;
-    }
-    return $newgroupe;
+    return $groupe;
   }
 
   public function nbUserFromGroup($id)
@@ -131,12 +152,20 @@ class Group extends Database
   }
 
   public function getMembreFromGroupe($id){
-    $sql = "SELECT utilisateur.prénom as prenom, utilisateur.nom as nom, utilisateur_groupe.leader as leader
+    $sql = "SELECT utilisateur.prénom as prenom, utilisateur.nom as nom, utilisateur_groupe.leader as leader, utilisateur.id
     FROM utilisateur
     JOIN utilisateur_groupe on utilisateur_groupe.id_utilisateur=utilisateur.id
-    WHERE utilisateur_groupe.id_groupe = ? ORDER BY leader DESC";
+    WHERE utilisateur_groupe.id_groupe = ? AND utilisateur_groupe.autoinvite = 0 AND utilisateur_groupe.invite = 0 ORDER BY leader DESC";
     $membreGroupe = $this->executerRequete($sql, [$id]);
     return $membreGroupe;
+  }
+
+  public function getMembreAutoInv($id)
+  {
+    $q = "SELECT * FROM utilisateur_groupe
+          JOIN utilisateur ON utilisateur_groupe.id_utilisateur = utilisateur.id
+          WHERE utilisateur_groupe.id_groupe = ? AND utilisateur_groupe.autoinvite = 1";
+    return $this->executerRequete($q, [$id])->fetchAll();
   }
 
   public function getName($id)
@@ -195,10 +224,10 @@ class Group extends Database
     return $nb->fetch()->nb;
   }
 
-  public function getEventsFromGroupe()
+  public function getEventsFromGroupe($id)
   {
-    $sql = "SELECT groupe.titre, planning.date, planning.activité, planning.description AS description, dstart, dend FROM planning JOIN groupe ON groupe.id = planning.id_groupe WHERE groupe.id = 3";
-    $res = $this->executerRequete($sql)->fetchAll();
+    $sql = "SELECT groupe.titre, planning.date, planning.activité, planning.description AS description, dstart, dend FROM planning JOIN groupe ON groupe.id = planning.id_groupe WHERE groupe.id = ?";
+    $res = $this->executerRequete($sql, [$id])->fetchAll();
     $events = [];
     foreach ($res as $r) {
       $events[$r->titre][] = [$r->date, $r->activité, $r->description, $r->dstart, $r->dend];
@@ -208,14 +237,22 @@ class Group extends Database
 
   public function getNextEventsForUser()
   {
-    $today = "SELECT groupe.titre, planning.activité, planning.dstart, planning.dend
+    $today = "SELECT groupe.id,
+                      groupe.titre,
+                      planning.activité,
+                      planning.dstart,
+                      planning.dend
               FROM groupe
               JOIN planning
               ON groupe.id = planning.id_groupe
               JOIN utilisateur_groupe
               ON groupe.id = utilisateur_groupe.id_groupe
               WHERE utilisateur_groupe.id_utilisateur = ? AND planning.date = CURDATE()";
-    $tmw = "SELECT groupe.titre, planning.activité, planning.dstart, planning.dend
+    $tmw = "SELECT groupe.id,
+                  groupe.titre,
+                  planning.activité,
+                  planning.dstart,
+                  planning.dend
             FROM groupe
             JOIN planning
             ON groupe.id = planning.id_groupe
@@ -225,19 +262,22 @@ class Group extends Database
     $res = $this->executerRequete($today, [$_SESSION['auth']->id])->fetchAll();
     $todayEvents = [];
     foreach ($res as $row) {
-      $todayEvents[$row->titre][] = [$row->activité, $row->dstart, $row->dend];
+      $todayEvents[$row->id]['name'] = $row->titre;
+      $todayEvents[$row->id]['cal'][] = [$row->activité, $row->dstart, $row->dend];
     }
     $res = $this->executerRequete($tmw, [$_SESSION['auth']->id])->fetchAll();
     $tmwEvents = [];
     foreach ($res as $row) {
-      $tmwEvents[$row->titre][] = [$row->activité, $row->dstart, $row->dend];
+      $tmwEvents[$row->id]['name'] = $row->titre;
+      $tmwEvents[$row->titre]['cal'][] = [$row->activité, $row->dstart, $row->dend, $row->id];
     }
     return [$todayEvents, $tmwEvents];
   }
 
   public function selectionGroup($id_user)
   {
-    $q = "SELECT * FROM groupe
+    $q = "SELECT groupe.*, photo.nom as url FROM groupe
+          LEFT JOIN photo ON photo.id_groupe = groupe.id
           LEFT JOIN utilisateur_sport AS us ON us.id_sport = groupe.id_sport
           JOIN utilisateur AS user ON user.id = us.id_utilisateur
           WHERE us.niveau_util = groupe.niveau AND user.id = ?";
@@ -259,7 +299,7 @@ class Group extends Database
 
   public function nearGroup()
   {
-    $q = "SELECT * FROM groupe WHERE dept = ? LIMIT 4";
+    $q = "SELECT groupe.*, photo.nom as url FROM groupe LEFT JOIN photo ON photo.id_groupe = groupe.id WHERE dept = ? LIMIT 4";
     $res = $this->executerRequete($q, [substr($_SESSION['auth']->code_postal, 0, 2)]);
     return $res;
   }
@@ -311,16 +351,27 @@ class Group extends Database
     }
   }
 
-  public function getPhotosFromGroup($id){
-      return $this->executerRequete("SELECT nom FROM photo WHERE id_groupe = ?", [$id]);
+  public function getPhotosFromGroup($id)
+  {
+    return $this->executerRequete("SELECT nom FROM photo WHERE id_groupe = ?", [$id]);
   }
 
   public function deletePhoto($id){
     return $this->executerRequete("DELETE FROM photo WHERE id_groupe = ?", [$id]);
   }
 
-  public function quitGroup($id_user, $id_grp)
+  public function quitGroup($id_user, $id_grp, $groupe)
   {
+    if (isset($_POST['utilisateurs'])) {
+      $email = $this->executerRequete("SELECT * FROM utilisateur WHERE id = ?", [$_POST['utilisateurs']])->fetch()->email;
+      $this->executerRequete('UPDATE utilisateur_groupe SET leader = 1 WHERE id_utilisateur = ? AND id_groupe = ?', [$_POST['utilisateurs'], $id_grp]);
+      $mail = new Mail($email, 'Vous avez été désigné Leader !', 'info.php');
+      $mail->render([
+        'titre'=>"Changement du groupe {$groupe->nomGroupe}",
+        'message'=>"Vous avez été désigné Leader dans le groupe {$groupe->nomGroupe}",
+      ]);
+      $mail->send();
+    }
     $this->executerRequete('DELETE FROM utilisateur_groupe WHERE id_utilisateur = ? AND id_groupe = ?', [$id_user, $id_grp]);
   }
 
@@ -336,6 +387,80 @@ class Group extends Database
     $mail = new Mail($email, "Vous avez été invité dans un groupe !", "invit.php");
     $mail->render();
     $mail->send();
+  }
+
+  public function addEvent($id)
+  {
+    $dstart = "{$_POST['dannée']}-{$_POST['dmois']}-{$_POST['djour']} {$_POST['dheure']}:{$_POST['dmin']}:00";
+    $dend = "{$_POST['fannée']}-{$_POST['fmois']}-{$_POST['fjour']} {$_POST['fheure']}:{$_POST['fmin']}:00";
+
+    $q = "INSERT INTO planning (id_groupe, activité, description, date, dstart, dend)
+          VALUES (?,?,?,?,?,?)";
+    $this->executerRequete($q, [
+      $id,
+      $_POST['titre'],
+      $_POST['desc'],
+      Vue::date('Y-m-d', $dstart),
+      $dstart,
+      $dend,
+    ]);
+  }
+
+  public function modVisi($id)
+  {
+    $this->executerRequete('UPDATE groupe SET visibilité = NOT(visibilité) WHERE id = ?', [$id]);
+  }
+  public function getVisi($id)
+  {
+    return $this->executerRequete('SELECT visibilité FROM groupe WHERE id = ?', [$id])->fetch()->visibilité;
+  }
+
+  public function addDisc($id)
+  {
+    $q = "INSERT INTO discussion (id_utilisateur, titre, creation) VALUES (?,?,NOW())";
+    $this->executerRequete($q, [$_SESSION['auth']->id,$_POST['titre']]);
+    $id_disc = $this->getBdd()->lastInsertId();
+    $this->executerRequete("INSERT INTO message (id_utilisateur, id_discussion, texte, date) VALUES (?,?,?,NOW())", [
+      $_SESSION['auth']->id,
+      $id_disc,
+      $_POST['comment']
+    ]);
+    $this->executerRequete("INSERT INTO groupe_discussion (id_groupe, id_discussion) VALUES (?,?)", [$id, $id_disc]);
+  }
+
+  public function getDisc($id)
+  {
+    $q = "SELECT *, COUNT(texte) as nb FROM groupe_discussion
+          JOIN discussion ON discussion.id = groupe_discussion.id_discussion
+          JOIN message ON message.id_discussion = discussion.id
+          JOIN utilisateur ON discussion.id_utilisateur = utilisateur.id
+          WHERE groupe_discussion.id_groupe = ?
+          GROUP BY id_groupe";
+    return $this->executerRequete($q, [$id])->fetchAll();
+  }
+
+  public function getDiscById($id)
+  {
+    return $this->executerRequete("SELECT * FROM discussion WHERE id = ?", [$id])->fetch();
+  }
+
+  public function getMessages($param)
+  {
+    $sql = "SELECT message.*, utilisateur.*, photo.nom as url FROM message
+            JOIN discussion ON discussion.id = message.id_discussion
+            JOIN utilisateur ON utilisateur.id = message.id_utilisateur
+            LEFT JOIN photo ON photo.id_utilisateur = utilisateur.id
+            WHERE discussion.id = ?";
+    return $this->executerRequete($sql, [$param['id_disc']])->fetchAll();
+  }
+
+  public function creerMessage($disc)
+  {
+    $this->executerRequete("INSERT INTO message (id_utilisateur, id_discussion, texte, date) VALUES (?,?,?,NOW())", [
+      $_SESSION['auth']->id,
+      $disc,
+      $_POST['commentaire']
+    ]);
   }
 
 }

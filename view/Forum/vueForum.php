@@ -2,7 +2,7 @@
       <div class="sec-overlay sec-over-violet"></div>
       <div class="column">
         <h1 class="ttl ttl-lg green-text">Forum</h1>
-        <p class="txt-desc"><?php lang('Une question ? Une idée ? Votre espace de discussion publique totalement dédié au sport !'); ?></p>
+        <p class="txt-desc"><?php lang('presentation-forum'); ?></p>
       </div>
     </section>
     <section class="sec sec-bg-dviolet">

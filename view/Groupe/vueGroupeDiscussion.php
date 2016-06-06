@@ -23,34 +23,42 @@
     </div>
     <div class="discussion">
       <div class="creer-discussion">
-        <a href="#" class="button light"><?php lang('Créer une discussion'); ?></a>
+        <a href="#" class="button light" onclick="togglemodal('disc')"><?php lang('create-disc'); ?></a>
       </div>
+      <?php if ($discussions): ?>
         <ul>
-          <li>
-            <a href="#">
-              <div class="boutton-discussion">
-                <div class="parti-boutton">
-                  <h1>Discussion #1</h1>
-                  <p><?php lang('Créée le '); ?>08/03/16 <?php lang('par '); ?>Alizée Faytre</p>
+          <?php foreach ($discussions as $disc): ?>
+            <a href="<?php page('groupe-message', ['id'=>$presentation_groupe->id, 'id_disc'=>$disc->id_discussion]) ?>">
+              <li>
+                <div class="boutton-discussion">
+                  <div class="parti-boutton">
+                    <h1><?php echo $disc->titre ?></h1>
+                    <p><?php lang('date'); ?><?php echo Vue::date('d/m/Y', $disc->creation) ?><?php lang('par'); ?><?php echo $disc->prénom." ".$disc->nom ?></p>
+                  </div>
+                  <div class="parti-boutton-2">
+                    <h2><?php echo $disc->nb ?><?php lang('messages'); ?></h2>
+                  </div>
                 </div>
-                <div class="parti-boutton-2">
-                  <h2>77 <?php lang('messages'); ?></h2>
-                </div>
-              </div>
+              </li>
             </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="boutton-discussion">
-                <div class="parti-boutton">
-                  <h1>Discussion #1</h1>
-                  <p><?php lang('Créée le '); ?>08/03/16 <?php lang('par '); ?>Alizée Faytre</p>
-                </div>
-                <div class="parti-boutton-2">
-                  <h2>77 <?php lang('messages'); ?></h2>
-                </div>
-              </div>
-            </a>
-          </li>
+          <?php endforeach; ?>
         </ul>
+      <?php else: ?>
+        <p class="txt-center-warn">
+          <?php lang('no-disc'); ?>
+        </p>
+      <?php endif; ?>
+    </div>
+    <div class="modal" id="disc">
+      <div class="back"  onclick="togglemodal('disc')"></div>
+      <div class="window">
+        <h1 class="ttl ttl-sm ttl-green"><?php lang('create-new-disc'); ?></h1>
+        <form class="groupe_crea" action="" method="post">
+          <h2 class="form-label pink-text">Nom discussion</h2>
+          <input class="clear-form" type="text" name="titre" placeholder="Nom">
+          <h2 class="form-label pink-text"><?php lang('comments'); ?></h2>
+          <textarea class="clear-form" name="comment" rows="8" cols="40" placeholder="Tappez votre commentaire ici..."></textarea>
+          <button type="submit" name="new-disc" class="button purple"><?php lang('create'); ?></button>
+        </form>
+      </div>
     </div>

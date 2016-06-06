@@ -26,10 +26,9 @@ function getFilters() {
 }
 
 function updateNumberOfResults(i) {
-  var num = document.querySe
-
+  var num = document.querySelector('.number')
   var result = document.querySelectorAll('.search-result');
-  num.innerHTML = result[i].length
+  num.innerHTML = result[i].children.length
 }
 
 function filterSearch(e) {
@@ -90,7 +89,6 @@ function switchCategory(e) {
 
   var cat = document.querySelectorAll('.switch-cat');
   var lists = document.querySelectorAll('.search-list');
-
   for (var i = 0; i < cat.length; i++) {
     if (e == i) {
       cat[i].classList.add('active')
@@ -102,6 +100,7 @@ function switchCategory(e) {
       lists[i].classList.remove('active')
     }
   }
+  updateNumberOfResults(localStorage.getItem('cat'))
 }
 
 function initCategories() {
@@ -128,6 +127,7 @@ function initCategories() {
 
 initSearch()
 initCategories()
+updateNumberOfResults(localStorage.getItem('cat'))
 document.querySelector('.search').style.display = 'none';
 
 

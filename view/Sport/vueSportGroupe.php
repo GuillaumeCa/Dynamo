@@ -14,12 +14,13 @@
     </div>
     <section class="sec">
       <div class="auto-width">
+        <?php if ($groupes): ?>
           <ul class="liste-lg">
             <?php foreach ($groupes as $groupe): ?>
                 <a href="<?php page('groupe', ['id' => $groupe['data']->id]) ?>">
                   <li>
                     <div class="liste-licon">
-                      <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
+                      <div class="liste-bg-img" style="background-image: url(<?php echo !is_null($groupe['data']->url) ? '/'.$groupe['data']->url : '/assets/images/yoga.png' ?>);">
                       </div>
                       <div class="liste-svg">
                           <svg>
@@ -37,4 +38,10 @@
                 </a>
             <?php endforeach; ?>
           </ul>
+        <?php else: ?>
+          <p class="txt-center-warn">
+            Aucun groupe de ce sport
+          </p>
+        <?php endif; ?>
+
         </section>

@@ -2,7 +2,7 @@
         <div class="column">
           <form class="inscription" action="" method="post">
               <h1 class="ttl ttl-md ttl-green">Inscription</h1>
-              <h3 class="form-desc"><?php lang('Tout les champs sont obligatoires'); ?></h3>
+              <h3 class="form-desc"><?php lang('mandatory'); ?></h3>
               <?php if (isset($errors)): ?>
                 <div class="form-errors form-errors-inv">
                   <ul>
@@ -19,11 +19,11 @@
               <input class="clear-form" type="text" name="prenom" placeholder="prénom">
               <h2 class="form-label green-text">Email</h2>
               <input class="clear-form" type="email" name="email" placeholder="e-mail">
-              <h2 class="form-label green-text"><?php lang('Mot de passe'); ?></h2>
+              <h2 class="form-label green-text"><?php lang('mdp'); ?></h2>
               <input class="clear-form mdp" type="password" name="password" placeholder="mot de passe" onclick="resetMdp()">
               <input class="clear-form mdp" type="password" name="confirmation" placeholder="confirmer mot de passe" oninput="verif()">
               <p class="form-info">
-                <?php lang('Le mot de passe doit contenir au moins 1 lettre majuscule, 1 chiffre et doit posséder 8 caractères au minimum.'); ?>
+                <?php lang('info-mdp'); ?>
               </p>
               <div class="errors">
 
@@ -31,7 +31,7 @@
               <h2 class="form-label green-text"><?php lang('Adresse'); ?></h2>
               <input class="clear-form" type="text" name="ville" placeholder="ville">
               <input class="clear-form" type="text" name="codepostal" placeholder="code postal">
-              <h2 class="form-label green-text"><?php lang('Date de naissance'); ?></h2>
+              <h2 class="form-label green-text"><?php lang('date-birth'); ?></h2>
               <div class="label-center">
                 <select class="clear-form dropdown" name="jour">
                   <option value="option" disabled selected><?php lang('jour'); ?></option>
@@ -54,7 +54,7 @@
                   <?php endfor; ?>
                 </select>
               </div>
-              <h2 class="form-label green-text"><?php lang('Sexe'), ?></h2>
+              <h2 class="form-label green-text"><?php lang('Sexe'); ?></h2>
               <div class="label">
                 <div class="radio">
                   <label><input type="radio" class="radio-button" name="sexe" value="H" checked="checked">
@@ -67,7 +67,7 @@
                   <?php lang('Femme'); ?></label>
                 </div>
               </div>
-              <input id="submit" type="submit" class="button dark" value="s'inscrire">
+              <input id="submit" type="submit" class="button dark" value='<?php lang('submit'); ?>'>
             </form>
         </div>
     </section>

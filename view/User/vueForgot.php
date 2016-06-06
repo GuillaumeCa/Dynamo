@@ -1,15 +1,14 @@
 <section class="sec sec-bg-violet">
   <div class="column success-section">
-    <h1 class="ttl ttl-md"><?php lang('Réinitialiser le mot de passe'); ?></h1>
+    <h1 class="ttl ttl-md"><?php lang('reset-mdp'); ?></h1>
     <form action="" method="post">
       <p class="txt-desc">
-        <?php lang('Un lien de réinitialisation de votre mot de passe vous sera envoyé
-        par mail à cette adresse.'); ?>
+        <?php lang('info-reset'); ?>
       </p>
       <div class="login">
-        <input type="email" name="email" placeholder="Adresse email" class="clear-form">
+        <input type="email" name="email" placeholder='<?php lang('mail-address'); ?>' class="clear-form">
       </div>
-      <input type="submit" value="Confirmer" class="button">
+      <input type="submit" value='<?php lang('Confirmer'); ?>' class="button">
     </form>
   </div>
 </section>

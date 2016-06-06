@@ -1,6 +1,7 @@
 <?php
 
 require_once 'model/User.php';
+require_once 'model/Sport.php';
 require_once 'app/Vue.php';
 require_once 'app/Validate.php';
 
@@ -10,10 +11,12 @@ require_once 'app/Validate.php';
 class UserController
 {
   private $user;
+  private $sport;
 
   function __construct()
   {
     $this->user = new User();
+    $this->sport = new Sport();
   }
 
   public function inscription()
@@ -45,7 +48,7 @@ class UserController
       } else {
         $this->user->inscrireUtilisateur($_SESSION["inscription"]);
 
-        session_unset($_SESSION["inscription"]);
+        unset($_SESSION["inscription"]);
         $vue = new Vue("Success", "User");
         $vue->render(['msg' => "L'inscription a bien été enregistré.<br> Un email vous a été envoyé."]);
       }
@@ -91,7 +94,7 @@ class UserController
   public function logout()
   {
     if (isset($_SESSION['auth'])) {
-      session_unset($_SESSION['auth']);
+      session_unset();
     }
     header('Location: /');
   }
@@ -140,17 +143,54 @@ class UserController
 
   public function profile()
   {
-    $this->user->updateProfilePhoto();
-    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch();
-
-    $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("Profile", "User");
     $vue->setScript('formulaire.js');
     $vue->setScript('form.js');
+
+    // Modifier Niveau
+    if (isset($_POST['niveau'])) {
+      foreach ($_POST['niveau'] as $sport => $niveau) {
+        $this->user->modNiveauSportUser($_SESSION['auth']->id, $sport, $niveau);
+      }
+      $vue->setInstant('Niveau modifié !', 'Le niveau a bien été modifié avec succès.');
+    }
+
+    // Supprimer Sport
+    if (isset($_POST['del-sport'])) {
+      foreach ($_POST['del-sport'] as $key => $value) {
+        $this->user->delSportUser($_SESSION['auth']->id, $key);
+      }
+      $vue->setInstant('Sport supprimé !', 'Le sport a bien été supprimé.');
+    }
+
+    // Ajouter Sport
+    if (isset($_POST['add-sport'])) {
+      $this->user->addSport();
+      $vue->setInstant('Sport ajouté !', 'Le sport a bien été ajouté.');
+    }
+
+    // Modifier Profil
+    if (isset($_POST['modifinfo'])) {
+      $this->user->modifProfil($_POST);
+      $vue->setInstant('Modification profil', 'Le profil a bien été modifié.');
+    }
+
+    $this->user->updateProfilePhoto();
+    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch();
+    $sports = $this->user->getSportFromUser($_SESSION['auth']->id);
+    $sportlist = $this->sport->getSportsSortedByType();
+
+    $infos = $this->user->getInfoUser()->fetch();
     $vue->render([
       'infos' => $infos,
-      'photoProfile' => $photoProfile
+      'photoProfile' => $photoProfile,
+      'sports' => $sports,
+      'sportlist' => $sportlist,
+      'niveau' => ['débutant', 'intermédiaire', 'confirmé', 'avancé', 'expert']
     ]);
+    // echo $_POST['mail'];
+    // $vue = new vue ("profile");
+    // $vue->render(['mail' => $mail]);
   }
 
   public function profilePlanning()
@@ -186,18 +226,4 @@ class UserController
     ]);
   }
 
-  public function modifprofil($token)
-  {
-    $tok = $this->user->getUserFromToken($token);
-    $vue = new Vue("Profile", "User");
-    $vue->render(['token' => $tok]);
-  }
-  // public function AjoutSport($token)
-  // {
-  //   if(isset($_POST['ajout']) AND $_POST['ajout']=='ajouter')
-  //   {
-  //     $Ajout = Ajoutsport()->fetchAll();
-  //     include 'view/vueProfile.php';
-  //   }
-  // }
- }
+}

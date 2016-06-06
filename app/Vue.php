@@ -74,4 +74,18 @@ class Vue
   {
     $this->page = $value;
   }
+
+  public function showInstant()
+  {
+    if (isset($_SESSION['inst'])) {
+      include 'view/template/instant.php';
+      unset($_SESSION['inst']);
+    }
+  }
+
+  public function setInstant($title, $sub="")
+  {
+    $_SESSION['inst']['ttl'] = $title;
+    $_SESSION['inst']['sub'] = $sub;
+  }
 }

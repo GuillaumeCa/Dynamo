@@ -116,6 +116,13 @@ class Router {
             $this->redirect();
           }
           break;
+        case 'groupe-message':
+          if (Router::isLoggedIn()) {
+            $this->ctr['Group']->message($this->params);
+          } else {
+            $this->redirect();
+          }
+          break;
 
         case 'membres-groupe':
           if (Router::isLoggedIn()) {
@@ -151,6 +158,11 @@ class Router {
         case 'typeSport':
           $this->ctr['Sport']->TypeSport($this->params['id']);
           break;
+
+        // Club
+        case 'club':
+        $this->ctr['Sport']->club($this->params['id']);
+        break;
 
         // Profile
         case 'profile':
@@ -260,7 +272,7 @@ class Router {
       Router::erreur($e->getMessage());
     }
     catch (Exception $e) {
-      Router::erreur($e);
+      Router::erreur($e->message());
     }
   }
 
@@ -305,14 +317,14 @@ class Router {
     } else {
       foreach (static::$routes as $key => $value) {
         $param_keys = [];
-        preg_match("/{(.*)}/", $value, $param_keys);
-        $param_keys = isset($param_keys[1]) ? array_slice($param_keys, 1) : null;
+        preg_match_all("/{([^}]*)}/", $value, $param_keys);
+        // $param_keys = isset($param_keys[1]) ? array_slice($param_keys, 1) : null;
         $value = preg_replace("/{[^}]*}/", "([a-zA-Z0-9]+)", $value);
         if (preg_match("#^".$value."$#", $_GET['p'], $param)) {
           $this->page = $key;
           if (isset($param[1])) {
             $param = array_slice($param, 1);
-            foreach ($param_keys as $key => $value) {
+            foreach ($param_keys[1] as $key => $value) {
               $this->params[$value] = $param[$key];
             }
           }

@@ -1,7 +1,7 @@
     <section class="sec sec-bg-dviolet">
         <div class="column cgu">
           <h1 class="ttl ttl-md ttl-green"><?php lang('Inscription'); ?></h1>
-          <h2 class="ttl ttl-green"><?php lang("Conditions d'utilisation"); ?></h2>
+          <h2 class="ttl ttl-green"><?php lang('user-terms'); ?></h2>
           <div class="condition-utilisation">
             <h3><?php lang('Licence'); ?></h3>
             <p>
@@ -20,7 +20,7 @@
           </div>
           <form action="" method="post">
             <input type="text" name="cgu" value="cgu" hidden>
-            <input type="submit" name="submit" value="j'accepte" class="button dark">
+            <input type="submit" name="submit" value=<?php lang('accept'); ?> class="button dark">
           </form>
         </div>
       </div>

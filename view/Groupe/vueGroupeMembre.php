@@ -21,10 +21,11 @@
         </ul>
       </nav>
     </div>
+    <section class="auto-width">
     <div class="membres">
 
       <?php if ($isLeader): ?>
-        <a href="#" class="button light" onclick="togglemodal('invit')"><?php lang('Inviter un utilisateur'); ?></a>
+        <a href="#" class="button light" onclick="togglemodal('invit')"><?php lang('invite-user'); ?></a>
       <?php endif; ?>
     <?php foreach ($membreGroupe as $membre): ?>
       <a href="#">
@@ -38,15 +39,46 @@
       </a>
     <?php endforeach; ?>
     </div>
+
+    <?php if ($isLeader): ?>
+      <div class="ttl-group-underline-gr">
+        <h1 class="ttl ttl-green ttl-inline ttl-sm"><?php lang('ask-invit'); ?></h1>
+      </div>
+      <?php if ($autoinvite): ?>
+
+      <div class="membres">
+        <?php foreach ($autoinvite as $membre): ?>
+          <a href="#">
+            <div class="membres-item">
+              <span><?php echo substr($membre->prénom,0,1).substr($membre->nom,0,1) ?></span>
+              <h1><?php echo $membre->prénom." ".$membre->nom ?></h1>
+              <form class="" action="" method="post">
+                <input type="hidden" name="value" value="<?php echo $membre->id_utilisateur ?>">
+                <button type="submit" name="ok" class="button light btn-right"><?php lang('Accepter'); ?></button>
+                <button type="submit" name="ko" class="button light btn-right"><?php lang('Refuser'); ?></button>
+              </form>
+              <h3><?php lang('request-on'); ?><?php echo Vue::date('d/m/Y  à H:i:s',$membre->autoinvite_date) ?></h3>
+            </div>
+          </a>
+        <?php endforeach; ?>
+      </div>
+    <?php else: ?>
+      <p class="txt-center-warn">
+        <?php lang('no-request'); ?>
+      </p>
+    <?php endif; ?>
+  <?php endif; ?>
+    </section>
+
     <?php if ($isLeader): ?>
       <div class="modal" id="invit">
         <div class="back"  onclick="togglemodal('invit')"></div>
         <div class="window">
-          <h1 class="ttl ttl-sm ttl-green">Invitation utilisateur</h1>
+          <h1 class="ttl ttl-sm ttl-green"><?php lang('user-invit'); ?></h1>
           <form class="groupe_crea" action="" method="post">
-            <h2 class="form-label pink-text">Email utilisateur</h2>
+            <h2 class="form-label pink-text"><?php lang('mail-invit'); ?></h2>
             <input class="clear-form" type="email" name="email" placeholder="Email">
-            <button type="submit" name="invit" class="button purple">Inviter</button>
+            <button type="submit" name="invit" class="button purple"><?php lang('Inviter'); ?></button>
           </form>
         </div>
       </div>

@@ -1,20 +1,20 @@
     <section class="sec sec-bg-violet">
       <div class="column">
-        <h1 class="ttl ttl-md"><?php lang('Mes Groupes'); ?></h1>
-        <a href="<?php page('creation-groupe') ?>" class="button margin-top"><?php lang('Créer un groupe'); ?></a>
+        <h1 class="ttl ttl-md"><?php lang('Mes-Groupes'); ?></h1>
+        <a href="<?php page('creation-groupe') ?>" class="button margin-top"><?php lang('create-gr'); ?></a>
       </div>
     </section>
     <section class="sec">
       <div class="auto-width">
+        <?php $i = 0 ?>
+        <?php if ($liste): ?>
           <ul class="liste-lg">
-            <?php $i = 0 ?>
-            <?php if ($liste): ?>
               <?php foreach ($liste as $groupe): ?>
                 <?php if ($groupe['data']->invite == 0): ?>
                   <a href="<?php page('groupe', ['id' => $groupe['data']->id]) ?>">
                     <li>
                       <div class="liste-licon">
-                        <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
+                        <div class="liste-bg-img" style="background-image: url(<?php echo !is_null($groupe['data']->url) ? '/'.$groupe['data']->url : '/assets/images/yoga.png' ?>);">
                         </div>
                         <div class="liste-svg">
                             <svg>
@@ -41,8 +41,12 @@
               <?php endif; ?>
             <?php endforeach; ?>
 
-            <?php endif; ?>
           </ul>
+        <?php else: ?>
+          <p class="txt-center-warn">
+            <?php lang('info-list-gr'); ?>
+          </p>
+        <?php endif; ?>
         </section>
         <?php if ($i != 0): ?>
           <section class="sec">
@@ -54,7 +58,7 @@
                     <li>
                       <a href="<?php page('groupe', ['id' => $groupe['data']->id]) ?>"><span class="liste-overlay"></span></a>
                       <div class="liste-licon">
-                        <div class="liste-bg-img" style="background-image: url(/assets/images/yoga.png);">
+                        <div class="liste-bg-img" style="background-image: url(<?php echo !is_null($groupe['data']->url) ? '/'.$groupe['data']->url : '/assets/images/yoga.png' ?>);">
                         </div>
                         <div class="liste-svg">
                           <svg>

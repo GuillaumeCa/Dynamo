@@ -8,28 +8,44 @@
     <div class="image sec-overlay sec-bg-img" style="background-image: url(/assets/images/sport2.jpg);"></div>
     <div class="image sec-overlay sec-bg-img" style="background-image: url(/assets/images/sport3.jpg);"></div>
   </div>
+
   <div class="sec-overlay sec-over-violet"></div>
   <div class="auto-width group">
+
     <?php if ($isLeader): ?>
+<<<<<<< HEAD
       <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier"><?php lang('modifier'); ?></a>
+=======
+      <a href="#" class="button btn-sm btn-right" id="InfoModifier" onclick="editInfo(this,'.edit-content','.edit-form')">Modifier</a>
+>>>>>>> 56efdc54110555f48e9dde704f212132824e2bca
     <?php endif; ?>
+
     <?php if ($isInGroup==0): ?>
-      <a href="#" class="button btn-sm btn-right btn-wh-inv" id="">S'inscrire</a>
+      <form action="" method="post">
+        <button type="submit" class="button btn-sm btn-right" name="autoinv">S'inscrire</button>
+      </form>
     <?php endif; ?>
-    <form class="modifierinfo" action="" method="post">
-      <h1 class="ttl-md">
-        <span class="header_groupe"><?php echo $presentation_groupe->nomGroupe ?></span>
-        <input class="modif-form edit" type="text" name="name_grp" value="<?php echo $presentation_groupe->nomGroupe ?>">
-      </h1>
-      <p class="txt-jdesc">
-        <span class="header_groupe"><?php echo $presentation_groupe->description ?></span>
-        <input class="modif-form edit" type="text" name="description_grp" value="<?php echo $presentation_groupe->description ?>">
-      </p>
-      <div class="txt-info">
-        <span>
-          <b>Sport</b>
-          <span class="header_groupe"><?php echo $presentation_groupe->sport ?> </span>
-          <select class="modif-form edit" name="sport">
+
+      <div class="edit-content editing">
+        <form class="modifierinfo" action="" method="post">
+          <h1 class="ttl-md"><?php echo $presentation_groupe->nomGroupe ?></h1>
+          <p class="txt-jdesc"><?php echo $presentation_groupe->description ?></p>
+          <div class="txt-info">
+            <span><b>Sport</b><?php echo $presentation_groupe->sport ?></span>
+            <span>
+              <?php if (isset($presentation_groupe->club)): ?>
+                <b>Club</b><?php echo $presentation_groupe->club ?>
+              <?php endif; ?>
+            </span>
+          </div>
+        </form>
+      </div>
+      <div class="edit-form">
+        <form class="modifierinfo" action="" method="post">
+          <input class="edit-grptitle" type="text" name="name_grp" value="<?php echo $presentation_groupe->nomGroupe ?>">
+          <textarea class="edit-grpdesc" name="description_grp" cols="60" rows="3"><?php echo $presentation_groupe->description ?></textarea>
+          <h2>Sport</h2>
+          <select class="edit-select" name="sport">
             <?php foreach ($ListeSports as $type => $sports): ?>
               <optgroup label="<?php echo $type ?>">
                 <?php foreach ($sports as $sport): ?>
@@ -39,6 +55,7 @@
               </optgroup>
             <?php endforeach; ?>
           </select>
+<<<<<<< HEAD
           <!-- <input class="modif-form" type="text" name="sport" value="<?php echo $presentation_groupe->sport ?>"> -->
         </span>
         <span>
@@ -49,14 +66,18 @@
           <b class="edit">Club</b>
           <select class="modif-form edit" name="club">
             <option value="0" selected><?php lang('Pas de Club'); ?></option>
+=======
+          <h2>Club</h2>
+          <select class="edit-select" name="club">
+            <option value="0" selected>Pas de Club</option>
+>>>>>>> 56efdc54110555f48e9dde704f212132824e2bca
             <?php foreach ($ListeClub as $type => $club): ?>
               <?php $sel = ($presentation_groupe->club == $club->nom ? 'selected' : '') ?>
               <option value="<?php echo $club->id ?>" <?php echo $sel ?>><?php echo $club->nom ?></option>
             <?php endforeach; ?>
           </select>
-          <!-- <input class="modif-form" type="text" name="lieu" value="<?php echo $presentation_groupe->club ?>"> -->
-        </span>
+        </form>
       </div>
-    </form>
+
   </div>
 </section>

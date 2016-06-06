@@ -155,10 +155,10 @@ function displayModals($day, $strdate, $events)
       if (date('Y-m-d', strtotime($content[0])) == $curdate) {
         $horaires = date("H:i",strtotime($content[3]))." - ".date("H:i",strtotime($content[4]));
         ?>
-        <div class="modal" num="<?php echo $id ?>" calendrier="<?php echo $cal ?>" day="<?php echo $day ?>">
+        <div class="modal-cal" num="<?php echo $id ?>" calendrier="<?php echo $cal ?>" day="<?php echo $day ?>">
           <div class="head" style="background-color: <?php echo $color ?>">
             <button onclick="hideModal(this)">╳</button>
-            <h2><?php echo $content[1] ?></h2>
+            <h2 class="title"><?php echo $content[1] ?></h2>
             <h3 class="subtitle"><?php echo $horaires ?></h3>
           </div>
           <p>

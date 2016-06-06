@@ -3,12 +3,12 @@
         <?php if ($token): ?>
           <h1 class="ttl ttl-md success-title FadeArrival">✔︎</h1>
           <p  class="success-msg">
-            <?php lang('Félicitation, votre compte a bien été activé !'); ?>
+            <?php lang('congrat'); ?>
           </p>
         <?php else: ?>
           <h1 class="ttl ttl-md success-title FadeArrival">✗</h1>
           <p class="success-msg">
-            <?php lang('Le compte a déjà été validé.'); ?>
+            <?php lang('account-validated'); ?>
           </p>
         <?php endif; ?>
       </div>

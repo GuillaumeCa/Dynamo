@@ -1,9 +1,9 @@
 <section class="sec sec-bg-violet">
   <div class="auto-width">
     <article>
-      <h1 class="ttl ttl-md"><?php lang('Comment se connecter ?'); ?></h1>
+      <h1 class="ttl ttl-md"><?php lang('how-connect'); ?></h1>
       <p class="ttl ttl-s">
-        <?php lang('Rendez-vous sur la page '); ?><a href=""> Connexion</a>.
+        <?php lang('rdv'); ?><a href=""> Connexion</a>.
       </p>
     </article>
   </div>

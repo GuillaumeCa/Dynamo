@@ -7,8 +7,8 @@
   </head>
   <body>
     <div class="container-404">
-      <h1 class="title-404"><?php lang('Euuuh .... la page est introuvable !'); ?></h1>
-      <a href="<?php page() ?>" class="button"><?php lang("Rejoindre la page d'accueil"); ?></a>
+      <h1 class="title-404"><?php lang('Euh'); ?></h1>
+      <a href="<?php page() ?>" class="button"><?php lang('home-page'); ?></a>
       <pre>
         <?php var_dump($msg) ?>
       </pre>

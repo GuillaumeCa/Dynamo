@@ -23,40 +23,61 @@
     </div>
     <div class="reglage">
       <div class="reglage-item">
-        <p><?php lang("Recevoir des notifications par mail lorsqu'une nouvelle activité est ajoutée"); ?></p>
+        <p><?php lang('notif-activity'); ?></p>
         <a href="#" class="button light"><?php lang('Désactiver'); ?></a>
       </div>
       <div class="reglage-item">
-        <p><?php lang("Recevoir des notifications par mail lorsque quelqu'un répond à ma discussion"); ?></p>
+        <p><?php lang('notif-disc'); ?></p>
         <a href="#" class="button light"><?php lang('Désactiver'); ?></a>
       </div>
+      <?php if ($isLeader): ?>
+        <div class="reglage-item">
+          <p><?php lang('modif-view-gr'); ?> </p>
+          <form action="" class="form-inline" method="post">
+            <button type="submit" name="visibility" class="button light"><?php echo $visistat == 1 ? 'Public' : 'Privé' ?></button>
+          </form>
+        </div>
+      <?php endif; ?>
       <div class="reglage-item">
-        <p><?php lang('Quitter le groupe'); ?></p>
+        <p><?php lang('leave-gr'); ?></p>
         <a href="#" class="button light button-danger"><?php lang('Quitter'); ?></a>
       </div>
       <?php if ($isLeader): ?>
-      <div class="reglage-item">
-        <p><?php lang('Supprimer le groupe'); ?></p>
-        <a href="#" class="button light button-danger"><?php lang('Supprimer'); ?></a>
+        <div class="reglage-item">
+          <p><?php lang('delete-gr'); ?></p>
+          <a href="#" class="button light button-danger" onclick="togglemodal('del_grp')"><?php lang('Supprimer'); ?></a>
         </div>
       <?php endif; ?>
     </div>
     <div class="modal" id="quit_grp">
       <div class="back"  onclick="togglemodal('quit_grp')"></div>
       <div class="window">
-        <h1 class="ttl ttl-sm ttl-green">Voulez vous quitter le groupe ?</h1>
-        <form action="" method="post">
-          <button type="submit" name="quit-grp" class="button light button-danger">Quitter</button>
+        <h1 class="ttl ttl-sm ttl-green"><?php lang('ask-leave-gr'); ?></h1>
+        <form class="groupe_crea" action="" method="post">
+          <?php if ($isLeader): ?>
+            <h2 class="form-label pink-text"><?php lang('select-leader'); ?></h2>
+            <div class="">
+              <select class="clear-form dropdown" name="utilisateurs">
+                <?php foreach ($membres as $value): ?>
+                  <option disabled selected><?php lang('new-leader'); ?></option>
+                  <?php if ($value->leader == 0): ?>
+                    <option value="<?php echo $value->id ?>"><?php echo $value->prenom." ".$value->nom ?></option>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </select>
+            </div>
+          <?php endif; ?>
+          <button type="submit" name="quit-grp" class="button light button-danger"><?php lang('Quitter'); ?></button>
         </form>
       </div>
     </div>
     <?php if ($isLeader): ?>
       <div class="modal" id="del_grp">
-        <div class="back"  onclick="togglemodal('quit_grp')"></div>
+        <div class="back"  onclick="togglemodal('del_grp')"></div>
         <div class="window">
-          <h1 class="ttl ttl-sm ttl-green">Voulez vous supprimer le groupe ?</h1>
+          <h1 class="ttl ttl-sm ttl-green"><?php lang('ask-delete-gr'); ?></h1>
           <form action="" method="post">
-            <button type="submit" name="del-grp" class="button light button-danger">Supprimer</button>
+            <button type="submit" name="del-grp" class="button light button-danger"><?php lang('Supprimer'); ?></button>
           </form>
         </div>
       </div>

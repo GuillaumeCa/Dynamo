@@ -1,11 +1,7 @@
 <section class="sec sec-bg-overlay">
 
   <div id="diaporama" class="sec-overlay diapo-images">
-    <?php foreach ($photos as $key => $photo): ?>
-      <?php $visi = ($key == 0) ? 'visible' : null ?>
-      <div class="image sec-overlay sec-bg-img <?php echo $visi ?>" style="background-image: url(/<?php echo $photo->nom ?>);"></div>
-    <?php endforeach; ?>
-    <div class="image sec-overlay sec-bg-img" style="background-image: url(/assets/images/sport2.jpg);"></div>
+    <div class="image sec-overlay sec-bg-img visible" style="background-image: url(/assets/images/sport2.jpg);"></div>
     <div class="image sec-overlay sec-bg-img" style="background-image: url(/assets/images/sport3.jpg);"></div>
   </div>
   <div class="sec-overlay sec-over-violet"></div>
@@ -13,16 +9,18 @@
       <h1 class="ttl-md">
         <span class="header_groupe">Nom du Club</span>
       </h1>
-      <h3>Ville : </h3>
+      <div class="txt-info">
+        <span><b>Ville</b> Paris</span>
+        <span><b>Note</b> 4/10</span>
+      </div>
   </div>
 </section>
 
-<section>
-  <h1>Note global du club : </h1>
-</section>
 <section class="auto-width">
+  <?php if ($comments): ?>
+
   <ul class="liste-discussion">
-    <?php foreach ($discussions as $message): ?>
+    <?php foreach ($comments as $message): ?>
       <li>
           <div class="boutton-discussion">
             <div class="parti-discussion">
@@ -53,11 +51,11 @@
           </div>
       </li>
     <?php endforeach; ?>
-    <?php if (Router::isLoggedIn()): ?>
     </br></br>
     <div class="line"></div>
     </br>
     </ul>
+  <?php endif; ?>
     <form action="" method="post">
       <div class="boutton-discussion2">
         <div class="parti-discussion">
@@ -65,7 +63,14 @@
           <h1><b><?php echo $_SESSION['auth']->nom." ".$_SESSION['auth']->prénom ?></b></h1>
           <p><?php echo $_SESSION['auth']->id_ville ?></p>
         </div><div class="parti-discussion2">
-          <textarea class="clear-form2" name="commentaire" rows="6" cols="40" placeholder="Pour répondre et commentez cette discussion..."></textarea>
+          <div class="club-note">
+            <span class="star-note"></span>
+            <span class="star-note"></span>
+            <span class="star-note"></span>
+            <span class="star-note"></span>
+            <span class="star-note"></span>
+          </div>
+          <textarea class="clear-form2" name="commentaire" rows="6" cols="40" placeholder="Tapez votre commentaire et notez le club..."></textarea>
         </div>
       </div>
     </br>
@@ -73,5 +78,4 @@
       <input type="submit" value="Commentez" class="button light">
     </div>
   </form>
-  <?php endif; ?>
 </section>

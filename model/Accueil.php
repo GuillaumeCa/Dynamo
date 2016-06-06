@@ -16,7 +16,7 @@ class Accueil extends Database
 
   public function getUsersByName($name)
   {
-    $sports = $this->executerRequete("SELECT * FROM utilisateur WHERE nom LIKE ? AND admin = 0", ["%".$name."%"])->fetchAll();
+    $sports = $this->executerRequete("SELECT * FROM utilisateur WHERE ( nom LIKE :search ) OR ( prénom LIKE :search ) OR ( pseudo LIKE :search ) AND admin = 0", ['search' => "%".$name."%"])->fetchAll();
     return $sports;
   }
 
