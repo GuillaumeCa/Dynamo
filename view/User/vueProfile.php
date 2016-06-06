@@ -37,7 +37,7 @@
         <tr>
           <th><?php lang('Sexe'); ?></th>
           <td><span><?php echo $infos->sexe ?></span>
-            <select class="modif-form" name ="sexe">
+            <select class="dropdown modif-form " name ="sexe">
               <option value="F"><?php lang('Femme'); ?></option>
               <option value="H"><?php lang('Homme'); ?></option>
             </select>
@@ -45,8 +45,28 @@
         </tr>
         <tr>
           <th><?php lang('Date de naissance'); ?></th>
-          <td><span><?php echo Vue::date('d - m - Y',$infos->naissance) ?></span>
-            <input class="modif-form" type="date" name="name" value="<?php echo $infos->naissance ?>">
+          <td><span><?php echo Vue::date('d/m/Y',$infos->naissance) ?></span>
+            <input class="modif-form" type="date" name="name" value="<?php echo Vue::date('d/m/Y',$infos->naissance) ?>">
+            <select class="modif-form dropdown" name="jour">
+              <option value="option" disabled selected><?php lang('jour'); ?></option>
+              <?php for ($i = 0; $i < 31; $i++): ?>
+                <option value="<?php echo $i+1 ?>"><?php echo $i+1; ?></option>
+              <?php endfor; ?>
+            </select>
+            <select class="modif-form dropdown" name="mois">
+              <option value="option" disabled selected><?php lang('mois'); ?></option>
+              <?php $mois=["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"] ?>
+              <?php for ($i = 0; $i < 12; $i++): ?>
+                <option value="<?php echo $i+1 ?>"><?php echo $mois[$i]; ?></option>
+              <?php endfor; ?>
+            </select>
+            <select class="modif-form dropdown" name="année">
+              <option value="option" disabled selected><?php lang('année'); ?></option>
+              <?php $date = intval(date('Y')); ?>
+              <?php for ($i = 14; $i < 99; $i++): ?>
+                <option value="<?php echo $date-$i ?>"><?php echo $date-$i; ?></option>
+              <?php endfor; ?>
+            </select>
           </td>
         </tr>
         <tr>
@@ -64,11 +84,15 @@
       </table>
     </form>
     </div>
-    <div class="ttl-group-underline-gr">
+  <div class="ttl-group-underline-gr">
       <h1 class="ttl ttl-green ttl-inline ttl-sm"><?php lang('Mes sports'); ?></h1>
-      <a href="#" class="button btn-sm btn-right btn-wh-inv"><?php lang('modifier'); ?></a>
-    </div>
 
+      <a >
+        <input href="#" class="button btn-sm btn-right btn-wh-inv" type='button' value='modifier' onClick='modif()'>
+      </a>
+
+        <a href="#" class="button btn-sm btn-right btn-wh-inv" onclick="togglemodal('add_sport')"><?php lang('modifier'); ?></a>
+  </div>
     <ul class="liste-smp">
       <li>
         <div class="circle">
@@ -78,16 +102,18 @@
         </div>
         <h1 class="ttl ttl-sm ttl-inline ttl-purple">Basket</h1>
         <div class="liste-button">
-          <a href="#" class="button btn-sm purple btn-right"><?php lang('supprimer'); ?></a>
+          <a>
+          <input href="#" class="button btn-sm purple btn-right" type='button' value='<?php lang('supprimer'); ?>' onClick='supprimerSport()'>
+        </a>
         </div>
         <div class="liste-niveau">
           <span class="liste-desc"><?php lang('faible'); ?></span>
           <div class="liste-scope">
-            <span class="rectangle filled"></span>
-            <span class="rectangle filled"></span>
-            <span class="rectangle filled"></span>
-            <span class="rectangle"></span>
-            <span class="rectangle"></span>
+            <span class="rectangle" onclick="modifniveau(this)"></span>
+            <span class="rectangle" onclick="modifniveau(this)"></span>
+            <span class="rectangle" onclick="modifniveau(this)"></span>
+            <span class="rectangle" onclick="modifniveau(this)"></span>
+            <span class="rectangle" onclick="modifniveau(this)"></span>
           </div>
           <span class="liste-desc"><?php lang('élevé'); ?></span>
         </div>
@@ -100,16 +126,18 @@
         </div>
           <h1 class="ttl ttl-sm ttl-inline ttl-purple">Ping Pong</h1>
           <div class="liste-button">
-            <a href="#" class="button btn-sm purple btn-right"><?php lang('supprimer'); ?></a>
+            <a>
+            <input href="#" class="button btn-sm purple btn-right" type='button' value='<?php lang('supprimer'); ?>' onClick='supprimerSport()'>
+          </a>
           </div>
           <div class="liste-niveau">
             <span class="liste-desc"><?php lang('faible'); ?></span>
             <div class="liste-scope">
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle"></span>
-              <span class="rectangle"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
             </div>
             <span class="liste-desc"><?php lang('élevé'); ?></span>
           </div>
@@ -122,16 +150,18 @@
         </div>
           <h1 class="ttl ttl-sm ttl-inline ttl-purple">Tennis</h1>
           <div class="liste-button">
-            <a href="#" class="button btn-sm purple btn-right"><?php lang('supprimer'); ?></a>
+            <a>
+            <input href="#" class="button btn-sm purple btn-right" type='button' value='<?php lang('supprimer'); ?>' onClick='supprimerSport()'>
+          </a>
           </div>
           <div class="liste-niveau">
             <span class="liste-desc"><?php lang('faible'); ?></span>
             <div class="liste-scope">
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle"></span>
-              <span class="rectangle"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
+              <span class="rectangle" onclick="modifniveau(this)"></span>
             </div>
             <span class="liste-desc"><?php lang('élevé'); ?></span>
           </div>
@@ -144,19 +174,44 @@
         </div>
           <h1 class="ttl ttl-sm ttl-inline ttl-purple">Gymnastique</h1>
           <div class="liste-button">
-            <a href="#" class="button btn-sm purple btn-right"><?php lang('supprimer'); ?></a>
+            <a>
+            <input class="button btn-sm purple btn-right" type='submit' name="supprimer" value='<?php lang('supprimer'); ?>'>
+          </a>
           </div>
+          <!-- <?php foreach ($variable as $key => $value) {
+
+          } ?> -->
           <div class="liste-niveau">
             <span class="liste-desc"><?php lang('faible'); ?></span>
             <div class="liste-scope">
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle filled"></span>
-              <span class="rectangle"></span>
-              <span class="rectangle"></span>
+              <input type="hidden" name="niveau" value="0">
+              <span class="rectangle" name="1" onclick="modifniveau(this)"></span>
+              <span class="rectangle" name="2" onclick="modifniveau(this)"></span>
+              <span class="rectangle" name="3" onclick="modifniveau(this)"></span>
+              <span class="rectangle" name="4" onclick="modifniveau(this)"></span>
+              <span class="rectangle" name="5" onclick="modifniveau(this)"></span>
             </div>
             <span class="liste-desc"><?php lang('élevé'); ?></span>
           </div>
       </li>
     </ul>
   </section>
+  <div class="modal" id="add_sport" >
+    <div class="back"  onclick="togglemodal('add_sport')"></div>
+    <div class="window">
+      <h1 class="ttl ttl-sm ttl-green">Voulez vous supprimer votre compte ?</h1>
+      <form action="" method="post">
+        <button type="submit" name="add-sport" class="button light ">Ajouter</button>
+      </form>
+    </div>
+  </div>
+  <script language='javascript'>
+
+function supprimerSport()
+{
+if (confirm("êtes-vous sûr de vouloir supprimer ce sport?"))
+{
+formulaire.submit();
+}
+}
+</script>

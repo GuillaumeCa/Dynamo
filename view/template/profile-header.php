@@ -4,7 +4,9 @@
       <?php echo substr(ucfirst($_SESSION['auth']->prénom), 0, 1) ?>
     </a> -->
     <div class="profile-photo">
-      <img src="/<?php echo $photoProfile ?>" alt="" />
+      <?php if ($photoProfile): ?>
+        <img src="/<?php echo $photoProfile->nom ?>" alt="" />
+      <?php endif; ?>
       <span class="upload">
         <span class="upload-item">
           <form action="" method="post" enctype="multipart/form-data" id="profilephoto">

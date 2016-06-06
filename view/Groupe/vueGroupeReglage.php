@@ -34,8 +34,30 @@
         <p><?php lang('Quitter le groupe'); ?></p>
         <a href="#" class="button light button-danger"><?php lang('Quitter'); ?></a>
       </div>
+      <?php if ($isLeader): ?>
       <div class="reglage-item">
         <p><?php lang('Supprimer le groupe'); ?></p>
         <a href="#" class="button light button-danger"><?php lang('Supprimer'); ?></a>
+        </div>
+      <?php endif; ?>
+    </div>
+    <div class="modal" id="quit_grp">
+      <div class="back"  onclick="togglemodal('quit_grp')"></div>
+      <div class="window">
+        <h1 class="ttl ttl-sm ttl-green">Voulez vous quitter le groupe ?</h1>
+        <form action="" method="post">
+          <button type="submit" name="quit-grp" class="button light button-danger">Quitter</button>
+        </form>
       </div>
     </div>
+    <?php if ($isLeader): ?>
+      <div class="modal" id="del_grp">
+        <div class="back"  onclick="togglemodal('quit_grp')"></div>
+        <div class="window">
+          <h1 class="ttl ttl-sm ttl-green">Voulez vous supprimer le groupe ?</h1>
+          <form action="" method="post">
+            <button type="submit" name="del-grp" class="button light button-danger">Supprimer</button>
+          </form>
+        </div>
+      </div>
+    <?php endif; ?>

@@ -22,7 +22,10 @@
       </nav>
     </div>
     <div class="membres">
-      <a href="#" class="button light"><?php lang('Inviter un utilisateur'); ?></a>
+
+      <?php if ($isLeader): ?>
+        <a href="#" class="button light" onclick="togglemodal('invit')"><?php lang('Inviter un utilisateur'); ?></a>
+      <?php endif; ?>
     <?php foreach ($membreGroupe as $membre): ?>
       <a href="#">
         <div class="membres-item">
@@ -35,3 +38,16 @@
       </a>
     <?php endforeach; ?>
     </div>
+    <?php if ($isLeader): ?>
+      <div class="modal" id="invit">
+        <div class="back"  onclick="togglemodal('invit')"></div>
+        <div class="window">
+          <h1 class="ttl ttl-sm ttl-green">Invitation utilisateur</h1>
+          <form class="groupe_crea" action="" method="post">
+            <h2 class="form-label pink-text">Email utilisateur</h2>
+            <input class="clear-form" type="email" name="email" placeholder="Email">
+            <button type="submit" name="invit" class="button purple">Inviter</button>
+          </form>
+        </div>
+      </div>
+    <?php endif; ?>

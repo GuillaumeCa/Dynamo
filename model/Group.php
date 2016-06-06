@@ -8,6 +8,22 @@ require_once 'app/Database.php';
 class Group extends Database
 {
 
+  public function autoInvitation()
+  {
+    $sql = "UPDATE utilisateur_groupe SET autoinvite = 1 WHERE id_groupe = ? AND id_utilisateur = ?";
+    $this->executerRequete($sql);
+    $mail = new Mail($insc['email'], "Inscription groupe", "autoinvit.php");
+    $mail->render($insc);
+    $mail->send();
+  }
+
+  public function isInGroup($id)
+  {
+    $sql="SELECT id_utilisateur FROM utilisateur_groupe WHERE id_utilisateur = ? AND id_groupe = ?";
+    $utilisateur =$this->executerRequete($sql, [$_SESSION['auth']->id, $id]);
+    return $utilisateur->rowCount();
+  }
+
   public function listGroupFromUser()
   {
     $sql = "SELECT groupe.id, groupe.titre as nomGroupe, sport.nom as sport, club.nom as club, utilisateur_groupe.invite, utilisateur_groupe.leader, sport.id_type, groupe.nbmaxutil
@@ -15,15 +31,18 @@ class Group extends Database
     JOIN groupe ON utilisateur_groupe.id_groupe=groupe.id
     JOIN sport ON groupe.id_sport=sport.id
     LEFT JOIN club ON groupe.id_club=club.id
-    WHERE id_utilisateur = ?";
+    WHERE id_utilisateur = ? AND autoinvite = 0" ;
     $listGroup = $this->executerRequete($sql, [intval($_SESSION['auth']->id)]);
-    foreach ($listGroup->fetchAll() as $key => $value) {
-      $liste[] = [
-        'data' => $value,
-        'nb' => $this->nbUserFromGroup($value->id)
-      ];
+    if ($listGroup->rowCount() > 0) {
+      foreach ($listGroup->fetchAll() as $key => $value) {
+        $liste[] = [
+          'data' => $value,
+          'nb' => $this->nbUserFromGroup($value->id)
+        ];
+      }
+      return $liste;
     }
-    return $liste;
+    return false;
   }
 
   public function listGroupFromSport($id_sport)
@@ -164,12 +183,7 @@ class Group extends Database
     ]);
     foreach ($crea['membre'] as $membre) {
       if ($membre != '') {
-        $id_membre = $this->executerRequete("SELECT id FROM utilisateur WHERE email = ?", [$membre])->fetch()->id;
-        var_dump($id_membre);
-        $this->executerRequete("INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, leader, invite, invite_date) VALUES (?, ?, 0, 1, ?)", [ $id, $id_membre, date('Y-m-d H:i:s')]);
-        $mail = new Mail($membre, "Vous avez été invité dans un groupe !", "invit.php");
-        $mail->render();
-        $mail->send();
+        $this->invitUserInGroup($id, $membre);
       }
     }
     return $id;
@@ -238,7 +252,7 @@ class Group extends Database
       $modification['name_grp'],
       $modification['description_grp'],
       $modification['sport'],
-      $modification['club'],
+      $modification['club'] == 0 ? null : $modification['club'],
       $id
     ]);
   }
@@ -302,7 +316,26 @@ class Group extends Database
   }
 
   public function deletePhoto($id){
-    unlink();
     return $this->executerRequete("DELETE FROM photo WHERE id_groupe = ?", [$id]);
   }
+
+  public function quitGroup($id_user, $id_grp)
+  {
+    $this->executerRequete('DELETE FROM utilisateur_groupe WHERE id_utilisateur = ? AND id_groupe = ?', [$id_user, $id_grp]);
+  }
+
+  public function invitUserInGroup($id_grp, $email)
+  {
+    // récup id de l'utilisateur invité
+    $id_membre = $this->executerRequete("SELECT id FROM utilisateur WHERE email = ?", [$email])->fetch()->id;
+
+    // Inviter utilisateur dans la bdd
+    $this->executerRequete("INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, leader, invite, invite_date) VALUES (?, ?, 0, 1, ?)", [ $id_grp, $id_membre, date('Y-m-d H:i:s')]);
+
+    // Envoyer un mail
+    $mail = new Mail($email, "Vous avez été invité dans un groupe !", "invit.php");
+    $mail->render();
+    $mail->send();
+  }
+
 }

@@ -141,7 +141,7 @@ class UserController
   public function profile()
   {
     $this->user->updateProfilePhoto();
-    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch()->nom;
+    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch();
 
     $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("Profile", "User");
@@ -156,7 +156,7 @@ class UserController
   public function profilePlanning()
   {
     $this->user->updateProfilePhoto();
-    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch()->nom;
+    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch();
 
     $events = $this->user->getEventsFromUser();
     $infos = $this->user->getInfoUser()->fetch();
@@ -172,11 +172,14 @@ class UserController
 
   public function profileReglage()
   {
+    $this->user->deleteProfilePhoto();
     $this->user->updateProfilePhoto();
-    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch()->nom;
+    $this->user->deleteUserProfile();
+    $photoProfile = $this->user->getProfilePhoto($_SESSION['auth']->id)->fetch();
 
     $infos = $this->user->getInfoUser()->fetch();
     $vue = new Vue("ProfileReglage", "User");
+    $vue->setScript('form.js');
     $vue->render([
       'infos' => $infos,
       'photoProfile' => $photoProfile
@@ -189,5 +192,12 @@ class UserController
     $vue = new Vue("Profile", "User");
     $vue->render(['token' => $tok]);
   }
-
-}
+  // public function AjoutSport($token)
+  // {
+  //   if(isset($_POST['ajout']) AND $_POST['ajout']=='ajouter')
+  //   {
+  //     $Ajout = Ajoutsport()->fetchAll();
+  //     include 'view/vueProfile.php';
+  //   }
+  // }
+ }

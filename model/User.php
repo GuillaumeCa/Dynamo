@@ -160,7 +160,7 @@ class User extends Database
 
   public function updateProfilePhoto()
   {
-    if (isset($_POST['groupe-photo'])) {
+    if (isset($_POST['profile-photo'])) {
       $photo = new Photo('profil');
       $replace = $this->userPhotoExist($_SESSION['auth']->id);
       if ($replace) {
@@ -175,30 +175,58 @@ class User extends Database
     }
   }
 
-/*  public function modifprofil($insc)
+  public function deleteProfilePhoto()
+  {
+    if (isset($_POST['delete-photo'])) {
+      $replace = $this->userPhotoExist($_SESSION['auth']->id);
+      if ($replace) {
+        $this->executerRequete("DELETE FROM photo WHERE id_utilisateur = ?", [$_SESSION['auth']->id]);
+        unlink($replace);
+      }
+    }
+  }
+
+  public function deleteUserProfile()
+  {
+    if (isset($_POST['del-acc'])) {
+      $this->deleteUser($_SESSION['auth']->id);
+      session_unset($_SESSION['auth']);
+      Router::redirect('accueil');
+    }
+  }
+
+  public function modifprofil($insc)
   {
     $token = $this->generateToken();
     $idVille = $this->executerRequete("SELECT id FROM villes WHERE ville_nom_reel = ?", [$insc['ville']])->fetch()->id;
     $date = $insc['année']."-".$insc['mois']."-".$insc['jour'];
     $q = "INSERT INTO utilisateur (nom, prénom, pseudo, sexe, naissance, email, id_ville, code_postal, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $insc['token'] = $token;
-    $sql = "SELECT email FROM utilisateur"
-    $sql = $this->executerRequete("SELECT email FROM utilisateur WHERE  = ?", [$_SESSION['auth']->fetch()->id]);
-    if($sql != $_POST['email']){
-      $mail = new Mail($insc['email'], "Validation compte Dynamo", "activate.php")
-      $mail->render($insc);
-      $mail->send();
-    }
-    $this->executerRequete($q, [
-      $insc['nom'],
-      $insc['prenom'],
-      $insc['pseudo'],
-      $insc['sexe'],
-      $date,
-      $insc['email'],
-      $idVille,
-      $insc['codepostal'],
-      $token
-    ]);
-*/
+    $sql = "SELECT email FROM utilisateur";
+    // $sql = $this->executerRequete("SELECT email FROM utilisateur WHERE  = ?", [$_SESSION['auth']->id])->fetch()->email;
+    // if($sql != $_POST['email']){
+    //   $q= "DELETE FROM utilisateur WHERE = email" ;
+    //   $mail = new Mail($insc['email'], "Validation compte Dynamo", "activate.php")
+    //   $mail->render($insc);
+    //   $mail->send();
+    // }
+    // $this->executerRequete($q, [
+    //   $insc['nom'],
+    //   $insc['prenom'],
+    //   $insc['pseudo'],
+    //   $insc['sexe'],
+    //   $date,
+    //   $insc['email'],
+    //   $idVille,
+    //   $insc['codepostal'],
+    //   $token
+    // ]);
+  }
+//
+//   function Ajoutsport()
+// {
+//   $ajout = "SELECT nom FROM sport";
+//     return dynamo()->query($ajout);
+// }
+
 }
