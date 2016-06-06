@@ -49,6 +49,62 @@ class Forum extends Database
     return $this->executerRequete($sql, [$disc]);
   }
 
+  public function getAllMessages($lim)
+  {
+    $q = "SELECT
+            message.id,
+            message.texte as text,
+            message.date,
+            utilisateur.nom,
+            utilisateur.prénom,
+            discussion.titre as disc,
+            topic.nom as topic
+          FROM message
+          JOIN discussion ON discussion.id = message.id_discussion
+          JOIN utilisateur ON utilisateur.id = message.id_utilisateur
+          LEFT JOIN topic ON topic.id = discussion.id_topic
+          LIMIT $lim";
+    return $this->executerRequete($q)->fetchAll();
+  }
+
+  public function getMessagesSearch($lim)
+  {
+
+    if (!empty($_GET['disc'])) {
+      $ins[] = $_GET['disc'];
+      $param[] = "discussion.id = ?";
+    }
+    if (!empty($_GET['topic'])) {
+      $ins[] = $_GET['topic'];
+      $param[] = "topic.id = ?";
+    }
+    if (!empty($_GET['s'])) {
+      $ins[] = "%".$_GET['s']."%";
+      $param[] = "message.texte LIKE ?";
+    }
+    $param = implode(' AND ', $param);
+    $q = "SELECT
+            message.id,
+            message.texte as text,
+            message.date,
+            utilisateur.nom,
+            utilisateur.prénom,
+            discussion.titre as disc,
+            topic.nom as topic
+          FROM message
+          JOIN discussion ON discussion.id = message.id_discussion
+          JOIN utilisateur ON utilisateur.id = message.id_utilisateur
+          LEFT JOIN topic ON topic.id = discussion.id_topic
+          WHERE $param
+          LIMIT $lim";
+    return $this->executerRequete($q, $ins)->fetchAll();
+  }
+
+  public function deleteMessage($id)
+  {
+    $this->executerRequete("DELETE FROM message WHERE id = ?", [$id]);
+  }
+
   public function creerDiscussion($topic)
   {
     if (!empty($_POST)) {
@@ -77,6 +133,15 @@ class Forum extends Database
       ]);
       Router::redirect("forumDiscussion", ['id' => $disc]);
     }
+  }
+
+  public function getAllTopic()
+  {
+    return $this->executerRequete("SELECT * FROM topic")->fetchAll();
+  }
+  public function getAllDisc()
+  {
+    return $this->executerRequete("SELECT * FROM discussion")->fetchAll();
   }
 
 }

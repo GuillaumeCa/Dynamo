@@ -239,14 +239,14 @@ class Router {
           break;
         case 'backoffice-forum':
           if (Router::isAdmin()) {
-            $this->ctr['Backoffice']->group();
+            $this->ctr['Backoffice']->forum();
           } else {
             Router::redirect();
           }
           break;
         case 'backoffice-help':
           if (Router::isAdmin()) {
-            $this->ctr['Backoffice']->group();
+            $this->ctr['Backoffice']->help();
           } else {
             Router::redirect();
           }
@@ -268,7 +268,12 @@ class Router {
 
   public static function isLoggedIn()
   {
-    return isset($_SESSION['auth']);
+    if (isset($_SESSION['auth'])) {
+      if ($_SESSION['auth']->ban == 0 && (empty($_SESSION['auth']->ban_date) || strtotime($_SESSION['auth']->ban_date) <= strtotime('now'))) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public static function isAdmin()

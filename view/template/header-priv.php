@@ -96,7 +96,7 @@
           <span class="notif" title="Vous avez <?php echo $nb ?> invitations"><?php echo $nb; ?></span></a>
         <?php endif; ?>
       </li>
-      <li><a href="<?php page('forum') ?>">Forum<span class="notif">3</span></a></li>
+      <li><a href="<?php page('forum') ?>">Forum <span class="notif">3</span></a></li>
       <li><a href="<?php page('aide') ?>"><?php lang('Aide') ?></a></li>
     </ul>
     <div class="btn-nav" onclick="toggle('.nav-menu')">

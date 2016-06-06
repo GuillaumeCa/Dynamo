@@ -23,3 +23,16 @@ function modify() {
     alert('Sélectionnez un seul élément');
   }
 }
+
+function multisel() {
+  var checked = document.querySelectorAll('.table-admin input:checked');
+  if (checked.length == 0 ) {
+    event.preventDefault();
+    alert('Sélectionnez au moins un élément');
+  }
+}
+
+function modalinfo(e, id) {
+  var modal = document.querySelector('#'+e);
+  modal.querySelector('input.id-msg').value = id;
+}

@@ -44,7 +44,7 @@
             <?php endforeach; ?>
           <?php else: ?>
             <div class="label-box">
-              <span><?php lang('no event'); ?></span>
+              <span><?php lang('no-event'); ?></span>
             </div>
           <?php endif; ?>
         </div>

@@ -22,15 +22,12 @@
                             </svg>
                         </div>
                       </div>
-                      <div class="liste-mid-txt">
-                        <h1 class="liste-ttl"><?php echo $groupe['data']->nomGroupe ?></h1>
-                        <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe['data']->sport ?></span>
-                        <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe['data']->club ?></span>
-                      </div>
                     <div class="liste-mid-txt">
                       <h1 class="liste-ttl"><?php echo $groupe['data']->nomGroupe ?></h1>
-                      <span class="liste-ttl-sub"><b><?php lang('Sport'); ?></b> <?php echo $groupe['data']->sport ?></span>
-                      <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe['data']->club ?></span>
+                      <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe['data']->sport ?></span>
+                      <?php if ($groupe['data']->club): ?>
+                        <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe['data']->club ?></span>
+                      <?php endif; ?>
                     </div>
                     <span class="liste-note"><span><?php echo $groupe['nb'] ?></span>/<?php echo $groupe['data']->nbmaxutil ?></span>
                     <span class="liste-leader"><?php echo ($groupe['data']->leader == 1) ? "LEADER" : Null ?></span>

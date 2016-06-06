@@ -138,7 +138,7 @@ class User extends Database
   {
     $offset = $nb * $page;
     $limit = ($nb != 0) ? "LIMIT $offset, $nb" : "";
-    return $this->executerRequete("SELECT * FROM utilisateur ".$limit);
+    return $this->executerRequete("SELECT * FROM utilisateur WHERE admin = 0 ".$limit);
   }
 
   public function deleteUser($id)
@@ -192,6 +192,19 @@ class User extends Database
       $this->deleteUser($_SESSION['auth']->id);
       unset($_SESSION['auth']);
       Router::redirect('accueil');
+    }
+  }
+
+  public function banUser($id)
+  {
+    $date = "DATE_ADD(NOW(),INTERVAL {$_POST['duree']} SECOND)";
+    if ($_POST['duree'] == 0) {
+      $date = 'NULL';
+    }
+    if (isset($_POST['unban'])) {
+      $this->executerRequete("UPDATE utilisateur SET ban = 0, ban_date = NULL WHERE id = ?", [$id]);
+    } else {
+      $this->executerRequete("UPDATE utilisateur SET ban = 1, ban_date = $date WHERE id = ?", [$id]);
     }
   }
 

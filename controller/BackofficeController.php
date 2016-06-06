@@ -5,6 +5,7 @@ require_once 'model/User.php';
 require_once 'model/Accueil.php';
 require_once 'model/Sport.php';
 require_once 'model/Group.php';
+require_once 'model/Forum.php';
 
 
 /**
@@ -16,6 +17,7 @@ class BackofficeController
   private $user;
   private $sport;
   private $group;
+  private $forum;
 
   function __construct()
   {
@@ -23,6 +25,7 @@ class BackofficeController
     $this->user = new User();
     $this->sport = new Sport();
     $this->group = new Group();
+    $this->forum = new Forum();
   }
 
   public function user()
@@ -31,6 +34,14 @@ class BackofficeController
       foreach ($_POST['sel'] as $id) {
         $this->user->deleteUser($id);
       }
+    }
+    if (isset($_POST['ban'])) {
+      foreach ($_POST['sel'] as $id) {
+        $this->user->banUser($id);
+      }
+    }
+    if (isset($_POST['add'])) {
+      $this->user->inscrireUtilisateur($_POST);
     }
 
     $cpage = isset($_GET['page']) ? $_GET['page'] : 0;
@@ -51,7 +62,7 @@ class BackofficeController
   public function group()
   {
     if (isset($_POST['add'])) {
-      $this->group->createGroup($_POST);
+      $this->group->creerGroupeAdmin($_POST);
     }
     if (isset($_POST['update'])) {
       $this->group->updateGroup($_POST);
@@ -91,5 +102,51 @@ class BackofficeController
       'sports' => $sports
     ]);
   }
+  public function forum()
+  {
+    $vue = new Vue("Forum", "Backoffice", 'backoffice');
+    $results = $this->forum->getAllMessages(200);
+
+    if (!empty($_GET['s']) || !empty($_GET['disc']) || !empty($_GET['topic'])) {
+      $results = $this->forum->getMessagesSearch(200);
+    }
+
+    if (isset($_POST['del'])) {
+      foreach ($_POST['sel'] as $sel) {
+        $this->forum->deleteMessage($sel);
+      }
+      $vue->setInstant("Message supprimé", "Le message a bien été supprimé.");
+    }
+
+    $vue->render([
+      'results' => $results,
+      'topic' => $this->forum->getAllTopic(),
+      'disc' => $this->forum->getAllDisc(),
+    ]);
+  }
+  public function help()
+  {
+    // Add
+    if (isset($_POST['add'])) {
+      $this->acc->addHelpMessage();
+    }
+    // Del
+    if (isset($_POST['del'])) {
+      foreach ($_POST['sel'] as $value) {
+        $this->acc->delHelpMessage($value);
+      }
+    }
+    // Mod
+    if (isset($_POST['mod'])) {
+      $this->acc->modHelpMessage($_POST['id']);
+    }
+    $helpmsg = $this->acc->getHelpMessages();
+    $vue = new Vue("Aide", "Backoffice", 'backoffice');
+    $vue->render([
+      'helpmsg' => $helpmsg
+    ]);
+  }
+
+
 
 }

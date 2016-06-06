@@ -16,10 +16,10 @@
       <a href="<?php page('backoffice-sport') ?>">
         <li class="">Sports</li>
       </a>
-      <a href="#">
+      <a href="<?php page('backoffice-forum') ?>">
         <li class="">Forum</li>
       </a>
-      <a href="#">
+      <a href="<?php page('backoffice-help') ?>">
         <li class="">Aide</li>
       </a>
     </ul>
@@ -37,6 +37,11 @@
 
             <h2 class="form-label pink-text">Nom de groupe</h2>
             <input class="clear-form" type="text" name="name_grp">
+
+            <h2 class="form-label pink-text">Leader</h2>
+            <div class='liste-membres'>
+              <input class="clear-form membres" type="text" name="membre" placeholder='Email'>
+            </div>
 
             <h2 class="form-label pink-text">Votre sport</h2>
             <select class="clear-form dropdown dropdown-lg" name="sport">
@@ -59,7 +64,7 @@
             </select>
 
             <h2 class="form-label pink-text">Département</h2>
-            <input class="clear-form" type="text" name="dep" >
+            <input class="clear-form" type="text" name="dep">
 
             <h2 class="form-label pink-text">Niveau</h2>
             <select class="clear-form dropdown dropdown-lg" name="niveau">
@@ -144,7 +149,7 @@
           <a href="<?php page('backoffice-group') ?>?page=<?php echo $suiv ?>" class="nav">></a>
         <?php endif; ?>
       </div>
-      <button type="submit" name="del" class="button light">Supprimer</button>
+      <button type="submit" name="del" class="button light" onclick="multisel()">Supprimer</button>
       <a href="#" class="button light" onclick="modify()">Modifier</a>
     </form>
     </div>

@@ -67,7 +67,7 @@ li.active {
 }
 
 .table-admin th, .table-admin td {
-  padding: 5px;
+  padding: 5px 8px;
 }
 
 .table-admin th {
@@ -145,4 +145,20 @@ li.active {
   color: white;
   margin: 0 10px;
   font-weight: bold;
+}
+
+.admin-input {
+  border: solid grey 1px;
+  margin: 5px;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.txt {
+  color: black;
+}
+
+.selectable {
+  cursor: pointer;
 }

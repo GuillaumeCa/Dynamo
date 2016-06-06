@@ -60,6 +60,8 @@ class GroupController
     $head = $this->header($id);
 
     $niveau_c = $this->group->getNiveau($id);
+    $groupe = $this->group->getGroupeInfo($id);
+    $nbuser = $this->group->nbUserFromGroup($id);
 
     $vue->setScript('diapo.js');
     $vue->setScript('form.js');
@@ -72,6 +74,8 @@ class GroupController
       'isInGroup' => $head['isInGroup'],
       'niveau_c' => $niveau_c,
       'niveau' => ['débutant', 'intermédiaire', 'confirmé', 'avancé', 'expert'],
+      'groupe' => $groupe,
+      'nbuser' => $nbuser,
     ]);
   }
 

@@ -27,15 +27,27 @@
       </div>
       <table class="info-table">
         <tr>
-          <th>Lieu</th>
+          <th>Département</th>
           <td>
-            Paris
+            <?php echo $groupe->dept ?>
           </td>
         </tr>
         <tr>
           <th>Niveau du groupe</th>
           <td>
             <?php echo $niveau[$niveau_c->niveau-1] ?>
+          </td>
+        </tr>
+        <tr>
+          <th>Visibilité</th>
+          <td>
+            <?php echo $groupe->visibilité == 0 ? 'Privé' : 'Public' ?>
+          </td>
+        </tr>
+        <tr>
+          <th>Nombre d'utilisateurs</th>
+          <td>
+            <?php echo $nbuser."/".$groupe->nbmaxutil ?>
           </td>
         </tr>
       </table>
@@ -57,14 +69,10 @@
         </div>
         <?php $h = date('h'); ?>
         <?php for ($i = -2; $i < 4; $i++): ?>
-        <div class="info-planning">
-          <div class="evenement">
-            <p>
-              <?php lang('Entrainement-Football'); ?>
-            </p>
-            <p>
-              <?php echo date('H',strtotime("now")+$i*3600) ?>h
-            </p>
+          <div class="info-planning">
+              <p>
+                <?php echo date('H',strtotime("now")+$i*3600) ?>h
+              </p>
           </div>
         <?php endfor; ?>
       </div>

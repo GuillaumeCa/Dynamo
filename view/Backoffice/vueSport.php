@@ -16,10 +16,10 @@
       <a href="<?php page('backoffice-sport') ?>">
         <li class="active">Sports</li>
       </a>
-      <a href="#">
+      <a href="<?php page('backoffice-forum') ?>">
         <li class="">Forum</li>
       </a>
-      <a href="#">
+      <a href="<?php page('backoffice-help') ?>">
         <li class="">Aide</li>
       </a>
     </ul>

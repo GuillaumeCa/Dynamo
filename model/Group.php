@@ -204,8 +204,8 @@ class Group extends Database
     if ($crea['club'] == 0) {
       $crea['club'] = null;
     }
-    $q = "INSERT INTO groupe (titre, dept, id_sport, id_club, description, visibilité, nbmaxutil, creation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    $this->executerRequete($q, [$crea['name_grp'], $departement, $crea['sport'], $crea['club'], $crea['description_grp'], $crea['visibilite'], $crea['nbr_membre'], date('Y-m-d H:i:s')]);
+    $q = "INSERT INTO groupe (titre, dept, id_sport, id_club, description, visibilité, nbmaxutil, creation) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
+    $this->executerRequete($q, [$crea['name_grp'], $departement, $crea['sport'], $crea['club'], $crea['description_grp'], $crea['visibilite'], $crea['nbr_membre']]);
     $id = $this->getBdd()->lastInsertId();
     $this->executerRequete("INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, leader) VALUES (?, ?, 1) ",[
       $id, $_SESSION['auth']->id
@@ -216,6 +216,20 @@ class Group extends Database
       }
     }
     return $id;
+  }
+
+  public function creerGroupeAdmin($crea)
+  {
+    if ($crea['club'] == 0) {
+      $crea['club'] = null;
+    }
+    $user = $this->executerRequete("SELECT id FROM utilisateur WHERE email = ?", [$crea['membre']])->fetch()->id;
+    $q = "INSERT INTO groupe (titre, dept, id_sport, id_club, description, visibilité, nbmaxutil, creation) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
+    $this->executerRequete($q, [$crea['name_grp'], $crea['dep'], $crea['sport'], $crea['club'], $crea['description_grp'], $crea['visibilite'], $crea['nbr_membre']]);
+    $id = $this->getBdd()->lastInsertId();
+    $this->executerRequete("INSERT INTO utilisateur_groupe (id_groupe, id_utilisateur, leader) VALUES (?, ?, 1) ",[
+      $id, $user
+    ]);
   }
 
   public function nbInvitUser()
@@ -482,6 +496,11 @@ class Group extends Database
   public function banUserFromGroup($id)
   {
     $this->executerRequete("DELETE FROM utilisateur_groupe WHERE id_groupe = ? AND id_utilisateur = ?", [$id, $_POST['value']]);
+  }
+
+  public function getGroupeInfo($id)
+  {
+    return $this->executerRequete("SELECT * FROM groupe WHERE id = ?", [$id])->fetch();
   }
 
 }
