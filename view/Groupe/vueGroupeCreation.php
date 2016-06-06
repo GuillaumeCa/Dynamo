@@ -38,8 +38,8 @@
 
           <h2 class="form-label pink-text"><?php lang('add-fr'); ?></h2>
           <div class='liste-membres'>
-            <input class="clear-form membres" type="text" name="membre[]" placeholder=<?php lang('ps-mail'); ?>>
-            <input class="clear-form membres" type="text" name="membre[]" placeholder=<?php lang('add'); ?> style="opacity: 0.4;" disabled>
+            <input class="clear-form membres" type="text" name="membre[]" placeholder='<?php lang('ps-mail'); ?>'>
+            <input class="clear-form membres" type="text" name="membre[]" placeholder='<?php lang('add'); ?>' style="opacity: 0.4;" disabled>
           </div>
 
           <p class="form-info">
@@ -97,7 +97,7 @@
           </p>
 
           <h2 class="form-label pink-text"><?php lang('descrip-gr'); ?></h2>
-          <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder=<?php lang('info-gr'); ?>></textarea>
+          <textarea class="clear-form" name="description_grp" rows="6" cols="40" placeholder='<?php lang('info-gr'); ?>'></textarea>
 
           <input type="submit" value="Ajouter" class="button purple">
         </form>

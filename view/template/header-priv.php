@@ -4,16 +4,16 @@
     <img src="/assets/images/logo.png" alt="logo" />
     </a>
   </div>
-  <div class="search" title="Recherchez un groupe, un sport ou un utilisateur">
+  <div class="search" title='<?php lang('accueil-title'); ?>'>
     <div class="search-field">
       <form class="" action="<?php page('recherche') ?>" method="get">
-        <input type="text" name="search" placeholder="rechercher" autocomplete="off">
+        <input type="text" name="search" placeholder='<?php lang('Recherche') ?>' autocomplete="off">
         <button type="submit"><svg><use xlink:href="#search"></use></svg></button>
       </form>
     </div>
     <div class="result">
       <div class="info">
-        <?php lang('Recherchez un groupe, un sport ou un utilisateur'); ?>
+        <?php lang('accueil-title'); ?>
       </div>
       <div class="cat">
         <div class="head">
@@ -24,7 +24,7 @@
           <li>
             <div class="image" style="background-image: url(/assets/images/sport1.png)"></div>
             <div class="text">
-              <h2><?php lang('Nom groupe'); ?></h2>
+              <h2><?php lang('name-gr'); ?></h2>
               <h3><b>Sport</b> basketball</h3>
               <h3><b><?php lang('Lieu'); ?></b> Paris</h3>
             </div>
@@ -96,7 +96,7 @@
           <span class="notif" title="Vous avez <?php echo $nb ?> invitations"><?php echo $nb; ?></span></a>
         <?php endif; ?>
       </li>
-      <li><a href="<?php page('forum') ?>"><?php lang('Forum') ?> <span class="notif">3</span></a></li>
+      <li><a href="<?php page('forum') ?>">Forum<span class="notif">3</span></a></li>
       <li><a href="<?php page('aide') ?>"><?php lang('Aide') ?></a></li>
     </ul>
     <div class="btn-nav" onclick="toggle('.nav-menu')">

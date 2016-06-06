@@ -7,7 +7,7 @@
     </section>
     <section class="sec sec-bg-dviolet">
       <div class="column">
-        <h1 class="ttl ttl-md"><?php lang('Choisis ton Topic'); ?></h1>
+        <h1 class="ttl ttl-md"><?php lang('choose-topic'); ?></h1>
         <div class="grid">
           <?php foreach ($topics as $topic): ?>
               <div class="sport">
