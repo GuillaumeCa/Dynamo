@@ -7,13 +7,13 @@
   <div class="search">
     <div class="search-field">
       <form class="" action="<?php page('recherche') ?>" method="get">
-        <input type="text" name="search" placeholder="rechercher" autocomplete="off">
+        <input type="text" name="search" placeholder='<?php lang('Recherche') ?>' autocomplete="off">
         <button type="submit"><svg><use xlink:href="#search"></use></svg></button>
       </form>
     </div>
     <div class="result">
       <div class="info">
-        <?php lang('Recherchez un groupe, un sport ou un utilisateur'); ?>
+        <?php lang('accueil-title'); ?>
       </div>
       <div class="cat">
         <div class="head">

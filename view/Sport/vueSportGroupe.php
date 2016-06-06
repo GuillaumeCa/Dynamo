@@ -40,7 +40,7 @@
           </ul>
         <?php else: ?>
           <p class="txt-center-warn">
-            Aucun groupe de ce sport
+            <?php lang('no-group'); ?>
           </p>
         <?php endif; ?>
 

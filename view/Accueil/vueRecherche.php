@@ -3,7 +3,7 @@
   <div class="column">
     <h1 class="ttl ttl-md"><?php lang('Recherche'); ?></h1>
     <form class="" action="" method="get" id="form">
-      <input type="text" name="search" class="clear-form search-form-lg" placeholder=<?php lang('presentation-recherche'); ?> value="<?php echo isset($_GET['search']) ? $_GET['search'] : null ?>">
+      <input type="text" name="search" class="clear-form search-form-lg" placeholder='<?php lang('presentation-recherche'); ?>' value="<?php echo isset($_GET['search']) ? $_GET['search'] : null ?>">
     </form>
   </div>
 </section>
@@ -30,7 +30,7 @@
 
     <div class="search-optbar">
       <div class="search-bar">
-        <span><span class="number"><?php echo isset($num) ? $num : null ?></span><?php lang(' résultats pour '); ?><b>"<?php echo $_GET['search'] ?>"</b></span>
+        <span><span class="number"><?php echo isset($num) ? $num : null ?></span><?php lang('result'); ?><b>"<?php echo $_GET['search'] ?>"</b></span>
         <span></span>
         <b><span class="sporttype-filter"></span></b>
         <b><span class="dept-filter"></span></b>
