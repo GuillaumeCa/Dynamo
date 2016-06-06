@@ -2,10 +2,10 @@
     <div class="nav-bbar">
       <nav class="tab-menu">
         <ul>
-          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>">informations</a></li>
-          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>">membres</a></li>
+          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('informations'); ?></a></li>
+          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('membres'); ?></a></li>
           <li><a href="<?php page('planning-groupe', ['id' => $presentation_groupe->id]) ?>">planning</a></li>
-          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>" class="active">discussions</a></li>
+          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>" class="active"><?php lang('discussions'); ?></a></li>
           <li class="right">
             <a href="<?php page('reglage-groupe', ['id' => $presentation_groupe->id]) ?>" class="settings">
               <svg>
@@ -23,7 +23,7 @@
     </div>
     <div class="discussion">
       <div class="creer-discussion">
-        <a href="#" class="button light" onclick="togglemodal('disc')">Créer une discussion</a>
+        <a href="#" class="button light" onclick="togglemodal('disc')"><?php lang('create-disc'); ?></a>
       </div>
       <?php if ($discussions): ?>
         <ul>
@@ -33,10 +33,10 @@
                 <div class="boutton-discussion">
                   <div class="parti-boutton">
                     <h1><?php echo $disc->titre ?></h1>
-                    <p>Créée le <?php echo Vue::date('d/m/Y', $disc->creation) ?> par <?php echo $disc->prénom." ".$disc->nom ?></p>
+                    <p><?php lang('date'); ?><?php echo Vue::date('d/m/Y', $disc->creation) ?><?php lang('par'); ?><?php echo $disc->prénom." ".$disc->nom ?></p>
                   </div>
                   <div class="parti-boutton-2">
-                    <h2><?php echo $disc->nb ?> messages</h2>
+                    <h2><?php echo $disc->nb ?><?php lang('messages'); ?></h2>
                   </div>
                 </div>
               </li>
@@ -45,20 +45,20 @@
         </ul>
       <?php else: ?>
         <p class="txt-center-warn">
-          Aucune discussion
+          <?php lang('no-disc'); ?>
         </p>
       <?php endif; ?>
     </div>
     <div class="modal" id="disc">
       <div class="back"  onclick="togglemodal('disc')"></div>
       <div class="window">
-        <h1 class="ttl ttl-sm ttl-green">Créer une nouvelle discussion</h1>
+        <h1 class="ttl ttl-sm ttl-green"><?php lang('create-new-disc'); ?></h1>
         <form class="groupe_crea" action="" method="post">
           <h2 class="form-label pink-text">Nom discussion</h2>
           <input class="clear-form" type="text" name="titre" placeholder="Nom">
-          <h2 class="form-label pink-text">Commentaire</h2>
+          <h2 class="form-label pink-text"><?php lang('comments'); ?></h2>
           <textarea class="clear-form" name="comment" rows="8" cols="40" placeholder="Tappez votre commentaire ici..."></textarea>
-          <button type="submit" name="new-disc" class="button purple">Créer</button>
+          <button type="submit" name="new-disc" class="button purple"><?php lang('create'); ?></button>
         </form>
       </div>
     </div>

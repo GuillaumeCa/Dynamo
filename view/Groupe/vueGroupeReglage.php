@@ -2,10 +2,10 @@
     <div class="nav-bbar">
       <nav class="tab-menu">
         <ul>
-          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>">informations</a></li>
-          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>">membres</a></li>
+          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('informations'); ?></a></li>
+          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('membres'); ?></a></li>
           <li><a href="<?php page('planning-groupe', ['id' => $presentation_groupe->id]) ?>">planning</a></li>
-          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>">discussions</a></li>
+          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('discussions'); ?></a></li>
           <li class="right">
             <a href="<?php page('reglage-groupe', ['id' => $presentation_groupe->id]) ?>" class="settings active">
               <svg>
@@ -23,43 +23,43 @@
     </div>
     <div class="reglage">
       <div class="reglage-item">
-        <p>Recevoir des notifications par mail lorsqu'une nouvelle activité est ajoutée</p>
-        <a href="#" class="button light">Désactiver</a>
+        <p><?php lang('notif-activity'); ?></p>
+        <a href="#" class="button light"><?php lang('Désactiver'); ?></a>
       </div>
       <div class="reglage-item">
-        <p>Recevoir des notifications par mail lorsque quelqu'un répond à ma discussion</p>
-        <a href="#" class="button light">Désactiver</a>
+        <p><?php lang('notif-disc'); ?></p>
+        <a href="#" class="button light"><?php lang('Désactiver'); ?></a>
       </div>
       <?php if ($isLeader): ?>
         <div class="reglage-item">
-          <p>Modifier la visibilité du groupe</p>
+          <p><?php lang('modif-view-gr'); ?> </p>
           <form action="" class="form-inline" method="post">
             <button type="submit" name="visibility" class="button light"><?php echo $visistat == 1 ? 'Public' : 'Privé' ?></button>
           </form>
         </div>
       <?php endif; ?>
       <div class="reglage-item">
-        <p>Quitter le groupe</p>
-        <a href="#" class="button light button-danger" onclick="togglemodal('quit_grp')">Quitter</a>
+        <p><?php lang('leave-gr'); ?></p>
+        <a href="#" class="button light button-danger"><?php lang('Quitter'); ?></a>
       </div>
       <?php if ($isLeader): ?>
         <div class="reglage-item">
-          <p>Supprimer le groupe</p>
-          <a href="#" class="button light button-danger" onclick="togglemodal('del_grp')">Supprimer</a>
+          <p><?php lang('delete-gr'); ?></p>
+          <a href="#" class="button light button-danger" onclick="togglemodal('del_grp')"><?php lang('Supprimer'); ?></a>
         </div>
       <?php endif; ?>
     </div>
     <div class="modal" id="quit_grp">
       <div class="back"  onclick="togglemodal('quit_grp')"></div>
       <div class="window">
-        <h1 class="ttl ttl-sm ttl-green">Voulez vous quitter le groupe ?</h1>
+        <h1 class="ttl ttl-sm ttl-green"><?php lang('ask-leave-gr'); ?></h1>
         <form class="groupe_crea" action="" method="post">
           <?php if ($isLeader): ?>
-            <h2 class="form-label pink-text">Sélectionnez un leader remplaçant</h2>
+            <h2 class="form-label pink-text"><?php lang('select-leader'); ?></h2>
             <div class="">
               <select class="clear-form dropdown" name="utilisateurs">
                 <?php foreach ($membres as $value): ?>
-                  <option disabled selected>Leader remplaçant</option>
+                  <option disabled selected><?php lang('new-leader'); ?></option>
                   <?php if ($value->leader == 0): ?>
                     <option value="<?php echo $value->id ?>"><?php echo $value->prenom." ".$value->nom ?></option>
                   <?php endif; ?>
@@ -67,7 +67,7 @@
               </select>
             </div>
           <?php endif; ?>
-          <button type="submit" name="quit-grp" class="button light button-danger">Quitter</button>
+          <button type="submit" name="quit-grp" class="button light button-danger"><?php lang('Quitter'); ?></button>
         </form>
       </div>
     </div>
@@ -75,9 +75,9 @@
       <div class="modal" id="del_grp">
         <div class="back"  onclick="togglemodal('del_grp')"></div>
         <div class="window">
-          <h1 class="ttl ttl-sm ttl-green">Voulez vous supprimer le groupe ?</h1>
+          <h1 class="ttl ttl-sm ttl-green"><?php lang('ask-delete-gr'); ?></h1>
           <form action="" method="post">
-            <button type="submit" name="del-grp" class="button light button-danger">Supprimer</button>
+            <button type="submit" name="del-grp" class="button light button-danger"><?php lang('Supprimer'); ?></button>
           </form>
         </div>
       </div>

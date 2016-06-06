@@ -21,7 +21,7 @@
             <?php endforeach; ?>
           <?php else: ?>
             <div class="label-box">
-              <span>Aucun évènement aujourd'hui</span>
+              <span><?php lang('no-event'); ?></span>
             </div>
           <?php endif; ?>
         </div><div class="column-2">
@@ -44,7 +44,7 @@
             <?php endforeach; ?>
           <?php else: ?>
             <div class="label-box">
-              <span>Aucun évènement demain</span>
+              <span><?php lang('no event'); ?></span>
             </div>
           <?php endif; ?>
         </div>
@@ -69,7 +69,7 @@
       </div>
     <?php else: ?>
       <p class="txt-center-warn">
-        Aucun groupe ne correspond à vos critères
+        <?php lang('no-correspondance'); ?>
       </p>
     <?php endif; ?>
     </section>
@@ -92,13 +92,13 @@
       </div>
     <?php else: ?>
       <p class="txt-center-warn">
-        Aucun groupe se situe proche de chez vous
+        <?php lang('no-near'); ?>
       </p>
     <?php endif; ?>
     </section>
     <section class="sec sec-bg-dviolet">
       <div class="column">
-        <h1 class="ttl ttl-md">Types de sports</h1>
+        <h1 class="ttl ttl-md"><?php lang('Types de sports'); ?></h1>
         <div class="grid">
           <?php foreach($types_sports as $type): ?>
             <div class="sport">
