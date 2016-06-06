@@ -215,16 +215,6 @@ class Router {
           $this->ctr['User']->logout();
           break;
 
-        case 'dev':
-          $vue = new Vue("Success", "User");
-          $vue->render(['msg' => "L'inscription a bien été enregistré.<br> Un email vous a été envoyé."]);
-          break;
-
-        case 'CGU':
-          $vue = new Vue('SportGroupe','Sport');
-          $vue->render();
-          break;
-
         case 'backoffice-user':
           if (Router::isAdmin()) {
             $this->ctr['Backoffice']->user();
@@ -272,7 +262,7 @@ class Router {
       Router::erreur($e->getMessage());
     }
     catch (Exception $e) {
-      Router::erreur($e->message());
+      Router::erreur($e->getMessage());
     }
   }
 

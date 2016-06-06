@@ -33,74 +33,76 @@
           </td>
         </tr>
         <tr>
-          <th>Niveau</th>
+          <th>Niveau du groupe</th>
           <td>
-            Faible
-          </td>
-        </tr>
-        <tr>
-          <th>Niveau</th>
-          <td>
-            Faible
+            <?php echo $niveau[$niveau_c->niveau-1] ?>
           </td>
         </tr>
       </table>
 
 
       <div class="ttl-group-underline-gr">
-        <h1 class="ttl ttl-green ttl-inline ttl-sm">Demain</h1>
+        <h1 class="ttl ttl-green ttl-inline ttl-sm">Aujourd'hui</h1>
       </div>
       <div class="info-planning-grp">
-        <div class="info-planning">
+        <div class="now" style='left: <?php //echo str_replace(',','.',(date('H')*100/6)) ?>%'>|</div>
+
+        <div class="evenement">
           <p>
-            9h
+            Entrainement Football
+          </p>
+          <p>
+            12:00 - 13:00
           </p>
         </div>
-        <div class="info-planning">
-          <p>
-            10h
-          </p>
-        </div>
-        <div class="info-planning">
-          <p>
-            11h
-          </p>
-        </div>
-        <div class="info-planning">
-          <div class="evenement">
+        <?php $h = date('h'); ?>
+        <?php for ($i = -2; $i < 4; $i++): ?>
+          <div class="info-planning">
             <p>
-              Entrainement Football
-            </p>
-            <p>
-              12:00 - 13:00
+              <?php echo date('H',strtotime("now")+$i*3600) ?>h
             </p>
           </div>
-          <p>
-            12h
-          </p>
-        </div>
-        <div class="info-planning">
-          <p>
-            13h
-          </p>
-        </div>
-        <div class="last-info-planning">
-          <p>
-            14h
-          </p>
-        </div>
+        <?php endfor; ?>
       </div>
 
       <div class="ttl-group-underline-gr">
         <h1 class="ttl ttl-green ttl-inline ttl-sm">Vos photos</h1>
-        <form action="" method="post" enctype="multipart/form-data" id="profilephoto">
-          <label class="button btn-sm btn-right btn-wh-inv">+<input type="file" name="photo" class="form-hidden" onchange="submit('#profilephoto')"></label>
-          <input type="hidden" name="groupe-photo">
-        </form>
+          <a href="#" onclick="togglemodal('add-photo')" class="button btn-sm btn-right btn-wh-inv">+<a>
       </div>
       <div class="gallerie-image">
         <?php foreach ($photos as $photo): ?>
-          <img src="/<?php echo $photo->nom ?>" alt="" />
+          <a href="#" onclick="showImage('photo-gallerie',<?php echo $photo->id ?>)">
+            <img src="/<?php echo $photo->nom ?>" alt="" />
+          </a>
         <?php endforeach; ?>
       </div>
     </section>
+    <div class="modal" id="add-photo">
+      <div class="back"  onclick="togglemodal('add-photo')"></div>
+      <div class="window">
+        <h1 class="ttl ttl-sm ttl-green">Ajouter une photo</h1>
+        <form class="groupe_crea" action="" method="post" enctype="multipart/form-data">
+          <div class="">
+            <label class="button light">Cliquez pour sélectionner une photo<input type="file" name="photo" class="form-hidden" onchange="showPhotoPreview('#preview')"></label>
+          </div>
+          <img id="preview" src="" alt="" class="img-preview"/>
+          <br>
+          <button type="submit" name="add-photo" class="button purple">ajouter</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="photo-gallerie">
+      <div class="back"  onclick="togglemodal('photo-gallerie')"></div>
+      <div class="window gallerie">
+        <?php foreach ($photos as $photo): ?>
+          <div id="<?php echo $photo->id ?>">
+            <img src="/<?php echo $photo->nom ?>" alt="" class="gallerie-img"/>
+            <form action="" method="post">
+              <input type="hidden" name="value" value="<?php echo $photo->id ?>">
+              <button class="gallerie-btn-opt" name="del">SUPPRIMER</button>
+            </form>
+          </div>
+
+        <?php endforeach; ?>
+      </div>
+    </div>

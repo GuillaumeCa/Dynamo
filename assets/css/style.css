@@ -895,6 +895,11 @@ footer p {
   display: none;
 }
 
+.img-preview {
+  width: 100%;
+  margin: 20px 0;
+}
+
 .search-form-lg {
   max-width: 600px;
   margin: 20px auto;
@@ -1055,6 +1060,10 @@ a.forget:hover {
   outline: none;
   -webkit-transition: border;
   transition: border;
+}
+
+.dropdown-gr {
+  background-image: url(/assets/images/arrows-gr.png);
 }
 
 .dropdown-lg {
@@ -1507,8 +1516,7 @@ a.forget:hover {
 }
 
 .membres-item {
-  margin: 20px 0;
-  height: 60px;
+  margin: 10px 0;
   padding: 15px;
   vertical-align: top;
 }
@@ -1532,7 +1540,7 @@ a.forget:hover {
   font-weight: 400;
   display: inline-block;
   margin-left: 20px;
-  line-height: 60px;
+  line-height: 50px;
 }
 
 .membres-item h3 {
@@ -1540,7 +1548,7 @@ a.forget:hover {
   display:inline-block;
   float:right;
   font-weight: 400;
-  line-height: 60px;
+  line-height: 50px;
 }
 
 .reglage {
@@ -1571,6 +1579,16 @@ a.forget:hover {
 .boutton-reglage {
   width: 20px;
   height: 20px;
+}
+
+.reglage-right {
+  float: right;
+}
+
+.reglage-sel {
+  font-size: 1.2em;
+  border: 1px solid #53FFC0;
+  color: #53FFC0;
 }
 
 .content {
@@ -2006,20 +2024,43 @@ section .text-left {
   margin-bottom: 30px;
 }
 
+.debug-404 {
+  margin: 0 auto;
+  margin-top: 20px;
+  max-width: 800px;
+  border-radius: 5px;
+  padding: 10px;
+  border: solid rgba(255, 255, 255, 0.6) 1px;
+}
+
 /** Rajout pour la page profil**/
 
 .info-planning-grp {
   margin-top: 20px;
   margin-bottom: 200px;
+  height: 190px;
+  position: relative;
+}
+
+.info-planning-grp .now {
+  position: absolute;
+  top: 0;
+  color: red;
+}
+
+.info-planning-grp .evenement {
+  position: absolute;
+  top: 0;
 }
 
 .info-planning {
+  position: relative;
+  float: left;
   border-left: solid 1px rgba(112, 101, 153, 0.69);
   display: inline-block;
   height: 150px;
-  width: 150px;
+  width: 16.6%;
   vertical-align: bottom;
-  position: relative;
 }
 
 .info-planning p {
@@ -2046,7 +2087,7 @@ section .text-left {
   border: solid 1px #9972FA;
   background-color: rgba(153, 114, 250, 0.2);
   border-radius: 5px;
-  margin: 5px;
+  color: #9972FA;
   padding: 5px;
 }
 
@@ -2264,4 +2305,29 @@ section .text-left {
   padding: 5px 13px;
   color: white;
   outline: none;
+}
+
+.modal .gallerie {
+  width: 1000px;
+}
+
+.gallerie > div {
+  display: none;
+}
+
+.gallerie-img {
+  width: 100%;
+  padding: 10px;
+}
+
+.gallerie div.show {
+  display: block;
+}
+
+.gallerie-btn-opt {
+  font-weight: 400;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  color: #53FFC0;
+  cursor: pointer;
 }

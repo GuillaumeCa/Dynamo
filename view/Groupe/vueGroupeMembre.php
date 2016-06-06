@@ -33,6 +33,11 @@
           <h1><?php echo $membre->prenom." ".$membre->nom ?></h1>
           <?php if ($membre->leader==1): ?>
             <h3>LEADER</h3>
+          <?php else: ?>
+            <form class="form-inline" action="" method="post">
+              <input type="hidden" name="value" value="<?php echo $membre->id ?>">
+              <button type="submit" name="ban-user" class="button light btn-right">Bannir</button>
+            </form>
           <?php endif; ?>
         </div>
       </a>

@@ -32,6 +32,19 @@
       </div>
       <?php if ($isLeader): ?>
         <div class="reglage-item">
+          <p>Modifier le niveau du groupe</p>
+          <form action="" class="form-inline reglage-right" method="post">
+            <select name="niveau-groupe" class="reglage-sel dropdown dropdown-gr" onchange="this.parentElement.submit()">
+              <?php foreach ($niveau as $key => $value): ?>
+                <?php $sel = ($key+1 == $niveau_c->niveau) ? 'selected' : '' ?>
+                <option value="<?php echo $key+1 ?>" <?php echo $sel ?>><?php echo $value ?></option>
+              <?php endforeach; ?>
+            </select>
+          </form>
+        </div>
+      <?php endif; ?>
+      <?php if ($isLeader): ?>
+        <div class="reglage-item">
           <p>Modifier la visibilité du groupe</p>
           <form action="" class="form-inline" method="post">
             <button type="submit" name="visibility" class="button light"><?php echo $visistat == 1 ? 'Public' : 'Privé' ?></button>

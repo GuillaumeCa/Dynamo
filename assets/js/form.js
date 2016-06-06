@@ -69,4 +69,30 @@ function editing(e) {
   }
 }
 
+function showPhotoPreview(e) {
+  var placeholder = document.querySelector(e);
+  var reader = new FileReader();
+
+  reader.onload = function (e) {
+    // get loaded data and render thumbnail.
+    placeholder.src = e.target.result;
+  };
+
+  // read the image file as a data URL.
+  reader.readAsDataURL(event.target.files[0]);
+}
+
+function showImage(modal, id) {
+  event.preventDefault();
+  togglemodal(modal);
+  var modal = document.querySelector('#'+modal);
+  var images = modal.querySelector('.gallerie').children;
+  for (var i = 0; i < images.length; i++) {
+    images[i].classList.remove('show');
+    if (images[i].id == id) {
+      images[i].classList.add('show');
+    }
+  }
+}
+
 showNiveau('.liste-scope')

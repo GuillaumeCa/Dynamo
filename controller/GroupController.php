@@ -41,13 +41,26 @@ class GroupController
 
   public function informations($id)
   {
+    $vue = new Vue("Groupe","Groupe");
 
-    $this->group->addPhoto($id);
+    // Ajouter photo
+    if (isset($_POST['add-photo'])) {
+      $this->group->addPhoto($id);
+      $vue->setInstant('Photo ajouté', 'La photo a été ajouté avec succès !');
+    }
+
+    // Supprimer Photo
+    if (isset($_POST['del'])) {
+      $this->group->deletePhoto($_POST['value']);
+      $vue->setInstant('Photo supprimé', 'La photo a été supprimé avec succès !');
+    }
+
 
     // Header
     $head = $this->header($id);
 
-    $vue = new Vue("Groupe","Groupe");
+    $niveau_c = $this->group->getNiveau($id);
+
     $vue->setScript('diapo.js');
     $vue->setScript('form.js');
     $vue->render([
@@ -57,6 +70,8 @@ class GroupController
       'ListeClub' => $head['ListeClub'],
       'photos' => $head['photos'],
       'isInGroup' => $head['isInGroup'],
+      'niveau_c' => $niveau_c,
+      'niveau' => ['débutant', 'intermédiaire', 'confirmé', 'avancé', 'expert'],
     ]);
   }
 
@@ -81,6 +96,12 @@ class GroupController
     if (isset($_POST['ko'])) {
       $this->group->modAutoInv($id, false, $head['presentation_groupe']);
       $vue->setInstant("Demande d'invitation", "La demande a bien été refusé");
+    }
+
+    // Bannir utilisateur
+    if (isset($_POST['ban-user'])) {
+      $this->group->banUserFromGroup($id);
+      $vue->setInstant("Bannissement", "L'utilisateur a été banni.");
     }
 
     $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
@@ -189,14 +210,11 @@ class GroupController
 
   public function reglage($id)
   {
-    // Header
-    $head = $this->header($id);
-
-    $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
+    $vue = new Vue("GroupeReglage","Groupe");
 
     // Modifier visibilité
     if (isset($_POST['visibility']))
-      $this->group->modVisi($id);
+    $this->group->modVisi($id);
     $visistat = $this->group->getVisi($id);
 
     // Quitter groupe
@@ -211,7 +229,19 @@ class GroupController
       Router::redirect('accueil');
     }
 
-    $vue = new Vue("GroupeReglage","Groupe");
+    // Modif niveau groupe
+    if (isset($_POST['niveau-groupe'])) {
+      $this->group->modifNiveau($id);
+      $vue->setInstant("Modification niveau","Le niveau a été modifié avec succès.");
+    }
+
+    // Header
+    $head = $this->header($id);
+
+    $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
+    $niveau_c = $this->group->getNiveau($id);
+
+
     $vue->setScript('formulaire-headergroupe.js');
     $vue->setScript('diapo.js');
     $vue->setScript('form.js');
@@ -224,7 +254,9 @@ class GroupController
       'photos' => $head['photos'],
       'isInGroup' => $head['isInGroup'],
       'visistat' => $visistat,
-      'membres' => $membreGroupe
+      'membres' => $membreGroupe,
+      'niveau' => ['débutant', 'intermédiaire', 'confirmé', 'avancé', 'expert'],
+      'niveau_c' => $niveau_c
     ]);
   }
 
