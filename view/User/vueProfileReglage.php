@@ -5,7 +5,6 @@
         <ul>
           <li><a href="<?php page('profile') ?>"><?php lang('informations'); ?></a></li>
           <li><a href="<?php page('profile-planning') ?>">planning</a></li>
-          <li><a href="<?php page('#') ?>"><?php lang('historique'); ?></a></li>
           <li class="right">
             <a href="<?php page('profile-reglage') ?>" class="settings active">
               <svg>
@@ -18,7 +17,7 @@
     </div>
     <section class="sec">
       <div class="reglage">
-        <div class="reglage-item">
+        <!-- <div class="reglage-item">
           <p><?php lang('notif-answer-disc'); ?></p>
           <a href="#" class="button light"><?php lang('Désactiver'); ?></a>
         </div>
@@ -29,7 +28,7 @@
         <div class="reglage-item">
           <p><?php lang('alert-free-gr'); ?></p>
           <a href="#" class="button light"><?php lang('Désactiver'); ?></a>
-        </div>
+        </div> -->
         <div class="reglage-item">
           <p><?php lang('delete-profilephoto'); ?></p>
           <form action="" class="form-inline" method="post">

@@ -14,7 +14,9 @@
     </div>
     <section class="sec">
       <div class="auto-width">
+        <?php if ($clubs): ?>
           <ul class="liste-lg">
+
             <?php foreach ($clubs as $club): ?>
               <a href="<?php page('club') ?>">
                 <li>
@@ -31,7 +33,11 @@
                 </li>
               </a>
             <?php endforeach; ?>
-
           </ul>
+        <?php else: ?>
+          <p class="txt-center-warn">
+            Aucun club de ce sport
+          </p>
+        <?php endif; ?>
         </div>
       </section>

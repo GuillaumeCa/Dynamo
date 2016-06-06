@@ -22,14 +22,14 @@
       </nav>
     </div>
     <div class="reglage">
-      <div class="reglage-item">
+      <!-- <div class="reglage-item">
         <p><?php lang('notif-activity'); ?></p>
         <a href="#" class="button light"><?php lang('Désactiver'); ?></a>
       </div>
       <div class="reglage-item">
         <p><?php lang('notif-disc'); ?></p>
         <a href="#" class="button light"><?php lang('Désactiver'); ?></a>
-      </div>
+      </div> -->
       <?php if ($isLeader): ?>
         <div class="reglage-item">
           <p>Modifier le niveau du groupe</p>

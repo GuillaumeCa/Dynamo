@@ -4,7 +4,6 @@
         <ul>
           <li><a href="<?php page('profile') ?>" class="active"><?php lang('informations'); ?></a></li>
           <li><a href="<?php page('profile-planning') ?>">planning</a></li>
-          <li><a href="<?php page('#') ?>"><?php lang('historique'); ?></a></li>
           <li class="right">
             <a href="<?php page('profile-reglage') ?>" class="settings">
               <svg>
@@ -38,7 +37,7 @@
             </td>
           </tr>
           <tr>
-            <th></th>
+            <th>Pseudo</th>
             <td>
               <span><?php echo $infos->pseudo ?></span>
               <input class="modif-form" type="text" name="pseudo" value="<?php echo $infos->pseudo ?>">
@@ -49,8 +48,8 @@
             <td>
               <span><?php echo $infos->sexe ?></span>
               <select class="dropdown modif-form" name="sexe">
-                <option value="F"><?php lang('Femme'); ?></option>
-                <option value="H"><?php lang('Homme'); ?></option>
+                <option value="F" <?php echo $infos->sexe == "F" ? 'selected' : '' ?>><?php lang('Femme'); ?></option>
+                <option value="H" <?php echo $infos->sexe == "H" ? 'selected' : '' ?>><?php lang('Homme'); ?></option>
               </select>
             </td>
           </tr>

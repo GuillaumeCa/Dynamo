@@ -122,4 +122,33 @@
           </form>
         </div>
       </div>
+      <?php foreach ($events as $cal => $events): ?>
+        <?php foreach ($events as $value): ?>
+          <div class="modal" id="del-<?php echo $value[5] ?>">
+            <div class="back"  onclick="togglemodal('del-<?php echo $value[5] ?>')"></div>
+            <div class="window">
+              <h1 class="ttl ttl-sm ttl-green">Voulez vous supprimer cet évènement ?</h1>
+              <form class="groupe_crea" action="" method="post">
+                <input type="hidden" name="value" value="<?php echo $value[5] ?>">
+                <button type="submit" name="del" class="button light">Supprimer</button>
+              </form>
+            </div>
+          </div>
+          <div class="modal" id="mod-<?php echo $value[5] ?>">
+            <div class="back"  onclick="togglemodal('mod-<?php echo $value[5] ?>')"></div>
+            <div class="window">
+              <h1 class="ttl ttl-sm ttl-green">Modifier l'évènement</h1>
+              <form class="groupe_crea" action="" method="post">
+                <input type="hidden" name="value" value="<?php echo $value[5] ?>">
+                <h2 class="form-label pink-text"><?php lang('Titre'); ?></h2>
+                <input class="clear-form" type="text" name="titre" placeholder="Titre" value="<?php echo $value[1] ?>">
+                <h2 class="form-label pink-text">Description</h2>
+                <textarea name="desc" rows="8" cols="40" class="clear-form" placeholder="Description..."><?php echo $value[2] ?></textarea>
+                <button type="submit" name="mod" class="button light">Modifier</button>
+              </form>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      <?php endforeach; ?>
+
     <?php endif; ?>

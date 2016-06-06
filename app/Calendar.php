@@ -160,6 +160,8 @@ function displayModals($day, $strdate, $events)
             <button onclick="hideModal(this)">╳</button>
             <h2 class="title"><?php echo $content[1] ?></h2>
             <h3 class="subtitle"><?php echo $horaires ?></h3>
+            <a href="#" class="button btn-sm white" onclick="togglemodal('mod-<?php echo $content[5] ?>')">modifier</a>
+            <a href="#" class="button btn-sm white" onclick="togglemodal('del-<?php echo $content[5] ?>')">supprimer</a>
           </div>
           <p>
             <?php echo $content[2] ?>

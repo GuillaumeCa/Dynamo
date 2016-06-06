@@ -57,16 +57,19 @@
         <h1 class="ttl ttl-green ttl-inline ttl-sm"><?php lang('Demain'); ?></h1>
       </div>
       <div class="info-planning-grp">
-        <div class="now" style='left: <?php //echo str_replace(',','.',(date('H')*100/6)) ?>%'>|</div>
+        <?php if ($events): ?>
 
-        <div class="evenement">
-          <p>
-            Entrainement Football
-          </p>
-          <p>
-            12:00 - 13:00
-          </p>
-        </div>
+        <?php foreach ($events as $key => $ev): ?>
+          <div class="evenement" style="left: <?php echo str_replace(',','.',$pos['left'][$key]) ?>%; width: <?php echo str_replace(',','.',$pos['width'][$key]) ?>%" title="<?php echo $ev->description ?>">
+            <p>
+              <?php echo $ev->titre ?>
+            </p>
+            <p>
+              <?php echo Vue::date('H:i', $ev->dstart)." - ".Vue::date('H:i', $ev->dend) ?>
+            </p>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
         <?php $h = date('h'); ?>
         <?php for ($i = -2; $i < 4; $i++): ?>
           <div class="info-planning">
@@ -81,6 +84,7 @@
         <h1 class="ttl ttl-green ttl-inline ttl-sm"><?php lang('Vos-photos'); ?></h1>
           <a href="#" onclick="togglemodal('add-photo')" class="button btn-sm btn-right btn-wh-inv">+<a>
       </div>
+      <?php if ($photos): ?>
       <div class="gallerie-image">
         <?php foreach ($photos as $photo): ?>
           <a href="#" onclick="showImage('photo-gallerie',<?php echo $photo->id ?>)">
@@ -88,6 +92,11 @@
           </a>
         <?php endforeach; ?>
       </div>
+    <?php else: ?>
+      <p class="txt-center-warn">
+        Cliquez sur le + pour ajouter une photo
+      </p>
+    <?php endif; ?>
     </section>
     <div class="modal" id="add-photo">
       <div class="back"  onclick="togglemodal('add-photo')"></div>

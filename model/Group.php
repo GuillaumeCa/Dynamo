@@ -240,13 +240,28 @@ class Group extends Database
 
   public function getEventsFromGroupe($id)
   {
-    $sql = "SELECT groupe.titre, planning.date, planning.activité, planning.description AS description, dstart, dend FROM planning JOIN groupe ON groupe.id = planning.id_groupe WHERE groupe.id = ?";
+    $sql = "SELECT planning.id, groupe.titre, planning.date, planning.activité, planning.description AS description, dstart, dend FROM planning JOIN groupe ON groupe.id = planning.id_groupe WHERE groupe.id = ?";
     $res = $this->executerRequete($sql, [$id])->fetchAll();
     $events = [];
     foreach ($res as $r) {
-      $events[$r->titre][] = [$r->date, $r->activité, $r->description, $r->dstart, $r->dend];
+      $events[$r->titre][] = [$r->date, $r->activité, $r->description, $r->dstart, $r->dend, $r->id];
     }
     return $events;
+  }
+
+  public function getEventsInRange($id)
+  {
+    $sql = "SELECT groupe.titre, planning.date, planning.activité, planning.description AS description, dstart, dend FROM planning JOIN groupe ON groupe.id = planning.id_groupe WHERE groupe.id = ? AND ( dstart BETWEEN NOW() - INTERVAL 2 HOUR AND NOW() + INTERVAL 3 HOUR ) AND (dend BETWEEN NOW() - INTERVAL 2 HOUR AND NOW() + INTERVAL 3 HOUR )";
+    return $this->executerRequete($sql, [$id])->fetchAll();
+  }
+
+  public function supEvent($id)
+  {
+    $this->executerRequete("DELETE FROM planning WHERE id = ?", [$id]);
+  }
+  public function modEvent()
+  {
+    $this->executerRequete("UPDATE planning SET activité = ?, description = ? WHERE id = ?", [$_POST['titre'], $_POST['desc'], $_POST['value']]);
   }
 
   public function getNextEventsForUser()

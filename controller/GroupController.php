@@ -56,12 +56,21 @@ class GroupController
     }
 
 
+
     // Header
     $head = $this->header($id);
 
     $niveau_c = $this->group->getNiveau($id);
     $groupe = $this->group->getGroupeInfo($id);
     $nbuser = $this->group->nbUserFromGroup($id);
+    $events = $this->group->getEventsInRange($id);
+    $off = strtotime('now') + (2 * 3600);
+    $length = 6 * 3600;
+    $pos = null;
+    foreach ($events as $key => $value) {
+      $pos['left'][$key] = ($off - strtotime($value->dstart))*100/$length;
+      $pos['width'][$key] = (strtotime($value->dend)-strtotime($value->dstart))*100/$length;
+    }
 
     $vue->setScript('diapo.js');
     $vue->setScript('form.js');
@@ -76,6 +85,8 @@ class GroupController
       'niveau' => ['débutant', 'intermédiaire', 'confirmé', 'avancé', 'expert'],
       'groupe' => $groupe,
       'nbuser' => $nbuser,
+      'events' => $events,
+      'pos' => $pos,
     ]);
   }
 
@@ -140,7 +151,18 @@ class GroupController
     // Ajout evenement
     if (isset($_POST['event'])) {
       $this->group->addEvent($id);
-      $vue->setInstant('Evènement ajouté !', 'Votre évènement a été ajouté avec succès !');
+      $vue->setInstant('Evènement ajouté !', 'L\' évènement a été ajouté avec succès !');
+    }
+
+    // Del evenement
+    if (isset($_POST['del'])) {
+      $this->group->supEvent($_POST['value']);
+      $vue->setInstant('Evènement supprimé !', "L' évènement a été supprimé avec succès !");
+    }
+    // Mod evenement
+    if (isset($_POST['mod'])) {
+      $this->group->modEvent();
+      $vue->setInstant('Evènement modifié !', "L' évènement a été modifié avec succès !");
     }
 
     $events = $this->group->getEventsFromGroupe($id);

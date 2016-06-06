@@ -51,8 +51,11 @@ class AccueilController
 
   public function aide()
   {
+    $help = $this->acc->getHelpMessages();
     $vue = new Vue("Help", "Accueil");
-    $vue->render();
+    $vue->render([
+      'help' => $help
+    ]);
   }
 
   public function recherche()
