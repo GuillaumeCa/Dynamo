@@ -2334,3 +2334,30 @@ section .text-left {
 .help {
   margin-bottom: 20px;
 }
+
+.sport .circle-light {
+  background: white;
+}
+
+.lang-img-fr {
+  background-image: url(/assets/images/flag_fr.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 50%;
+}
+.lang-img-en {
+  background-image: url(/assets/images/flag_en.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 50%;
+}
