@@ -27,13 +27,14 @@ function instantSearch() {
       for (var key in groupes) {
         var groupe = groupes[key]
         var link = document.createElement('a')
+        var image  = ((groupe.url) ? '/'+groupe.url : '/assets/images/sport1.png')
         link.href = '/' + res.urlgroupe.replace('{id}', groupe.id)
         var li = document.createElement('li')
-        li.innerHTML = "<div class='image' style='background-image: url(/assets/images/sport1.png)'></div>" +
+        li.innerHTML = "<div class='image' style='background-image: url("+ image +")'></div>" +
                        "<div class='text'>" +
                        "<h2>" + groupe.titre + "</h2>" +
                        "<h3><b>Sport</b> " + groupe.sport + "</h3>" +
-                       "<h3><b>Club</b> " + groupe.club + "</h3>" +
+                       "<h3><b>Club</b> " + ((groupe.club) ? groupe.club : '') + "</h3>" +
                        "</div>" +
                        "<span>" + groupe.nb_user + "<span class='small'>/" + groupe.nbmaxutil + "</span></span>"
         link.appendChild(li)
