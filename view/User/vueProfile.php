@@ -167,6 +167,7 @@
             <span class="liste-desc">élevé</span>
           </div>
       </li>
+
       <li>
         <div class="circle">
           <svg>
@@ -179,9 +180,6 @@
             <input class="button btn-sm purple btn-right" type='submit' name="supprimer" value='supprimer'>
           </a>
           </div>
-          <!-- <?php foreach ($variable as $key => $value) {
-
-          } ?> -->
           <div class="liste-niveau">
             <span class="liste-desc">faible</span>
             <div class="liste-scope">
@@ -197,19 +195,30 @@
       </li>
     </ul>
   </section>
+  
   <div class="modal" id="add_sport" >
     <div class="back"  onclick="togglemodal('add_sport')"></div>
     <div class="window">
       <h1 class="ttl ttl-sm ttl-green">quel sport souhaitez-vous ajouter?</h1>
       <form action="" method="post">
-        <label>Type de permis: </label>
+        <select class="clear-form dropdown dropdown-lg" name="sport">
+          <option value="option" disabled selected>Football, Athlétisme, Rugby ...</option>
+          <?php foreach ($ListeSports as $type => $sports): ?>
+            <optgroup label="<?php echo $type ?>">
+              <?php foreach ($sports as $sport): ?>
+                <option value="<?php echo $sport[0] ?>"><?php echo $sport[1] ?></option>
+              <?php endforeach; ?>
+            </optgroup>
+          <?php endforeach; ?>
+        </select>
+        <!-- <label>Type de permis: </label>
         <select name="sports">
-          <option value="">---</option>
+          <option value="">-</option>
           <option value="">Football</option>
           <option value="">Bascketball</option>
           <option value="">Marathon</option>
 
-        </select>
+        </select> -->
         <button type="submit" name="add-sport" class="button light ">Ajouter</button>
       </form>
     </div>

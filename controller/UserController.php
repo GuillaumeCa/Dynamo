@@ -151,9 +151,7 @@ class UserController
       'infos' => $infos,
       'photoProfile' => $photoProfile
     ]);
-    // echo $_POST['mail'];
-    // $vue = new vue ("profile");
-    // $vue->render(['mail' => $mail]);
+
   }
 
   public function profilePlanning()
@@ -195,19 +193,4 @@ class UserController
     $vue = new Vue("Profile", "User");
     $vue->render(['token' => $tok]);
   }
-  public function AjoutSport($token)
-  {
-    if(isset($_POST['ajout']) AND $_POST['ajout']=='ajouter')
-    {
-      $listsports = Ajoutsport()->fetchAll();
-      $vue->render([
-        'nom' => $listsports,
-      ]);
-      include 'view/vueProfile.php';
-    }
-  }
-  public function envoie_nouveau_form() {
-
-  }
-
-  }
+}
