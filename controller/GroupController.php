@@ -62,6 +62,7 @@ class GroupController
 
   public function membres($id)
   {
+    $vue = new Vue("GroupeMembre","Groupe");
 
     // Header
     $head = $this->header($id);
@@ -69,11 +70,22 @@ class GroupController
     // Invit
     if (isset($_POST['invit'])) {
       $this->group->invitUserInGroup($id, $_POST['email']);
+      $vue->setInstant('Invitation', "L'utilisateur a bien été invité.");
+    }
+    // Accepter invit
+    if (isset($_POST['ok'])) {
+      $this->group->modAutoInv($id, true, $head['presentation_groupe']);
+      $vue->setInstant("Demande d'invitation", "La demande a bien été accepté");
+    }
+    // Accepter invit
+    if (isset($_POST['ko'])) {
+      $this->group->modAutoInv($id, false, $head['presentation_groupe']);
+      $vue->setInstant("Demande d'invitation", "La demande a bien été refusé");
     }
 
     $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
+    $autoinvite = $this->group->getMembreAutoInv($id);
 
-    $vue = new Vue("GroupeMembre","Groupe");
     $vue->setScript('form.js');
     $vue->setScript('diapo.js');
     $vue->setScript('form.js');
@@ -85,11 +97,17 @@ class GroupController
       'ListeClub' => $head['ListeClub'],
       'photos' => $head['photos'],
       'isInGroup' => $head['isInGroup'],
+      'autoinvite' => $autoinvite
     ]);
   }
 
   public function planning($id)
   {
+    $vue = new Vue("GroupePlanning","Groupe");
+    $vue->setScript('cal.js');
+    $vue->setScript('diapo.js');
+    $vue->setScript('form.js');
+    $vue->setCss('planning.css');
 
     // Header
     $head = $this->header($id);
@@ -97,15 +115,11 @@ class GroupController
     // Ajout evenement
     if (isset($_POST['event'])) {
       $this->group->addEvent($id);
+      $vue->setInstant('Evènement ajouté !', 'Votre évènement a été ajouté avec succès !');
     }
 
     $events = $this->group->getEventsFromGroupe($id);
 
-    $vue = new Vue("GroupePlanning","Groupe");
-    $vue->setScript('cal.js');
-    $vue->setScript('diapo.js');
-    $vue->setScript('form.js');
-    $vue->setCss('planning.css');
     $vue->render([
       'events' => $events,
       'presentation_groupe' => $head['presentation_groupe'],
@@ -122,17 +136,54 @@ class GroupController
     // Header
     $head = $this->header($id);
 
+
+    // Créer discussion
+    if (isset($_POST['new-disc'])) {
+      $this->group->addDisc($id);
+    }
+
+    $disc = $this->group->getDisc($id);
+
     $vue = new Vue("GroupeDiscussion","Groupe");
     $vue->setScript('form.js');
     $vue->setScript('diapo.js');
     $vue->render([
-
       'presentation_groupe' => $head['presentation_groupe'],
       'isLeader' => $head['isLeader'],
       'ListeSports' => $head['ListeSports'],
       'ListeClub' => $head['ListeClub'],
       'photos' => $head['photos'],
       'isInGroup' => $head['isInGroup'],
+      'discussions' => $disc
+    ]);
+  }
+
+  public function message($param)
+  {
+    // Header
+    $head = $this->header($param['id']);
+
+    // Créer Message
+    if (isset($_POST['com'])) {
+      $this->group->creerMessage($param['id_disc']);
+      Router::redirect("groupe-message", $param);
+    }
+
+    $disc = $this->group->getDiscById($param['id_disc']);
+    $messages = $this->group->getMessages($param);
+
+    $vue = new Vue("GroupeMessage","Groupe");
+    $vue->setScript('form.js');
+    $vue->setScript('diapo.js');
+    $vue->render([
+      'presentation_groupe' => $head['presentation_groupe'],
+      'isLeader' => $head['isLeader'],
+      'ListeSports' => $head['ListeSports'],
+      'ListeClub' => $head['ListeClub'],
+      'photos' => $head['photos'],
+      'isInGroup' => $head['isInGroup'],
+      'discName' => $disc->titre,
+      'messages' => $messages
     ]);
   }
 
@@ -141,9 +192,16 @@ class GroupController
     // Header
     $head = $this->header($id);
 
+    $membreGroupe = $this->group->getMembreFromGroupe($id)->fetchAll();
+
+    // Modifier visibilité
+    if (isset($_POST['visibility']))
+      $this->group->modVisi($id);
+    $visistat = $this->group->getVisi($id);
+
     // Quitter groupe
     if (isset($_POST['quit-grp'])) {
-      $this->group->quitGroup($_SESSION['auth']->id ,$id);
+      $this->group->quitGroup($_SESSION['auth']->id ,$id, $header['presentation_groupe']);
       Router::redirect('accueil');
     }
 
@@ -165,6 +223,8 @@ class GroupController
       'ListeClub' => $head['ListeClub'],
       'photos' => $head['photos'],
       'isInGroup' => $head['isInGroup'],
+      'visistat' => $visistat,
+      'membres' => $membreGroupe
     ]);
   }
 
@@ -222,6 +282,9 @@ class GroupController
   // Header fonction
   private function header($id)
   {
+    if (isset($_POST['autoinv'])) {
+      $this->group->autoInvitation($id);
+    }
     return [
       'photos' => $this->group->getPhotosFromGroup($id)->fetchAll(),
       'ListeSports' => $this->sport->getSportsSortedByType(),

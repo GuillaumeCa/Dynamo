@@ -21,7 +21,7 @@
             <?php endforeach; ?>
           <?php else: ?>
             <div class="label-box">
-              <span>Aucun évènement aujourd'hui</span>
+              <span><?php lang('no-event'); ?></span>
             </div>
           <?php endif; ?>
         </div><div class="column-2">
@@ -44,7 +44,7 @@
             <?php endforeach; ?>
           <?php else: ?>
             <div class="label-box">
-              <span>Aucun évènement demain</span>
+              <span><?php lang('no event'); ?></span>
             </div>
           <?php endif; ?>
         </div>
@@ -52,6 +52,7 @@
     </section>
     <section class="sec auto-width">
       <h2 class="green-text"><?php lang('select') ?></h2>
+      <?php if (!empty($fy_group)): ?>
       <div class="gallerie">
         <?php foreach ($fy_group as $value): ?>
           <a href="<?php page('groupe', ['id' => $value->id]) ?>">
@@ -66,9 +67,15 @@
           </a>
         <?php endforeach; ?>
       </div>
+    <?php else: ?>
+      <p class="txt-center-warn">
+        <?php lang('no-correspondance'); ?>
+      </p>
+    <?php endif; ?>
     </section>
     <section class="auto-width">
       <h2 class="caps-txt green-text"><?php lang('near-you') ?></h2>
+      <?php if (!empty($ny_group)): ?>
       <div class="gallerie">
         <?php foreach ($ny_group as $value): ?>
           <a href="<?php page('groupe', ['id' => $value->id]) ?>">
@@ -83,10 +90,15 @@
           </a>
         <?php endforeach; ?>
       </div>
+    <?php else: ?>
+      <p class="txt-center-warn">
+        <?php lang('no-near'); ?>
+      </p>
+    <?php endif; ?>
     </section>
     <section class="sec sec-bg-dviolet">
       <div class="column">
-        <h1 class="ttl ttl-md">Types de sports</h1>
+        <h1 class="ttl ttl-md"><?php lang('Types de sports'); ?></h1>
         <div class="grid">
           <?php foreach($types_sports as $type): ?>
             <div class="sport">

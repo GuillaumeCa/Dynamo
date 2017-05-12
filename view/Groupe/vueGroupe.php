@@ -2,10 +2,10 @@
     <div class="nav-bbar">
       <nav class="tab-menu">
         <ul>
-          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>" class="active">informations</a></li>
-          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>">membres</a></li>
+          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>" class="active"><?php lang('informations'); ?></a></li>
+          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('membres'); ?></a></li>
           <li><a href="<?php page('planning-groupe', ['id' => $presentation_groupe->id]) ?>">planning</a></li>
-          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>">discussions</a></li>
+          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('discussions'); ?></a></li>
           <li class="right">
             <a href="<?php page('reglage-groupe', ['id' => $presentation_groupe->id]) ?>" class="settings">
               <svg>
@@ -23,7 +23,32 @@
     </div>
     <section class="auto-width">
       <div class="ttl-group-underline-gr">
-        <h1 class="ttl ttl-green ttl-inline ttl-sm">Demain</h1>
+        <h1 class="ttl ttl-green ttl-inline ttl-sm"><?php lang('Informations'); ?></h1>
+      </div>
+      <table class="info-table">
+        <tr>
+          <th>Lieu</th>
+          <td>
+            Paris
+          </td>
+        </tr>
+        <tr>
+          <th>Niveau</th>
+          <td>
+            Faible
+          </td>
+        </tr>
+        <tr>
+          <th>Niveau</th>
+          <td>
+            Faible
+          </td>
+        </tr>
+      </table>
+
+
+      <div class="ttl-group-underline-gr">
+        <h1 class="ttl ttl-green ttl-inline ttl-sm"><?php lang('Demain'); ?></h1>
       </div>
       <div class="info-planning-grp">
         <div class="info-planning">
@@ -44,7 +69,7 @@
         <div class="info-planning">
           <div class="evenement">
             <p>
-              Entrainement Football
+              <?php lang('Entrainement-Football'); ?>
             </p>
             <p>
               12:00 - 13:00
@@ -67,7 +92,7 @@
       </div>
 
       <div class="ttl-group-underline-gr">
-        <h1 class="ttl ttl-green ttl-inline ttl-sm">Vos photos</h1>
+        <h1 class="ttl ttl-green ttl-inline ttl-sm"><?php lang('Vos-photos'); ?></h1>
         <form action="" method="post" enctype="multipart/form-data" id="profilephoto">
           <label class="button btn-sm btn-right btn-wh-inv">+<input type="file" name="photo" class="form-hidden" onchange="submit('#profilephoto')"></label>
           <input type="hidden" name="groupe-photo">

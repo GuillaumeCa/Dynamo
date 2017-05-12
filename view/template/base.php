@@ -7,6 +7,7 @@
     <title><?php echo $this->page ?> - Dynamo</title>
   </head>
   <body>
+    <?php $this->showInstant() ?>
     <?php require_once 'assets/images/icons.svg' ?>
     <?php
     // affiche le header de l'utilisateur connecté
@@ -24,9 +25,9 @@
       function toggle(element) {
         document.body.querySelector(element).classList.toggle('visible');
       }
-      function close(e) {
-        console.log(e);
-        document.querySelector(e).classList.add('hide-fade');
+      function disappear(e) {
+        event.preventDefault();
+        document.querySelector(e).classList.add('hide');
       }
     </script>
   </body>

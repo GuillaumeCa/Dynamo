@@ -25,8 +25,7 @@ function instantSearch() {
       var groupes = res.groupe
       cats[0].querySelector('ul').innerHTML = ""
       for (var key in groupes) {
-        var groupe = groupes[key].data
-        groupe.nb = groupes[key].nb
+        var groupe = groupes[key]
         var link = document.createElement('a')
         link.href = '/' + res.urlgroupe.replace('{id}', groupe.id)
         var li = document.createElement('li')
@@ -36,7 +35,7 @@ function instantSearch() {
                        "<h3><b>Sport</b> " + groupe.sport + "</h3>" +
                        "<h3><b>Club</b> " + groupe.club + "</h3>" +
                        "</div>" +
-                       "<span>" + groupe.nb + "<span class='small'>/" + groupe.nbmaxutil + "</span></span>"
+                       "<span>" + groupe.nb_user + "<span class='small'>/" + groupe.nbmaxutil + "</span></span>"
         link.appendChild(li)
         cats[0].querySelector('ul').appendChild(link)
       }

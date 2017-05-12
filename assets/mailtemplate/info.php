@@ -63,11 +63,10 @@
   </head>
   <body>
     <div class="card">
-      <h1>Vous avez recu une demande d'inscription a votre groupe !</h1>
+      <h1><?php echo $titre ?></h1>
       <p>
-        Si vous souhaiter accepter cet utilisateur veuillez cliquer sur le lien suivant.
+        <?php echo $message ?>
       </p>
-      <a href="http://dynamo.com/fr/groupe/liste#invitation" class="button">Accepter</a>
     </div>
     <a href="http://dynamo.com"><img src="http://dynamo.com/assets/images/logo.png" alt="logo" /></a>
     <a href="#" class="lien">paramètres d'email</a>

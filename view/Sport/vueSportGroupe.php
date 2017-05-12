@@ -7,13 +7,14 @@
     <div class="nav-bbar">
       <nav class="tab-menu tab-menu-center">
         <ul>
-          <li><a href="<?php page('SportGroupe', ['id' => $id]) ?>" class="active">Groupes</a></li>
+          <li><a href="<?php page('SportGroupe', ['id' => $id]) ?>" class="active"><?php lang('Groupes'); ?></a></li>
           <li><a href="<?php page('SportClub', ['id' => $id]) ?>">Clubs</a></li>
         </ul>
       </nav>
     </div>
     <section class="sec">
       <div class="auto-width">
+        <?php if ($groupes): ?>
           <ul class="liste-lg">
             <?php foreach ($groupes as $groupe): ?>
                 <a href="<?php page('groupe', ['id' => $groupe['data']->id]) ?>">
@@ -29,7 +30,7 @@
                     </div>
                     <div class="liste-mid-txt">
                       <h1 class="liste-ttl"><?php echo $groupe['data']->nomGroupe ?></h1>
-                      <span class="liste-ttl-sub"><b>Sport</b> <?php echo $groupe['data']->sport ?></span>
+                      <span class="liste-ttl-sub"><b><?php lang('Sport'); ?></b> <?php echo $groupe['data']->sport ?></span>
                       <span class="liste-ttl-sub"><b>Club</b> <?php echo $groupe['data']->club ?></span>
                     </div>
                     <span class="liste-note"><span><?php echo $groupe['nb'] ?></span>/<?php echo $groupe['data']->nbmaxutil ?></span>
@@ -37,4 +38,10 @@
                 </a>
             <?php endforeach; ?>
           </ul>
+        <?php else: ?>
+          <p class="txt-center-warn">
+            Aucun groupe de ce sport
+          </p>
+        <?php endif; ?>
+
         </section>

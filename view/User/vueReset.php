@@ -1,6 +1,6 @@
   <section class="sec sec-bg-violet">
     <div class="column success-section">
-      <h1 class="ttl ttl-md">Réinitialiser le Mot de passe</h1>
+      <h1 class="ttl ttl-md"><?php lang('reset-mdp'); ?></h1>
       <form action="" method="post">
         <div class="login">
           <?php if (isset($errors)): ?>
@@ -14,11 +14,11 @@
               </ul>
             </div>
           <?php endif; ?>
-          <input type="password" name="password" placeholder="Mot de passe" class="clear-form mdp" onclick="resetMdp()">
-          <input type="password" name="confirmation" placeholder="confirmer mot de passe" class="clear-form mdp" oninput="verif()">
+          <input type="password" name="password" placeholder='<?php lang('mdp'); ?>' class="clear-form mdp" onclick="resetMdp()">
+          <input type="password" name="confirmation" placeholder='<?php lang('confirm-mdp'); ?>' class="clear-form mdp" oninput="verif()">
           <div class="errors"></div>
         </div>
-        <input type="submit" value="modifier" class="button">
+        <input type="submit" value='<?php lang('modifier'); ?>' class="button">
       </form>
     </div>
   </section>

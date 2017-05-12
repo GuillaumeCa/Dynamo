@@ -13,11 +13,17 @@
   <div class="auto-width group">
 
     <?php if ($isLeader): ?>
-      <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier" onclick="editInfo('.edit-content','.edit-form')">Modifier</a>
+<<<<<<< HEAD
+      <a href="#" class="button btn-sm btn-right btn-wh-inv" id="InfoModifier"><?php lang('modifier'); ?></a>
+=======
+      <a href="#" class="button btn-sm btn-right" id="InfoModifier" onclick="editInfo(this,'.edit-content','.edit-form')">Modifier</a>
+>>>>>>> 56efdc54110555f48e9dde704f212132824e2bca
     <?php endif; ?>
 
     <?php if ($isInGroup==0): ?>
-      <a href="#" class="button btn-sm btn-right btn-wh-inv">S'inscrire</a>
+      <form action="" method="post">
+        <button type="submit" class="button btn-sm btn-right" name="autoinv">S'inscrire</button>
+      </form>
     <?php endif; ?>
 
       <div class="edit-content editing">
@@ -49,16 +55,27 @@
               </optgroup>
             <?php endforeach; ?>
           </select>
+<<<<<<< HEAD
+          <!-- <input class="modif-form" type="text" name="sport" value="<?php echo $presentation_groupe->sport ?>"> -->
+        </span>
+        <span>
           <?php if (isset($presentation_groupe->club)): ?>
-            <h2>Club</h2>
-            <select class="edit-select" name="club">
-              <option value="0" selected>Pas de Club</option>
-              <?php foreach ($ListeClub as $type => $club): ?>
-                <?php $sel = ($presentation_groupe->club == $club->nom ? 'selected' : '') ?>
-                <option value="<?php echo $club->id ?>" <?php echo $sel ?>><?php echo $club->nom ?></option>
-              <?php endforeach; ?>
-            </select>
+            <b class="header_groupe">Club</b>
+            <span class="header_groupe"> <?php echo $presentation_groupe->club ?></span>
           <?php endif; ?>
+          <b class="edit">Club</b>
+          <select class="modif-form edit" name="club">
+            <option value="0" selected><?php lang('Pas de Club'); ?></option>
+=======
+          <h2>Club</h2>
+          <select class="edit-select" name="club">
+            <option value="0" selected>Pas de Club</option>
+>>>>>>> 56efdc54110555f48e9dde704f212132824e2bca
+            <?php foreach ($ListeClub as $type => $club): ?>
+              <?php $sel = ($presentation_groupe->club == $club->nom ? 'selected' : '') ?>
+              <option value="<?php echo $club->id ?>" <?php echo $sel ?>><?php echo $club->nom ?></option>
+            <?php endforeach; ?>
+          </select>
         </form>
       </div>
 

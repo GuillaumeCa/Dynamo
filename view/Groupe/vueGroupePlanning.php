@@ -3,10 +3,10 @@
     <div class="nav-bbar">
       <nav class="tab-menu">
         <ul>
-          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>">informations</a></li>
-          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>">membres</a></li>
+          <li><a href="<?php page('groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('informations'); ?></a></li>
+          <li><a href="<?php page('membres-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('membres'); ?></a></li>
           <li><a href="<?php page('planning-groupe', ['id' => $presentation_groupe->id]) ?>" class="active">planning</a></li>
-          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>">discussions</a></li>
+          <li><a href="<?php page('discussion-groupe', ['id' => $presentation_groupe->id]) ?>"><?php lang('discussions'); ?></a></li>
           <li class="right">
             <a href="<?php page('reglage-groupe', ['id' => $presentation_groupe->id]) ?>" class="settings">
               <svg>
@@ -24,7 +24,7 @@
     </div>
     <div class="auto-width">
       <?php if ($isLeader): ?>
-        <a href="#" class="button light" onclick="togglemodal('event')">Nouvel Evènement</a>
+        <a href="#" class="button light" onclick="togglemodal('event')"><?php lang('new-event'); ?></a>
       <?php endif; ?>
     </div>
     <div class="column">
@@ -34,11 +34,11 @@
       <div class="modal" id="event">
         <div class="back"  onclick="togglemodal('event')"></div>
         <div class="window">
-          <h1 class="ttl ttl-sm ttl-green">Ajout évènement</h1>
+          <h1 class="ttl ttl-sm ttl-green"><?php lang('add-event'); ?></h1>
           <form class="groupe_crea" action="" method="post">
-            <h2 class="form-label pink-text">Titre</h2>
+            <h2 class="form-label pink-text"><?php lang('Titre'); ?></h2>
             <input class="clear-form" type="text" name="titre" placeholder="Titre">
-            <h2 class="form-label pink-text">Commence le</h2>
+            <h2 class="form-label pink-text"><?php lang('start-date'); ?></h2>
             <div class="date">
               <div class="jour">
                 <?php $date = explode('-',date('d-m-Y-H-i')) ?>
@@ -77,7 +77,7 @@
                 </select>
               </div>
             </div>
-            <h2 class="form-label pink-text">Termine le</h2>
+            <h2 class="form-label pink-text"><?php lang('end-date'); ?></h2>
             <div class="date">
               <div class="jour">
                 <?php $date = explode('-',date('d-m-Y-H-i')) ?>
@@ -118,7 +118,7 @@
             </div>
             <h2 class="form-label pink-text">Description</h2>
             <textarea name="desc" rows="8" cols="40" class="clear-form" placeholder="Description..."></textarea>
-            <button type="submit" name="event" class="button purple">Inviter</button>
+            <button type="submit" name="event" class="button purple"><?php lang('add-event'); ?></button>
           </form>
         </div>
       </div>
